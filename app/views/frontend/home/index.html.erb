@@ -1,0 +1,27 @@
+<form role="form">
+  <div style="width: 95%">
+      <p class="aes_heading1"><i class="fa fa-edit"></i>Please Signin or Signup </p>
+      <div class="form-group" >
+        <label for="txtEmail">Email address</label>
+        <input type="email" class="form-control" id="txtEmail" placeholder="Enter email">
+      </div>
+      <div class="form-group" >
+        <label for="pwdPassword">Password</label>
+        <input type="password" class="form-control" id="pwdPassword" placeholder="Password">
+      </div>
+
+      <p class="text-center">
+        <button type="button" class="btn btn-primary" style="width: 49%">Sign In</button>
+        <button type="button" class="btn btn-primary" style="width: 49%">Sign Up</button>
+      </p>
+      <div class="btn-group" style="width: 100%; margin-bottom: 1%;margin-top: 1%;">
+        <button type="button" class="btn btn-social-icon btn-twitter" onclick="window.location.href='/auth/twitter'" style="width: 33.3%;">
+          <i class="fa fa-twitter"></i></button>
+        <button type="button" class="btn btn-social-icon btn-facebook" onclick="window.location.href='/auth/facebook'" style="width: 33.3%;">
+          <i class="fa fa-facebook"></i></button>
+        <button type="button" class="btn btn-social-icon btn-google-plus" onclick="window.location.href='/auth/google_oauth2'" style="width: 33.3%;">
+          <i class="fa fa-google-plus"></i></button>
+      </div>
+  </div>
+</form>
+

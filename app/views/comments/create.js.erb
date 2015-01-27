@@ -1,0 +1,8 @@
+$('#comments-list').prepend('<%= escape_javascript(render partial: @comment) %>');
+$('#comments-count').html('<%= t('comments.lb_all_comments')%>&#40;<%= @total_comments %>&#41;');
+$('#comment-error').html('');
+$("#comment").val('');
+
+if ($('#divComments').css('display') == 'none') {
+    $('#divComments').css('display', 'block');
+}

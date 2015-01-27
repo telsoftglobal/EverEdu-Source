@@ -1,0 +1,23 @@
+<!-- sub replies -->
+<% if comment.replies %>
+    <div class="reply media border-bottom" data-id="<%= comment.id %>">
+      <div class="pull-left innerAll">
+        <% if !comment.author.avatar_url.nil? %>
+            <%= image_tag comment.author.avatar_url, class: "media-object", alt: comment.author.user_name, border: "0", height: "50", width: "50" %>
+        <% else %>
+            <%= image_tag 'noavatar.png', class: "media-object", alt: "", align: "middle", border: "0", height: "50", width: "50" %>
+        <% end %>
+      </div>
+      <div class="media-body innerTB">
+        <span class="strong text-inverse"><%= comment.author.user_name %></span>
+        <small class="text-muted "><%= l(comment.created_at) %></small>
+        <p class="margin-none" style=" word-wrap:break-word"><%=  comment.content %></p>
+
+        <br/>
+      </div>
+
+      <br style="clear:both">
+      <br style="clear:both">
+    </div>
+<% end %>
+<!-- end sub replies -->

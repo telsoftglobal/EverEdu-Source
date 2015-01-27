@@ -1,0 +1,96 @@
+<div class="innerAll" >
+    <div class="post-block post-comments">
+
+        <!--List comment-->
+        <div id="comments-list">
+          <%= render @object.get_lastest_comments %>
+        </div>
+        <!--End list comment-->
+
+        <% if @object.get_total_comments_not_reply > Comment::COMMENT_PER_PAGE %>
+            <br/>
+            <div class="load-more-comment">
+              <a object_type="<%=@object.object_type%>" object_id="<%= @object.id %>" href="javascript:;"><%= t('comments.btn_load_more')%>
+              </a>
+            </div>
+        <% end %>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        var comments_length = $('.comment').length
+        if (comments_length == 0) {
+            $('#divComments').css('display', 'none');
+        } else {
+            $('#divComments').css('display', 'block');
+        }
+
+        $('#comments-list').bind('mousewheel DOMMouseScroll', function(e) {
+            var scrollTo = null;
+
+            if (e.type == 'mousewheel') {
+                scrollTo = (e.originalEvent.wheelDelta * -1);
+            }
+            else if (e.type == 'DOMMouseScroll') {
+                scrollTo = 40 * e.originalEvent.detail;
+            }
+
+            if (scrollTo) {
+                e.preventDefault();
+                $(this).scrollTop(scrollTo + $(this).scrollTop());
+            }
+        });
+
+        $('.load-more-comment').on("click", "a", function () {
+            var last_id = $('.comment').last().attr('data-id');
+            $.ajax({
+                type: "GET",
+                url: '/comments/get_more_comments',
+                data: {
+                    last_comment_id: last_id,
+                    object_id: $(this).attr("object_id"),
+                    object_type: $(this).attr("object_type")
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                dataType: "script",
+                success: function () {
+//                    bindSubmitReplyForm();
+                    $.loader.close(true);
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                    $.loader.close(true);
+                }
+            });
+        });
+        $('.load-more-comment').on("click", "a", function () {
+            var last_id = $('.comment').last().attr('data-id');
+            $.ajax({
+                type: "GET",
+                url: '/comments/get_more_comments',
+                data: {
+                    last_comment_id: last_id,
+                    object_id: $(this).attr("object_id"),
+                    object_type: $(this).attr("object_type")
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                dataType: "script",
+                success: function () {
+//                    bindSubmitReplyForm();
+                    $.loader.close(true);
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                    $.loader.close(true);
+                }
+            });
+        });
+    });
+</script>

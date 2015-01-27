@@ -1,0 +1,5 @@
+$('#reply_list_visible_<%=@comment.id%>').append('<%= escape_javascript(render :partial => 'comments/reply', :locals =>{reply: @reply}) %>');
+$('#comments-count').html('<%= t('comments.lb_all_comments')%>&#40;<%= @total_comments %>&#41;');
+$('#replies_count_<%=@comment.id%>').html('<%= t('comments.lb_all_replies') %>&#40;<%= @total_replies%>&#41;');
+$('#reply-error<%=@comment.id%>').html('')
+$('#form-reply<%=@comment.id%>').find("#comment").val('')

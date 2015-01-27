@@ -1,0 +1,51 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  educations:
+    title_educations: "教育"
+    title_new_education: "新教育"
+    title_edit_education: "編集教育"
+    title_delete_education: "教育の削除"
+
+    lb_school_name: "学校名"
+    lb_start_year: "年開始"
+    lb_end_year: "年終了"
+    lb_current: "現在"
+    lb_description: "説明"
+    placeholder_start_year: "年開始"
+    placeholder_end_year: "年終了"
+    placeholder_school_name: "学校名を入力してください。"
+    placeholder_description: "説明を入力してください。"
+
+    btn_create: "作る"
+    msg_create_successfully: "教育の作成に成功しました。"
+    msg_update_successfully: "教育は正常に更新されました。"
+    msg_delete_successfully: "教育が正常に破壊された。"
+
+    msg_create_fail: "教育は失敗するために作成されました。"
+    msg_update_fail: "更新された教育は失敗する。"
+    msg_delete_fail: "破壊された教育は失敗する。"
+    msg_education_not_found: "教育が見つかりません。"
+
+    msg_confirm_save: "あなたが保存しますか？"
+    title_confirm_delete_education: "削除教育を確認"
+    msg_confirm_delete_education: "あなたはこの教育を削除しますか？"

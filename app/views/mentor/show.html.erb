@@ -1,0 +1,220 @@
+<%= javascript_include_tag 'ckeditor/init' %>
+
+<style>
+    .widget{
+        margin: 0px;
+    }
+
+</style>
+<% if not @curriculum.nil? %>
+   <div class="row  row-offcanvas row-offcanvas-right">
+      <!--Left Column-->
+     <!--Left Column-->
+     <div  class="col-xs-12 col-md-9 col-sm-9">
+       <div id="divContent">
+         <%= render 'mentor/content' %>
+       </div>
+       <!--Comment-->
+       <div id='divComments' class="widget media-body">
+         <%= render 'comments/comments' %>
+       </div>
+       <!--End comment-->
+     </div>
+      <!--End left column-->
+      <div class="col-xs-6 col-md-3 col-sm-3 sidebar-offcanvas" id="sidebar" role="navigation">
+        <!--Right Column-->
+        <!--Material-->
+        <div id="divRight_sidebar" class="widget media-body">
+          <div class="innerAll menu-right">
+            <div>
+              <h4 class="item-curriculum">
+                <a id="<%= @curriculum.id %>" object_type="curriculum" curriculum_id="<%= @curriculum.id %>" object_id="<%= @curriculum.id %>" href="#" data-toggle="offcanvas" class="strong"><%= t('curriculum.lb_curriculum_detail') %>
+                  <% if @curriculum_notification[@curriculum.id] %>
+                      <span class='badge bg-primary notification-count'> <i class="fa fa-comment-o"></i><%=@curriculum_notification[@curriculum.id]%></span>
+                  <% end %>
+                </a>
+              </h4>
+              <div class="separator"></div>
+              <h4 class="aes-border-bottom strong aes-color"><%= t('material.title_material') %></h4>
+              <ul class="fa-ul" >
+                <% @materials.each do |material| %>
+                    <li class="item-curriculum">
+                      <i class="item-curriculum fa-li fa fa-square"></i>
+                      <a id="<%= material.id %>" object_type="material" curriculum_id="<%= @curriculum.id %>" object_id="<%= material.id %>" href="#" data-toggle="offcanvas">
+                        <%= material.material_name %>
+                        <% if @material_notification[material.id] %>
+                            <span class='badge bg-primary notification-count '> <i class="fa fa-comment-o"></i><%=@material_notification[material.id]%> </span>
+                        <% end %>
+
+                      </a>
+                      <ul class="fa-ul">
+                        <% material.children.each do |child| %>
+                            <li class="item-curriculum">
+                              <i class="fa-li fa fa-square"></i>
+                              <a id="<%= child.id %>" object_type="material" curriculum_id="<%= @curriculum.id %>" object_id="<%= child.id %>" href="#" data-toggle="offcanvas">
+                                <%= child.material_name %>
+                                <% if @material_notification[child.id] %>
+                                    <span class='badge bg-primary notification-count'><i class="fa fa-comment-o"></i> <%=@material_notification[child.id]%> </span>
+                                <% end %>
+
+                              </a>
+                            </li>
+                        <% end %>
+                      </ul>
+                    </li>
+                <% end %>
+              </ul>
+            </div>
+            <div class="separator"></div>
+            <!--Edd Material-->
+            <% if @curriculum.actions && @curriculum.actions.count > 0 %>
+                <!--Action-->
+                <div>
+                  <h4 class="aes-border-bottom strong aes-color"><%= t('action.title_action') %></h4>
+                  <ul class="fa-ul">
+                    <% @curriculum.actions.each do |action| %>
+                        <li class="item-curriculum ">
+                          <i class="fa-li fa fa-square"></i>
+                            <a id="<%= action.id %>" object_type="action" curriculum_id="<%= @curriculum.id %>" object_id="<%= action.id %>" href="#" data-toggle="offcanvas">
+                              <%= action.action_name %>
+                              <% if @action_notification[action.id] %>
+                                  <span class='badge bg-primary notification-count '> <i class="fa fa-comment-o"></i><%=@action_notification[action.id]%> </span>
+                              <% end %>
+                            </a>
+                        </li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+          </div>
+        </div>
+      </div>
+      <!-- // End right column  -->
+    </div>
+
+    <!-- Modal -->
+    <div class="modal fade" style="overflow: auto;" id="updateModal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+            <h4 class="modal-title" id="updateModalLabel">Modal title</h4>
+          </div>
+          <div id="modalContent" class="modal-body"></div>
+          <div class="modal-footer">
+            <button id="btnSave" type="button" class="btn btn-primary"><%= t('button.btn_save')%></button>
+            <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% else %>
+    <div class="row">
+      <h3>Curriculum is not exist</h3>
+    </div>
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $('#divRight_sidebar').on("click", "a", function () {
+            $('#divRight_sidebar a').removeClass("strong");
+            $(this).addClass("strong");
+            var aElement = $(this);
+            for(name in CKEDITOR.instances)
+            {
+                CKEDITOR.remove(CKEDITOR.instances[name]);
+            }
+            $.ajax({
+                url: '/mentor/update_curriculum_detail',
+                type: 'GET',
+                dataType: 'script',
+                data: {
+                    curriculum_id: $(this).attr("curriculum_id"),
+                    object_type: $(this).attr("object_type"),
+                    object_id: $(this).attr("object_id")
+                },beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                success: function () {
+//                    update new notify
+                    $(aElement).find("span.notification-count").remove();
+                    $.loader.close(true);
+                    $("#modalContent").empty();
+                },
+                error: function (xhr, status, response) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + status);
+                }
+            });
+        });
+    });
+</script>
+<!--CuongCT-->
+<script>
+    $(document).ready(function () {
+        $("#btnSave").click(function(){
+            if($("#category").length>0){
+                if($("#category").find("ul li").length==0){
+                    $.gritter.add({
+                        title: '<%= t('system.system_message') %>',
+                        text: '<%= t('category.msg_atleast_category')%>',
+                        before_open: function(){
+                            if($('.gritter-item-wrapper').length == 1)
+                            {
+                                return false;
+                            }
+                        }
+                    });
+                    return false;
+                }
+            }
+
+            if($("#curriculum_description").length!=0){
+                $("#curriculum_description").html(CKEDITOR.instances["curriculum_description"].getData());
+            } else if($("#material_description").length!=0){
+                $("#material_description").html(CKEDITOR.instances["material_description"].getData());
+            } else if($("#aes_action_description").length!=0) {
+                $("#aes_action_description").html(CKEDITOR.instances["aes_action_description"].getData());
+            }
+
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+//            $(this).prop('disabled', true);
+            var valid = $("#quick_form").valid();
+            if(!valid) {
+                $(".modal-footer").find("button").prop('disabled', false);
+                return false;
+            }
+            $.loader.open({size:32});
+            BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('curriculum.msg_confirm_save')%>', function(result){
+                if(result) {
+//                    var quick_form = $("#quick_form");
+                    var url = $("#quick_form").attr("action");
+                    var data = $("#quick_form").serializeArray();
+////                    console.log(url);
+                    $.ajax({
+                        type: "PATCH",
+                        url: url,
+                        data: data,
+                        dataType: "script",
+                        success: function () {
+                            $("#modalContent").empty();
+                        },
+                        error: function (xhr, status, response) {
+                            console.log("AJAX Error: " + status)
+//                            $.loader.close(true);
+                        }
+                    });
+                }else {
+                    $.loader.close(true);
+////                    $(".modal-footer").find("button").prop('disabled', false);
+                }
+            });
+
+        });
+//
+    });
+
+
+</script>

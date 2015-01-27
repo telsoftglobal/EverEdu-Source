@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]> <html class="ie lt-ie9 lt-ie8 lt-ie7 sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if IE 7]>    <html class="ie lt-ie9 lt-ie8 sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if IE 8]>    <html class="ie lt-ie9 sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if gt IE 8]> <html class="ie sidebar sidebar-social footer-sticky"> <![endif]-->
+
+<!--[if !IE]><!-->
+<html class="sidebar sidebar-social footer-sticky">
+<!-- <![endif]-->
+
+<head>
+  <title><%= t('app.app_name') %></title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!--[if lt IE 9]>
+  <link rel="stylesheet" href="../../assets/components/library/bootstrap/css/bootstrap.min.css" />
+
+  <![endif]-->
+  <!--  Stylesheet Complete CSS compiled from ../../assets/css/admin/module.admin.stylesheet-complete.less -->
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <link rel="stylesheet" href="../../assets/stylesheets/template/library/bootstrap/css/bootstrap.min.css">
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag "i18n" %>
+  <%= javascript_include_tag "translations" %>
+  <%= javascript_tag do %>
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+      I18n.frontend = "<%= I18n.locale %>";
+  <% end %>
+  <%= csrf_meta_tags %>
+
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+
+  <!-- HEADER SCRIPTS GO HERE -->
+
+  <script>
+      if ( /*@cc_on!@*/ false && document.documentMode === 10)
+      {
+          document.documentElement.className += ' ie ie10';
+      }
+  </script>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="row" id="aes_header">
+      <div class="col-xs-6 col-md-6 col-sd-6">
+        <a href="/" class="links"><%= t('app.app_short_name') %></a>
+      </div>
+      <div class="col-xs-6 col-md-6 col-sd-6" style="text-align: right">
+        <a href="/about-us" class="links"><%= t('app.lb_about_us') %></a>
+      </div>
+    </div>
+  </div>
+</nav>
+<div class="container-fluid">
+  <div class="row" style="margin-top: 60px;padding: 30px">
+        <h2 class="aes-color" > <i class="fa fa-users"></i> EverEduについて</h2>
+        <p>EverEdu円5M以上の収入がある日本では、男性のための成人教育の社会的ネットワークです。 EverEduに参加するとき、彼らは得ることができます</p>
+        <ol>
+          <li>純血マイクのキャリアや生活スタイルのためのカリキュラム</li>
+          <li>キャリアや人生の進捗状況を可視化する</li>
+          <li>個人的なメンターを得る</li>
+          <li>社会的なノウハウを取得</li>
+          <li>成功の寿命をゲット</li>
+        </ol>
+  </div>
+
+</div>
+<!-- /container -->
+<!-- Bootstrap core JavaScript
+================================================== -->
+</body>
+</html>

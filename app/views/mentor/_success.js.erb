@@ -1,0 +1,46 @@
+notyfy({
+    text: '<%= flash[:notice]%>',
+    type: 'alert',
+    dismissQueue: false,
+    layout: 'top',
+    timeout: 5000 // delay for closing event. Set false for sticky notifications
+});
+
+
+$(".name_update").text($("#quick_form").find("input.name_update").val());//TODO xem lai type sau khi update
+var descriptionupdate = $("#quick_form").find("textarea.description_update").val();
+$("div.description_update").html(descriptionupdate);
+
+if($("#material_id").val()!=null){
+    var name_update = $("#material_id").val();
+    $("#"+name_update).text($("#quick_form").find("input.name_update").val());
+
+}
+if($("#aes_action_id").val()!=null){
+    var name_update = $("#aes_action_id").val();
+    $("#"+name_update).text($("#quick_form").find("input.name_update").val());
+}
+
+if($("#quick_form").find("textarea.summary_update").val()!=null){
+//    var summaryupdate = $("#quick_form").find("textarea.summary_update").val();
+    $("div.summary_update").text($("#quick_form").find("textarea.summary_update").val());
+}
+if($("#quick_form").find("button.selectpicker").val()!=null){
+    $("span.type_update").text($("#quick_form").find("button.selectpicker").attr("title"));
+}
+
+//if($("#material_material_type_id option:selected").text()!=null){
+//    $("span.type_update").text($(quick_form).find("button.selectpicker").attr("title"));
+//}
+
+if($("#quick_form").find("input.url_update").val()!=null){
+    if($("#quick_form").find("input.url_update").val().length==0){
+        $("#div_Url").empty();
+    }else{
+        var material_url = $("#quick_form").find("input.url_update").val();
+        var urltemplate = "<p><span class=\"strong\"><%=t('material.lb_url')%></span>: <a class=\"url_update\" href=\""+material_url+"\">"+material_url+"</a></p>";
+        $("#div_Url").html(urltemplate);
+    }
+}
+$('#updateModal').modal('hide');
+$.loader.close(true);

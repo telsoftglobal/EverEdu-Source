@@ -1,0 +1,21 @@
+/* line 7, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/mentor.css.scss */
+.noti_Container {
+  position: relative;
+  #border: 1px solid blue;
+  width: 16px;
+  height: 16px;
+}
+
+/* line 13, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/mentor.css.scss */
+.noti_bubble {
+  position: absolute;
+  top: -6px;
+  right: -6px;
+  padding: 1px 2px 1px 2px;
+  background-color: red;
+  color: white;
+  font-weight: bold;
+  font-size: 0.55em;
+  border-radius: 30px;
+  box-shadow: 1px 1px 1px gray;
+}

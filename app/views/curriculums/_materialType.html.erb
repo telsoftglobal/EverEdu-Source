@@ -1,0 +1,4 @@
+
+    <% MaterialType.all.each do |material_type| %>
+        <option value="<%= material_type.id %>"><%= material_type.material_type_name %></option>
+    <% end %>

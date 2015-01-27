@@ -1,0 +1,52 @@
+// Place all the styles related to the search controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+//.search-form.search-all {
+//  margin-top: 10px;
+//}
+//
+.search-form select.form-control {
+  margin-bottom: 10px;
+  border-radius: 0;
+  border-color: #efefef;
+}
+
+.search-form .btn-primary {
+//  margin-top: 10px;
+//  line-height: 17px;
+}
+
+@media screen and (max-width:767px)
+{
+  .search-form .btn-primary
+  {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+.search-form {
+//  background-color: #913228;
+//  padding: 10px 10px 10px;
+
+}
+
+p.has-error {
+  color: #A94442;
+  font-weight: normal;
+}
+//select {
+//  -webkit-appearance: none;
+//  -moz-appearance: none;
+//  text-indent: 1px;
+//  text-overflow: '';
+//}
+
+
+.warning {
+  background-color: #913228;
+  border-color: #913228;
+  color: #FFFFFF ;
+  margin-bottom: 10px;
+  padding: 10px;
+}

@@ -1,0 +1,81 @@
+<div class="modal fade" id="tooltipModal<%= user_category.id %>" tabindex="-1" role="dialog" aria-labelledby="tooltipModalLabel<%= user_category.id %>" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="tooltipModalLabel<%= user_category.id %>">Modal title</h4>
+      </div>
+      <div id="tooltipModalContent<%= user_category.id %>" class="modal-body modal-height" style=" overflow-y: auto">
+        <div id="modalCarousel<%= user_category.id %>" class="carousel" data-ride="carousel" data-interval="false">
+          <div class="carousel-inner">
+            <% user_category.category.levels.order('level_order asc').each_with_index  do |level,ii| %>
+                <%if ii.eql?0%>
+                    <div class="item active" id="<%= level.id %>" style="margin-left: 20px">
+                      <div class="level-id" >
+                        <h4><%= level.level_name %></h4>
+                        <div><%= sanitize level.description %></div>
+                      </div>
+                    </div>
+                <%else%>
+                    <div class="item" id="<%= level.id %>" style="margin-left: 20px">
+                      <div class="level-id" >
+                        <h4><%= level.level_name %></h4>
+                        <div><%= sanitize level.description %></div>
+                      </div>
+                    </div>
+                <%end%>
+            <%end%>
+          </div>
+          <a class="carousel-control left" href="#modalCarousel" data-slide="prev" style="font-size: 20px;">
+            <i class="fa fa-chevron-left"></i>
+          </a>
+          <a class="carousel-control right" href="#modalCarousel" data-slide="next" style="text-align: right;font-size: 20px;">
+            <i class="fa fa-chevron-right"></i>
+          </a>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button id="btnUpdateLevel<%= user_category.id %>" type="button" class="btn btn-primary" title="<%= t('roadmap.btn_set_current_level_hover') %> " rel="tooltip"><%= t('roadmap.btn_set_current_level') %></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel') %></button>
+      </div>
+    </div>
+  </div>
+</div>
+<script>
+    $('#modalCarousel<%= user_category.id %>').carousel({
+        interval: false
+    });
+
+    $('.carousel-control.left').click(function() {
+        $('#modalCarousel<%= user_category.id %>').carousel('prev');
+    });
+
+    $('.carousel-control.right').click(function() {
+        $('#modalCarousel<%= user_category.id %>').carousel('next');
+    });
+
+    $('#btnUpdateLevel<%= user_category.id %>').click(function () {
+        var level_id = $('#modalCarousel<%= user_category.id %>').find('.active').attr("id");
+        $.ajax({
+            type: "POST",
+            url: '/roadmap/update',
+            data: {
+                roadmap_id: "<%= user_category.id%>",
+                level_id: level_id
+            },
+            dataType: "script",
+            beforeSend: function (xhr) {
+                $.loader.open({size: 32});
+//                          $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+            },
+            success: function () {
+                $.loader.close();
+            },
+            error: function (xhr, status, response) {
+                console.log("AJAX Error: " + status)
+                $.loader.close(true);
+            }
+        });
+    });
+</script>

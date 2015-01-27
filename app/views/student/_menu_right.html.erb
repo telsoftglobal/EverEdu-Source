@@ -1,0 +1,62 @@
+<!--Start Right Header -->
+<h4 class="strong aes-border-bottom"><a id="<%= @curriculum_study_progress.id %>"  object_type="curriculum" curriculum_id="<%= @curriculum_study_progress.id %>" href="#" data-toggle="offcanvas"><%= t('curriculum.lb_curriculum_detail')%></a></h4>
+<h5><%= t('material.title_material')%> (<%= @total_material_done%>/<%= @total_material%>)</h5>
+<div class="progress progress-mini">
+<div class="progress-bar progress-bar-danger" style="width: <%= @percentage_material%>%;"></div>
+</div>
+<h5><%= t('action.title_action')%> (<%= @total_action_done%>/<%= @total_action%>)</h5>
+<div class="progress progress-mini">
+<div class="progress-bar progress-bar-danger" style="width: <%= @percentage_action%>%;"></div>
+</div>
+<!--End Right Header -->
+<!--Start Material-->
+<h4 class="aes-border-bottom strong aes-color"><%= t('material.title_material')%></h4>
+<ul class="fa-ul">
+<% @material_study_progresses.each do |material_study| %>
+    <li>
+        <% if material_study.status==0%>
+          <i class="fa-li fa fa-square"></i><a id="<%= material_study.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= material_study.id %>" href="#" data-toggle="offcanvas"><%= material_study.material.material_name%></a>
+        <% elsif material_study.status==1%>
+          <span class="link-item-inprogress"><i class="fa-li fa fa-square"></i></span><a id="<%= material_study.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= material_study.id %>" href="#" data-toggle="offcanvas"><%= material_study.material.material_name%></a>
+        <% elsif material_study.status==2%>
+          <span class="link-item-done"><i class="fa-li fa fa-check-square"></i></span><a id="<%= material_study.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= material_study.id %>" href="#" data-toggle="offcanvas"><%= material_study.material.material_name%></a>
+        <% end%>
+        <ul class="fa-ul">
+        <% material_study.children.each do |child| %>
+            <% if child.status==0%>
+                <li><i class="fa-li fa fa-square"></i><a  id="<%= child.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= child.id %>" href="#" data-toggle="offcanvas"><%= child.material.material_name%></a></li>
+            <% elsif child.status==1%>
+                <li><span class="link-item-inprogress"><i class="fa-li fa fa-square"></i></span><a  id="<%= child.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= child.id %>" href="#" data-toggle="offcanvas"><%= child.material.material_name%></a></li>
+            <% elsif child.status==2%>
+                <li><span class="link-item-done"><i class="fa-li fa fa-check-square"></i></span><a  id="<%= child.id %>"  object_type="material" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= child.id %>" href="#" data-toggle="offcanvas"><%= child.material.material_name%></a></li>
+            <% end%>
+        <%end%>
+        </ul>
+    </li>
+<%end%>
+</ul>
+<!--Edd Material-->
+<!--Action-->
+<% if @action_study_progresses.size() > 0%>
+  <h4 class="aes-border-bottom strong aes-color"><%= t('action.title_action')%></h4>
+<%end%>
+<ul class="fa-ul">
+<% @action_study_progresses.each do |action_study| %>
+    <% if action_study.status==0%>
+       <li><span><i class="fa-li fa fa-square"></i></span><a  id="<%= action_study.id %>" object_type="action" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= action_study.id %>" href="#" data-toggle="offcanvas"><%= action_study.action.action_name%></a></li>
+    <% elsif action_study.status==1%>
+       <li><span class="link-item-inprogress"><i class="fa-li fa fa-square"></i></span><a  id="<%= action_study.id %>" object_type="action" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= action_study.id %>" href="#" data-toggle="offcanvas"><%= action_study.action.action_name%></a></li>
+    <% elsif action_study.status==2%>
+       <li><span class="link-item-done"><i class="fa-li fa fa-check-square"></i></span><a  id="<%= action_study.id %>" object_type="action" curriculum_id="<%= @curriculum_study_progress.id %>" object_id="<%= action_study.id %>" href="#" data-toggle="offcanvas"><%= action_study.action.action_name%></a></li>
+    <% end%>
+<% end%>
+</ul>
+<div class="clearfix"></div>
+<p><i><%= t('curriculum.lb_note')%></i></p>
+<div class="aes-border padding10">
+  <ul class="fa-ul list-inline">
+    <li><span><i class="fa-li fa fa-square"></i></span> <%= t('curriculum.btn_start')%></li>
+    <li><span class="link-item-inprogress"><i class="fa-li fa fa-square"></i></span> <%= t('curriculum.btn_inprogress')%></li>
+    <li><span class="link-item-done"><i class="fa-li fa fa-check-square"></i></span> <%= t('curriculum.btn_done')%></li>
+  </ul>
+</div>

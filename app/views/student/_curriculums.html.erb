@@ -1,0 +1,60 @@
+<style>
+    .media{
+        margin-top: 0;
+    }
+</style>
+<% if @curriculums %>
+    <% @curriculums.each do |curriculum_study| %>
+        <div class="media innerAll border-bottom">
+          <div class="media-body innerTB half">
+            <h5 class="strong"><%= link_to curriculum_study.curriculum.curriculum_name, curriculum_study.curriculum, data:{target:'body'} %></h5>
+            <p class="text-muted">
+              <span class="fa fa-user">&nbsp;<%= curriculum_study.curriculum.mentor.user_name %></span>&nbsp;|&nbsp;
+              <span class="fa fa-calendar">&nbsp;<%= curriculum_study.start_date.strftime("%Y/%m/%d")%></span>
+            </p>
+            <p class="text-muted">
+              <span class="fa fa-check-square-o">&nbsp;
+                <%=t('student_home.title_material') %>:<%= curriculum_study.material_done %>/<%=curriculum_study.material_total %>
+              </span>
+              <% if !curriculum_study.action_total.eql?0 %>
+              &nbsp;|&nbsp;
+              <span class="fa fa-check-square-o">&nbsp;
+                    <%=t('student_home.title_action') %>:<%=curriculum_study.action_done %>/<%= curriculum_study.action_total %>
+
+              </span>
+              <% end %>
+            </p>
+            <p class="margin-none" style="word-wrap:break-word;"><%= normalize_text curriculum.summary %></p>
+            <p class="margin-none text-right">
+              <!--<span><a href="edit_curriculum_path(curriculum)"><i class="fa"></i><%= t('curriculum.bt_edit')%></a></span>-->
+              <span><%= link_to '<i class= "fa fa-file-text-o"></i>'.html_safe, show_curriculum_detail_for_student_path(curriculum_study.curriculum), :title => t('curriculum.bt_view_detail'), :rel => 'tooltip',:style => 'font-size: 16pt', data:{target:'body'} %></span>
+            </p>
+          </div>
+        </div>
+
+        <!--<div class="innerAll border-bottom"></div>-->
+    <% end %>
+<% end %>
+
+<% if @curriculums %>
+    <div class="separator"></div>
+    <div class="digg_pagination" >
+      <%= will_paginate @curriculums , :container => false %>
+    </div>
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $('.digg_pagination').on("click", "a", function () {
+            $.get( this.href, function() {
+                $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+            },'script').done(function() {
+                $.loader.close();
+            });
+            return false;
+        });
+        $(".digg_pagination a").click(function(){
+            $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+        });
+    })
+</script>

@@ -1,0 +1,17 @@
+<div class="errorTemplate innerAll ">
+
+  <div class="well text-center">
+    <div class="center text-large innerAll">
+      <i class="fa fa-5x fa-chain-broken text-danger "></i>
+    </div>
+    <h1 class="strong innerTB"><%= t('app.msg_error')%>!</h1>
+    <!--<h4 class="innerB">This page does not exist.</h4>-->
+    <div class="well bg-white text-danger strong ">
+      <%= render_flash_messages %>
+    </div>
+    <div class="inerAll">
+      <a href="<%= home_index_path%>" class=" btn btn-primary text-large "><i class="fa fa-home"></i> <%= t('app.app_name')%></a></li>
+    </div>
+  </div>
+
+</div>

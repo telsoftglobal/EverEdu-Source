@@ -1,0 +1,50 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  users:
+    msg_user_not_found: "User not found"
+    title_about: "About"
+    lb_changeavatar: "Change avatar"
+    title_changeavatar: "Change avatar"
+    title_user_information: "User information"
+    title_changepassword: "Change password"
+    lb_password_current: "Current password"
+    lb_password_new: "Password new"
+    lb_password_confirm: "Confirm password"
+    lb_password_confirm_equal: "Confirm password is not match !"
+    lb_tip1: "Password should have both number and special character to increase security"
+    lb_tip2: "Password should from 6-10 character"
+    title_reset_password: "Reset password"
+    title_back_login: "Back to login"
+    lb_forgot: "forgot"
+    lb_or: "or"
+    msg_change_password_success: "Password is changed"
+    msg_change_password_error: "Change password failed !"
+    msg_confirm_information: "Please verify your password"
+    msg_reset_password_success: "Reset password success !"
+    msg_reset_password_error: "Reset password failed !"
+    msg_forgot_password_success: "New password will send to your email in a few minutes"
+    msg_forgot_password_error: "Please verify information"
+    msg_change_password_minlenght_error: "Password must more than 6"
+    title_confirm_reset: "Are you sure to reset password ?"
+  email:
+    title_change_password: "Confirm change password"

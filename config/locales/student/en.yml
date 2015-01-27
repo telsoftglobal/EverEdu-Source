@@ -1,0 +1,7 @@
+en:
+  student_home:
+    title_student_home: "My curriculums"
+    title_material: "Materials"
+    title_action: "Actions"
+  student_curriculum_detail:
+    lb_with: "with"

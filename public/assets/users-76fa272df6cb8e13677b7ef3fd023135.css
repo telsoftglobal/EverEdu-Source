@@ -1,0 +1,27 @@
+/* line 5, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+.changeavatar {
+  margin: -30px 50px 0px 50px;
+  cursor: pointer;
+  position: absolute;
+}
+
+/* line 11, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+.avatar {
+  width: 120px;
+  height: 120px;
+}
+
+@media (max-width: 767px) {
+  /* line 17, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+  .avatar {
+    width: 80px;
+    height: 80px;
+  }
+
+  /* line 22, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+  .changeavatar {
+    margin: -25px 33px 0px 33px;
+    cursor: pointer;
+    position: absolute;
+  }
+}

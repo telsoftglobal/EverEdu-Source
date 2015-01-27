@@ -1,0 +1,125 @@
+/*!
+ * Bootstrap v3.0.0
+ *
+ * Copyright 2013 Twitter, Inc
+ * Licensed under the Apache License v2.0
+ * http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Designed and built with all the love in the world by @mdo and @fat.
+ */
+.aes-show-xs {
+  display: none !important;
+}
+.aes-hidden-xs {
+  display: block !important;
+}
+.aes-useraction{
+    margin-right: 30px;
+}
+
+@media (max-width: 767px) {
+    .aes-useraction{
+        margin-right: 20px;
+    }
+    .aes-useraction .media-body{
+        display: none;
+    }
+    .navbar.main .dropdown.notif .dropdown-menu {
+        left: -160px !important;
+    }
+
+    div.selectr ul.list-group{
+        max-height: 120px !important;
+    }
+    div.selectr{
+        width: 100% !important;
+    }
+
+}
+
+
+@media (max-width: 1000px) {
+	.aes-show-xs {
+	  display: block !important;
+	  z-index:-1000;
+	}
+	.aes-hidden-xs {
+	  display: none !important;
+	}
+	#aes-searchBox{
+		width: 70%;
+		margin-left: 15%;
+	}
+}
+#curriculum_form div.widget-body{
+    min-height: 370px;
+}
+
+.ztreeMaterialBackground{
+    max-height: 330px;
+    overflow-y: auto;
+}
+
+@media (max-width: 990px) {
+    .widget-head ul li{
+        width: 100%;
+    }
+    #curriculum_form div.widget-body{
+        min-height: 100%;
+    }
+    .widget.widget-tabs>.widget-head ul li:first-child
+    {
+        border-radius: 5px 0 0 0;
+        -moz-border-radius: 5px 0 0 0;
+        -webkit-border-radius: 5px 0 0 0;
+    }
+    .widget.widget-tabs>.widget-head ul li:last-child
+    {
+        border-radius: 0 5px 0 0;
+        -moz-border-radius: 0 5px 0 0;
+        -webkit-border-radius: 0 5px 0 0;
+    }
+}
+
+.aes-headersticky{
+    position: fixed;
+    top:0;
+    right:0;
+    left:250px;
+}
+td.day.active{
+    color:white;
+}
+.contentslide{
+    /*-webkit-transition: width 2s !important;; *//* For Safari 3.1 to 6.0 */
+    /*transition: width 2s !important;;*/
+    /*-moz-transition: width 2s !important;;*/
+    /*-o-transition: width 2s !important;;*/
+    width: calc(100% - 250px) !important;
+}
+.containerresponsive{
+    width:50%;
+}
+p.margin-none
+{
+    word-wrap: break-word;
+}
+
+#updateModal .modal-backdrop{
+    position: fixed;
+}
+.pagination{
+    margin: 10px 0;
+}
+.form-group{
+    margin-bottom: 10px;
+}
+/*.cke_top{*/
+    /*display: none !important;;*/
+/*}*/
+.cke_chrome{
+    border: 1px solid #913228 !important;
+}
+.cke_bottom {
+    border-top: 1px solid #913228 !important;
+}

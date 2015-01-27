@@ -1,0 +1,75 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  app:
+    app_name: "EverEdu"
+    app_short_name: "EverEdu"
+    lb_about_us: "About us"
+    lb_account: "My Account"
+    msg_error: "Error"
+    error_title: "Something went Wrong!"
+    error_file_not_found: "Page not Found!"
+    error_unprocessable: "Unprocessable!"
+    error_internal_server_error: "Internal Server Error!"
+  button:
+    #CuongCT
+    btn_add: "Add"
+    btn_create: "Create Item"
+    btn_edit: "Edit Item"
+    btn_save: "Save"
+    btn_back: "Back"
+    btn_cancel: "Cancel"
+    btn_ok: "Accept"
+    btn_close: "Close"
+    btn_change: "Change"
+    btn_yes: "Yes"
+    btn_no: "No"
+  search:
+    placeholder: "Search for mentors or courses"
+  shared:
+    lb_previous: "Previous"
+    lb_next: "Next"
+    lb_finish: "Finish"
+  msg_access_error: "Sorry, you don't have access to that."
+  msg_data_error: "Sorry, data not found."
+  title_error: "Error"
+  system:
+    system_message: "Message from System!"
+  js:
+    validate:
+      msg_required: This field is required.
+      msg_minlength: Please enter at least {0} characters.
+      msg_maxlength: Please enter less than {0} characters.
+      msg_rangelength: Please enter a value with length between {0} and {1}.
+      msg_min: Please enter a value greater than or equal to {0}.
+      msg_max: Please enter a value less than or equal to {0}.
+      msg_range: Please enter a value between {0} and {1}.
+      msg_email_invalid: Please enter a valid email address.
+      msg_url_invalid: Please enter a valid URL.
+      msg_date_invalid: Please enter a valid date.
+      msg_number_invalid: Please enter a valid number.
+      msg_confirm_passowrd_equalto: Please enter the same password as above.
+      msg_greater_than_start_date: "Please enter greater than or equal start year."
+      msg_invalid_file_extension: "Please choose a valid file."
+      msg_accept_file_extension: "Please choose a valid file extension."
+  tip:
+    titleTip: "Tip:"

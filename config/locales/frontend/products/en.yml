@@ -1,0 +1,54 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  products:
+    title_new_product: "New product"
+    title_list_product: "Listing products"
+    title_edit_product: "Editing product"
+
+    lb_product_name: "Product Name"
+    lb_price: "Price"
+    lb_quantity: "Quantity"
+    lb_import_date: "Import Date"
+    lb_description: "Description"
+    lb_status: "Status"
+
+    bt_create_product: "Create Product"
+    msg_create_product_success: "Product was successfully created"
+    msg_update_product_success: "Product was successfully updated"
+    msg_destroy_product_success: "Product was successfully destroyed"
+
+    js:
+      validate:
+        msg_product_name_required: "Please enter product name"
+        msg_product_name_length: "Please enter a value with length between 3 and 20"
+        msg_product_name_uniquess: "Product existed"
+        msg_product_price_required: "Please enter price product"
+        msg_product_price_number: "Please enter a number"
+        msg_product_quantity_required: "Please enter quantity"
+        msg_product_quantity_number: "Please enter a number"
+        msg_product_importDate_required: "Please enter import date"
+        msg_product_importDate_date: "Please enter a valid date"
+        msg_product_status_required: "Please enter status"
+        msg_product_description_rangelength: "Please enter a value with length between 3 and 20"
+
+

@@ -1,0 +1,45 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @work_experience.user.id %>
+</p>
+
+
+<p>
+  <strong>Category:</strong>
+  <%= @work_experience.category.id %>
+</p>
+
+<p>
+  <strong>Level:</strong>
+  <%= @work_experience.level.id %>
+</p>
+
+<p>
+  <strong>Work place:</strong>
+  <%= @work_experience.work_place %>
+</p>
+
+<p>
+  <strong>From year:</strong>
+  <%= @work_experience.start_year %>
+</p>
+
+<p>
+  <strong>To year:</strong>
+  <%= @work_experience.end_year %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @work_experience.current %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @work_experience.description %>
+</p>
+
+<%= link_to 'Edit', edit_work_experience_path(@work_experience) %> |
+<%= link_to 'Back', work_experiences_path %>

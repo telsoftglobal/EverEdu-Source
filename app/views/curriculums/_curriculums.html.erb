@@ -1,0 +1,55 @@
+<style>
+    .media{
+        margin-top: 0;
+    }
+</style>
+<% if @curriculums %>
+    <% @curriculums.each do |curriculum| %>
+        <div class="media innerAll border-bottom">
+          <div class="media-body innerTB half">
+            <h5 class="strong"><%= link_to curriculum.curriculum_name, curriculum , 'data-target'=>'body'%></h5>
+            <p class="text-muted">
+              <span class="fa fa-calendar">&nbsp;<%= curriculum.created_at.strftime("%Y/%m/%d")%></span>
+            </p>
+            <p class="margin-none" style="word-wrap:break-word;"><%= normalize_text curriculum.summary %></p>
+            <p class="margin-none text-right">
+              <span><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_curriculum_path(curriculum), :title => t('curriculum.bt_edit'), :rel => 'tooltip', 'data-target'=>'body', :style => 'font-size: 16pt', 'data-target'=>'body' %></span>
+              <span><%= link_to '<i class= "fa fa-file-text-o" ></i>'.html_safe, show_curriculum_detail_for_mentor_path(curriculum), :title => t('curriculum.bt_view_detail'), :rel => 'tooltip','data-target'=>'body', :style => 'font-size: 16pt', 'data-target'=>'body'%></span>&nbsp;
+            </p>
+          </div>
+        </div>
+    <% end %>
+<% end %>
+
+<% if @curriculums %>
+    <div class="separator"></div>
+    <div class="digg_pagination" >
+      <%= will_paginate @curriculums , :container => false %>
+    </div>
+<% end %>
+
+<script>
+//    $(document).ready(function () {
+//        $('.digg_pagination').on("click", "a", function () {
+//            $.get(this.href, null, null, 'script');
+//            return false;
+//        });
+//    });
+
+    $(document).ready(function () {
+        $('.digg_pagination').on("click", "a", function () {
+    //              $.get(this.href, null, null, 'script');
+
+            $.get( this.href, function() {
+                $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+            },'script').done(function() {
+                $.loader.close();
+            });
+
+            return false;
+        });
+              $(".digg_pagination a").click(function(){
+                  $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+              });
+    })
+</script>

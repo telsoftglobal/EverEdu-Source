@@ -1,0 +1,25 @@
+// Place all the styles related to the Mentor controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+
+.noti_Container {
+  position:relative;
+  #border:1px solid blue;
+  width:16px;
+  height:16px;
+}
+.noti_bubble {
+  position:absolute;
+  top: -6px;
+  right:-6px;
+  padding:1px 2px 1px 2px;
+  background-color:red;
+  color:white;
+  font-weight:bold;
+  font-size:0.55em;
+
+  border-radius:30px;
+  box-shadow:1px 1px 1px gray;
+}

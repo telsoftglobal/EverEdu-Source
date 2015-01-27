@@ -1,0 +1,49 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#      I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  users:
+    msg_user_not_found: "ユーザーが見つからない。"
+    title_about: "およそ"
+    lb_changeavatar: "変更のアバター"
+    title_changeavatar: "変更のアバター"
+    title_user_information: "ユーザー情報"
+    title_changepassword: "パスワードを変更する"
+    lb_password_current: "現在のパスワード"
+    lb_password_new: "パスワード新しい"
+    lb_password_confirm: "パスワードを認証する"
+    lb_password_confirm_equal: "確認してパスワードが一致していません!"
+    lb_tip1: "パスワードは、セキュリティを強化するための番号と特殊文字の両方を持っている必要があります"
+    lb_tip2: "パスワードは6〜10文字からすべき"
+    title_reset_password: "パスワードのリセット"
+    title_back_login: "戻るログインする"
+    lb_forgot: "忘れてしまった"
+    lb_or: "または"
+    msg_change_password_success: "パスワードが変更された"
+    msg_change_password_error: "パスワードの変更に失敗しました !"
+    msg_confirm_information: "あなたのパスワードを確認してください"
+    msg_reset_password_success: "パスワードの成功をリセット！"
+    msg_reset_password_error: "パスワードのリセットに失敗しました！"
+    msg_forgot_password_success: "新しいパスワードは数分であなたの電子メールに送信する"
+    msg_forgot_password_error: "情報を確認してください"
+    msg_change_password_minlenght_error: "パスワードなければならない以上6"
+    title_confirm_reset: "あなたがパスワードをリセットしてもよろしいです?"
+  email:
+    title_change_password: "パスワード変更の確認"

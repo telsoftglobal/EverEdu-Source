@@ -1,0 +1,8 @@
+db.units.insert({ "name":"秒", "show_priority":1})
+db.units.insert({ "name":"分", "show_priority":2})
+db.units.insert({"name":"時", "show_priority":3})
+db.units.insert({"name":"週", "show_priority":4})
+db.units.insert({"name":"日", "show_priority":5})
+db.units.insert({"name":"月", "show_priority":6})
+db.units.insert({"name":"年", "show_priority":7})
+

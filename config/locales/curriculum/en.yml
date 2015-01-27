@@ -1,0 +1,168 @@
+# encoding: utf-8
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guino implicit conversion of ActiveModel::Errors into Stringde
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  curriculum:
+    curriculum: "Curriculum"
+    lb_curriculum: "Manage curriculum"
+    title_create_curriculum: "Create curriculum"
+    title_update_curriculum: "Update curriculum"
+    lb_curriculum_name: "Curriculum Name"
+    title_enter_curriculum: "General Information"
+    lb_category: "Category"
+    lb_summary: "Summary"
+    lb_duration: "Duration"
+    lb_unit: "Unit"
+    lb_start_date: "Start Date"
+    lb_end_date: "End Date"
+    lb_description: "Description"
+    msg_description_maxlength: "Please enter within 10000 characters."
+    title_step: "Step"
+    title_manage_curriculum: "Manage curriculum"
+    bt_edit: "Edit"
+    bt_view_detail: "View detail"
+    lb_more: "Curriculum of mentor"
+    lb_new_curriculum: "Create curriculum"
+    lb_create_date: "Create date"
+    btn_jon: "Join"
+    btn_comment: "Comment"
+    msg_create_curriculum_succes: "Create curriculum successful!"
+    msg_update_curriculum_succes: "Update curriculum successful!"
+    msg_update_curriculum_failed: "Update curriculum failed!"
+    lb_curriculum_outline: "Outline"
+    lb_curriculum_detail: "Curriculum detail"
+    msg_name_only_alphanumeric: "Name must be alphanumeric"
+    msg_error: "Error when load curriculum"
+    msg_error_not_found: "Curriculum not found"
+    msg_error_not_permission: "You are not permission to update this curriculum"
+    msg_confirm_save: "Do you want to save ?"
+    msg_not_found: "Curriculum not found!"
+    msg_curriculum_not_found: "Curriculum not found!"
+    btn_start: "Start"
+    btn_done: "Done"
+    btn_inprogress: "Progress"
+    lb_note: "Note"
+    lb_Error: "Curriculum is not exist"
+    lb_readmore: "Read more"
+    lb_showless: "Show less"
+  material:
+    title_new_material: "New material"
+    title_material: "Material"
+    lb_material_name: "Material Name"
+    title_add_material: "Add Material"
+    lb_code: "Code"
+    lb_url: "URL"
+    lb_duration: "Duration"
+    lb_unit: "Unit"
+    lb_type: "Type"
+    lb_description: "Description"
+    btn_addmaterial: "Add Material"
+    btn_editmaterial: "Edit Material"
+    btn_deletematerial: "Delete Material"
+    msg_atleast_material: "At least one material!"
+    msg_confirm_delete: "Are you sure to delete this material!"
+    msg_cant_delete_parent: "Can't delete material parent"
+    msg_update_success: "Update material successful!"
+    msg_update_failed: "Update material failed!"
+    msg_not_found: "Material not found!"
+    title_quick_update: "Update material"
+    help:
+      title: "Introduction:"
+      step1: "1. To enter material"
+      step1-1: "Step 1: Enter material information"
+      step1-2: "Step 2: Click button Save"
+      note: "note: field (*) is required"
+      step2: "2. To add material"
+      step2-1: "Step 1: click "
+      step2-2: "Step 2: Click "
+      step2-3: "Step 3: Enter information same above"
+      step3a: "3. To Edit "
+      step3b: "Delete"
+      step3c: "material"
+      tip1: "Material is is some thing like: book, tip, video."
+      tip2: "One you created curriculum material can't delete."
+      tipend: "Material must have at least one !"
+  action:
+    title_new_action: "New action"
+    title_action: "Action"
+    lb_action_name: "Action Name"
+    title_add_action: "Add Action"
+    lb_description: "Description"
+    btn_addaction: "Add Action"
+    btn_editaction: "Edit Action"
+    btn_deleteaction: "Delete Action"
+    msg_confirm_delete: "Are you sure to delete this action ?"
+    msg_update_success: "Update action successful!"
+    msg_update_failed: "Update action failed!"
+    msg_not_found: "Action not found!"
+    title_quick_update: "Update action"
+    help:
+      title: "Introduction:"
+      step1: "2. To enter action"
+      step1-1: "Step 1: Enter action information"
+      step1-2: "Step 2: Click button Save"
+      note: "note: field (*) is required"
+      step2: "1. To add action"
+      step2-1: "Step 1: click "
+      step2-2: "Step 2: Click "
+      step2-3: "Step 3: Enter information same above"
+      step3a: "3. To Edit "
+      step3b: "Delete"
+      step3c: "action"
+      tip1: "Action is need to do."
+      tip2: "One you created curriculum action can't delete."
+      tipend: "Action is optional"
+  category:
+    msg_atleast_category: "At least one category!"
+    title_select_category: "Please select a category"
+    title_selectAll: "Select all"
+    title_unselectAll: "UnSelect all"
+    msg_update_success: "Update categories successful!"
+    msg_update_failed: "Update categories failed!"
+    title_quick_update: "Update curriculum categories"
+    help:
+      title: "Introduction:"
+      step1: "Step 1: Select category"
+      step2: "Step 2: Click button Add"
+      step3: "Step 3: Choose level suitable for curriculum"
+      tip1: "Tip 1: Choose level consistent with student"
+      tip2: "Tip 2: You choose more than one level"
+      tip3: "Tip 3: You can quick check/uncheck all "
+      note: "Level is optional"
+  confirm:
+    title_confirm: "Confirm"
+    title_verify: "Verify information"
+    lb_confirm: "You should verify all information are correct!"
+  unit:
+    title_minute: "Minute"
+    title_hour: "Hour"
+    title_day: "Day"
+    title_week: "Week"
+    title_month: "Month"
+    title_year: "Year"
+  manage_curriculum:
+    placeholder_category: All categories
+  join:
+    msg_cant_join: "You can't join"
+    msg_join_successful: "Join successful"
+    msg_join_fail: "Join fail"
+    msg_joined: "You have joined"

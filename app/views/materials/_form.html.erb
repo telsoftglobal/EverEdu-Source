@@ -1,0 +1,148 @@
+<%= form_for @material,:url => '/materials/quickupdate', html: {id: 'quick_form', method:'path', role: 'form',class:'form-horizontal', object_type:'material'} do |f| %>
+  <div class="widget ">
+    <div class="widget-body">
+      <div  id="panelmaterial" class="innerLR">
+        <div class="material" id="material<%=@material.id%>" >
+          <input name="material_id" value="<%=@material.id%>" type=hidden>
+          <div class="form-group" >
+            <label for="material_name" class="col-md-2 control-label"><%= t('material.lb_material_name') %><span class="requiredfield">*</span></label>
+            <div class="col-md-10">
+              <%= f.hidden_field :id, class: "form-control"%>
+              <%= f.text_field :material_name, class: "form-control requiredfield100 name_update", placeholder: t('material.lb_material_name'),maxlength:100,autofocus:"autofocus" %>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="material_type_id" class="col-md-2 control-label"><%= t('material.lb_type') %><span class="requiredfield">*</span></label>
+            <div class="col-md-10">
+              <%= select_tag "material[material_type_id]", options_from_collection_for_select(MaterialType.all, "id", "material_type_name",@material.material_type.id),{ class: 'selectpicker form-control type_update' } %>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="material_url" class="col-md-2 control-label"><%= t('material.lb_url') %></label>
+            <div class="col-md-10">
+              <%= f.text_field :material_url, class: "form-control urlformat url_update", placeholder: t('material.lb_url'),maxlength:500 %>
+            </div>
+          </div>
+          <div class="form-group" >
+            <label for="description" class="col-md-2 control-label"><%= t('material.lb_description') %></label>
+            <div class="col-md-10">
+              <%= f.text_area "description", class: 'form-control summernote summernoteMaterial description_update' , placeholder: t('material.lb_description') %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+<script>
+  $(document).ready(function(){
+      $('.selectpicker').selectpicker({
+          size: 10
+      });
+
+      $.validator.messages.required = "<%= t('js.validate.msg_required')%>";
+      $.validator.messages.url = "<%= t('js.validate.msg_url_invalid')%>";
+      $.validator.messages.maxlength = "<%= t('js.validate.msg_maxlength')%>";
+//        disabled editor
+//      $.validator.addMethod("validSummernote", function(value, element) {
+//          return this.optional(element) || !(value.length>10000);
+//      }, "<%= t('curriculum.msg_description_maxlength')%>");
+
+      $.validator.addMethod("validSummernote", function(value, element) {
+          console.log($($(element).text()).text().length);
+          return this.optional(element) || !($($(element).text()).text().length>10000);//$(value).text().length<=10000;
+      }, "<%= t('curriculum.msg_description_maxlength')%>");
+
+//      $.validator.addClassRules("requiredfield100", {
+//          maxlength:100,
+//          required: {
+//              depends:function(){
+//                  var text = $.trim($(this).val());
+//                  text=text.replace(/\s+/g, ' ');
+//                  $(this).val(text);
+//                  return true;
+//              }
+//          }
+//      });
+//      $.validator.addClassRules("urlformat", {
+//          url: {
+//              depends:function(){
+//                  var text = $.trim($(this).val());
+//                  text=text.replace(/\s+/g, ' ');
+//                  $(this).val(text);
+//                  return true;
+//              }
+//          },
+//          maxlength:500
+//      });
+//
+//      $.validator.addClassRules("summernote", {
+//  //        disabled editor
+//          maxlength: 10000,
+//          validSummernote: {
+//              depends:function(){
+//                  $(this).val($.trim($(this).val()));
+//                  return true;
+//              }}
+//      });
+      $("#quick_form").validate({
+//        disabled editor
+          ignore: ':hidden:not("textarea.summernote")', //ignore fields
+          onfocusout: false,
+          onkeyup: false,
+          errorPlacement: function (error, element) {
+              error.insertAfter(element);
+          },
+          submitHandler: function (form) {
+//            $('#signup_form').find('input:text').each(function(){
+//                $(this).val($.trim($(this).val()));
+//            });
+//            form.submit();
+
+          },
+          invalidHandler: function(form, validator) {
+              $('#div_msg_error').text('');
+
+              var errors = validator.numberOfInvalids();
+              if (errors) {
+                  validator.errorList[0].element.focus();
+              }
+          }
+      });
+
+      $("#material_material_name").rules( "add", {
+//          maxlength:100,
+          required: {
+              depends:function(){
+                  var text = $.trim($(this).val());
+                  text=text.replace(/\s+/g, ' ');
+                  $(this).val(text);
+                  return true;
+              }
+          }
+      });
+
+      $("#material_material_url").rules( "add", {
+          url: {
+              depends:function(){
+                  var text = $.trim($(this).val());
+                  text=text.replace(/\s+/g, ' ');
+                  $(this).val(text);
+                  return true;
+              }
+          },
+          maxlength:500
+      });
+
+      $("#material_description").rules( "add", {
+//          maxlength: 10000,
+          validSummernote: {
+              depends:function(){
+                  $(this).val($.trim($(this).val()));
+                  return true;
+              }}
+      });
+  });
+</script>
+<% end %>

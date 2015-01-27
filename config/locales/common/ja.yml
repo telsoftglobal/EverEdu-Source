@@ -1,0 +1,75 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  app:
+    app_name: "EverEdu"
+    app_short_name: "EverEdu"
+    lb_about_us: "私達について"
+    lb_account: "マイアカウント"
+    msg_error: "エラー"
+    error_title: "何かが間違っていた!"
+    error_file_not_found: "ページが見つかりません!"
+    error_unprocessable: "処理不能!"
+    error_internal_server_error: "内部サーバーエラー!"
+  button:
+    #CuongCT
+    btn_add: "追加"
+    btn_create: "アイテムの作成"
+    btn_edit: "編集項目"
+    btn_save: "保存"
+    btn_back: "バック"
+    btn_cancel: "キャンセル"
+    btn_ok: "アクセプト"
+    btn_close: "クローズ"
+    btn_change: "変更"
+    btn_yes: "はい"
+    btn_no: "しない"
+  search:
+    placeholder: "メンターやコースを検索する"
+  shared:
+    lb_previous: "前"
+    lb_next: "次"
+    lb_finish: "フィニッシュ"
+  msg_access_error: "申し訳ありませんが、あなたはそれにアクセスすることはできません。"
+  msg_data_error: "申し訳ありませんが、データが見つかりません."
+  title_error: "エラー"
+  system:
+    system_message: "システムからのメッセージ!"
+  js:
+    validate:
+      msg_required: "このフィールドは必須です。"
+      msg_minlength: "{0} 文字以上で入力してください。"
+      msg_maxlength: "{0} 文字以内で入力してください。"
+      msg_range_length: "{0} 文字から {1} 文字までの値を入力してください。"
+      msg_min: "{0} 以上の値を入力してください。"
+      msg_max: "{0} 以下の値を入力してください。"
+      msg_range: "{0} から {1} までの値を入力してください。"
+      msg_url_invalid: "有効なURLを入力してください。"
+      msg_date_invalid: "有効な日付を入力してください。"
+      msg_email_invalid: "有効なEメールアドレスを入力してください。"
+      msg_number_invalid: "有効な数字を入力してください。"
+      msg_confirm_passowrd_equalto: "上記と同じパスワードを入力してください。"
+      msg_greater_than_start_date: "よりか等しい開始年より入力してください。"
+      msg_invalid_file_extension: "有効なファイルを選択してください。"
+      msg_accept_file_extension: "有効なファイル拡張子を選択してください。"
+  tip:
+    titleTip: "ヒント："

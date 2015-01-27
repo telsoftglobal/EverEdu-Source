@@ -1,0 +1,73 @@
+<div class="innerAll">
+
+  <div class="post-block post-comments" style="border-top:0px;margin-top: 10px">
+    <!--All comment-->
+    <h4 id="comments-count"><%= t('comments.lb_all_comments') %>&#40;<%= @commentable.get_total_comments%>&#41;</h4>
+    <!--End all comment-->
+    <div class="separator"></div>
+
+    <!--New comment form-->
+    <div id="comment-new">
+      <%= render partial: 'comments/comment_form', locals: {commentable: @commentable} %>
+    </div>
+    <!--End new comment form-->
+    <div class="separator"></div>
+
+    <!--List comment-->
+    <div id="comments-list">
+      <%= render @commentable.get_lastest_comments %>
+    </div>
+    <!--End list comment-->
+    <div class="separator"></div>
+
+    <div class="load-more-container">
+      <!-- hide our loading gif image so that we show it when making ajax call via jquery -->
+      <%= image_tag "ajax-loader.gif", style: "display:none;", class: "loading-gif" %>
+      <div class="row">
+        <div class="col-md-12">
+          <div class="pull-left">
+            <button id="load-more" class="btn btn-primary btn-md" type="button"><%= t('comments.btn_load_more')%></button>
+            <p id="load-more-error" class="has-error help-block"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+    $(document).ready(function () {
+        var total_comments = '<%= @commentable.get_total_comments %>'
+        var comments_length = $('.comment').length
+        if (comments_length >= total_comments) {
+            $('#load-more').hide()
+        } else {
+            $('#load-more').show();
+        }
+        $("#load-more").click(function () {
+            $('#load-more').hide();
+            $('.loading-gif').show();
+
+            var last_id = $('.comment').last().attr('data-id');
+            $.ajax({
+                type: "GET",
+                url: '/comments/get_more_comments',
+                data: {
+                    last_comment_id: last_id,
+                    commentable_id: "<%= @commentable.id%>",
+                    commentable_type: "<%= @commentable.commentable_type%>"
+                },
+
+                dataType: "script",
+                success: function () {
+                    $('.loading-gif').hide();
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                }
+            });
+
+        });
+    });
+</script>

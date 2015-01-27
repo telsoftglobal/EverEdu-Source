@@ -1,0 +1,28 @@
+<!--form reply comment-->
+<% if @object.nil? && @curriculum %>
+    <% @object = @curriculum %>
+<% end %>
+
+
+<form class="new-reply" method="post" id="form-reply<%=comment.id%>" name="form-reply<%=comment.id%>">
+  <p id="reply-error<%=comment.id%>" class="has-error help-block"></p>
+
+  <div class="form-group">
+    <div class="row">
+      <div class="col-md-12">
+        <%= text_area_tag "comment", '', placeholder: t('comments.ph_enter_reply'), class: "form-control", rows: "2", maxlength: "5000" %>
+        <!--<textarea name="comment" class="form-control requiredfield100"></textarea>-->
+      </div>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12">
+      <div class="pull-right">
+        <button class="btnReply btn btn-primary btn-md" type="submit"> <%= t('comments.btn_submit_reply') %> </button>
+      </div>
+    </div>
+  </div>
+  <input type="hidden" id="object_id" name="object_id" value="<%= @object.id %>">
+  <input type="hidden" id="object_type" name="object_type" value="<%= @object.object_type %>">
+  <input type="hidden" id="parent_id" name="parent_id" value="<%= comment.id %>">
+</form>

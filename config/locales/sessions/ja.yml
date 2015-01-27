@@ -1,0 +1,82 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#      I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  signup:
+    title_signup: アカウントを作成する!
+    lb_name: 名称
+    lb_first_name: 名前
+    lb_last_name: 苗字
+    lb_user_name: ユーザーの名称
+    lb_email: メールアドレス
+    lb_password: パスワード
+    lb_password_confirmation: パスワードの確認
+    bt_signup: 登録する
+    lb_signup: "アカウントを持っていない?"
+    lk_signup: "登録する!"
+    title_update_account: "アップデートアカウント情報"
+    js:
+      validate:
+        msg_first_name_required: "このフィールドは必須です。"
+        msg_last_name_required: "このフィールドは必須です。"
+        msg_user_name_required: "このフィールドは必須です。"
+        msg_user_name_minlength: "{0} 文字以上で入力してください。"
+        msg_user_name_invalid: "有効なユーザー名を入力してください。"
+        msg_email_invalid: "有効なEメールアドレスを入力してください。"
+        msg_email_required: "このフィールドは必須です。"
+        msg_password_required: "このフィールドは必須です。"
+        msg_password_minlength: "{0} 文字以上で入力してください。"
+        msg_password_confirmation_required: "このフィールドは必須です。"
+        msg_password_confirmation_minlength: "{0} 文字以上で入力してください。"
+        msg_password_confirmation_equalto: "上記と同じパスワードを入力してください。"
+        msg_first_name_maxlength: "{0} 文字以内で入力してください。"
+        msg_last_name_maxlength: "{0} 文字以内で入力してください。"
+        msg_user_name_maxlength: "{0} 文字以内で入力してください。"
+        msg_email_maxlength: "{0} 文字以内で入力してください。"
+        msg_first_name_alphanumeric: "名前無効な文字が含まれています。"
+        msg_last_name_alphanumeric: "苗字無効な文字が含まれています。"
+        msg_user_name_alphanumeric: "ユーザー名に無効な文字が含まれて。"
+        msg_ranglength: "{0} 文字から {1} 文字までの値を入力してください。"
+        msg_min: "{0} 以上の値を入力してください。"
+        msg_max: "{0} 以下の値を入力してください。"
+
+  signin:
+    title_signin: サインイン!
+    lb_email: メールアドレス
+    lb_password: パスワード
+    bt_signin: ログインする
+    lb_signin: アカウントを持ってい?
+    lk_signin: サインイン!
+    msg_signin_fail: メール アドレスまたはパスワードが正しくありません。
+    title_forgot: パスワードをお忘れですか!
+    lk_forgot: "忘れた"
+    js:
+      validate:
+        msg_email_invalid: "有効なEメールアドレスを入力してください。"
+        msg_email_required: "このフィールドは必須です。"
+        msg_password_required: "このフィールドは必須です。"
+
+  signout:
+    bt_signout: サインアウトする
+
+  become_mentor:
+    bt_become_mentor: メンターすることになる
+    msg_youarementor:  メンターすることになる
+

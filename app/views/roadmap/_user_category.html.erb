@@ -1,0 +1,259 @@
+
+<style>
+    .carousel-control.left,.carousel-control.right{
+        background-image:none;
+    }
+</style>
+
+<p id="roadmap-error<%= user_category.id %>" class="has-error help-block"></p>
+<div class="col-md-8 col-sm-8" style="margin: 0px auto;  border: 1px solid #913228; float: none;" id="roadmap-border">
+  <div id="roadmap-chart<%= user_category.id %>" style="margin: 10px">
+  </div>
+
+</div>
+
+<script>
+    var chart;
+    var options;
+    $(document).ready(function () {
+        var data = [];
+        <% user_category.category.levels.order('level_order asc').each_with_index  do |level,ii| %>
+        var level_order = <%=level.level_order%>;
+        var level_current = <%=user_category.level.level_order%>;
+        if (level_order == level_current)
+            data.push({
+                y:<%=level.yaxis%>,
+                name: '<%=level.level_name%>',
+                description: '<%= sanitize level.description%>',
+                level_id: '<%=level.id%>',
+                level_order: '<%=level.level_order%>',
+                marker: {
+                    symbol: 'url(<%= asset_path("assets/18px-Ski_trail_rating_symbol-blue_square.png") %>)'
+                }
+            });
+        else
+            data.push({
+                y:<%=level.yaxis%>,
+                name: '<%=level.level_name%>',
+                description: '<%= sanitize level.description%>',
+                level_id: '<%=level.id%>',
+                level_order: '<%=level.level_order%>'
+            });
+
+        <%end%>
+        options = {
+            chart: {
+                  type: 'spline',
+                renderTo: 'roadmap-chart<%= user_category.id %>'
+//                type: 'scatter'
+            },
+            title: {
+                text: '<%=user_category.category.category_name%>',
+                align: 'left',
+                style: {
+                    fontWeight: 'bold'
+                }
+            },
+            legend: {
+                enabled: false
+            },
+            navigation: {
+                buttonOptions: {
+                    enabled: false
+                }
+            },
+            credits: {
+                enabled: false
+            },
+            xAxis: {
+                lineWidth: 0,
+                minorGridLineWidth: 0,
+                lineColor: 'transparent',
+                labels: {
+                    enabled: false
+                },
+                minorTickLength: 0,
+                tickLength: 0
+            },
+            yAxis: {
+                gridLineWidth: 0,
+                minorGridLineWidth: 0,
+                title: {
+                    text: ''
+                },
+                labels: {
+                    enabled: false
+                }
+            },
+            tooltip: {
+                useHTML: true,
+                formatter: function () {
+//                    return "<b>" + this.point.name + "</b><div class='tooltip-roadmap' style='overflow-y:scroll'>" + this.point.description + "</div>";
+                    return false;
+                }
+            },
+            colors: ['#913228'],
+            plotOptions: {
+                spline: {
+                    marker: {
+                        radius: 4,
+                        lineColor: '#913228',
+                        lineWidth: 1,
+                        states: {
+                            hover: {
+                                radiusPlus: 5
+                            }
+                        }
+
+                    },
+                    cursor: 'pointer',
+                    dataLabels: {
+                        enabled: true,
+                        formatter: function () {
+                            return this.point.name;
+                        }
+                    },
+                    point: {
+                        events: {
+                            click: function () {
+                                if (!document.getElementById("tooltipModal<%= user_category.id %>")) {
+                                    $('body').append('<%= escape_javascript(render :partial => 'roadmap/roadmap_modal', locals: {user_category: user_category}) %>')
+                                }
+                                $('#tooltipModal<%= user_category.id %>').modal();
+                                $("#tooltipModalLabel<%= user_category.id %>").text('<%= user_category.category.category_name%>');
+                                var id = this.level_order;
+                                id = parseInt(id) -1 ;
+                                $('#modalCarousel<%= user_category.id %>').carousel(id);
+                            }
+                        }
+                    }
+                }
+            },
+            series: [{
+                name: '<%=user_category.category.category_name%>',
+                marker: {
+                    symbol: 'square'
+                },
+                data: data,
+                lineWidth: 1
+            }],
+//            navigation: {
+//                buttonOptions: {
+//                    theme: {
+//                        style: {
+//                            color: '#ffffff'
+//                        }
+//                    }
+//                }
+//            },
+            exporting: {
+                buttons: {
+                    contextButton: {
+                        enabled: false
+                    },
+//                    updatebutton: {
+//                        enabled: true,
+//                        verticalAlign: 'bottom',
+//                        symbolSize: 40,
+//                        theme: {
+//                            fill: '#913228',
+//                            states: {
+//                                hover: {
+//                                    stroke: '#913228',
+//                                    fill: '#B25050'
+//                                }
+//                            }
+//                        },
+//                        x: -70,
+//                        onclick: function () {
+//                            $('#roadmapModal<%= user_category.id %>').modal();
+//                            $("#roadmapModalLabel<%= user_category.id %>").text('<%= t('roadmap.btn_edit')%>: <%= user_category.category.category_name%>');
+//                        },
+//                        text: '<%= t('roadmap.btn_edit')%>'
+//                    },
+                    deletebutton: {
+                        enabled: true,
+//                        verticalAlign: 'bottom',
+                        theme: {
+                            fill: '#FFFFFF',
+                            states: {
+                                hover: {
+                                    stroke: '#FFFFFF',
+                                    fill: '#FFFFFF'
+                                }
+                            },
+                            style: { cursor: 'pointer' }
+                        },
+                        x: 13,
+                        y: -14,
+                        onclick: function () {
+                            processDeleteroadmap();
+                        },
+//                        text: 'X',
+                        symbol: 'url(<%= asset_path("assets/close_delete.png") %>)'
+                    }
+                }
+            }
+        };
+        chart = new Highcharts.Chart(options);
+
+
+        $("#form-update-roadmap<%= user_category.id %>").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "level_id": {required: true}
+
+            },
+            messages: {
+                "level_id": {required: I18n.t('roadmap.msg_level_required')}
+            }
+        });
+
+        function processDeleteroadmap() {
+            var title = 'Delete';
+            var title_confirm = '<%= t('roadmap.title_confirm_delete')%>';
+            var title_msg_confirm = '<%= t('roadmap.msg_confirm_delete')%>';
+            var title_button_ok = 'Ok';
+            var title_button_cancel = "<%= t('roadmap.btn_cancel')%>";
+
+            BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel, title_msg_confirm, function (result) {
+                $.loader.open({size: 32});
+                if (result) {
+                    $.ajax({
+                        type: "POST",
+                        url: '/roadmap/delete',
+                        data: {
+                            roadmap_id: "<%= user_category.id%>"
+                        },
+                        dataType: "script",
+                        beforeSend: function (xhr) {
+                            $.loader.open({size: 32});
+//                              $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+                        },
+                        success: function () {
+                            $("#roadmap-id<%= user_category.category.id %>").remove();
+                            $('#roadmap-error<%= user_category.id %>').html(' ')
+                            $.loader.close();
+
+                        },
+                        error: function (xhr, status, response) {
+                            console.log("AJAX Error: " + status)
+                            $.loader.close(true);
+                        }
+                    });
+                } else {
+                    $.loader.close(true);
+                }
+            });
+        };
+
+
+
+//        });
+        /* activate the carousel */
+
+
+    });
+
+</script>

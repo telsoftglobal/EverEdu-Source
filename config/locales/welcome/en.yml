@@ -1,0 +1,50 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  welcome:
+    title_welcome: "Welcome to EverEdu"
+    title_mentor: "Mentor"
+    lb_mentor1: "You can manage you course"
+    lb_mentor2: "Share your tip"
+    lb_mentor3: "Chat with your student"
+    lb_mentor4: "Introduce your book"
+
+    title_student: "Student"
+    lb_student1: "You can join course you interested"
+    lb_student2: "Chat with your Mentor"
+    lb_student3: "See your road map"
+    lb_student4: "Become to mentor"
+
+    title_roadmap: "See your roadmap"
+    title_schedule: "Manage you schedule"
+    title_reminder: "Your reminder"
+
+    title_job: "Who are you ?"
+    lb_job1: "Developer"
+    lb_job2: "Worker"
+    lb_job3: "Doctor"
+    lb_job4: "Teacher"
+    lb_job5: "Or any one... !"
+
+    title_letstart: "Let's Start !"
+
+    lb_skip: "skip"

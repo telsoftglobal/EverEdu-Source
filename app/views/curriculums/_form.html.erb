@@ -1,0 +1,1916 @@
+<style type="text/css">
+    .widget-head ul{
+        width: 100%;
+    }
+    .widget-head ul li{
+        width: 25%;
+    }
+
+    @media (max-width:990px){
+        .widget-head ul li{
+            width: 100%;
+        }
+        /*#selectCategory{*/
+            /*width: 80%;*/
+            /*float:left;*/
+        /*}*/
+        /*#divaddCategory {*/
+            /*width: 20%;*/
+            /*float:right;*/
+        /*}*/
+        /*#divaddCategory button{*/
+            /*width: 100%;*/
+        /*}*/
+    }
+    .widget-head ul li:last-child{
+        border-radius: 0px 5px 0px 0px;
+    }
+    .widget .widget-head{
+        padding:0;
+    }
+
+    .commandButtonAction button{
+        display: none;
+    }
+    #curriculumStep ul li a {
+        cursor: default;
+    }
+    .widget{
+        margin: 0;
+    }
+    /*#msg_error{*/
+        /*display:none;*/
+    /*}*/
+    .helpStep2, .helpStep3, .helpStep4{
+
+        <% if !@curriculum.materials[0].nil? and !@curriculum.materials[0].state.eql?'new' %>
+            display:none;
+        <% end %>
+    }
+    div.warning{
+        /*background-color: #913228;*/
+        font-size: 13px;
+    }
+    .aes-border-bottom{
+        border-color: #FFF;
+    }
+
+</style>
+
+<!-- Form Wizard / Widget Tabs / Double Style -->
+<div class="wizard">
+<div class="widget widget-tabs widget-tabs-double widget-tabs-responsive" style="border-radius: 5px">
+
+<!-- Widget heading -->
+<div id="curriculumStep" class="widget-head">
+  <ul>
+    <li class="active" ><a href="#tab1-2" class="glyphicons pencil" data-toggle="tab"><i></i><span class="strong"><%= t('curriculum.title_step')%>1</span><span><%= t('curriculum.title_enter_curriculum')%></span></a></li>
+    <li><a href="#tab2-2" class="glyphicons book_open" data-toggle="tab"><i></i><span class="strong"><%= t('curriculum.title_step')%>2</span><span><%= t('material.title_material')%></span></a></li>
+    <li><a href="#tab3-2" class="glyphicons log_book" data-toggle="tab"><i></i><span class="strong"><%= t('curriculum.title_step')%>3</span><span><%= t('action.title_action')%></span></a></li>
+    <li><a href="#tab4-2" class="glyphicons circle_ok" data-toggle="tab"><i></i><span class="strong"><%= t('curriculum.title_step')%>4</span><span><%= t('confirm.title_confirm')%></span></a></li>
+  </ul>
+</div>
+<!-- // Widget heading END -->
+
+<div class="widget-body">
+<%= form_for @curriculum, html: {id: 'curriculum_form', role: 'form', role:'form',class:'form-horizontal'} do |f| %>
+    <div class="tab-content">
+
+    <!-- Step 1 -->
+    <div class="tab-pane active" id="tab1-2">
+      <div class="widget ">
+        <div class="widget-body">
+          <div class="innerLR" style="min-height: 330px;">
+            <!--#Name -->
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="curriculum[curriculum_name]"><%= t('curriculum.lb_curriculum_name') %><span class="requiredfield">*</span></label>
+              <div class="col-md-10">
+                <%= f.hidden_field :id, class: "form-control"%>
+                <%= f.text_field :curriculum_name, class: "form-control requiredfield100", placeholder: t('curriculum.lb_curriculum_name'),maxlength:100,autofocus:"autofocus" %>
+              </div>
+            </div>
+            <!--#Name -->
+            <!--#summary -->
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="curriculum[summary]"><%= t('curriculum.lb_summary') %><span class="requiredfield">*</span></label>
+              <div class="col-md-10">
+                <%= f.text_area :summary, class: "form-control requiredfield200", placeholder: t('curriculum.lb_summary'),rows:2, maxlength: 200%>
+              </div>
+            </div>
+            <!--#summary -->
+            <!--#description -->
+            <div class="form-group">
+              <label class="col-md-2 control-label" for="curriculum[description]"><%= t('curriculum.lb_description') %></label>
+              <div class="col-md-10">
+                <%= f.text_area :description, class: "form-control summernote summernoteGeneral" , placeholder: t('curriculum.lb_description'),rows:8%>
+              </div>
+            </div>
+            <!--#description -->
+        </div>
+      </div>
+      </div>
+    </div>
+    <!-- // Step 1 END -->
+
+    <!-- Step 2 -->
+    <div class="tab-pane" id="tab2-2">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="widget ">
+            <div class="widget-body" style="padding-left:0; padding-right:0">
+              <div class="">
+                  <div class="ztreeMaterialBackground left">
+                    <ul id="treeMaterial" class="ztree"></ul>
+                  </div>
+              </div>
+              <div class="innerLR warning helpStep2">
+                <ul style="list-style:none; padding-left: 0px;">
+                  <li class="aes-border-bottom"><strong><%= t('material.help.title') %></strong></li>
+                  <li><strong><%= t('material.help.step1') %></strong></li>
+                  <li><%= t('material.help.step1-1') %></li>
+                  <li><%= t('material.help.step1-2') %></li>
+                  <li><%= t('material.help.note') %></li>
+                  <li><strong><%= t('material.help.step2') %></strong></li>
+                  <li><%= t('material.help.step2-1') %><%= image_tag "help/curriculum/material/AddMaterial.png" %> / <%= image_tag "help/curriculum/material/AddMaterial2.png" %></li>
+                  <li><%= t('material.help.step2-2') %><%= image_tag "help/curriculum/material/Add.png" %></li>
+                  <li><%= t('material.help.step2-3') %></li>
+                  <li><strong><%= t('material.help.step3a') %><%= image_tag "help/curriculum/material/Edit.png" %> / <%= t('material.help.step3b') %> <%= image_tag "help/curriculum/material/Delete.png" %> <%= t('material.help.step3c') %></strong></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-9">
+          <div class="widget ">
+            <div class="widget-body">
+              <div  id="panelmaterial" class="innerLR">
+                <% if @curriculum %>
+                    <% @curriculum.materials.each do |material| %>
+                      <div class="material" id="material<%=material.id%>" style="display:none" >
+                        <input name=curriculum[materials_attributes][<%=material.id%>][parent_id] value="<%= (material.parent_id)? material.parent_id : 1 %>" type=hidden>
+                        <input name=curriculum[materials_attributes][<%=material.id%>][material_id] value="<%=material.id%>" type=hidden>
+                        <input name=curriculum[materials_attributes][<%=material.id%>][state] class="state" value="<%=material.state%>" type=hidden>
+                        <div class="form-group" >
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_name]" class="col-md-2 control-label"><%= t('material.lb_material_name') %><span class="requiredfield">*</span></label>
+                          <div class="col-md-10">
+                            <%= text_field "curriculum[materials_attributes]["+material.id+"]","material_name",value: material.material_name ,class: "form-control requiredfield100" ,placeholder:t('material.lb_material_name'),maxlength:100%>
+                          </div>
+                        </div>
+                        <div class="form-group" >
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_type_id]" class="col-md-2 control-label"><%= t('material.lb_type') %><span class="requiredfield">*</span></label>
+                          <div class="col-md-10">
+                            <%= select_tag "curriculum[materials_attributes]["+material.id+"][material_type_id]", options_from_collection_for_select(MaterialType.all, "id", "material_type_name",material.material_type.id),{ class: 'selectpicker form-control' } %>
+                          </div>
+                        </div>
+                        <div class="form-group" >
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_url]" class="col-md-2 control-label"><%= t('material.lb_url') %></label>
+                          <div class="col-md-10">
+                            <%= text_field "curriculum[materials_attributes]["+material.id+"]","material_url",value: material.material_url,class: "form-control urlformat" , maxlength:500, placeholder:t('material.lb_url')%>
+                          </div>
+                        </div>
+                        <div class="form-group">
+                          <label for="curriculum[materials_attributes][<%=material.id%>][description]" class="col-md-2 control-label"><%= t('material.lb_description') %></label>
+                          <div class="col-md-10">
+                            <%= text_area "curriculum[materials_attributes]["+material.id+"]","description",value: material.description , class: 'form-control summernote summernoteMaterial' , placeholder: t('material.lb_description'), rows:5%>
+                          </div>
+                        </div>
+                      </div>
+                    <% end %>
+                <% end %>
+
+                <div class="innerLR warning helpStep2">
+                  <strong><%= t('tip.titleTip') %></strong>
+                  <p class="muted"><%= t('material.help.tip1')%></p>
+                  <p class="muted"><%= t('material.help.tip2')%></p>
+                  <p class="muted"><%= t('material.help.tipend')%></p>
+                </div>
+
+              </div>
+              <div class="form-actions commandButtonMaterial" style="display: none;">
+                <div class="innerLR form-group" style="margin-bottom: 0px;" >
+                  <label  class="col-md-2 control-label"> </label>
+                  <div class="col-md-10" style=" height:34px;">
+                    <button type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
+                    <button type="button" class="btn btn-default buttonCancel"><i class="fa fa-times"></i> <%= t('button.btn_cancel') %></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!--<div class="row">-->
+        <!--<div class="col-md-3">-->
+        <!--</div>-->
+        <!--<div class="col-md-9">-->
+          <!--<div class="widget commandButtonMaterial" style="border: none;">-->
+            <!--<div class="widget-body" style="min-height: 100%">-->
+
+            <!--</div>-->
+          <!--</div>-->
+        <!--</div>-->
+      <!--</div>-->
+    </div>
+    <!-- // Step 2 END -->
+
+    <!-- Step 3 -->
+    <div class="tab-pane" id="tab3-2">
+      <div class="row">
+        <div class="col-md-3">
+          <div class="widget ">
+            <div class="widget-body" style="padding-left:0; padding-right:0" >
+              <div class="">
+                  <div class="ztreeMaterialBackground left">
+                    <ul id="treeAction" class="ztree"></ul>
+                  </div>
+              </div>
+              <!--//Todo Show on Create-->
+              <div class="innerLR warning helpStep3">
+                <ul style="list-style:none; padding-left: 0px;">
+                  <li class="aes-border-bottom"><strong><%= t('action.help.title') %></strong></li>
+                  <li><%= t('action.help.step2') %></li>
+                  <li><%= t('action.help.step2-1') %><%= image_tag "help/curriculum/material/AddAction.png" %></li>
+                  <li><%= t('action.help.step2-2') %><%= image_tag "help/curriculum/material/Add.png" %></li>
+                  <li><%= t('action.help.step2-3') %></li>
+                  <li><%= t('action.help.step1') %></li>
+                  <li><%= t('action.help.step1-1') %></li>
+                  <li><%= t('action.help.step1-2') %></li>
+                  <li><%= t('action.help.note') %></li>
+                  <li><%= t('action.help.step3a') %><%= image_tag "help/curriculum/material/Edit.png" %> / <%= t('action.help.step3b') %> <%= image_tag "help/curriculum/material/Delete.png" %> <%= t('action.help.step3c') %></li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-md-9">
+          <div class="widget ">
+            <div class="widget-body">
+              <div id="panelaction" class="innerLR">
+
+                <% if @curriculum %>
+                    <% @curriculum.actions.each do |action| %>
+                    <div class="action" id="action<%= action.id %>" style="display: none;" >
+                      <input name="curriculum[actions_attributes][<%=action.id%>][action_id]" value="<%=action.id%>" type="hidden">
+                      <input name="curriculum[actions_attributes][<%=action.id%>][state]" class="state" value="<%=action.state%>" type="hidden">
+                      <div class="form-group" >
+                        <label for="curriculum[actions_attributes][<%= action.id %>][action_name]" class="col-md-2 control-label"><%= t('action.lb_action_name') %><span class="requiredfield">*</span></label>
+                       <div class="col-md-10">
+                         <%= text_field "curriculum[actions_attributes]["+action.id+"]","action_name",value: action.action_name ,class: "form-control requiredfield100" ,placeholder:t('action.lb_action_name'),maxlength:100%>
+                       </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="curriculum[actions_attributes][+actionID+][description]" class="col-md-2 control-label"><%= t('action.lb_description') %></label>
+                        <div class="col-md-10">
+                          <%= text_area "curriculum[actions_attributes]["+action.id+"]","description",value: action.description , class: 'form-control summernote summernoteAction' , placeholder: t('action.lb_description'),rows:10 %>
+                        </div>
+                      </div>
+                    </div>
+                    <% end %>
+                <% end %>
+              </div>
+
+              <div class="innerLR warning helpStep3">
+                <strong><%= t('tip.titleTip') %></strong>
+                <p class="muted"><%= t('action.help.tip1')%></p>
+                <p class="muted"><%= t('action.help.tip2')%></p>
+                <p class="muted"><%= t('action.help.tipend')%></p>
+              </div>
+
+              <div class="form-actions commandButtonAction" style="display: none;">
+                <div class="innerLR form-group"  style="margin-bottom: 0px;" >
+                  <label  class="col-md-2 control-label"> </label>
+                  <div class="col-md-10" style=" height:34px;">
+                    <button type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
+                    <button type="button" class="btn btn-default buttonCancel"><i class="fa fa-times"></i> <%= t('button.btn_cancel') %></button>
+                  </div>
+                </div>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <!-- // Step 3 END -->
+
+    <!-- Step 4 -->
+    <div class="tab-pane" id="tab4-2">
+      <div class="row">
+        <div class="col-md-4">
+          <!--#category -->
+          <div class="widget">
+            <div class="widget-body" style="padding-top: 0px;" >
+              <div class="form-group innerAll" style="margin-bottom: 0px;" >
+                <div class="col-md-8" id="selectCategory" style="margin-bottom:5px;">
+
+
+                  <%= select_tag "listCategories", options_from_collection_for_select(Category.get_all_categories, "id", "category_name"),{ class: 'selectpicker form-control' } %>
+                </div>
+                <div class="col-md-4" id="divaddCategory">
+                  <button id="addCategory" type="button" style="width: 100%;" class="btn btn-primary"><i class="fa fa-check-circle"></i> <%= t('button.btn_add') %></button>
+                </div>
+              </div>
+              <div class="innerLR warning helpStep4">
+                <ul style="list-style:none; padding-left: 0px;">
+                <li class="aes-border-bottom"><strong><%= t('category.help.title') %></strong></li>
+                <li><%= t('category.help.step1') %></li>
+                <li><%= t('category.help.step2') %></li>
+                <li><%= t('category.help.step3') %></li>
+                </ul>
+              </div>
+              <div id="category" class="form-group innerAll" style="margin-left: -10px; margin-right: -10px;margin-bottom: 0px;" >
+                <!--#category -->
+                <select id="cateSelect" name="foods" class="form-control" data-selectr-opts='{ "title": "Category", "placeholder": "Search category"}' multiple>
+                  <% if @curriculum %>
+                      <% @curriculum.curriculum_categories.each do |listcategory| %>
+
+                        <option id="<%= listcategory.category.id%>" data-selectr-color="#913228" value="<%= listcategory.category.id%>"><%= listcategory.category.category_name%></option>
+
+                      <% end %>
+                  <% end %>
+                </select>
+
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+        <div class="col-md-8">
+          <div class="widget">
+            <!-- Widget heading -->
+            <div class="widget-head">
+              <h4 id="categoryheader" class="heading"></h4>
+              <div id="checkAll" style="display: none;">
+                <a class="selectAll"  href="javascript:;"><%= t('category.title_selectAll') %></a> /
+                <a class="unSelectAll" href="javascript:;"><%= t('category.title_unselectAll') %></a>
+              </div>
+            </div>
+            <!-- // Widget heading END -->
+            <div class="widget-body" id="panellevel" style="min-height: 335px;" >
+
+              <div class="innerLR warning helpStep4">
+                <ul style="list-style:none; padding-left: 0px;">
+                  <li class="aes-border-bottom"><strong><%= t('category.help.title') %></strong></li>
+                  <li><%= t('category.help.tip1') %></li>
+                  <li><%= t('category.help.tip2') %></li>
+                  <li><%= t('category.help.tip3') %></li>
+                  <li style="margin-bottom: 35px">
+                    <div class="col-md-6"><%= image_tag "help/curriculum/categories/check.png" %></div>
+                    <div class="col-md-6"><%= image_tag "help/curriculum/categories/uncheck.png" %></div>
+                  </li>
+                  <li><%= t('category.help.note') %></li>
+                </ul>
+
+              </div>
+
+              <% if @curriculum %>
+                  <% @curriculum.curriculum_categories.each do |category| %>
+                  <div class="row checkboxCategories" id="panellevel<%=category.category_id%>" style="display:none;">
+
+                    <% Category.find_by(id:category.category_id).levels.each do |alllevel| %>
+
+                    <%
+                    @check=false
+                    category.levels.each do |levelselected|
+                        if levelselected.eql?alllevel
+                          @check=true
+                          break
+                        end
+                    end
+                    %>
+                    <div class="col-md-6">
+                      <div class="checkbox">
+                        <label class="checkbox-custom">
+                          <input type="checkbox" name="curriculum[curriculum_categories_attributes][<%= category.category_id %>][level_ids][<%= alllevel.id %>]" value="<%= alllevel.id%>" <%= @check? 'checked':'' %>>
+                          <i class="fa fa-fw fa-square-o"></i><%= alllevel.level_name%>
+                        </label>
+                      </div>
+                    </div>
+                    <% end %>
+                    </div>
+                  <% end %>
+              <% end %>
+
+            </div>
+          </div>
+          <!--<div class="make-switch" data-on="default" data-off="success">-->
+          <!--<input type="checkbox" checked>-->
+          <!--</div>-->
+          <!--<div class="separator"></div>-->
+        </div>
+      </div>
+    </div>
+    <!-- // Step 4 END -->
+
+    </div>
+    <!-- Wizard pagination controls -->
+    <ul class="pagination pager margin-bottom-none" style="display: block; min-height: 32px">
+      <li class="primary previous"><a href="#" class="no-ajaxify"><i class="fa fa-arrow-left"></i></a></li>
+      <li class="next primary"><a href="#" class="no-ajaxify"><i class="fa fa-arrow-right"></i></a></li>
+      <li class="next finish primary" style="display:none;"><a href="#" class="no-ajaxify"><%= t('shared.lb_finish')%></a></li>
+    </ul>
+    <!-- // Wizard pagination controls END -->
+<% end %>
+<input type="hidden" id="selectNodeAction" />
+<input type="hidden" id="selectNodeIDMaterial" />
+<input type="hidden" id="actionNameTemp" />
+<input type="hidden" id="actionDescriptionTemp"/>
+<input type="hidden" id="materialNameTemp" />
+<input type="hidden" id="materialDescriptionTemp"/>
+<input type="hidden" id="materialUrlTemp"/>
+<input type="hidden" id="materialTypeTemp"/>
+
+
+</div>
+</div>
+<!-- // Form Wizard / Widget Tabs / Double Style END -->
+</div>
+<script>
+    function calCharlength(){
+        var width =  $(window).width();
+        var charlength = 15;
+        if(width<=320) {
+            charlength = 12;
+        }else if(width>360 && width<=430) {
+            charlength = 18;
+        }else if(width>430 && width<=530){
+            charlength = 23;
+        }else if(width>530 && width<=630){
+            charlength = 33;
+        }else if(width>630 && width<=730) {
+            charlength = 43;
+        }else if(width>730 && width<=830) {
+            charlength = 53;
+        }else if(width>830 && width<=930) {
+            charlength = 61;
+        }else if(width>930 && width<=991) {
+            charlength = 68;
+        }else if(width>991 && width<=1000) {
+            charlength = 6;
+        }else if(width>1000 && width<=1100) {
+            charlength = 8;
+        }else if(width>1100 && width<=1200) {
+            charlength = 10;
+        }else if(width>1200 && width<=1300) {
+            charlength = 12;
+        }
+        return charlength;
+    }
+    function CleanPastedHTML(input) {
+        // 1. remove line breaks / Mso classes
+        var stringStripper = /(\n|\r| class=(")?Mso[a-zA-Z]+(")?)/g;
+        var output = input.replace(stringStripper, ' ');
+        // 2. strip Word generated HTML comments
+        var commentSripper = new RegExp('<!--(.*?)-->','g');
+        var output = output.replace(commentSripper, '');
+        var tagStripper = new RegExp('<(/)*(meta|link|span|\\?xml:|st1:|o:|font)(.*?)>','gi');
+        // 3. remove tags leave content if any
+        output = output.replace(tagStripper, '');
+        // 4. Remove everything in between and including tags '<style(.)style(.)>'
+        var badTags = ['style', 'script','applet','embed','noframes','noscript'];
+
+        for (var i=0; i< badTags.length; i++) {
+            tagStripper = new RegExp('<'+badTags[i]+'.*?'+badTags[i]+'(.*?)>', 'gi');
+            output = output.replace(tagStripper, '');
+        }
+        // 5. remove attributes ' style="..."'
+        var badAttributes = ['style', 'start'];
+        for (var i=0; i< badAttributes.length; i++) {
+            var attributeStripper = new RegExp(' ' + badAttributes[i] + '="(.*?)"','gi');
+            output = output.replace(attributeStripper, '');
+        }
+        return output;
+    }
+</script>
+<SCRIPT type="text/javascript">
+    var materialSetting = {
+        view: {
+            addHoverDom: materialaddHoverDom,
+            removeHoverDom: materialremoveHoverDom,
+            selectedMulti: false,
+            showTitle:true
+        },
+        edit: {
+            drag:false,
+            enable: true,
+            showRemoveBtn: false,
+            showRenameBtn:false,
+            removeTitle : "<%= t('material.btn_deletematerial') %>"
+        },
+        data: {
+            simpleData: {
+                enable: true
+            },
+            key:{
+                title:"fullName"
+            }
+        },
+        callback: {
+            onClick: materialonClick,
+            beforeRemove:beforematerialRemove,
+            onRemove: onmaterialRemove
+        }
+    };
+    var materialNodes =[
+        { id:1, pId:0, name:"<%= t('material.title_material')%>", fullName: "<%= t('curriculum.curriculum') %>" ,open:true,icon:"<%= asset_path "template/ztree/img/diy/1_open.png" %>", iconOpen:"<%= asset_path "template/ztree/img/diy/1_open.png" %>", iconClose:"<%= asset_path "template/ztree/img/diy/1_open.png"%>"},
+        <% if @curriculum %>
+            <% @curriculum.materials.each do |material| %>
+
+                <% if @curriculum.materials.last !=material %>
+                    { id:"<%= material.id %>", pId:"<%= (material.parent_id)? material.parent_id : 1 %>",fullName:"<%= material.material_name %>", name:"<%= (material.material_name.length>14)? material.material_name.to(14)+"...":material.material_name %>", open:true,icon:"<%= asset_path "template/ztree/img/diy/9.png" %>"},
+                <% else %>
+                    { id:"<%= material.id %>", pId:"<%= (material.parent_id)? material.parent_id : 1 %>",fullName:"<%= material.material_name %>", name:"<%= (material.material_name.length>14)? material.material_name.to(14)+"...":material.material_name %>", open:true,icon:"<%= asset_path "template/ztree/img/diy/9.png" %>"}
+                <% end %>
+            <% end %>
+        <% end %>
+    ];
+    var newmaterialCount = 2;
+    function materialaddHoverDom(treeId, treeNode) {
+        var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+
+        if($(".commandButtonMaterial").css("display")!="none"){
+            return;
+        }
+        var sObj = $("#" + treeNode.tId + "_span");
+        if(treeNode.pId  && treeNode.level>=1 && treeNode.level<=3){
+
+            if ($("#materialBtnEdit_"+treeNode.id).length>0) return;
+            var editStr = "<span id='materialBtnEdit_space_" +treeNode.id+ "' >&nbsp;</span><span class='button iconedit' id='materialBtnEdit_" +treeNode.id+ "' title='<%= t('material.btn_editmaterial') %>' onfocus='this.blur();'></span>";
+            sObj.append(editStr);
+            var btn = $("#materialBtnEdit_"+treeNode.id);
+            if (btn) btn.bind("click", function(){
+                //new 18-11-2014
+                setSelectNodeIDMaterial(treeNode.id);
+                $("#materialNameTemp").val($("#material"+treeNode.id).find("input.requiredfield100").val());
+                $("#materialDescriptionTemp").val(CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].getData());
+                $("#materialUrlTemp").val($("#material"+treeNode.id).find("input.urlformat").val());
+                $("#materialTypeTemp").val($("#material"+treeNode.id).find("button.selectpicker").attr("title"));
+                $("#panelmaterial div.material").hide();
+                $("#material"+treeNode.id).show();
+                $("#"+treeNode.tId+"_a").css("background-color", "#D6FFB0").css("border","1px solid #B1FF51");
+                $("#material"+treeNode.id).find("input.requiredfield100").focus();
+                enableSave();
+                enableInput();
+                disableNavigator();
+            });
+
+            if ($("#materialBtnDelete_"+treeNode.id).length>0) return;
+
+            if(($("#material"+treeNode.id).find("input.state").val()!="update" && $(".commandButtonMaterial").css("display")=="none")){
+                var editStr = "<span id='materialBtnDelete_space_" +treeNode.id+ "' >&nbsp;</span><span class='button icondelete' id='materialBtnDelete_" +treeNode.id+ "' title='<%= t('material.btn_deletematerial') %>'></span>";
+                sObj.append(editStr);
+                var btn = $("#materialBtnDelete_"+treeNode.id);
+                if (btn) btn.bind("click", function(e){
+                    beforematerialRemove(treeId, treeNode);
+                });
+            }
+
+        }
+        if (treeNode.pId  && treeNode.level>=2) return;
+
+
+        if (treeNode.editNameFlag || $("#addBtnmaterial_"+treeNode.tId).length>0) return;
+        var addStr = "<span class='button add' id='addBtnmaterial_" + treeNode.tId
+                + "' title='<%= t('material.btn_addmaterial') %>' onfocus='this.blur();'></span>";
+        if($("#materialBtnEdit_space_"+treeNode.id).length!=0) {
+            $("#materialBtnEdit_space_"+treeNode.id).before(addStr);
+        }else{
+            sObj.after(addStr);
+        }
+        var btn = $("#addBtnmaterial_"+treeNode.tId);
+        if (btn) btn.bind("click", function(){
+            $.loader.open({size:32});
+            $(this).hide();
+            checkValidate();
+            var zTree = $.fn.zTree.getZTreeObj("treeMaterial");
+            var newid=100 + newmaterialCount;
+            zTree.addNodes(treeNode, {id:(newid), pId:treeNode.id,fullName:"<%= t('material.title_new_material') %>", name:"<%= t('material.title_new_material')%>",icon:"<%= asset_path "template/ztree//img/diy/9.png" %>"});
+
+            //new 18-11-2014
+
+            $("#materialNameTemp").val("");
+            $("#materialDescriptionTemp").val("");
+            $("#materialUrlTemp").val("");
+            $("#materialTypeTemp").val("");
+            $("#panelmaterial div.material").hide();
+            addmaterial(newid,"<%= t('material.title_material')%>",treeNode.id);
+            newmaterialCount++;
+            $("#material"+newid).find("input.requiredfield100").focus();
+
+            //new
+
+
+
+            zTree.cancelSelectedNode();
+            var newnode = treeObj.getNodeByParam("id", newid);
+            $("#"+newnode.tId+"_a").css("background-color", "#D6FFB0").css("border","1px solid #B1FF51");
+//            if($("#panelmaterial div.material").length==0){
+//                $(".helpStep2").show();
+//            }else{
+                $(".helpStep2").hide();
+//            }
+
+//            enableSave();
+////            enableInput();
+//            disableNavigator();
+            $.loader.close(true);
+            return false;
+        });
+    };
+    function beforematerialRemove(treeId, treeNode) {
+        $.loader.open({size:32});
+        var zTree = $.fn.zTree.getZTreeObj("treeMaterial");
+        zTree.selectNode(treeNode);
+        var $valid = $("#curriculum_form").valid();
+        if(!$valid) {
+            return false;
+        }
+        if(treeNode.isParent){
+            $.gritter.add({
+                title: '<%= t('system.system_message')%>',
+                text: '<%= t('material.msg_cant_delete_parent')%>',
+                before_open: function(){
+                    if($('.gritter-item-wrapper').length >=1)
+                    {
+                        return false;
+                    }
+                }
+            });
+            $.loader.close(true);
+            return false;
+        }
+//        var nodes = zTree.getNodes()[0].children;
+//        if(nodes.length==1){
+//            if(!nodes[0].isParent){
+//                $.gritter.add({
+//                    title: '<%= t('system.system_message')%>',
+//                    text: '<%= t('material.msg_atleast_material')%>',
+//                    before_open: function(){
+//                        if($('.gritter-item-wrapper').length >=1)
+//                        {
+//                            return false;
+//                        }
+//                    }
+//                });
+//                $.loader.close(true);
+//                return false;
+//            }
+//        }
+        //return confirm("<%= t('material.msg_confirm_delete') %>");
+
+        BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('material.msg_confirm_delete')%>', function(result){
+//        var result = confirm("<%= t('material.msg_confirm_delete') %>");
+            if(result){
+                onmaterialRemove(treeId, treeNode)
+            }
+            $.loader.close(true);
+        });
+    }
+    function onmaterialRemove(treeId, treeNode) {
+        var nodeparent = treeNode.getParentNode();
+        if(nodeparent!=null){
+            setSelectNodeIDMaterial(nodeparent.id);
+        }else{
+            setSelectNodeIDMaterial('');
+        }
+        var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+        treeObj.removeNode(treeNode);
+        $("#material"+treeNode.id).remove();
+        showfirstMaterial();
+    }
+    function materialremoveHoverDom(treeId, treeNode) {
+        $("#materialBtnEdit_"+treeNode.id).unbind().remove();
+        $("#materialBtnEdit_space_" +treeNode.id).unbind().remove();
+        $("#materialBtnDelete_"+treeNode.id).unbind().remove();
+        $("#materialBtnDelete_space_" +treeNode.id).unbind().remove();
+
+        $("#addBtnmaterial_"+treeNode.tId).unbind().remove();
+
+    };
+    function materialonClick(event, treeId, treeNode, clickFlag) {
+        if($(".commandButtonMaterial").css("display")!="none"){
+            var zTree = $.fn.zTree.getZTreeObj("treeMaterial");
+
+            zTree.cancelSelectedNode();
+            return;
+        }
+        if(!(treeNode.pId)){return;}
+        setSelectNodeIDMaterial(treeNode.id);
+        $("#panelmaterial div.material").hide();
+        $("#material"+treeNode.id).show();
+        CKEDITOR.instances["curriculum_materials_attributes_"+treeNode.id+"_description"].setReadOnly(true);
+    }
+    $(document).ready(function(){
+        $.fn.zTree.init($("#treeMaterial"), materialSetting, materialNodes);
+        $(".commandButtonMaterial button.buttonSave").click(function(){
+
+            CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].updateElement();
+            $("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").html(CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].getData());
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+//            if($("#material"+getselectNodeIDMaterial()).find("input.state").val()!="update"){
+//                $("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").text($("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").ckeditorGet().getData());
+//            }
+            var $valid = $("#curriculum_form").valid();
+            if(!$valid)return;
+            var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+            var node = treeObj.getNodeByParam("id", getselectNodeIDMaterial());
+            var materialname = $("#material"+getselectNodeIDMaterial()).find("input.requiredfield100").val();
+
+            var charlength = calCharlength();
+            node.fullName = materialname;
+            if(materialname.length>charlength){
+                materialname = materialname.substr(0,charlength)+"...";
+            }
+            node.name=materialname;
+            treeObj.updateNode(node);
+
+            $("#"+node.tId+"_a").css("background-color", "").css("border","");
+            treeObj.selectNode(node);
+
+            disableSave()
+            disableInput();
+            enableNavigator();
+
+        });
+
+        $(".commandButtonMaterial button.buttonCancel").click(function(){
+            var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+            $("#material"+getselectNodeIDMaterial()).find("input.requiredfield100").val($("#materialNameTemp").val())
+//            $("#material"+getselectNodeIDMaterial()).find("div.note-editable").html($("#materialDescriptionTemp").val());
+//            $("#material"+getselectNodeIDMaterial()).find("textarea.summernoteMaterial").html($("#materialDescriptionTemp").val());
+
+
+            CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].setData($("#materialDescriptionTemp").val());
+            CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].updateElement();
+            $("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").html($("#materialDescriptionTemp").val());
+
+            $("#material"+getselectNodeIDMaterial()).find("input.urlformat").val($("#materialUrlTemp").val())
+            if($("#materialTypeTemp").val()!=''){
+                $("#material"+getselectNodeIDMaterial()).find("span.filter-option").html($("#materialTypeTemp").val());
+            }
+            var node = treeObj.getNodeByParam("id", getselectNodeIDMaterial());
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+            var $valid = $("#curriculum_form").valid();
+            if(!$valid){
+                removematerial(getselectNodeIDMaterial());
+
+            }else{
+                $("#"+node.tId+"_a").css("background-color", "").css("border","");
+                treeObj.selectNode(node);
+            }
+            disableSave();
+            disableInput();
+            enableNavigator();
+        });
+
+    });
+    function addmaterial(marterialID,materialName,materialParent){
+        var st = "<%= escape_javascript(render 'curriculums/materialType') %>";
+        var template = "      <div class=\"material\" id=\"material"+marterialID+"\" style=\"display:none\" >\n"
+                + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][parent_id]\" value=\""+materialParent+"\" type=\"hidden\">\n"
+                + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][material_id]\" value=\""+marterialID+"\" type=\"hidden\">\n"
+                + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][state]\" class=\"state\" value=\"new\" type=\"hidden\">\n"
+                + "        <div class=\"form-group\" >\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_name]\" class=\"col-md-2 control-label\"><%= t('material.lb_material_name') %><span class=\"requiredfield\">*</span></label>\n"
+                + "            <div class=\"col-md-10\">\n"
+                + "                <input class=\"form-control requiredfield100\" maxlength=\"100\" id=\"material_name_"+marterialID+"\" name=\"curriculum[materials_attributes]["+marterialID+"][material_name]\" placeholder=\""+materialName+"\" type=\"text\">\n"
+                + "            </div>\n"
+                + "        </div>\n"
+                + "            <div class=\"form-group\" >\n"
+                + "              <label for=\"curriculum[materials_attributes]["+marterialID+"][material_type_id]\" class=\"col-md-2 control-label\"><%= t('material.lb_type') %><span class=\"requiredfield\">*</span></label>\n"
+                + "              <div class=\"col-md-10\">\n"
+                + "                 <select class=\"selectpicker form-control\" id=\"curriculum_materials_attributes_"+marterialID+"_material_type_id\" name=\"curriculum[materials_attributes]["+marterialID+"][material_type_id]\">"
+                +                       st
+                + "                 </select>"
+                + "              </div>\n"
+                + "            </div>\n"
+                + "\n"
+                + "        <div class=\"form-group\" >\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_url]\" class=\"col-md-2 control-label\"><%= t('material.lb_url') %></label>\n"
+                + "            <div class=\"col-md-10\">\n"
+                + "                <input class=\"form-control urlformat\" id=\"material_url_"+marterialID+"\" name=\"curriculum[materials_attributes]["+marterialID+"][material_url]\" placeholder=\"<%= t('material.lb_url') %>\" maxlength=\"500\" type=\"text\">\n"
+                + "            </div>\n"
+                + "        </div>\n"
+                + "\n"
+                + "        <div class=\"form-group\" >\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][description]\" class=\"col-md-2 control-label\"><%= t('material.lb_description') %></label>\n"
+                + "            <div class=\"col-md-10\">\n"
+                + "                <textarea class=\"form-control summernote summernoteMaterial active\" id=\"curriculum_materials_attributes_"+marterialID+"_description\"  name=\"curriculum[materials_attributes]["+marterialID+"][description]\" placeholder=\"<%= t('material.lb_description')%>\" rows=\"5\"></textarea>\n"
+                + "            </div>\n"
+                + "        </div>\n"
+                + "      </div>";
+        $("#panelmaterial").append(template);
+//        disabled editor
+        setSelectNodeIDMaterial(marterialID);
+        reloadCkEditorMaterialEditor("curriculum_materials_attributes_"+marterialID+"_description");
+        $('.selectpicker').selectpicker({
+            noneSelectedText: '<%= t('category.title_select_category')%>',
+            size: 9
+        });
+        $("#material_name_"+marterialID).rules( "add", {
+            maxlength:100,
+            required: {
+                depends:function(){
+                    var text = $.trim($(this).val());
+                    text=text.replace(/\s+/g, ' ');
+                    $(this).val(text);
+                    return true;
+                }
+            }
+        });
+        $("#material_url_"+marterialID).rules( "add", {
+            url: {
+                depends:function(){
+                    var text = $.trim($(this).val());
+                    text=text.replace(/\s+/g, ' ');
+                    $(this).val(text);
+                    return true;
+                }
+            },
+            maxlength:500
+        });
+        $("#curriculum_materials_attributes_"+marterialID+"_description").rules( "add", {
+//            maxlength: 10000,
+            validSummernote: {
+                depends:function(){
+                    $(this).val($.trim($(this).val()));
+                    return true;
+                }
+            }
+        });
+
+    }
+    function removematerial(id){
+        var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+        var node = treeObj.getNodeByParam("id", id);
+        var nodeparent = node.getParentNode();
+        CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].destroy();
+        if(nodeparent!=null){
+            setSelectNodeIDMaterial(nodeparent.id);
+        }else{
+            setSelectNodeIDMaterial('');
+        }
+        treeObj.removeNode(node);
+
+        $("#material"+id).remove();
+        showfirstMaterial();
+        disableSave();
+        disableInput();
+        enableNavigator();
+
+    }
+    function showfirstMaterial(){
+        var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+        var node;
+
+        if(getselectNodeIDMaterial()!='' && getselectNodeIDMaterial()!='1'){
+            node = treeObj.getNodeByParam("id", getselectNodeIDMaterial());
+        }
+        if(node==null){
+            if(treeObj.getNodes()[0].isParent){
+                node = treeObj.getNodes()[0].children[0];
+            }else{
+                node = treeObj.getNodes()[0];
+                disableSave();
+            }
+        }
+
+        treeObj.selectNode(node);
+        setSelectNodeIDMaterial(node.id);
+        $(".material").hide();
+        $("#material"+node.id).show();
+//        if($("#material"+node.id).find("input.state").val()=="update"){
+//            disableSave();
+//            disableInput();
+//        }
+
+        if($("#panelmaterial div.material").length==0){
+            $(".helpStep2").show();
+        }else{
+            $(".helpStep2").hide();
+        }
+    }
+</SCRIPT>
+
+
+<SCRIPT type="text/javascript">
+    var actionSetting = {
+        view: {
+            addHoverDom: actionaddHoverDom,
+            removeHoverDom: actionremoveHoverDom,
+            selectedMulti: false,
+            showTitle:true
+        },
+        edit: {
+            drag:false,
+            enable: true,
+//            editNameSelectAll: true,
+            showRemoveBtn: false,
+            showRenameBtn:false,
+            removeTitle : "<%= t('action.btn_deleteaction') %> "
+        },
+        data: {
+            simpleData: {
+                enable: true
+            },
+            key: {
+                title: "fullName"
+            }
+        },
+        callback: {
+            onClick: actiononClick,
+            beforeRemove:beforeactionRemove,
+            onRemove: onactionRemove
+        }
+    };
+    var actionNode =[
+        { id:1, pId:0, name:"<%= t('action.title_action')%>", fullName: "<%= t('curriculum.curriculum') %>", open:true,icon:"<%= asset_path 'template/ztree/img/diy/1_open.png' %>", iconOpen:"<%= asset_path 'template/ztree/img/diy/1_open.png' %>", iconClose:"<%= asset_path "template/ztree/img/diy/1_open.png"%>"},
+        <% if @curriculum %>
+            <% @curriculum.actions.each do |action| %>
+                <% if @curriculum.actions.last != action%>
+                    { id:"<%= action.id %>", pId:1, fullName:"<%= action.action_name %>", name:"<%= (action.action_name.length>14)?action.action_name.to(14)+"...":action.action_name  %>", open:true,icon:"<%= asset_path "template/ztree/img/diy/8.png" %>"},
+                <% else %>
+                    { id:"<%= action.id %>", pId:1, fullName:"<%= action.action_name %>", name:"<%= (action.action_name.length>14)?action.action_name.to(14)+"...":action.action_name %>", open:true,icon:"<%= asset_path "template/ztree/img/diy/8.png" %>"}
+                <% end %>
+            <% end %>
+        <% end %>
+    ];
+    var newactionCount = 1;
+    function actionaddHoverDom(treeId, treeNode) {
+        if($(".commandButtonAction").css("display")!="none"){
+            return;
+        }
+
+        var sObj = $("#" + treeNode.tId + "_span");
+        if(treeNode.pId  && treeNode.level==1){
+
+            if ($("#actionBtnEdit_"+treeNode.id).length>0) return;
+            var editStr = "<span id='actionBtnEdit_space_" +treeNode.id+ "' >&nbsp;</span><span class='button iconedit' id='actionBtnEdit_" +treeNode.id+ "' title='<%= t('action.btn_editaction') %>' onfocus='this.blur();'></span>";
+            sObj.append(editStr);
+            var btn = $("#actionBtnEdit_"+treeNode.id);
+            if (btn) btn.bind("click", function(){
+                //Show button
+                //new
+                setSelectNodeAction(treeNode.id);
+                $("#actionNameTemp").val($("#action"+treeNode.id).find("input.requiredfield100").val());
+                $("#actionDescriptionTemp").val(CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].getData());
+                $("#panelaction div.action").hide();
+                $("#action"+treeNode.id).show();
+                $("#"+treeNode.tId+"_a").css("background-color", "#D6FFB0").css("border","1px solid #B1FF51");
+                //new
+                $("#action"+treeNode.id).find("input.requiredfield100").focus();
+                enableSave();
+                enableInput();
+                disableNavigator();
+            });
+
+
+            if ($("#actionBtnDelete_"+treeNode.id).length>0) return;
+
+            if(($("#action"+treeNode.id).find("input.state").val()!="update" && $(".commandButtonAction").css("display")=="none")){
+                var editStr = "<span id='actionBtnDelete_space_" +treeNode.id+ "' >&nbsp;</span><span class='button icondelete' id='actionBtnDelete_" +treeNode.id+ "' title='<%= t('action.btn_deleteaction') %>'></span>";
+                sObj.append(editStr);
+                var btn = $("#actionBtnDelete_"+treeNode.id);
+                if (btn) btn.bind("click", function(e){
+                    beforeactionRemove(treeId, treeNode);
+                });
+            }
+
+
+        }
+        if (treeNode.pId  && treeNode.level>=1) return;
+
+        if (treeNode.editNameFlag || $("#addBtnaction_"+treeNode.tId).length>0) return;
+        var addStr = "<span class='button add' id='addBtnaction_" + treeNode.tId
+                + "' title='<%= t('action.btn_addaction') %>' onfocus='this.blur();'></span>";
+        sObj.after(addStr);
+        var btn = $("#addBtnaction_"+treeNode.tId);
+        if (btn) btn.bind("click", function(){
+            $.loader.open({size:32});
+            $(this).hide();
+            checkValidate();
+            var zTree = $.fn.zTree.getZTreeObj("treeAction");
+            var newid=100 + newactionCount;
+            zTree.addNodes(treeNode, {id:(newid), pId:treeNode.id,fullName: "<%= t('action.title_new_action')%>", name:"<%= t('action.title_new_action')%>",icon:"<%= asset_path "template/ztree//img/diy/8.png" %>"});
+
+            $("#actionNameTemp").val("");
+            $("#actionDescriptionTemp").val("");
+            $("#panelaction div.action").hide();
+            addaction(newid,"<%= t('action.title_action')%>");
+            newactionCount++;
+
+
+            //new
+
+            zTree.cancelSelectedNode();
+            var newnode = zTree.getNodeByParam("id", newid);
+//            zTree.selectNode(newnode);
+            $("#"+newnode.tId+"_a").css("background-color", "#D6FFB0").css("border","1px solid #B1FF51");
+
+//            if($("#panelaction div.action").length==0){
+//                $(".helpStep3").show();
+//            }else{
+                $(".helpStep3").hide();
+//            }
+//            enableSave();
+////            enableInput();
+//            disableNavigator();
+            $.loader.close(true);
+            return false;
+        });
+    };
+//    function showactionRemoveBtn(treeId, treeNode) {
+//        if($("#action"+treeNode.id).find("input.state").val()=="update"){
+//            return false;
+//        }
+//        if($(".commandButtonAction button.buttonSave").css("display")!="none"){
+//            return;
+//        }
+//        return treeNode.pId;
+//    }
+    function beforeactionRemove(treeId, treeNode) {
+        $.loader.open({size:32});
+//        var zTree = $.fn.zTree.getZTreeObj("treeAction");
+//        zTree.selectNode(treeNode);
+//        var $valid = $("#curriculum_form").valid();
+//        if(!$valid) {
+//            return false;
+//        }
+//        return confirm("<%= t('action.msg_confirm_delete')%>");
+        var zTree = $.fn.zTree.getZTreeObj("treeAction");
+        zTree.selectNode(treeNode);
+        var $valid = $("#curriculum_form").valid();
+        if(!$valid) {
+            return false;
+        }
+
+        //return confirm("<%= t('material.msg_confirm_delete') %>");
+
+        BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('action.msg_confirm_delete')%>', function(result){
+//        var result = confirm("<%= t('material.msg_confirm_delete') %>");
+            if(result){
+                onactionRemove(treeId, treeNode)
+            }
+            $.loader.close(true);
+        });
+
+    }
+    function onactionRemove(treeId, treeNode) {
+//        removeaction(treeNode.id);
+        var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+        treeObj.removeNode(treeNode);
+        $("#action"+treeNode.id).remove();
+        disableSave()
+        disableInput();
+        enableNavigator();
+        showfirstAction();
+    }
+    function actionremoveHoverDom(treeId, treeNode) {
+        $("#actionBtnEdit_"+treeNode.id).unbind().remove();
+        $("#actionBtnEdit_space_" +treeNode.id).unbind().remove();
+        $("#actionBtnDelete_"+treeNode.id).unbind().remove();
+        $("#actionBtnDelete_space_" +treeNode.id).unbind().remove();
+
+        $("#addBtnaction_"+treeNode.tId).unbind().remove();
+
+    };
+    function actiononClick(event, treeId, treeNode, clickFlag) {
+        if($(".commandButtonAction").css("display")!="none"){
+            var zTree = $.fn.zTree.getZTreeObj("treeAction");
+
+            zTree.cancelSelectedNode();
+            return;
+        }
+        if(!(treeNode.pId)){return;}
+        setSelectNodeAction(treeNode.id);
+        $("#panelaction div.action").hide();
+        $("#action"+treeNode.id).show();
+
+
+    }
+    $(document).ready(function(){
+
+        $.fn.zTree.init($("#treeAction"), actionSetting, actionNode);
+        $(".commandButtonAction button.buttonSave").click(function(){
+            CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].updateElement();
+            $("#curriculum_actions_attributes_"+getSelectNodeAction()+"_description").html(CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].getData());
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+//            if($("#action"+getSelectNodeAction()).find("input.state").val()!="update"){
+//                $("#curriculum_actions_attributes_" + getSelectNodeAction() + "_description").text($("#curriculum_actions_attributes_" + getSelectNodeAction() + "_description").ckeditorGet().getData());
+//            }
+            var $valid = $("#curriculum_form").valid();
+            if(!$valid){return;}
+
+            var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+            var node = treeObj.getNodeByParam("id", getSelectNodeAction());
+
+            var actionname = $("#action"+getSelectNodeAction()).find("div div input").val();
+
+            var charlength = calCharlength();
+            node.fullName = actionname;
+            if(actionname.length>charlength){
+                actionname = actionname.substr(0,charlength)+"...";
+            }
+            node.name=actionname;
+
+            treeObj.updateNode(node);
+            $("#"+node.tId+"_a").css("background-color", "").css("border","");
+            treeObj.selectNode(node);
+            disableSave()
+            disableInput();
+            enableNavigator();
+
+        });
+
+        $(".commandButtonAction button.buttonCancel").click(function(){
+            //Remove if not valid
+
+
+            $("#action"+getSelectNodeAction()).find("input.requiredfield100").val($("#actionNameTemp").val());
+//            $("#action"+getSelectNodeAction()).find("div.note-editable").html($("#actionDescriptionTemp").val());
+//            $("#action"+getSelectNodeAction()).find("textarea.summernoteAction").html();
+
+
+            CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].setData($("#actionDescriptionTemp").val());
+            CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].updateElement();
+            $("#curriculum_actions_attributes_"+getSelectNodeAction()+"_description").html($("#actionDescriptionTemp").val());
+
+
+
+            var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+            var node = treeObj.getNodeByParam("id", getSelectNodeAction());
+
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+            var $valid = $("#curriculum_form").valid();
+            if(!$valid){
+                removeaction(getSelectNodeAction());
+            }else{
+                $("#"+node.tId+"_a").css("background-color", "").css("border","");
+                treeObj.selectNode(node);
+            }
+            disableSave()
+            disableInput();
+            enableNavigator();
+
+        });
+
+    });
+    function addaction(actionID,actionName){
+        var template =  "      <div class=\"action\" id=\"action"+actionID+"\" style=\"display:none\" >\n"
+                + "       <input name=\"curriculum[actions_attributes]["+actionID+"][action_id]\" value=\""+actionID+"\" type=\"hidden\">\n"
+                + "       <input name=\"curriculum[actions_attributes]["+actionID+"][state]\" class=\"state\" value=\"new\" type=\"hidden\">\n"
+                + "        <div class=\"form-group\" >\n"
+                + "          <label for=\"curriculum[actions_attributes]["+actionID+"][action_name]\" class=\"col-md-2 control-label\"><%= t('action.lb_action_name') %><span class=\"requiredfield\">*</span></label>\n"
+                + "          <div class=\"col-md-10\">\n"
+                + "            <input class=\"form-control requiredfield100\" id=\"action_name_"+actionID+"\" maxlength=\"100\" name=\"curriculum[actions_attributes]["+actionID+"][action_name]\"  type=\"text\" placeholder=\""+actionName+"\">\n"
+                + "          </div>\n"
+                + "        </div>\n"
+                + "        <div class=\"form-group\" >\n"
+                + "          <label for=\"curriculum[actions_attributes]["+actionID+"][description]\" class=\"col-md-2 control-label\"><%= t('action.lb_description') %></label>\n"
+                + "          <div class=\"col-md-10\">\n"
+                + "            <textarea class=\"form-control summernote summernoteAction active\" id=\"curriculum_actions_attributes_"+actionID+"_description\" name=\"curriculum[actions_attributes]["+actionID+"][description]\" placeholder=\"<%= t('action.lb_description')%>\" rows=\"10\"></textarea>\n"
+                + "          </div>\n"
+                + "        </div>\n"
+                + "      </div>";
+        $("#panelaction").append(template);
+//        disabled editor
+        setSelectNodeAction(actionID);
+        reloadCkEditorActionEditor("curriculum_actions_attributes_"+actionID+"_description");
+
+
+        $("#action_name_"+actionID).rules( "add", {
+            maxlength:100,
+            required: {
+                depends:function(){
+                    var text = $.trim($(this).val());
+                    text=text.replace(/\s+/g, ' ');
+                    $(this).val(text);
+                    return true;
+                }
+            }
+        });
+        $("#curriculum_actions_attributes_"+actionID+"_description").rules( "add", {
+//            maxlength: 10000,
+            validSummernote: {
+                depends:function(){
+                    $(this).val($.trim($(this).val()));
+                    return true;
+                }
+            }
+        });
+    }
+    function removeaction(id){
+        var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+        var node = treeObj.getNodeByParam("id", id);
+        treeObj.removeNode(node);
+        CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].destroy();
+        $("#action"+id).remove();
+        showfirstAction();
+        disableSave();
+        disableInput();
+        enableNavigator();
+
+    }
+    function showfirstAction(){
+        var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+        var node = treeObj.getNodes()[0];
+        if(node.children!=null && node.children.length>0){
+            var nodef = node.children[0];
+            treeObj.selectNode(nodef);
+            setSelectNodeAction(nodef.id);
+            $(".action").hide();
+            $("#action"+nodef.id).show();
+        }else{
+            treeObj.selectNode(node);
+            setSelectNodeAction(node.id);
+        }
+        if($("#panelaction div.action").length==0){
+            $(".helpStep3").show();
+        }else{
+            $(".helpStep3").hide();
+        }
+    }
+</SCRIPT>
+
+<script>
+    $(document).ready(function () {
+        $.validator.messages.required = "<%= t('js.validate.msg_required')%>";
+        $.validator.messages.url = "<%= t('js.validate.msg_url_invalid')%>";
+        $.validator.messages.maxlength = "<%= t('js.validate.msg_maxlength')%>";
+//        disabled editor
+//        $.validator.addMethod("validSummernote", function(value, element) {
+//            return this.optional(element) || !(value.length>10000);
+//        }, "<%= t('curriculum.msg_description_maxlength')%>");
+
+        $.validator.addMethod("validSummernote", function(value, element) {
+//                    console.log($(element).text());
+//            console.log($($(element).text()).text().length);
+//            console.log(element);
+//            console.log($(value).text().length<=10000);
+            return this.optional(element) || !($($(element).text()).text().length>10000);//$(value).text().length<=10000;
+        }, "<%= t('curriculum.msg_description_maxlength')%>");
+
+
+//        $.validator.addClassRules("requiredfield100", {
+//            maxlength:100,
+//            required: {
+//                depends:function(){
+//                    var text = $.trim($(this).val());
+//                    text=text.replace(/\s+/g, ' ');
+//                    $(this).val(text);
+//                    return true;
+//                }
+//            }
+//        });
+//        $.validator.addClassRules("urlformat", {
+//            url: {
+//                depends:function(){
+//                    var text = $.trim($(this).val());
+//                    text=text.replace(/\s+/g, ' ');
+//                    $(this).val(text);
+//                    return true;
+//                }
+//            },
+//            maxlength:500
+//        });
+//        $.validator.addClassRules("requiredfield200", {
+//            maxlength:200,
+//            required: {
+//                depends:function(){
+//                var text = $.trim($(this).val());
+//                text=text.replace(/\s+/g, ' ');
+//                $(this).val(text);
+//                return true;
+//            }}
+//        });
+//        $.validator.addClassRules("summernote", {
+//            //        disabled editor
+//            maxlength: 10000,
+//            validSummernote: {
+//                depends:function(){
+//                    $(this).val(CleanPastedHTML($.trim($(this).val())));
+//                    return true;
+//                }}
+//        });
+
+
+
+        $("#curriculum_form").validate({
+//        disabled editor
+            ignore: ':hidden:not("textarea.summernote")', //ignore fields
+            onfocusout: false,
+            onkeyup: false,
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+                $('#signup_form').find('input:text').each(function(){
+                    $(this).val($.trim($(this).val()));
+                });
+                form.submit();
+
+            },
+            invalidHandler: function(form, validator) {
+                $('#div_msg_error').text('');
+
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
+
+        $(".requiredfield100").each(function(){
+            $(this).rules( "add", {
+                maxlength:100,
+                required: {
+                    depends:function(){
+                        var text = $.trim($(this).val());
+                        text=text.replace(/\s+/g, ' ');
+                        $(this).val(text);
+                        return true;
+                    }
+                }
+            });
+
+        });
+        $(".urlformat").each(function(){
+            $(this).rules( "add", {
+                url: {
+                    depends:function(){
+                        var text = $.trim($(this).val());
+                        text=text.replace(/\s+/g, ' ');
+                        $(this).val(text);
+                        return true;
+                    }
+                },
+                maxlength:500
+            });
+        });
+        $(".requiredfield200").each(function(){
+            $(this).rules( "add", {
+                maxlength:200,
+                required: {
+                    depends:function(){
+                        var text = $.trim($(this).val());
+//                        text=text.replace(/\s+/g, ' ');
+                        $(this).val(text);
+                        return true;
+                    }
+                }
+            });
+        });
+        $(".summernote").each(function(){
+            //TODO disabled validate maxlength
+
+            $(this).rules( "add", {
+//                maxlength: 10000,
+                validSummernote: {
+                    depends:function(){
+                        $(this).val($.trim($(this).val()));
+                        return true;
+                    }
+                }
+            });
+        });
+
+    });
+</script>
+
+<script>
+    $("select#cateSelect").selectr();
+    function addCategorytoList(id,title){
+        $("li.list-group-item").removeClass("selected");
+        var temp =    "<li id=\""+id+"\" class=\"list-group-item selected\">\n"
+                + "        <div style=\"background-color: #913228;\" class=\"color-code fa fa-ticket\"></div>\n"
+                + "        <div title=\""+title+"\" class=\"option-name\">"+title+"</div>\n"
+                + "        <div class=\"add-remove\">×</div>\n"
+                + "        <input type=\"hidden\" name=\"curriculum[curriculum_categories_attributes]["+id+"][category_id]\" value=\""+id+"\">\n"
+                + "        <input type=\"hidden\" name=\"curriculum[curriculum_categories_attributes]["+id+"][category_name]\" value=\""+title+"\">\n"
+                + "    </li>";
+        $("#category div ul.list-group").append(temp);
+
+        $("#panellevel .row").hide();
+//            alert($("#level"+$(this).attr('id')).length);
+        if($("#panellevel"+id).length==0) {
+            //object already exists
+            addCurriculumCategory(id,title);
+            $("#panellevel"+id).show();
+            $("#categoryheader").html(title);
+            $("#categoryheader").siblings("div").show();
+        }
+    }
+    function reloadCheckbox(){
+        $('.checkbox-custom > input[type=checkbox]').each(function () {
+            var $this = $(this);
+            if ($this.data('checkbox')) return;
+            $this.checkbox($this.data());
+        });
+    }
+
+
+    function addCurriculumCategory(categoryID,categoryName){
+            appendpanellevel(categoryID, categoryName);
+            $.ajax({
+                url: '/curriculums/getlevel',
+                type: 'GET',
+                dataType: 'json',
+                data: {category_id:categoryID},
+                beforeSend: function (xhr) {
+
+                    $.loader.open({size:32});
+//                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                success: function(data){
+                    /*do something meaningful with data*/
+                    $.each(data, function(i, value) {
+                        appendlevel(i,value._id,value.category_id,value.level_name);
+                    });
+                    reloadCheckbox();
+                    $.loader.close();
+                },
+                error: function(xhr, status, response) {/* your error callback*/}
+            })
+//        }
+        function appendpanellevel(id,name){
+
+            var category = "<div class=\"row checkboxCategories\" id=\"panellevel"+id+"\">\n"
+
+                    + "          </div>";
+            $("#panellevel").append(category);
+        }
+        function appendlevel(no,id,categoryID,name){
+
+            var category ="        <div class=\"col-md-6\">\n"
+                    + "              <div class=\"checkbox\">\n"
+                    + "                <label class=\"checkbox-custom\">\n"
+//                    + "                  <input type=\"checkbox\" name=\"curriculum[curriculum_categories]["+id+"]["+no+"][level_name]\" value=\""+name+"\">\n"
+                    + "                  <input type=\"checkbox\" name=\"curriculum[curriculum_categories_attributes]["+categoryID+"][level_ids]["+no+"]\" value=\""+id+"\">\n"
+                    + "                  <i class=\"fa fa-fw fa-square-o\"></i>"+name+"\n"
+                    + "                </label>\n"
+                    + "              </div>\n"
+                    + "            </div>\n";
+
+            $("#panellevel"+categoryID).append(category);
+
+        }
+    }
+    $("#addCategory").click(function(){
+        if($('#listCategories').selectpicker('val')!=null && $('#listCategories').selectpicker('val')!=0){
+            addCategorytoList($('#listCategories').selectpicker('val'),$("#listCategories").siblings("div.bootstrap-select").find("button").attr("title"))
+            $("ul.dropdown-menu li.selected").css("display","none");
+            $('#listCategories').selectpicker('val', 0);
+            $("#checkAll").show();
+            if($("#category div.selectr ul.list-group li").length==0){
+                $(".helpStep4").show();
+            }else{
+                $(".helpStep4").hide();
+            }
+        }
+    });
+    $("a.selectAll").click(function(){
+        var checkboxes = $("div.checkboxCategories:visible").find(':checkbox');
+        checkboxes.checkbox('check');
+    });
+    $("a.unSelectAll").click(function(){
+        var checkboxes = $("div.checkboxCategories:visible").find(':checkbox');
+        checkboxes.checkbox('uncheck');
+    });
+
+
+</script>
+
+<script type="text/javascript">
+//        disabled editor
+var percent =1.0;
+if($(window).width()>=320 && $(window).width()<600){
+    percent = 1.5;
+}
+    function reloadCKEditorGeneral(){
+        $("#curriculum_description").ckeditor({height:170*percent});
+    }
+    function reloadCkEditorMaterialEditor(id){
+        $("#"+id).ckeditor({height:130*percent});
+//console.log('ok');
+//        CKEDITOR.replace("#"+id);
+    }
+    function reloadCkEditorMaterial(){
+        $(".summernoteMaterial").each(function(){
+            $(this).ckeditor({height:130*percent});
+        })
+    }
+    function reloadCkEditorActionEditor(id){
+//        console.log('ok1');
+        $("#"+id).ckeditor({height:220*percent});
+    }
+    function reloadCkEditorAction(){
+        $(".summernoteAction").each(function(){
+            $(this).ckeditor({height:220*percent});
+        })
+    }
+    function checkValidate(){
+        var $valid = $("#curriculum_form").valid();
+        if(!$valid) {
+            return false;
+        }
+    }
+    function enableSave(){
+        $(".commandButtonAction").show().find(" button").show();
+        $(".commandButtonMaterial").show().find(" button").show();
+    }
+    function disableSave(){
+        $(".commandButtonAction").hide().find(" button").hide();
+        $(".commandButtonMaterial").hide().find(" button").hide();
+    }
+
+    function disableInput(){
+        $('#panelaction').find('input, textarea, select').attr('readonly', true);
+        $('#panelmaterial').find('input, textarea, select').attr('readonly', true);
+//        CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].setReadOnly();
+////        disabled editor
+//        $("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").ckeditorGet().setReadOnly();
+//        $("#curriculum_actions_attributes_"+getSelectNodeAction()+"_description").ckeditorGet().setReadOnly();
+        if(getselectNodeIDMaterial()!="1") {
+            CKEDITOR.instances["curriculum_materials_attributes_" + getselectNodeIDMaterial() + "_description"].setReadOnly(true);
+        }
+        if(getSelectNodeAction()!="1"){
+        CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].setReadOnly(true);
+        }
+//        editor.setReadOnly( true );
+        $("#panelmaterial, #panelaction").find("textarea.summernote").attr("readonly",true);
+        $("#panelmaterial").find("button.selectpicker").attr("disabled",true);
+//        disabled editor
+//        $(".summernote").removeClass("actived");
+    }
+    function enableInput(){
+        $('#panelaction').find('input, textarea, select').attr('readonly', false);
+        $('#panelmaterial').find('input, textarea, select').attr('readonly', false);
+//        disabled editor
+        if(getselectNodeIDMaterial()!="1") {
+            CKEDITOR.instances["curriculum_materials_attributes_" + getselectNodeIDMaterial() + "_description"].setReadOnly(false);
+        }
+        if(getSelectNodeAction()!="1") {
+            CKEDITOR.instances["curriculum_actions_attributes_" + getSelectNodeAction() + "_description"].setReadOnly(false);
+        }
+
+
+//        $("#curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description").ckeditor().ckeditorGet().setReadOnly(false);
+//        $("#curriculum_actions_attributes_"+getSelectNodeAction()+"_description").ckeditor().ckeditorGet().setReadOnly(false);
+        $("#panelmaterial, #panelaction").find("textarea.summernote").attr("readonly",false);
+        $("#panelmaterial").find("button.selectpicker").attr("disabled",false);
+    }
+    function disableNavigator(){
+        $("ul.pagination li").addClass("disabled");
+    }
+    function enableNavigator(){
+        $("ul.pagination li").removeClass("disabled");
+    }
+    function setSelectNodeAction(id){
+        $("#selectNodeAction").val(id);
+    }
+    function getSelectNodeAction(){
+        return $("#selectNodeAction").val();
+    }
+    function setSelectNodeIDMaterial(id){
+        $("#selectNodeIDMaterial").val(id);
+    }
+    function getselectNodeIDMaterial(){
+        return $("#selectNodeIDMaterial").val();
+    }
+    function displayTreeName(){
+        return $("#selectNodeIDMaterial").val();
+    }
+    function showfirstCategory(){
+        $("#checkAll").hide();
+        $("#category").find("li.list-group-item").removeClass("selected");
+        var categorySelected = $("#category").find("li.list-group-item:first");
+        $(categorySelected).addClass("selected");
+        $("#categoryheader").text($(categorySelected).find("div.option-name").text());
+        $("div.checkboxCategories").hide();
+        $("#panellevel"+$(categorySelected).attr("id")).show();
+
+        if(categorySelected.length!=0){
+            $("#checkAll").show();
+        }
+
+        if($("#category div.selectr ul.list-group li").length==0){
+            $(".helpStep4").show();
+        }else{
+            $(".helpStep4").hide();
+        }
+
+    }
+
+    function ontreeMaterialResize(){
+
+        var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
+        var charlength = calCharlength();
+        var nodes = treeObj.getNodes()[0].children;
+        if(nodes!=null) {
+            for (var i = 0; i < nodes.length; i++) {
+                var nodeschild = nodes[i].children;
+                if (nodeschild != null) {
+                    for (var j = 0; j < nodeschild.length; j++) {
+                        if (nodeschild[j].fullName.length > charlength) {
+                            nodeschild[j].name = nodeschild[j].fullName.substring(0, charlength) + "...";
+                        } else {
+                            nodeschild[j].name = nodeschild[j].fullName.substring(0, charlength);
+                        }
+                        treeObj.updateNode(nodeschild[j]);
+                    }
+                }
+                if (nodes[i].fullName.length > charlength) {
+                    nodes[i].name = nodes[i].fullName.substring(0, charlength) + "...";
+                } else {
+                    nodes[i].name = nodes[i].fullName.substring(0, charlength);
+                }
+                treeObj.updateNode(nodes[i]);
+            }
+        }
+    }
+    function ontreeActionResize(){
+        var treeObj = $.fn.zTree.getZTreeObj("treeAction");
+        var charlength = calCharlength();
+
+
+        var nodes = treeObj.getNodes()[0].children;
+        if(nodes!=null){
+            for(var i =0;i<nodes.length;i++){
+                var nodeschild = nodes[i].children;
+                if(nodeschild!=null){
+                    for(var j =0;j<nodeschild.length;j++){
+                        if(nodeschild[j].fullName.length>charlength){
+                            nodeschild[j].name = nodeschild[j].fullName.substring(0,charlength) + "...";
+                        }else{
+                            nodeschild[j].name = nodeschild[j].fullName.substring(0,charlength);
+                        }
+                        treeObj.updateNode(nodeschild[j]);
+                    }
+                }
+                if(nodes[i].fullName.length>charlength){
+                    nodes[i].name = nodes[i].fullName.substring(0,charlength) + "...";
+                }else{
+                    nodes[i].name = nodes[i].fullName.substring(0,charlength);
+                }
+                treeObj.updateNode(nodes[i]);
+            }
+        }
+    }
+
+    $(window).on('resize', ontreeMaterialResize);
+    $(window).on('resize', ontreeActionResize);
+</script>
+
+
+
+<script>
+    function initCKEDITOR(){
+        if($("#curriculum_form").length!=0){
+            reloadCKEditorGeneral();
+            reloadCkEditorMaterial();
+            reloadCkEditorAction();
+            reloadCheckbox();
+
+
+            showfirstMaterial();
+            showfirstAction();
+            showfirstCategory();
+            ontreeMaterialResize();
+            ontreeActionResize();
+
+
+        }
+    }
+  $(document).ready(function(){
+      $("#actionNameTemp").val("");
+      $("#actionDescriptionTemp").val("");
+      $("#materialNameTemp").val("");
+      $("#materialDescriptionTemp").val("");
+      $("#materialUrlTemp").val("");
+      $("#materialTypeTemp").val("");
+      $('.selectpicker').selectpicker({
+              noneSelectedText: '<%= t('category.title_select_category')%>',
+              size: 9
+          }
+      );
+      $('#listCategories').selectpicker('val', 0);
+
+
+
+      $("#category").find("li").each(function( index ) {
+          var textsearch = $(this).find('div.option-name').text();
+          $('#selectCategory').find("li:contains("+textsearch+")").hide();
+      });
+  });
+
+    $(document).ready(function(){
+        initCKEDITOR();
+        CKEDITOR.on( 'instanceReady', function( evt ) {
+//            alert('ready');
+//            var percent =1.0;
+//            if($(window).width()>=320 && $(window).width()<600){
+//                percent = 1.5;
+//            }
+//            CKEDITOR.instances["curriculum_description"].resize('100%', 200*percent);
+            $("#material"+getselectNodeIDMaterial()).show();
+            $("#material"+getselectNodeIDMaterial()).find("input.requiredfield100").focus();
+            $("#action"+getSelectNodeAction()).show();
+            $("#action"+getSelectNodeAction()).find("input.requiredfield100").focus();
+            if($("#tab1-2").is(":hidden")){
+                enableSave();
+    //            enableInput();
+                disableNavigator();
+            }
+//            for (var i in CKEDITOR.instances) {
+////                console.log(CKEDITOR.instances[i].name.substring(0,20));
+//                if(CKEDITOR.instances[i].name.substring(0,20)=="curriculum_materials"){
+////                    alert('resize');
+////                    console.log(i);
+//                    CKEDITOR.instances[i].resize('100%', 135*percent,true);
+////                    alert('resized');
+//                }
+////                console.log(CKEDITOR.instances[i].name.substring(0,18));
+//                if(CKEDITOR.instances[i].name.substring(0,18)=="curriculum_actions"){
+//                    CKEDITOR.instances[i].resize('100%', 230*percent,true);
+//                }
+//            }
+        } );
+    });
+
+////
+
+
+</script>
+<script>
+    $(function()
+    {
+        var bWizardTabClass = '';
+        $('.wizard').each(function()
+        {
+            if ($(this).is('#rootwizard'))
+                bWizardTabClass = 'bwizard-steps';
+            else
+                bWizardTabClass = '';
+
+            var wiz = $(this);
+
+            $(this).bootstrapWizard(
+                    {
+                        onTabClick: function(tab, navigation, index) {
+
+                            return false;
+                        },
+                        onNext: function(tab, navigation, index)
+                        {
+
+                            if(index==1){
+                                CKEDITOR.instances['curriculum_description'].updateElement();
+                                $("#curriculum_description").html(CKEDITOR.instances["curriculum_description"].getData());
+                            }
+
+                            $("p.has-error").remove();
+                            $(".has-error").removeClass("has-error");
+                            var $valid = $("#curriculum_form").valid();
+                            if(!$valid) {
+                                return false;
+                              }
+
+//                            console.log(index);
+                            if( index==1){
+                                $("#tab2-2").find("input.requiredfield100:visible").focus();
+                            }
+                            if( index==2){
+                                if($("#panelmaterial .material").length==0){
+                                    $.gritter.add({
+                                        title: '<%= t('system.system_message')%>',
+                                        text: '<%= t('material.msg_atleast_material')%>',
+                                        before_open: function(){
+                                            if($('.gritter-item-wrapper').length >=1)
+                                            {
+                                                return false;
+                                            }
+                                        }
+                                    });
+//                                    $.loader.close(true);
+                                    return false;
+                                }
+                                $("#tab3-2").find("input.requiredfield100:visible").focus();
+                            }
+
+//                            if(index==1 && getselectNodeIDMaterial()!=1)
+//                            {
+//                                CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].setReadOnly(true);
+//                            }
+//                            if(index==2 && getSelectNodeAction()!=1)
+//                            {
+//                                CKEDITOR.instances["curriculum_actions_attributes_"+getSelectNodeAction()+"_description"].setReadOnly(true);
+//                            }
+
+                            disableInput();
+                        },
+                        onTabShow: function(tab, navigation, index)
+                        {
+
+
+                            var $total = navigation.find('li:not(.status)').length;
+                            var $current = index+1;
+                            var $percent = ($current/$total) * 100;
+
+                            if (wiz.find('.progress-bar').length)
+                            {
+                                wiz.find('.progress-bar').css({width:$percent+'%'});
+                                wiz.find('.progress-bar')
+                                        .find('.step-current').html($current)
+                                        .parent().find('.steps-total').html($total)
+                                        .parent().find('.steps-percent').html(Math.round($percent) + "%");
+                            }
+                            // update status
+                            if (wiz.find('.step-current').length) wiz.find('.step-current').html($current);
+                            if (wiz.find('.steps-total').length) wiz.find('.steps-total').html($total);
+                            if (wiz.find('.steps-complete').length) wiz.find('.steps-complete').html(($current-1));
+                            // mark all previous tabs as complete
+                            navigation.find('li:not(.status)').removeClass('primary');
+                            navigation.find('li:not(.status):lt('+($current-1)+')').addClass('primary');
+
+                            // If it's the last tab then hide the last button and show the finish instead
+                            if($current >= $total) {
+                                wiz.find('.pagination .next').hide();
+                                wiz.find('.pagination .finish').show();
+                                wiz.find('.pagination .finish').removeClass('disabled');
+                            } else {
+                                wiz.find('.pagination .next').show();
+                                wiz.find('.pagination .finish').hide();
+                            }
+                        },
+                        tabClass: bWizardTabClass,
+                        nextSelector: '.next',
+                        previousSelector: '.previous',
+                        firstSelector: '.first',
+                        lastSelector: '.last'
+                    });
+
+            wiz.find('.finish').click(function()
+            {
+//                $("li.finish").addClass("disabled");
+
+                if($("#category").find("ul.list-group li").length==0){
+                    $.gritter.add({
+                        title: '<%= t('system.system_message')%>',
+                        text: '<%= t('category.msg_atleast_category')%>',
+                        before_open: function(){
+                            if($('.gritter-item-wrapper').length >= 1)
+                            {
+                                return false;
+                            }
+                        }
+                    });
+                    $.loader.close(true);
+                    $("li.finish").removeClass("disabled");
+                    return false;
+                }
+                $.loader.open({size:32});
+                BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('curriculum.msg_confirm_save')%>', function(result){
+
+                    if(result) {
+//                            $.ajax({
+//                                url: $("#curriculum_form").attr("action"),
+//                                type: $("#curriculum_form").attr("method"),
+//    //                            dataType: 'json',
+//                                data: $("#curriculum_form").serializeArray(),
+////                                beforeSend: function (xhr) {
+////                                    $.loader.open({size:32});
+////                                    console.log($("#curriculum_form").serializeArray())
+//
+////                                },
+//                                success: function(data){
+//                                    console.log(data);
+//                                    $("#main_content").html(data);
+////                                    $.loader.close(true);
+//    //                                printError();
+//                                },
+//                                error: function(xhr, status, response) {
+//                                    $.loader.close(true);
+//    //                                printError();
+//                                    /* your error callback*/
+//                                }
+//                            })
+                        $("#curriculum_form").submit();
+
+                    }else {
+                        $.loader.close(true);
+//                        $(".modal-footer").find("button").prop('disabled', false);
+//                        $("li.finish").removeClass("disabled");
+                    }
+                });
+            });
+        });
+    });
+</script>

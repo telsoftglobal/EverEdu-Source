@@ -1,0 +1,321 @@
+<% if flash[:error].nil? %>
+    <%if @object_type == 'curriculum'%>
+        <% if @object %>
+            <div class="panel-group accordion accordion-2" id="accordion">
+
+              <div class="panel panel-default" id="panel1">
+                <div class="panel-heading" >
+                  <p id="pullright" class="pull-right visible-xs" style="">
+                    <a href="javascript:;" class="no-ajaxify btn-outline"><i class="fa fa-arrow-left"></i></a>
+                  </p>
+                  <ul class="nav nav-pills" role="tablist" >
+                    <li role="presentation" class="dropdown pull-right">
+                      <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        <span class="caret" ></span>
+                      </a>
+                      <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
+                        <li role="presentation"><%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('curriculum.bt_edit'), edit_curriculum_path(@object), :title => t('curriculum.bt_edit'),data: {target:'body'} %></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" class="quickUpdate" url="<%= curriculums_quickedit_path%>" object_type="curriculum" objectid="<%= @object.id %>" href="#" modal_title="<%= t('curriculum.title_update_curriculum')%>"><i class="fa fa-edit"></i> <%= t('curriculum.title_update_curriculum')%></a></li>
+                        <li role="presentation"><a role="menuitem" tabindex="-1" id="btn_update_categories" class="quickUpdate" url="<%= curriculums_quickeditcategories_path %>" object_type="categories" objectid="<%= @object.id %>" href="#" modal_title="<%= t('category.title_quick_update')%>" ><i class="fa fa-edit"></i> <%= t('category.title_quick_update')%></a></li>
+                        <!--<li role="presentation" class="divider"></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;"><i class="fa fa-times"></i> <%= t('button.btn_close') %></a></li>-->
+                      </ul>
+                    </li>
+                  </ul>
+
+                  <h4 class="panel-title strong"><a class="accordion-toggle font" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
+                    <i class="fa fa-ticket"></i>&nbsp;<%= t('curriculum.lb_curriculum_name')%></a></h4>
+                </div>
+                <div id="collapse-1" class="panel-collapse collapse in" style="height: auto;">
+                  <div class="panel-body">
+                    <h4 class="strong name_update"><%= @object.curriculum_name%></h4>
+                    <p><span><i class="fa fa-user">&nbsp;</i><%= @object.mentor.user_name%></span>&nbsp;|&nbsp;<span><i class="fa fa-calendar">&nbsp;</i><%= @object.created_at.strftime("%Y/%m/%d")%></span></p>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default " id="panel2">
+                <div class="panel-heading">
+                  <h4 class="panel-title strong"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"><i class="fa fa-tasks"></i>&nbsp;<%= t('curriculum.lb_summary')%></a></h4>
+                </div>
+                <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body summary_update" ><%= normalize_text @object.summary %></div>
+                </div>
+              </div>
+              <div class="panel panel-default" id="panel3">
+                <div class="panel-heading">
+                  <h4 class="panel-title strong"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-3"><i class="fa  fa-file-text-o"></i>&nbsp;<%= t('curriculum.lb_description')%></a></h4>
+                </div>
+                <div id="collapse-3" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body">
+                    <div class="description_update"><%= @object.description.html_safe %></div>
+                  </div>
+                </div>
+              </div>
+
+              <!--New comment form-->
+              <div id="comment-new" class="innerAll" style="background-color: white" >
+                <%= render partial: 'comments/comment_form', locals: {object: @object} %>
+              </div>
+              <!--End new comment form-->
+            </div>
+
+        <% end %>
+    <%elsif @object_type == 'material'%>
+        <% if @object %>
+            <div class="panel-group accordion accordion-2" id="accordion">
+              <div class="panel panel-default" id="panel1">
+                <div class="panel-heading">
+                  <p id="pullright" class="pull-right visible-xs" style="">
+                    <a href="javascript:;" class="no-ajaxify btn-outline"><i class="fa fa-arrow-left"></i></a>
+                  </p>
+                  <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="dropdown pull-right">
+                      <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        <span class="caret"></span>
+                      </a>
+                      <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
+                        <li role="presentation"><a class="quickUpdate" url="<%= materials_quickedit_path %>" object_type="material" objectid="<%= @object.id %>" href="#"  data-toggle="modal" modal_title="<%= t('material.title_quick_update')%>"><i class="fa fa-edit"></i> <%= t('material.title_quick_update')%></a></li>
+                        <!--<li role="presentation" class="divider"></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;"><i class="fa fa-times"></i> <%= t('button.btn_close') %></a></li>-->
+                      </ul>
+                    </li>
+                  </ul>
+                  <h4 class="panel-title"><a class="accordion-toggle font" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
+                    <i class="fa fa-ticket"></i>&nbsp;<%= t('material.lb_material_name')%></a></h4>
+                </div>
+                <div id="collapse-1" class="panel-collapse collapse in" style="height: auto;">
+                  <div class="panel-body">
+                    <h4 class="strong name_update"><%= @object.material_name %></h4>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default " id="panel2">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"><i class="fa fa-file-text-o"></i>&nbsp;<%= t('material.lb_description')%></a></h4>
+                </div>
+                <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body">
+                    <p>
+                      <span class="strong"><%=t('material.lb_type')%></span>: <span class="type_update"><%=@object.material_type.material_type_name%></span>
+                    </p>
+                    <div id="div_Url">
+                      <%if !@object.material_url.nil? && !@object.material_url.empty?%>
+                          <p>
+                            <span class="strong"><%=t('material.lb_url')%></span>: <a class="url_update" href="<%= @object.material_url%>" target="_blank"><%= @object.material_url%></a>
+                          </p>
+                      <% end %>
+                    </div>
+                      <div class="description_update"><%= @object.description.html_safe %></div>
+                  </div>
+                </div>
+              </div>
+              <!--New comment form-->
+              <div id="comment-new" class="innerAll" style="background-color: white" >
+                <%= render partial: 'comments/comment_form', locals: {object: @object} %>
+              </div>
+              <!--End new comment form-->
+            </div>
+        <% end %>
+    <%elsif @object_type == 'action'%>
+        <% if @object %>
+            <div class="panel-group accordion accordion-2" id="accordion">
+              <div class="panel panel-default" id="panel1">
+                <div class="panel-heading">
+                  <p id="pullright" class="pull-right visible-xs" style="">
+                    <a href="javascript:;" class="no-ajaxify btn-outline"><i class="fa fa-arrow-left"></i></a>
+                  </p>
+                  <ul class="nav nav-pills" role="tablist">
+                    <li role="presentation" class="dropdown pull-right">
+                      <a id="drop6" href="#" class="dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" role="button" aria-expanded="false">
+                        <span class="caret"></span>
+                      </a>
+                      <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
+                        <li role="presentation"><a class="quickUpdate" url="<%= aes_actions_quickedit_path %>" object_type="action" objectid="<%= @object.id %>" href="#"  data-toggle="modal" modal_title="<%= t('action.title_quick_update')%>"><i class="fa fa-edit"></i> <%= t('action.title_quick_update')%></a></li>
+                        <!--<li role="presentation" class="divider"></li>-->
+                        <!--<li role="presentation"><a role="menuitem" tabindex="-1" href="javascript:;"><i class="fa fa-times"></i> <%= t('button.btn_close') %></a></li>-->
+                      </ul>
+                    </li>
+                  </ul>
+                  <h4 class="panel-title"><a class="accordion-toggle font" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
+                    <i class="fa fa-ticket"></i>&nbsp;<%= t('action.lb_action_name')%></a></h4>
+                </div>
+                <div id="collapse-1" class="panel-collapse collapse in" style="height: auto;">
+                  <div class="panel-body">
+                    <h4 class="strong name_update" style="word-wrap: break-word; margin-right: 30px;"><%= @object.action_name %></h4>
+                  </div>
+                </div>
+              </div>
+              <div class="panel panel-default " id="panel2">
+                <div class="panel-heading">
+                  <h4 class="panel-title"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"><i class="fa fa-file-text-o"></i>&nbsp;<%= t('material.lb_description')%></a></h4>
+                </div>
+                <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
+                  <div class="panel-body">
+                    <div class="description_update"><%= @object.description.html_safe %></div>
+                  </div>
+                </div>
+              </div>
+              <!--New comment form-->
+              <div id="comment-new" class="innerAll" style="background-color: white" >
+                <%= render partial: 'comments/comment_form', locals: {object: @object} %>
+              </div>
+              <!--End new comment form-->
+            </div>
+        <% end %>
+    <% end %>
+<% end %>
+<script>
+    $(document).ready(function () {
+        $('a.quickUpdate').click( function (e) {
+            e.preventDefault();
+            $("p.has-error").remove();
+            var url = $(this).attr("url");
+            var id = $(this).attr("objectid");
+            var title = $(this).attr("modal_title");
+            if($("#modalContent").html().length==0){
+                ajax_load_modal(url,id,title);
+            }else{
+                var object_type = $(this).attr("object_type");
+                switch (object_type) {
+                    case 'curriculum':
+                        if(object_type == $("#quick_form").attr("object_type") && $("#quick_form").attr("object_type") == "curriculum"){
+                            ajax_load_modal_json(url,id,object_type);
+                        }else{
+                            ajax_load_modal(url,id,title);
+                        }
+                        break;
+                    case 'material':
+                        if(object_type == $("#quick_form").attr("object_type") && $("#quick_form").attr("object_type") == "material"){
+                            ajax_load_modal_json(url,id,object_type);
+                        }else{
+                            ajax_load_modal(url,id,title);
+                        }
+                        break;
+                    case 'action':
+                        if(object_type == $("#quick_form").attr("object_type") && $("#quick_form").attr("object_type") == "action"){
+                            ajax_load_modal_json(url,id,object_type);
+                        }else{
+                            ajax_load_modal(url,id,title);
+                        }
+                        break;
+                    default:
+                        ajax_load_modal(url,id,title);
+                }
+            }
+        });
+        function ajax_load_modal(url,id,title){
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {
+                    id: id
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({size: 32});
+                },
+//                dataType: "script",
+                success: function (data) {
+                    if(data.status!=401) {
+                        for (name in CKEDITOR.instances) {
+                            CKEDITOR.remove(CKEDITOR.instances[name]);
+                        }
+                        if($('#updateModal').find(" textarea.summernote").length!=0){
+                            $('#updateModal').find(" textarea.summernote").ckeditor({height: 200});
+                            CKEDITOR.on("instanceReady", function (event) {
+                                $('#updateModal').modal({
+                                    backdrop: 'static',
+                                    keyboard: false
+                                });
+                            });
+                        }else{
+                            $('#updateModal').modal({
+                                backdrop: 'static',
+                                keyboard: false
+                            });
+                        }
+                    }else{
+                        alert(data.message);
+                    }
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                    $.loader.close(true);
+                },
+                complete: function(){
+                    $("#updateModal button").prop('disabled', false);
+                    $("#updateModalLabel").text(title);
+
+                }
+            });
+        }
+        function ajax_load_modal_json(url,id,object_type){
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: {
+                    id: id,
+                    object_type: object_type
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({size: 32});
+                },
+                dataType: "json",
+                success: function (data,status) {
+//                    console.log(data);
+                    if(data.status!=401){
+                        switch (object_type) {
+                            case 'curriculum':
+                                $("#curriculum_id").val(data._id);
+                                $("#curriculum_curriculum_name").val(data.curriculum_name);
+                                $("#curriculum_summary").val(data.summary);
+                                $("#curriculum_summary").text(data.summary);
+                                CKEDITOR.instances["curriculum_description"].setData(data.description);
+                                $('#updateModal').modal("show");
+                                break;
+                            case 'material':
+                                $("#material_id").val(data._id);
+                                $("#material_material_name").val(data.material_name);
+                                $("#material_material_url").val(data.material_url);
+                                //type TODO
+                                $("#material_material_type_id").selectpicker("val",data.material_type_id)
+
+                                CKEDITOR.instances["material_description"].setData(data.description);
+                                $('#updateModal').modal("show");
+                                break;
+                            case 'action':
+                                $("#aes_action_id").val(data._id);
+                                $("#aes_action_action_name").val(data.action_name);
+                                CKEDITOR.instances["aes_action_description"].setData(data.description);
+                                $('#updateModal').modal("show");
+                                break;
+                            default:
+                                ajax_load_modal(url,id,title);
+                        }
+                    }else{
+                        alert(data.message);
+                    }
+                },
+                error: function (xhr, status, response) {
+                    console.log(xhr);
+                    console.log("AJAX Error: " + status)
+                    console.log(response);
+                    $.loader.close(true);
+                },
+                complete: function(){
+                    $("#updateModal button").prop('disabled', false);
+                    //$.loader.close(true);
+                }
+            });
+        }
+
+        $('.btn-outline').click(function () {
+            $('.row-offcanvas').toggleClass('active');
+            $(this).find("i").toggleClass('fa-arrow-left');
+            $(this).find("i").toggleClass('fa-arrow-right');
+        });
+
+        $('#updateModal').on('shown.bs.modal', function() {
+            $.loader.close(true);
+        })
+    });
+</script>

@@ -1,0 +1,43 @@
+
+  <% if @curriculums %>
+      <% @curriculums.each do |curriculum| %>
+          <div class="media innerAll border-bottom">
+            <div class="media-body innerTB half">
+              <h5 class="strong"><%= link_to curriculum.curriculum_name,  curriculum, data:{target:'body'} %></h5>
+              <p class="text-muted"><i class="fa fa-user">&nbsp;</i><%= curriculum.mentor.user_name%>&nbsp;|&nbsp;<i class="fa fa-calendar">&nbsp;</i><%= curriculum.created_at.strftime("%Y/%m/%d")%></p>
+              <div class="margin-none" style="word-wrap:break-word;"><%= normalize_text curriculum.summary %></div>
+              <p class="margin-none text-right">
+                <%= link_to '<i class= "fa fa-file-text-o" ></i>'.html_safe, curriculum, :title => t('curriculum.bt_view_detail'), :rel => 'tooltip', :style => 'font-size: 16pt', data:{target:'body'}%>
+              </p>
+
+
+            </div>
+          </div>
+      <% end %>
+          <div class="separator"></div>
+          <div class="digg_pagination">
+            <%= will_paginate @curriculums, :container => false  %>
+          </div>
+  <% end %>
+
+  <script>
+      $(document).ready(function () {
+          $('.digg_pagination').on("click", "a", function () {
+              $.loader.open({size: 32});
+              $.get( this.href, function() {
+//                  $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+              },'script').done(function() {
+                  $.loader.close(true);
+              }).error(
+                      function() {
+                          $.loader.close(true);
+                      }
+              );
+              return false;
+          });
+
+//          $(".digg_pagination a").click(function(){
+//              $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+//          });
+      })
+  </script>

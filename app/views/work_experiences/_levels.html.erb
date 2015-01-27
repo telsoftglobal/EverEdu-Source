@@ -1,0 +1,6 @@
+<% if @levels %>
+    <option value=""><%= t('search_curriculum.placeholder_level') %></option>
+    <% @levels.each do |level| %>
+        <option value="<%= level.id %>"><%= level.level_name.titleize %></option>
+    <% end %>
+<% end %>

@@ -1,0 +1,243 @@
+<%= form_for @curriculum,:url => '/curriculums/quickupdatecategories' , html: {id: 'quick_form', role: 'form', role:'form',class:'form-horizontal',object_type:'categories'} do |f| %>
+    <div class="row">
+      <div class="col-md-4">
+        <!--#category -->
+        <div class="widget">
+          <div class="widget-body"  style="padding-top: 0px;" >
+            <div class="form-group innerAll" >
+              <div class="col-md-8" id="selectCategory" style="margin-bottom:5px;">
+                <%= f.hidden_field :id, class: "form-control"%>
+                <%= select_tag "listCategories", options_from_collection_for_select(Category.get_all_categories, "id", "category_name"),{ class: 'selectpicker form-control' } %>
+              </div>
+              <div class="col-md-4" id="divaddCategory">
+                <button id="addCategory" type="button" style="width: 100%;" class="btn btn-primary"><i class="fa fa-check-circle"></i> <%= t('button.btn_add') %></button>
+              </div>
+            </div>
+            <div class="innerLR warning helpStep4">
+              <ul style="list-style:none; padding-left: 0px;">
+                <li class="aes-border-bottom"><strong><%= t('category.help.title') %></strong></li>
+                <li><%= t('category.help.step1') %></li>
+                <li><%= t('category.help.step2') %></li>
+                <li><%= t('category.help.step3') %></li>
+              </ul>
+            </div>
+            <div id="category" class="form-group innerAll" style="margin-left: -10px; margin-right: -10px;" >
+              <!--#category -->
+              <select id="cateSelect" name="foods" class="form-control" data-selectr-opts='{ "title": "Category", "placeholder": "Search category"}' multiple>
+                <% if @curriculum %>
+                    <% @curriculum.curriculum_categories.each do |listcategory| %>
+                        <option id="<%= listcategory.category.id%>" data-selectr-color="#913228" value="<%= listcategory.category.id%>"><%= listcategory.category.category_name%></option>
+                    <% end %>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-8">
+        <div class="widget">
+          <!-- Widget heading -->
+          <div class="widget-head">
+            <h4 id="categoryheader" class="heading"></h4>
+            <div id="checkAll" style="display: none;">
+              <a class="selectAll"  href="javascript:;"><%= t('category.title_selectAll') %></a> /
+              <a class="unSelectAll" href="javascript:;"><%= t('category.title_unselectAll') %></a>
+            </div>
+          </div>
+          <!-- // Widget heading END -->
+          <div class="widget-body" id="panellevel" style="min-height: 315px;" >
+
+            <div class="innerLR warning helpStep4">
+              <ul style="list-style:none; padding-left: 0px;">
+                <li class="aes-border-bottom"><strong><%= t('category.help.title') %></strong></li>
+                <li><%= t('category.help.tip1') %></li>
+                <li><%= t('category.help.tip2') %></li>
+                <li><%= t('category.help.tip3') %></li>
+                <li style="margin-bottom: 35px">
+                  <div class="col-md-6"><%= image_tag "help/curriculum/categories/check.png" %></div>
+                  <div class="col-md-6"><%= image_tag "help/curriculum/categories/uncheck.png" %></div>
+                </li>
+                <li><%= t('category.help.note') %></li>
+              </ul>
+
+            </div>
+
+            <% if @curriculum %>
+                <% @curriculum.curriculum_categories.each do |category| %>
+                    <div class="row checkboxCategories" id="panellevel<%=category.category_id%>" style="display:none;">
+                      <% Category.find_by(id:category.category_id).levels.each do |alllevel| %>
+                          <%
+                             @check=false
+                             category.levels.each do |levelselected|
+                               if levelselected.eql?alllevel
+                                 @check=true
+                                 break
+                               end
+                             end
+                          %>
+                          <div class="col-md-6">
+                            <div class="checkbox">
+                              <label class="checkbox-custom">
+                                <input type="checkbox" name="curriculum[curriculum_categories_attributes][<%= category.category_id %>][level_ids][<%= alllevel.id %>]" value="<%= alllevel.id%>" <%= @check? 'checked':'' %>>
+                                <i class="fa fa-fw fa-square-o"></i><%= alllevel.level_name%>
+                              </label>
+                            </div>
+                          </div>
+                      <% end %>
+                    </div>
+                <% end %>
+            <% end %>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+//        $("#quick_form").validate();
+        $("select#cateSelect").selectr();
+        function addCategorytoList(id,title){
+            $("li.list-group-item").removeClass("selected");
+            var temp =    "<li id=\""+id+"\" class=\"list-group-item selected\">\n"
+                    + "        <div style=\"background-color: #913228;\" class=\"color-code fa fa-ticket\"></div>\n"
+                    + "        <div title=\""+title+"\" class=\"option-name\">"+title+"</div>\n"
+                    + "        <div class=\"add-remove\">×</div>\n"
+                    + "        <input type=\"hidden\" name=\"curriculum[curriculum_categories_attributes]["+id+"][category_id]\" value=\""+id+"\">\n"
+                    + "        <input type=\"hidden\" name=\"curriculum[curriculum_categories_attributes]["+id+"][category_name]\" value=\""+title+"\">\n"
+                    + "    </li>";
+            $("#category div ul.list-group").append(temp);
+
+            $("#panellevel .row").hide();
+//            alert($("#level"+$(this).attr('id')).length);
+            if($("#panellevel"+id).length==0) {
+                //object already exists
+                addCurriculumCategory(id,title);
+                $("#panellevel"+id).show();
+                $("#categoryheader").html(title);
+                $("#categoryheader").siblings("div").show();
+            }
+        }
+        function reloadCheckbox(){
+            $('.checkbox-custom > input[type=checkbox]').each(function () {
+                var $this = $(this);
+                if ($this.data('checkbox')) return;
+                $this.checkbox($this.data());
+            });
+        }
+
+        function showfirstCategory(){
+            $("#checkAll").hide();
+            $("#category").find("li.list-group-item").removeClass("selected");
+            var categorySelected = $("#category").find("li.list-group-item:first");
+            $(categorySelected).addClass("selected");
+            $("#categoryheader").text($(categorySelected).find("div.option-name").text());
+            $("div.checkboxCategories").hide();
+            $("#panellevel"+$(categorySelected).attr("id")).show();
+
+            if(categorySelected.length!=0){
+                $("#checkAll").show();
+            }
+
+            if($("#category div.selectr ul.list-group li").length==0){
+                $(".helpStep4").show();
+            }else{
+                $(".helpStep4").hide();
+            }
+
+        }
+
+        function addCurriculumCategory(categoryID,categoryName){
+            appendpanellevel(categoryID, categoryName);
+            $.ajax({
+                url: '/curriculums/getlevel',
+                type: 'GET',
+                dataType: 'json',
+                data: {category_id:categoryID},
+                beforeSend: function (xhr) {
+
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+//                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                },
+                success: function(data){
+                    /*do something meaningful with data*/
+                    $.each(data, function(i, value) {
+                        appendlevel(i,value._id,value.category_id,value.level_name);
+                    });
+                    reloadCheckbox();
+                    $.loader.close();
+                },
+                error: function(xhr, status, response) {/* your error callback*/}
+            })
+//        }
+            function appendpanellevel(id,name){
+
+                var category = "<div class=\"row checkboxCategories\" id=\"panellevel"+id+"\">\n"
+
+                        + "          </div>";
+                $("#panellevel").append(category);
+            }
+            function appendlevel(no,id,categoryID,name){
+
+                var category ="        <div class=\"col-md-6\">\n"
+                        + "              <div class=\"checkbox\">\n"
+                        + "                <label class=\"checkbox-custom\">\n"
+//                    + "                  <input type=\"checkbox\" name=\"curriculum[curriculum_categories]["+id+"]["+no+"][level_name]\" value=\""+name+"\">\n"
+                        + "                  <input type=\"checkbox\" name=\"curriculum[curriculum_categories_attributes]["+categoryID+"][level_ids]["+no+"]\" value=\""+id+"\">\n"
+                        + "                  <i class=\"fa fa-fw fa-square-o\"></i>"+name+"\n"
+                        + "                </label>\n"
+                        + "              </div>\n"
+                        + "            </div>\n";
+
+                $("#panellevel"+categoryID).append(category);
+
+            }
+        }
+        $("#addCategory").click(function(){
+            if($('#listCategories').selectpicker('val')!=null && $('#listCategories').selectpicker('val')!=0){
+                addCategorytoList($('#listCategories').selectpicker('val'),$("#listCategories").siblings("div.bootstrap-select").find("button").attr("title"))
+                $("ul.dropdown-menu li.selected").css("display","none");
+                $('#listCategories').selectpicker('val', 0);
+                $("#checkAll").show();
+                if($("#category div.selectr ul.list-group li").length==0){
+                    $(".helpStep4").show();
+                }else{
+                    $(".helpStep4").hide();
+                }
+            }
+        });
+        $("a.selectAll").click(function(){
+            var checkboxes = $("div.checkboxCategories:visible").find(':checkbox');
+            checkboxes.checkbox('check');
+        });
+        $("a.unSelectAll").click(function(){
+            var checkboxes = $("div.checkboxCategories:visible").find(':checkbox');
+            checkboxes.checkbox('uncheck');
+        });
+
+
+        $("#checkAll").hide();
+        $("#category").find("li.list-group-item").removeClass("selected");
+        var categorySelected = $("#category").find("li.list-group-item:first");
+        $(categorySelected).addClass("selected");
+        $("#categoryheader").text($(categorySelected).find("div.option-name").text());
+        $("#panellevel"+$(categorySelected).attr("id")).show();
+
+        if(categorySelected.length!=0){
+            $("#checkAll").show();
+        }
+        $('.selectpicker').selectpicker({
+                    noneSelectedText: '<%= t('category.title_select_category')%>',
+                    size: 9
+                }
+        );
+        $('#listCategories').selectpicker('val',0);
+        $("#category").find("li").each(function( index ) {
+            var textsearch = $(this).find('div.option-name').text();
+            $('#selectCategory').find("li:contains("+textsearch+")").hide();
+        });
+    reloadCheckbox();
+            $(document).ready(function(){
+                showfirstCategory();
+            });
+    </script>
+
+<% end %>

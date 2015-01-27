@@ -1,0 +1,47 @@
+<div class="innerAll border-bottom" id="workexperience<%= work_experience.id %>" data-id="<%= work_experience.id %>">
+  <div class="row">
+    <div class="col-sm-10">
+      <ul class="media-list margin-none">
+        <li class="media">
+
+          <span class="pull-left innerAll half empty-photo"><i class="fa fa-briefcase fa-2x text-muted"></i></span>
+
+          <div class="media-body innerAll half">
+            <span class="media-heading aes-color"><%= work_experience.category.category_name%></span>
+            <br/>
+            <small><%= work_experience.level.level_name%></small>
+            <br/>
+
+
+            <% if work_experience.end_year && !work_experience.end_year.nil?%>
+                <small><i class="fa fa-calendar"></i> <%=work_experience.start_year%> - <%=work_experience.end_year%></small>
+            <% else %>
+                <small><i class="fa fa-calendar"></i> <%=work_experience.start_year%> - <%=t("work_experiences.lb_current")%></small>
+            <% end %>
+
+            <br/>
+            <% if work_experience.work_place && !work_experience.work_place.empty? %>
+                <small style="word-wrap: break-word;"><%=t('work_experiences.lb_work_place')%>: <%= work_experience.work_place%></small>
+            <% else %>
+                <small><%=t('work_experiences.lb_work_place')%>: NA</small>
+            <% end %>
+
+            <br/>
+
+            <% if work_experience.description && !work_experience.description.empty? %>
+                <small style="word-wrap: break-word;"><%=t('work_experiences.lb_description')%>: <%= work_experience.description%></small>
+            <% else %>
+                <small><%=t('work_experiences.lb_description')%>: NA</small>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <div class="innerT half pull-right">
+        <a class="editWorkExperience btn btn-xs btn-primary" url="<%= edit_work_experience_path(work_experience) %>" objectId="<%= work_experience.id%>" href="#" data-toggle="modal"  modal_title="<%=t('work_experiences.title_edit_work_experience')%>"><i class="fa fa-pencil fa-fw"></i></a>
+        <a class="deleteWorkExperience btn btn-xs btn-primary" url="<%= work_experience_path(work_experience) %>" href="#" data-toggle="modal"  modal_title="<%=t('work_experiences.title_delete_work_experience')%>" title_confirm="<%=t('work_experiences.title_confirm_delete_work_experience')%>" title_msg_confirm="<%=t('work_experiences.msg_confirm_delete_work_experience')%>" title_button_ok="<%=t('button.btn_ok')%>" title_button_cancel="<%=t('button.btn_cancel')%>"><i class="fa fa-times fa-fw"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

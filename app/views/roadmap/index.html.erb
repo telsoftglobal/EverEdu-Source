@@ -1,0 +1,150 @@
+
+<%= javascript_include_tag 'roadmap.js' %>
+
+<div class="innerLR">
+  <h3 style=" padding-top: 0px" class="aes-color"> <i class="fa fa-level-up"></i>&nbsp;<%= t('roadmap.title_roadmap')%></h3>
+  <div class="separator-h"></div>
+
+  <div class="row">
+
+    <div class="widget"> ‌ ‌
+      <div class="widget-body" style="margin-top: -20px">
+        <%= form_tag roadmap_create_path, id: 'create_roadmap_form', role: 'form', method: :post do %>
+            <div class="col-md-8 col-sm-8" style="float: none; margin: 0 auto;">
+            <p id="roadmap-error" class="has-error help-block" ></p>
+              </div>
+              <div class="col-md-8 col-sm-8" style="float: none; margin: 0 auto;">
+                <%= select_tag 'category_id', options_for_select(Category.get_all_categories.map { |el| [el.category_name, el.id] }, selected: params[:category_id]), prompt: t('roadmap.placeholder_category'), class: "form-control", id: "category_option" %>
+              </div>
+            <div class="separator"></div>
+              <div class="col-md-8 col-sm-8" style="float: none; margin: 0 auto;">
+                <%= select_tag 'level_id', options_for_select(@levels.collect { |el| [el.level_name, el.id] }, selected: params[:level_id]), prompt: t('roadmap.placeholder_level'), class: "form-control", id: "level_option" %>
+              </div>
+            <div class="separator"></div>
+              <div class="col-md-8 col-sm-8" style="float: none; margin: 0 auto;">
+                <button type="submit" class="fa fa-plus form-control btn btn-primary height34" id="btn_create_roadmap" >&nbsp;<%= t('roadmap.btn_creat_roadmap') %></button>
+              </div>
+            <% end%>
+        </div>
+      </div>
+      <div class="widget">
+        <div class="widget-body">
+        <!--<%= form_tag roadmap_index_path, id: 'index_roadmap_form', role: 'form', method: :get do %>-->
+            <div id="roadmaps-list">
+              <%if !@user_categories.nil? && @user_categories.size() >0 %>
+                  <% @user_categories.each do |user_category| %>
+                      <div class="roadmap-id" data-id="<%= user_category.id %>" id="roadmap-id<%= user_category.category.id %>">
+                      <%= render partial: "roadmap/user_category", locals: {user_category: user_category} %>
+                      </div>
+                  <% end %>
+                  <% else %>
+                  <%= render partial: "roadmap/roadmap_default" %>
+              <%end%>
+            </div>
+            <!--<div class="separator"></div>-->
+            <div class="row">
+            <div class="load-more-container">
+                  <div class="pull-left">
+                    <button id="load-more" class="btn btn-primary btn-md btn-loadmore" type="button" ><%= t('roadmap.btn_load_more')%></button>
+                    <p id="load-more-error" class="has-error help-block"></p>
+                  </div>
+            </div>
+            </div>
+              </div>
+      <!--<% end %>-->
+
+      </div>
+    </div>
+
+  </div>
+<script>
+
+    $(document).ready(function () {
+        $("#create_roadmap_form").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "category_id": {required: true},
+                "level_id": {required: true}
+
+            },
+            messages: {
+                "category_id": {required: I18n.t('roadmap.msg_category_required')},
+                "level_id": {required :I18n.t('roadmap.msg_level_required')}
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+                $(".has-error").remove();
+                $("#roadmap-error").html('');
+                $.ajax({
+                    type: "POST",
+                    url: '/roadmap/create',
+                    data: {
+                        category_id: $('select#category_option :selected').val(),
+                        level_id: $('select#level_option :selected').val()
+                    },
+                    beforeSend: function (xhr) {
+
+                        $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+//                    xhr.setRequestHeader('X-CSRF-Token', $('meta[name="csrf-token"]').attr('content'))
+                    },
+                    success: function () {
+                        $.loader.close();
+                    },
+                    error: function (xhr, status, response) {
+                        console.log("AJAX Error: " + status)
+                    }
+                });
+
+            },
+            invalidHandler: function (form, validator) {
+                $("#roadmap-error").html('');
+                $('#div_msg_error').text('');
+
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
+
+
+        var total_roadmap = '<%= @total_roadmaps %>'
+        var roadmap_length = $('.roadmap-id').length
+        if (roadmap_length >= total_roadmap) {
+            $('#load-more').hide()
+        } else {
+            $('#load-more').show();
+        }
+        $("#load-more").click(function () {
+            $('#load-more').hide();
+            $('.loading-gif').show();
+
+            var last_id = $('.roadmap-id').last().attr('data-id');
+            $.ajax({
+                type: "GET",
+                url: '/roadmap/get_more_roadmap',
+                data: {
+                    last_roadmap_id: last_id
+                },
+
+                dataType: "script",
+                success: function () {
+                    $('.loading-gif').hide();
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                    $('#load-more').show()
+                }
+            });
+
+        });
+
+    });
+
+</script>
+
+
+

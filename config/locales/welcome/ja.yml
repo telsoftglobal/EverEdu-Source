@@ -1,0 +1,50 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  welcome:
+    title_welcome: "EverEduへようこそ"
+    title_mentor: "「メンター」"
+    lb_mentor1: "あなたはもちろん、あなたを管理することができます"
+    lb_mentor2: "あなたのヒントを共有"
+    lb_mentor3: "あなたの学生とチャット"
+    lb_mentor4: "あなたの本を紹介"
+
+    title_student: "「学生」"
+    lb_student1: "あなたはコースに参加することができます興味を持って"
+    lb_student2: "あなたのメンターとチャット"
+    lb_student3: "あなたのロードマップを参照してください"
+    lb_student4: "指導することになって"
+
+    title_roadmap: "「あなたのロードマップを参照してください」"
+    title_schedule: "「あなたはスケジュール管理」"
+    title_reminder: "「あなたのリマインダー」"
+
+    title_job: "「フー·アー·ユー？」"
+    lb_job1: "開発"
+    lb_job2: "労働者"
+    lb_job3: "医者"
+    lb_job4: "先生"
+    lb_job5: "またはいずれか...！"
+
+    title_letstart: "「のスタートしましょう​​！」"
+
+    lb_skip: "スキップ"
