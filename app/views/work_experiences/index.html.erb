@@ -1,0 +1,238 @@
+<div class="innerLR">
+
+  <div class="widget">
+    <div class="innerAll bg-gray border-bottom">
+      <!--<a class="workExperience btn btn-xs btn-primary pull-right" url="<%= new_work_experience_path %>"  href="#" data-toggle="modal"  title="<%=t('work_experiences.title_new_work_experience')%>"><i class="fa fa-plus fa-fw"></i></a>-->
+      <h4 class="margin-none strong"><%=t('work_experiences.title_work_experiences')%></h4>
+      <div class="clearfix"></div>
+    </div>
+
+    <%= render 'new_work_experience'%>
+    <div id="work_experiences_list" class="widget-body padding-none">
+      <%= render @work_experiences %>
+    </div>
+  </div>
+
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="workExperienceModal" tabindex="-1" role="dialog" aria-labelledby="workExperienceModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="workExperienceModalLabel">Modal title</h4>
+      </div>
+      <div id="modalContent" class="modal-body" style="overflow-y: auto">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('button.btn_cancel')%></button>
+        <button id="btnSave" type="button" class="btn btn-primary"><%=t('button.btn_save')%></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('a.workExperience').click( function (e) {
+            openWorkExperienceModal(this, e);
+        });
+
+        $('a.editWorkExperience').click( function (e) {
+            openEditWorkExperienceModal(this, e);
+        });
+
+        $('a.deleteWorkExperience').click( function (e) {
+            processDeleteWorkExperience(this, e);
+        });
+
+        $("#btnSave").click(function(){
+//            var btnSave = $(this);
+//            btnSave.prop('disabled', true);
+
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+
+            $("#work_experience_form").validate({
+                onfocusout: false,
+                onkeyup: false,
+                rules: {
+                    "work_experience[category_id]": {required: true},
+                    "work_experience[level_id]": {required: true},
+                    "work_experience[start_year]": {required: true},
+                    "work_experience[end_year]": {greater_or_equals: "#work_experience_start_year"},
+                    "work_experience[work_place]": {maxlength: {
+                        param: 200,
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    }},
+                    "work_experience[description]": {maxlength: {
+                        param: 200,
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    }}
+                },
+                messages: {
+                    "work_experience[category_id]": {required: I18n.t('js.validate.msg_required')},
+                    "work_experience[level_id]": {required: I18n.t('js.validate.msg_required')},
+                    "work_experience[start_year]": {required: I18n.t('js.validate.msg_required')},
+                    "work_experience[end_year]": {greater_or_equals: I18n.t('work_experiences.js.validate.msg_end_year_greater_or_equal_to_start_year')},
+                    "work_experience[work_place]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "work_experience[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                },
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+                submitHandler: function (form) {
+                },
+                invalidHandler: function (form, validator) {
+                    $('#div_msg_error').text('');
+
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        validator.errorList[0].element.focus();
+                    }
+                }
+            });
+
+            var valid = $("#work_experience_form").valid();
+            if(!valid) {
+                return false;
+            }
+
+            BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('work_experiences.msg_confirm_save')%>', function(result){
+                $.loader.open({size:32});
+                if(result) {
+                    var url = $("#work_experience_form").attr("action");
+                    var data = $("#work_experience_form").serializeArray();
+                    $.ajax({
+                        type: "POST",
+                        url: url,
+                        data: data,
+                        beforeSend: function (xhr) {
+                            $.loader.open({size:32});
+                        },
+                        dataType: "script",
+                        success: function () {
+                            $.loader.close(true);
+                        },
+                        error: function (xhr, status, response) {
+                            console.log("AJAX Error: " + status)
+                            $.loader.close(true);
+                        }
+                    });
+                }else {
+                    $.loader.close(true);
+                }
+            });
+        });
+
+    });
+</script>
+
+<script>
+    function processDeleteWorkExperience(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("title");
+        var title_confirm = $(element).attr("title_confirm");
+        var title_msg_confirm = $(element).attr("title_msg_confirm");
+        var title_button_ok = $(element).attr("title_button_ok");
+        var title_button_cancel = $(element).attr("title_button_cancel");
+
+        BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel,title_msg_confirm, function(result){
+            $.loader.open({size:32});
+            if(result) {
+                $.ajax({
+                    type: "DELETE",
+                    url: url,
+                    data: {
+                        id: id
+                    },
+                    beforeSend: function (xhr) {
+                        $.loader.open({size:32});
+                    },
+                    dataType: "script",
+                    success: function () {
+                        $.loader.close(true);
+                    },
+                    error: function (xhr, status, response) {
+                        console.log("AJAX Error: " + status)
+                        $.loader.close(true);
+                    }
+                });
+            }else {
+                $.loader.close(true);
+            }
+        });
+    };
+
+    function openWorkExperienceModal(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("modal_title");
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                id: id
+            },
+            beforeSend: function (xhr) {
+                $.loader.open({size:32});
+            },
+            dataType: "script",
+            success: function () {
+                $.loader.close(true);
+                $('#workExperienceModal').modal({backdrop: 'static',
+                    keyboard: false});
+                $("#workExperienceModalLabel").text(title);
+            },
+            error: function (xhr, status, response) {
+                console.log("AJAX Error: " + status)
+                $.loader.close(true);
+            }
+        });
+    };
+
+    function openEditWorkExperienceModal(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("modal_title");
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                id: id
+            },
+            beforeSend: function (xhr) {
+                $.loader.open({size:32});
+            },
+            dataType: "script",
+            success: function (data) {
+                $.loader.close(true);
+//                $('#workExperienceModal').modal({backdrop: 'static',
+//                    keyboard: false});
+
+                $("#workExperienceModalLabel").text(title);
+            },
+            error: function (xhr, status, response) {
+                console.log("AJAX Error: " + status)
+                $.loader.close(true);
+            }
+        });
+    };
+</script>

@@ -1,0 +1,5 @@
+<% @user_categories.each do |user_category| %>
+    <div class="roadmap-id" data-id="<%= user_category.id %>" id="roadmap-id<%= user_category.category.id %>">
+      <%= render partial: "roadmap/user_category", locals: {user_category: user_category} %>
+    </div>
+<% end %>

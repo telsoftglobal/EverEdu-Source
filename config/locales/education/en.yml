@@ -1,0 +1,51 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  educations:
+    title_educations: "Education"
+    title_new_education: "New Education"
+    title_edit_education: "Edit Education"
+    title_delete_education: "Delete Education"
+
+    lb_school_name: "School Name"
+    lb_start_year: "Start year"
+    lb_end_year: "End year"
+    lb_current: "Current"
+    lb_description: "Description"
+    placeholder_start_year: "Start year"
+    placeholder_end_year: "End year"
+    placeholder_school_name: "Please enter school name."
+    placeholder_description: "Please enter description."
+
+    btn_create: "Create"
+    msg_create_successfully: "Education was successfully created."
+    msg_update_successfully: "Education was successfully updated."
+    msg_delete_successfully: "Education was successfully destroyed."
+
+    msg_create_fail: "Education was fail created."
+    msg_update_fail: "Education was fail updated."
+    msg_delete_fail: "Education was fail destroyed."
+    msg_education_not_found: "Education not found."
+
+    msg_confirm_save: "Do you want to save?"
+    title_confirm_delete_education: "Confirm delete education"
+    msg_confirm_delete_education: "Do you want delete this education?"

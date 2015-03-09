@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <title><%= t('welcome.title_welcome') %></title>
+  <%= stylesheet_link_tag 'frontend/welcome/welcome' %>
+  <style>
+    .container-fluid{
+        padding: 0 !important;
+    }
+    .col-md-12{
+      padding: 0 !important;
+    }
+  </style>
+</head>
+<body>
+<div class="swiper-container container-fluid">
+  <div class="swiper-wrapper">
+    <div class="swiper-slide red-slide col-md-12">
+      <div class="title"><%= t('welcome.title_welcome') %></div>
+    </div>
+    <div class="swiper-slide orange-slide col-md-12">
+      <div class="container">
+        <div class="row">
+          <div class="center-block placeholder">
+            <div class="title"><%= t('welcome.title_mentor') %></div>
+            <ul class="gallery">
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_mentor1') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_mentor2') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_mentor3') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_mentor4') %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+
+    </div>
+    <div class="swiper-slide green-slide col-md-12">
+      <div class="container">
+        <div class="row">
+          <div class="center-block placeholder">
+            <div class="title"><%= t('welcome.title_student') %></div>
+            <ul class="gallery">
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_student1') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_student2') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_student3') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_student4') %> </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide red-slide col-md-12">
+      <div class="title col-md-12"><%= t('welcome.title_roadmap') %></div>
+      <div class="col-md-4 col-sm-4"></div>
+      <%= image_tag("frontend/welcome/Bisnis.gif",class:"col-md-4 col-sm-4 col-xs-12") %>
+      <div class="col-md-4 col-sm-4"></div>
+    </div>
+    <div class="swiper-slide blue-slide col-md-12">
+      <div class="title col-md-12"><%= t('welcome.title_schedule') %></div>
+      <div class="col-md-4 col-sm-4"></div>
+      <%= image_tag("frontend/welcome/schedule-icon.png",class:"col-md-4 col-sm-4 col-xs-12") %>
+      <div class="col-md-4 col-sm-4"></div>
+    </div>
+    <div class="swiper-slide orange-slide col-md-12">
+      <div class="title col-md-12"><%= t('welcome.title_reminder') %></div>
+      <div class="col-md-4 col-sm-4"></div>
+      <%= image_tag("frontend/welcome/reminder.jpeg",class:"col-md-4 col-sm-4 col-xs-12") %>
+      <div class="col-md-4 col-sm-4"></div>
+    </div>
+    <div class="swiper-slide blue-slide col-md-12">
+      <div class="container">
+        <div class="row">
+          <div class="center-block placeholder">
+            <div class="title"><%= t('welcome.title_job') %></div>
+            <ul class="gallery">
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_job1') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_job2') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_job3') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_job4') %></li>
+              <li><span class="glyphicon glyphicon-star"></span> <%= t('welcome.lb_job5') %></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="swiper-slide pink-slide col-md-12">
+      <a href="/home/index"><div class="title"><%= t('welcome.title_letstart') %></div></a>
+    </div>
+  </div>
+  <div class="pagination"></div>
+  <div class="btnskip"><a href="/home/index" style="font-size: 20px; font-weight: bold; color:white;"><%= t('welcome.lb_skip') %></a></div>
+</div>
+<%= javascript_include_tag 'template/library/jquery/jquery.min' %>
+<%= javascript_include_tag 'frontend/welcome/idangerous.swiper.min' %>
+<script>
+    var mySwiper = new Swiper('.swiper-container',{
+        pagination: '.pagination',
+        paginationClickable: true,
+        onSlideChangeStart: function(swiper){
+            $("ul.gallery li").css("display","none");
+            showlist();
+        }
+    })
+    function showlist(){
+        var numOfItemsToFade = 1,
+                numOfItems = $('ul li').length;
+        showList();
+        function showList() {
+            $('ul li:nth-child('+numOfItemsToFade+')').fadeIn(500, function(){
+                numOfItemsToFade++;
+                if(numOfItemsToFade<= numOfItems){
+                    showList();
+                }
+            });
+        }
+    }
+
+</script>
+</body>
+</html>

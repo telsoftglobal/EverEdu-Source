@@ -1,0 +1,19 @@
+$('#work_experiences_list').prepend('<%= escape_javascript(render partial: @work_experience) %>');
+//notyfy({
+//    text: '<%= flash[:notice]%>',
+//    type: 'alert',
+//    dismissQueue: false,
+//    layout: 'top',
+//    timeout: 5000 // delay for closing event. Set false for sticky notifications
+//});
+$('#workExperienceModal').modal('hide');
+
+var editElement = $('#workexperience<%= @work_experience.id %>').find(".editWorkExperience");
+$(editElement).bind('click', function (e) {
+    openEditWorkExperienceModal(this, e);
+});
+
+var deleteElement = $('#workexperience<%= @work_experience.id %>').find(".deleteWorkExperience");
+$(deleteElement).bind('click', function (e) {
+    processDeleteWorkExperience(this, e);
+});

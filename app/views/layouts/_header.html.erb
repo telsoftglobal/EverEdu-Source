@@ -1,0 +1,32 @@
+
+<!-- Navbar -->
+<nav class="navbar navbar-default navbar-fixed-top sb-slide" role="navigation">
+  <!-- Left Control -->
+  <div class="sb-toggle-left navbar-left">
+    <div class="navicon-line"></div>
+    <div class="navicon-line"></div>
+    <div class="navicon-line"></div>
+  </div>
+  <!-- /.sb-control-left -->
+  <div id="headercontainer" class="container">
+    <ul class="nav navbar-nav navbar-right pull-right menu-right-hidden-xs" >
+      <li>
+        <a href="#">
+            <span class="media margin-none" style="line-height: 20px; padding-top: 0px;padding-bottom: 0px;">
+                <span class="pull-left">
+                   <% if !@current_user.avatar_url.nil? %>
+                        <%= image_tag @current_user.avatar_url, class: "img-circle", alt: "avatar", style:"width: 30px; height: 30px;" %>
+                    <% else %>
+                        <%= image_tag 'noavatar.png', class: "img-circle", alt: "avatar", style:"width: 30px; height: 30px;"%>
+                    <% end %>
+                </span>
+                <span class="media-body pull-right aesusername"><%= @current_user.user_name %> </span>
+            </span>
+        </a>
+      </li>
+    </ul>
+    <!-- Menu -->
+  </div>
+</nav>
+
+

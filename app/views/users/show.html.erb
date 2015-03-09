@@ -1,0 +1,5 @@
+<%= form_tag('/users/send_mail', method: :post) do %>
+Email:<%= text_field_tag 'email'%><br/>
+Name:<%= text_field_tag 'name'%><br/>
+<button type="submit">send </button>
+<% end %>

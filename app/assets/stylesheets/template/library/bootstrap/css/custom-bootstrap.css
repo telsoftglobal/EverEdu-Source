@@ -1,0 +1,34 @@
+/*Custom bootstrap*/
+/*
+@media class
+author: mr.son
+date: 2014-10-22
+*/
+
+@media (max-width: 480px) {
+    #slogan {
+        display:none;
+    }
+    .btn-default{
+        border-color:#913228;
+    }
+}
+
+.btn-primary {
+    background: #913228 !important;
+    border-color: #913228 !important;
+}
+
+.btn-group.open .btn-primary.dropdown-toggle, .btn-primary.disabled, .btn-primary[disabled], .btn-primary:hover, .btn-primary:focus, .btn-primary:active, .btn-primary.active {
+    background: #c34136 !important;
+    border-color: #c34136 !important;
+}
+.navbar {
+     border:none;
+}
+.jumbotron {
+/*    padding: 30px 15px;
+    margin-bottom: 30px;
+    color: inherit;*/
+    background-color: #ffffff;
+}

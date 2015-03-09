@@ -1,0 +1,376 @@
+<h3 style="padding-left: 30px;" class="aes-color"><i class="icon-user-2"></i><%= t('users.title_update_user_information')%></h3>
+<%= form_for @user ,:url => update_user_profile_path, html: {id: "update_user_profile", role: 'form', role:'form',class:'form-horizontal'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div class="innerLR">
+          <!--#FName -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+                <label class="col-md-4 control-label" for="users[first_name]"><%= t('signup.lb_first_name') %><span class="requiredfield">*</span></label>
+                <div class="col-md-8">
+                  <%= f.text_field :first_name, class: "form-control", placeholder: t('signup.lb_first_name'),maxlength:50,autofocus:"autofocus" %>
+                </div>
+              </div>
+              <div class="col-md-6">
+              <!--</div>-->
+              <!--&lt;!&ndash;#FName &ndash;&gt;-->
+              <!--&lt;!&ndash;#LName &ndash;&gt;-->
+              <!--<div class="form-group">-->
+                <label class="col-md-2 control-label" for="users[last_name]"><%= t('signup.lb_last_name') %><span class="requiredfield">*</span></label>
+                <div class="col-md-10">
+                  <%= f.text_field :last_name, class: "form-control", placeholder: t('signup.lb_last_name'),maxlength:50 %>
+                </div>
+            </div>
+            </div>
+          </div>
+          <!--#LName -->
+          <!--#Email -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+
+            <label class="col-md-4 control-label" for="users[email]"><%= t('signup.lb_email') %><span class="requiredfield">*</span></label>
+            <div class="col-md-8">
+              <%= f.text_field :email, class: "form-control", placeholder: t('signup.lb_email'),maxlength:100 %>
+            </div>
+              </div>
+          <!--#Email -->
+          <!--#Gender -->
+                <div class="col-md-6">
+
+                  <label class="col-md-2 control-label" for="users[phone]"><%= t('users.lb_phone') %></label>
+                  <div class="col-md-10">
+                    <%= f.text_field :phone, class: "form-control", placeholder: t('users.lb_phone'),maxlength:100 %>
+                  </div>
+
+
+                </div>
+            </div>
+          </div>
+          <!--#Gender -->
+
+          <!--#BirthDay -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+            <label class="col-md-4 control-label" for="users[birth_day]"><%= t('users.lb_birthday') %></label>
+            <div class="col-md-8">
+              <%= f.text_field :birth_day, class: "form-control", placeholder: t('users.lb_birthday') %>
+            </div>
+              </div>
+          <!--#BirthDay -->
+          <!--#Address -->
+              <div class="col-md-6">
+            <label class="col-md-2 control-label" for="users[gender]"><%= t('users.lb_gender') %><span class="requiredfield">*</span></label>
+            <div class="col-md-10">
+              <%= f.select( :gender, options_for_select([[ t('users.lb_male') , 1], [t('users.lb_female'), 0]],@user.gender),{},{ class: 'form-control' }) %>
+            </div>
+            </div>
+              </div>
+          </div>
+          <!--#Address -->
+          <!--#Address -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+            <label class="col-md-4 control-label" for="users[address]"><%= t('users.lb_address') %></label>
+            <div class="col-md-8">
+              <%= f.text_field :address, class: "form-control", placeholder: t('users.lb_address'),maxlength:100 %>
+            </div>
+              </div>
+          <!--#Address -->
+          <!--#City -->
+              <div class="col-md-6">
+            <label class="col-md-2 control-label" for="users[city]"><%= t('users.lb_city') %></label>
+            <div class="col-md-10">
+              <%= f.text_field :city, class: "form-control", placeholder: t('users.lb_city'),maxlength:100 %>
+            </div>
+              </div>
+          </div>
+          </div>
+          <!--#City -->
+          <!--#Country -->
+          <div class="form-group">
+            <div class="row">
+              <div class="col-md-6">
+            <label class="col-md-4 control-label" for="users[country]"><%= t('users.lb_country') %></label>
+            <div class="col-md-8">
+              <%= f.select :country, Country.all.collect {|u| [u.name, u.id]},{selected: (f.object.country.nil?) ? '' : f.object.country.id, include_blank: true},{:class => "form-control"} %>
+            </div>
+              </div>
+            </div>
+          </div>
+          <!--#Confirm_password -->
+          <div id="confirm_pass" class="form-group" style="display: none;">
+            <label class="col-md-2 control-label" for="users[confirm_password]"><%= t('users.lb_password_confirm') %><span class="requiredfield">*</span></label>
+            <div class="col-md-10">
+              <%= f.text_field :password_confirmation, class: "form-control", placeholder: t('users.lb_password_confirm'),maxlength:100 %>
+            </div>
+          </div>
+          <!--#Confirm_password -->
+            <div class="form-group"  >
+              <label class="col-md-2 control-label"> </label>
+              <div class="col-md-10" style=" height:34px;">
+                <button id="btnSave" type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
+                <button id="btnCancel" type="button" class="btn btn-default buttonCancel"><i class="fa fa-times"></i> <%= t('button.btn_cancel') %></button>
+              </div>
+            </div>
+
+        </div>
+      </div>
+    </div>
+
+<% end %>
+<%= text_field_tag :old_email, @user.email, style:"display:none;"%>
+
+<script>
+
+    if (typeof $.fn.bdatepicker == 'undefined')
+        $.fn.bdatepicker = $.fn.datepicker.noConflict();
+
+    $(function()
+    {
+        $("#user_birth_day").bdatepicker({
+            format: 'yyyy-mm-dd'
+        });
+    });
+
+
+
+
+
+    function update_basic_information(){
+        $.ajax({
+            type: "PATCH",
+            url: "<%= update_user_profile_path %>",
+            data: $("#update_user_profile").serializeArray()
+            ,
+            beforeSend: function (xhr) {
+                $.loader.open({size: 32});
+            },
+            //          dataType: "json",
+            success: function (data,status) {
+
+            },
+            error: function (xhr, status, response) {
+                console.log(xhr);
+                console.log("AJAX Error: " + status)
+                console.log(response);
+                $.loader.close(true);
+            },
+            complete: function(){
+                $.loader.close(true);
+            }
+        });
+    }
+
+
+
+//    $(function() {
+//        $("#datepicker1").bdatepicker({
+//            format: 'yyyy-mm-dd',
+//            startDate: "2013-02-14"
+//        });
+//    });
+
+    $(document).ready(function(){
+
+
+
+        $("#btnSave").click(function(e){
+            e.preventDefault();
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+            if($("#update_user_profile").valid()==false){
+                return;
+            }
+            if($("#user_email").val()!=$("#old_email").val()){
+
+                BootstrapDialog.show({
+                    title: '<%= t('confirm.title_confirm') %>',
+                    message: $('<form id="form_modal_confirm" accept-charset="UTF-8" class="form-horizontal" role="form"><div><%= t('users.msg_confirm_change_email') %><input id="password_modal" name="password_modal" type="password" class="form-control" placeholder="<%= t('users.lb_password_confirm') %>" autofocus="autofocus"/></div><form>'),
+                    onshown: function(dialogRef){
+                        $("#password_modal").focus();
+                    },
+                    buttons: [{
+                        label: '<%= t('button.btn_confirm') %>',
+                        cssClass: 'btn-primary',
+//                    hotkey: 13, // Enter.
+                        action: function(dialog) {
+
+                            $("#form_modal_confirm").validate({
+                                onfocusout: false,
+                                onkeyup: false,
+                                rules: {
+                                    "password_modal": {
+                                        required: {
+                                            depends:function(){
+                                                var text = $.trim($(this).val());
+                                                if (text == '') {
+                                                    $(this).val(text);
+                                                }
+                                                return true;
+                                            }
+                                        },
+                                        minlength: 6}
+                                },
+                                messages: {
+                                    "password_modal": {required: I18n.t("signup.js.validate.msg_password_confirmation_required"),
+                                        minlength: I18n.t("signup.js.validate.msg_password_confirmation_minlength")}
+
+                                },
+                                errorPlacement: function (error, element) {
+                                    error.insertAfter(element);
+                                },
+                                invalidHandler: function(form, validator) {
+                                    $('#div_msg_error').text('');
+
+                                    var errors = validator.numberOfInvalids();
+                                    if (errors) {
+                                        validator.errorList[0].element.focus();
+                                    }
+                                }
+                            });
+
+
+
+
+                            $("p.has-error").remove();
+                            $(".has-error").removeClass("has-error");
+                            if ($("#form_modal_confirm").valid()==false){
+                                return;
+                            }else{
+                                $("#user_password_confirmation").val($("#password_modal").val());
+                                update_basic_information();
+                                dialog.close();
+                            }
+                        }
+                    },{
+                        label: '<%= t('button.btn_cancel') %>',
+                        cssClass: 'btn-default',
+//                    hotkey: 13, // Enter.
+                        action: function(dialog) {
+                            dialog.close();
+                        }
+                    }]
+                });
+            }else{
+                update_basic_information();
+            }
+        });
+
+        $("#btnCancel").click(function(){
+            $.ajax({
+              type: "GET",
+              url: "<%= users_show_user_profile_path %>",
+              data: {
+    //              id: id,
+    //              object_type: object_type
+              },
+              beforeSend: function (xhr) {
+                  $.loader.open({size: 32});
+              },
+    //          dataType: "json",
+              success: function (data,status) {
+
+              },
+              error: function (xhr, status, response) {
+                  console.log(xhr);
+                  console.log("AJAX Error: " + status)
+                  console.log(response);
+                  $.loader.close(true);
+              },
+              complete: function(){
+                  $.loader.close(true);
+              }
+          });
+        });
+    });
+</script>
+
+
+<script>
+    $(document).ready(function () {
+        $("#update_user_profile").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "user[first_name]": {
+                    required: {
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    },
+                    maxlength:50, alphanumeric:true
+                },
+                "user[last_name]": {
+                    required: {
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    },
+                    maxlength:50, alphanumeric:true
+                },
+                "user[email]": {
+                    required: {
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    },
+                    custom_email: true, maxlength:100
+                },
+                "password_modal": {
+                    required: {
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            if (text == '') {
+                                $(this).val(text);
+                            }
+                            return true;
+                        }
+                    },
+                    minlength: 6}
+            },
+            messages: {
+                "user[first_name]": {required: I18n.t("signup.js.validate.msg_first_name_required"),
+                    maxlength: I18n.t("signup.js.validate.msg_first_name_maxlength"),
+                    alphanumeric: I18n.t("signup.js.validate.msg_first_name_alphanumeric")},
+                "user[last_name]": {required: I18n.t("signup.js.validate.msg_last_name_required"),
+                    maxlength: I18n.t("signup.js.validate.msg_last_name_maxlength"),
+                    alphanumeric: I18n.t("signup.js.validate.msg_last_name_alphanumeric")},
+                "user[email]": {required: I18n.t("signup.js.validate.msg_email_required"),
+                    custom_email: I18n.t("signup.js.validate.msg_email_invalid"),
+                    maxlength: I18n.t('signup.js.validate.msg_email_maxlength')},
+                "password_modal": {required: I18n.t("signup.js.validate.msg_password_confirmation_required"),
+                    minlength: I18n.t("signup.js.validate.msg_password_confirmation_minlength")}
+
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            invalidHandler: function(form, validator) {
+                $('#div_msg_error').text('');
+
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
+
+
+
+
+
+    });
+</script>

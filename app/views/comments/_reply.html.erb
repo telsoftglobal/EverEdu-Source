@@ -1,0 +1,31 @@
+<div class="reply media reply-no-author" data-id="<%= reply.id %>">
+  <div class="media-object pull-left">
+    <% if !reply.author.avatar_url.nil? %>
+        <%= image_tag reply.author.avatar_url, class: "media-object", alt: reply.author.user_name, border: "0", height: "50", width: "50" %>
+    <% else %>
+        <%= image_tag 'noavatar.png', class: "media-object", alt: "", align: "middle", border: "0", height: "50", width: "50" %>
+    <% end %>
+  </div>
+  <div class="media-body innerTB">
+    <span class="strong text-inverse"><%= reply.author.user_name %></span>
+    <small class="text-muted "><%= l(reply.created_at) %></small>
+    <p class="margin-none" style=" word-wrap:break-word"><%=  reply.content %></p>
+    <br/>
+  </div>
+</div>
+
+<div class="reply media reply-author" data-id="<%= reply.id %>">
+  <div class="media-object pull-right">
+    <% if !reply.author.avatar_url.nil? %>
+        <%= image_tag reply.author.avatar_url, class: "media-object", alt: reply.author.user_name, border: "0", height: "50", width: "50" %>
+    <% else %>
+        <%= image_tag 'noavatar.png', class: "media-object", alt: "", align: "middle", border: "0", height: "50", width: "50" %>
+    <% end %>
+  </div>
+  <div class="media-body innerTB">
+    <span class="strong text-inverse"><%= reply.author.user_name %></span>
+    <small class="text-muted "><%= l(reply.created_at) %></small>
+    <p class="margin-none" style=" word-wrap:break-word"><%=  reply.content %></p>
+    <br/>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  products:
+    title_new_product: "新製品"
+    title_list_product: "リストの製品"
+    title_edit_product: "編集製品"
+
+    lb_product_name: "製品名"
+    lb_price: "プライス"
+    lb_quantity: "数量"
+    lb_import_date: "インポート日付"
+    lb_description: "説明"
+    lb_status: "ステータス"
+
+    bt_create_product: "製品の作成"
+    msg_create_product_success: "製品は正常に更新されました"
+    msg_update_product_success: "製品は正常に更新されました"
+    msg_destroy_product_success: "製品は正常に破壊されました"
+
+    js:
+      validate:
+        msg_product_name_required: "製品は正常に破壊されました"
+        msg_product_name_length: "製品は正常に破壊されました"
+        msg_product_name_uniquess: "製品は正常に破壊されました"
+        msg_product_price_required: "製品は正常に破壊されました"
+        msg_product_price_number: "製品は正常に破壊されました"
+        msg_product_quantity_required: "製品は正常に破壊されました"
+        msg_product_quantity_number: "製品は正常に破壊されました"
+        msg_product_importDate_required: "製品は正常に破壊されました"
+        msg_product_importDate_date: "製品は正常に破壊されました"
+        msg_product_status_required: "製品は正常に破壊されました"
+        msg_product_description_rangelength: "製品は正常に破壊されました"

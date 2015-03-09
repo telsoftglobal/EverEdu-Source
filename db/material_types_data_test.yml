@@ -1,0 +1,4 @@
+db.material_types.insert({ "name":"本", "show_priority":1})
+db.material_types.insert({ "name":"ビデオ", "show_priority":2})
+db.material_types.insert({"name":"ドキュメント", "show_priority":3})
+db.material_types.insert({"name":"余", "show_priority":4})

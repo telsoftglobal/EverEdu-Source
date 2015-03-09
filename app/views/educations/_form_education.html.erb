@@ -1,0 +1,62 @@
+<%= form_for @education, html: {id: 'education_form', role: 'form'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div id="paneleducation" class="innerLR">
+          <div class="education" id="<%= @education.id %>">
+            <div class="form-group">
+              <%= f.text_field :school_name, maxlength: 200, class: 'form-control', placeholder: t('educations.placeholder_school_name') %>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                  <label class="checkbox-custom">
+                    <%= f.check_box :current%><i class="fa fa-fw fa-square-o" style="margin-left: -13px;"></i> <%= t('educations.lb_current') %>
+                  </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <%= f.select :start_year, year_options_for_select, {:include_blank => t('educations.placeholder_start_year')}, {class: "form-control"} %>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <%= f.select :end_year, year_options_for_select, {:include_blank => t('educations.placeholder_end_year')},  {class: "form-control"}%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+                <%= f.text_area :description, maxlength: 200, class: 'form-control', placeholder: t('educations.placeholder_description'), rows: 2 %>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $('.checkbox-custom > input[type=checkbox]').each(function () {
+            var $this = $(this);
+            if ($this.data('checkbox')) return;
+            $this.checkbox($this.data());
+        });
+
+        if ($("#education_current").attr('checked') == 'checked') {
+            $("#education_end_year").val('');
+            $("#education_end_year").prop('disabled',true);
+        }
+
+        $("#education_current").change(function() {
+            if(this.checked) {
+                $("#education_end_year").val('');
+                $("#education_end_year").prop('disabled',true);
+            } else {
+                $("#education_end_year").prop('disabled',false);
+            }
+        });
+
+    });
+</script>

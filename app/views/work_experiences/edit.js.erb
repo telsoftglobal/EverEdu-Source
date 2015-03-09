@@ -1,0 +1,2 @@
+$('#modalContent').html('<%= escape_javascript(render(:partial  => 'work_experiences/form_work_experience', locals: {work_experience: @work_experience})) %>')
+$('#workExperienceModal').modal({backdrop: 'static', keyboard: false});

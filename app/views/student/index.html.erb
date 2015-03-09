@@ -1,0 +1,100 @@
+<%=stylesheet_link_tag 'student' %>
+<div class="innerLR">
+  <h3 style=" padding-top: 0px" class="aes-color">
+    <i class="fa fa-graduation-cap"></i>&nbsp;<%= t('student_home.title_student_home') %></h3>
+
+  <div class="row">
+    <div class="widget"> ‌ ‌
+      <div class="widget-body" >
+        <div class="search-form">
+          <%= form_tag student_index_path, id: 'index_student_form', role: 'form', method: :get do %>
+              <% if flash.now[:error] %>
+                  <div id="div_msg_error" class="msg_error">
+                    <ul>
+                      <li><%= flash.now[:error] %></li>
+                    </ul>
+                  </div>
+              <% end %>
+
+              <div class="row">
+                <div class="col-md-10 col-sm-10">
+                  <%= text_field_tag 'keyword', params[:keyword], placeholder: t('search_curriculum.placeholder_keyword'), class: "form-control search_all", maxlength: 200 %>
+                </div>
+                <div class="col-md-2 col-sm-2">
+                  <button type="submit" class="fa fa-search form-control btn btn-primary height34" data-target="body">&nbsp;<%= t('search_curriculum.btn_search') %></button>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+    </div>
+    <div class="widget">
+      <% if @curriculums %>
+          <h5 class="text-uppercase strong innerAll border-bottom"><%= @curriculums.total_entries %> <%= t('search_curriculum.lb_search_results') %></h5>
+      <% end %>
+      <!--<div class="widget-body" >-->
+        <div id="search-result" style="margin-top: -8px;">
+          <%= render partial: "student/curriculums" %>
+        </div>
+      <!--</div>-->
+    </div>
+
+  </div>
+
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        $.validator.setDefaults(
+                {
+                    showErrors: function (map, list) {
+                        this.currentElements.parents('label:first, div:first').find('.has-error').remove();
+                        this.currentElements.parents('.form-group:first').removeClass('has-error');
+
+                        $.each(list, function (index, error) {
+                            var ee = $(error.element);
+                            var eep = ee.parents('label:first').length ? ee.parents('label:first') : ee.parents('div:first');
+
+                            ee.parents('.form-group:first').addClass('has-error');
+                            eep.find('.has-error').remove();
+                            eep.append('<p class="has-error help-block">' + error.message + '</p>');
+                        });
+                        //refreshScrollers();
+                    }
+                });
+
+        $("#index_student_form").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "keyword": {maxlength: 200}
+
+            },
+            messages: {
+                "keyword": {maxlength: I18n.t('js.validate.msg_maxlength')}
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+
+                $('#index_student_form').find('input:text').each(function () {
+                    $(this).val($.trim($(this).val()));
+                });
+                form.submit();
+
+            },
+            invalidHandler: function (form, validator) {
+                $('#div_msg_error').text('');
+
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
+    });
+
+</script>
+

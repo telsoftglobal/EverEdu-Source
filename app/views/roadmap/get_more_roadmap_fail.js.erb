@@ -1,0 +1,8 @@
+$('#load-more-error').html('<%= flash[:error]%>')
+var total_roadmaps = '<%= @total_roadmaps %>'
+var roadmaps_length = $('.roadmap-id').length
+if (roadmaps_length >= total_roadmaps) {
+    $('#load-more').hide()
+} else {
+    $('#load-more').show()
+}

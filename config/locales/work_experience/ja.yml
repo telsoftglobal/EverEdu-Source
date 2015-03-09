@@ -1,0 +1,63 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  work_experiences:
+    title_work_experiences: "仕事の経験"
+    title_new_work_experience: "新職業体験"
+    title_edit_work_experience: "編集実務経験"
+    title_delete_work_experience: "職歴を削除"
+
+    lb_category: "カテゴリ"
+    lb_level: "レベル"
+    lb_work_place: "作業場所"
+    lb_start_year: "年開始"
+    lb_end_year: "年終了"
+    lb_current: "現在"
+    lb_description: "説明"
+    placeholder_category: "カテゴリを選択してください。"
+    placeholder_level: "レベルを選択してください。"
+    placeholder_year: "年"
+    placeholder_start_year: "年開始"
+    placeholder_end_year: "終了年"
+    placeholder_work_place: "作業場所を入力します。"
+    placeholder_description: "作業場所を入力します。"
+    btn_create: "作る"
+
+
+
+    msg_create_successfully: "仕事の経験が正常に作成されました。"
+    msg_update_successfully: "仕事の経験が正常に更新されました。"
+    msg_delete_successfully: "仕事の経験は正常に破壊された。"
+
+    msg_create_fail: "仕事の経験が作成失敗した。"
+    msg_update_fail: "仕事の経験が更新失敗した。"
+    msg_delete_fail: "仕事の経験が破壊失敗した。"
+    msg_work_experience_not_found: "仕事の経験が見つかりません。"
+
+    msg_confirm_save: "あなたが保存しますか？"
+    title_confirm_delete_work_experience: "削除実務経験の確認"
+    msg_confirm_delete_work_experience: "あなたがこの仕事の経験を削除しますか？"
+
+
+    js:
+      validate:
+        msg_end_year_greater_or_equal_to_start_year: "よりか等しい開始年より入力してください。"

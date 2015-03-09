@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+  <!--[if IE]>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <![endif]-->
+  <title><%= t('app.app_name') %></title>
+
+  <!--ADDING THE REQUIRED STYLE SHEETS-->
+
+  <%= stylesheet_link_tag 'errors' %>
+  <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'> <!-- Google web font link-->
+  <%= javascript_include_tag 'errors' %>
+  <!--Initiating the CountUp Script-->
+  <script type="text/javascript">
+      var code;
+    $(document).ready(function(){
+        code = $("#error").attr("code");
+    });
+    $(document).on("page:load", function(){
+
+      new countUp("error", 0, code, 0, 3).start();
+    });
+    $(document).ready(function () {
+      "use strict";
+      var count = new countUp("error", 0, code, 0, 3);
+      count.start();
+    });
+  </script>
+
+  <!--Initiating the Wow Script-->
+  <script>
+      $(document).ready(function(){
+          "use strict";
+          var wow = new WOW(
+                  {
+                      animateClass: 'animated',
+                      offset:       100
+                  }
+          );
+          wow.init();
+      });
+  </script>
+</head>
+<body>
+
+<section>
+  <div class="container  container-fluid">
+    <div class="row row1">
+      <%= yield %>
+    </div>
+
+    <div class="row">
+      <div class="col-md-12">
+        <div id="cflask-holder" class="wow fadeIn" data-wow-delay="2800ms">
+          <%= link_to home_index_url, data: {target:'body', no_turbolink: true} do %>
+            <span class="wow tada " data-wow-delay="3000ms"><i class="fa fa-home fa-5x flask wow flip" data-wow-delay="3300ms"></i>
+            </span>
+          <% end %>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+</body>
+</html>

@@ -1,0 +1,169 @@
+# encoding: utf-8
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  curriculum:
+    curriculum: "カリキュラム"
+    lb_curriculum: "カリキュラムを管理する"
+    title_create_curriculum: "カリキュラムを作成します"
+    title_update_curriculum: "更新カリキュラム"
+    lb_curriculum_name: "カリキュラム名"
+    title_enter_curriculum: "一般情報"
+    lb_category: "カテゴリ"
+    lb_summary: "要約"
+    lb_duration: "デュレーション"
+    lb_unit: "ユニット"
+    lb_start_date: "開始日"
+    lb_end_date: "終了日"
+    lb_description: "説明"
+    msg_description_maxlength: "10000文字以内で入力してください。"
+    title_step: "ステップ"
+    lb_more: "メンターのカリキュラム"
+    lb_new_curriculum: "カリキュラムを作成"
+    lb_create_date: "日付を作成します。"
+    btn_jon: "参加する"
+    btn_comment: "コメント"
+    title_manage_curriculum: "カリキュラムを管理します"
+    bt_edit: "編集"
+    bt_view_detail: "詳細を表示"
+    msg_create_curriculum_succes: "成功したカリキュラムを作成しよう!"
+    msg_update_curriculum_succes: "カリキュラムは正常に更新されました。"
+    msg_update_curriculum_failed: "更新カリキュラムに失敗しました!"
+    lb_curriculum_outline: "アウトライン"
+    lb_curriculum_detail: "カリキュラム詳細"
+    msg_name_only_alphanumeric: "名前は英数字でなければなりません"
+    msg_error: "エラー時の負荷カリキュラム"
+    msg_error_not_found: "カリキュラム見つかりません。"
+    msg_error_not_permission: "あなたはこのカリキュラムを更新する権限はありません"
+    msg_confirm_save: "あなたが保存しますか？"
+    msg_not_found: "カリキュラムが見つかりません!"
+    msg_curriculum_not_found: "カリキュラム見つかりません。"
+    btn_start: "スタート"
+    btn_done: "終わった"
+    btn_inprogress: "進捗"
+    lb_note: "注意"
+    lb_readmore: "続きを読む"
+    lb_showless: "示し少ない"
+  material:
+    title_new_material: "新素材"
+    title_material: "材料"
+    lb_material_name: "素材名"
+    title_add_material: "素材を追加"
+    lb_code: "コード"
+    lb_url: "URL"
+    lb_duration: "デュレーション"
+    lb_unit: "ユニット"
+    lb_type: "タイプ"
+    lb_description: "説明"
+    btn_addmaterial: "素材を追加"
+    btn_editmaterial: "編集素材"
+    btn_deletematerial: "素材の削除"
+    msg_atleast_material: "少なくとも一つの材料で"
+    msg_confirm_delete: "あなたは、この材料を削除してもよろしいです!"
+    msg_cant_delete_parent: "材料の親を削除できません!"
+    msg_update_success: "更新材料成功を!"
+    msg_update_failed: "更新材料に失敗しました!"
+    msg_not_found: "素材が見つからない!"
+    title_quick_update: "更新材料"
+    help:
+      title: "はじめに："
+      step1: "1.材料を入力するには"
+      step1-1: "ステップ1：材料情報を入力します。"
+      step1-2: "ステップ2：ボタン[保存]をクリックします"
+      note: "注：フィールド（*）が必要です"
+      step2: "2.素材を追加するには、"
+      step2-1: "ステップ1：クリック"
+      step2-2: "ステップ2：クリック"
+      step2-3: "ステップ3：上記と同じ情報を入力します。"
+      step3a: "3.編集するには"
+      step3b: "削除"
+      step3c: "材料"
+      tip1: "材料であるされているようないくつかのこと：本、先端、ビデオ。"
+      tip2: "一つは、あなたがカリキュラム材料が削除することはできません作成しました。"
+      tipend: "材料は、少なくとも1を持っている必要があります！"
+  action:
+    title_new_action: "新しいアクション"
+    title_action: "アクション"
+    lb_action_name: "アクション名"
+    title_add_action: "アクションの追加"
+    lb_description: "説明"
+    btn_addaction: "アクションの追加"
+    btn_editaction: "編集アクション"
+    btn_deleteaction: "アクションの削除"
+    msg_confirm_delete: "あなたはこのアクションを削除してもよろしいですか!"
+    msg_update_success: "更新アクション成功での!"
+    msg_update_failed: "更新アクションが失敗しました!"
+    msg_not_found: "アクションが見つかりません!"
+    title_quick_update: "更新アクション"
+    help:
+      title: "はじめに："
+      step1: "2.アクションを入力するには"
+      step1-1: "ステップ1：アクション情報を入力します。"
+      step1-2: "ステップ2：ボタン[保存]をクリックします"
+      note: "注：フィールド（*）が必要です"
+      step2: "1.アクションを追加するには"
+      step2-1: "ステップ1：クリック"
+      step2-2: "ステップ2：クリック"
+      step2-3: "ステップ3：上記と同じ情報を入力します。"
+      step3a: "3.編集するには"
+      step3b: "削除"
+      step3c: "材料"
+      tip1: "アクションは何をする必要がある"
+      tip2: "一つには、カリキュラムのアクションは削除できません作成する。"
+      tipend: "アクションはオプションです"
+  category:
+    msg_atleast_category: "少なくとも一つのカテゴリ!"
+    title_select_category: "カテゴリを選択してください"
+    title_selectAll: "全て選択"
+    title_unselectAll: "すべて選択解除"
+    msg_update_success: "アップデートのカテゴリに成功!"
+    msg_update_failed: "アップデートのカテゴリに失敗しました!"
+    title_quick_update: "更新カリキュラムのカテゴリ"
+    help:
+      title: "はじめに:"
+      step1: "ステップ1：カテゴリーを選択"
+      step2: "ステップ2：ボタンの追加をクリックします"
+      step3: "ステップ3：カリキュラムに適したレベルを選択してください"
+      tip1: "ヒント1：生徒との一貫したレベルを選択してください"
+      tip2: "ヒント2：あなたは複数のレベルを選択する"
+      tip3: "ヒント3：あなたは簡単なチェック/すべてのチェックを外すことができます "
+      note: "レベルはオプションです"
+  confirm:
+    title_confirm: "確認する"
+    title_verify: "情報を検証する"
+    lb_confirm: "あなたはすべての情報が正しいことを確認する必要があります!"
+  unit:
+    title_minute: "分"
+    title_hour: "時間"
+    title_day: "デイ"
+    title_week: "週"
+    title_month: "月"
+    title_year: "年"
+
+  manage_curriculum:
+    placeholder_category: 全てのカテゴリー
+
+  join:
+    msg_cant_join: "あなたは、カリキュラムの作成者である。"
+    msg_join_successful: "成功した参加。"
+    msg_join_fail: "失敗する参加。"
+    msg_joined: "あなたが参加している。"

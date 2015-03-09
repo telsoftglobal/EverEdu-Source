@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  work_experiences:
+    title_work_experiences: "Work Experience"
+    title_new_work_experience: "New Work Experience"
+    title_edit_work_experience: "Edit Work Experience"
+    title_delete_work_experience: "Delete Work Experience"
+
+    lb_category: "Category"
+    lb_level: "Level"
+    lb_work_place: "Work place"
+    lb_start_year: "Start year"
+    lb_end_year: "End year"
+    lb_current: "Current"
+    lb_description: "Description"
+    placeholder_category: "Please choose a category"
+    placeholder_level: "Please choose a level"
+    placeholder_start_year: "Start year"
+    placeholder_end_year: "End year"
+    placeholder_work_place: "Please enter work place"
+    placeholder_description: "Please enter description"
+
+    btn_create: "Create"
+    msg_create_successfully: "Work experience was successfully created."
+    msg_update_successfully: "Work experience was successfully updated."
+    msg_delete_successfully: "Work experience was successfully destroyed."
+
+    msg_create_fail: "Work experience was fail created."
+    msg_update_fail: "Work experience was fail updated."
+    msg_delete_fail: "Work experience was fail destroyed."
+    msg_work_experience_not_found: "Work experience not found."
+
+    msg_confirm_save: "Do you want to save?"
+    title_confirm_delete_work_experience: "Confirm delete work experience"
+    msg_confirm_delete_work_experience: "Do you want delete this work experience?"
+    js:
+      validate:
+        msg_end_year_greater_or_equal_to_start_year: "Please enter greater than or equal start year"

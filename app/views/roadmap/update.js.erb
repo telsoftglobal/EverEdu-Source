@@ -1,0 +1,5 @@
+//$('#roadmapModal<%= @user_category.id %>').modal('hide');
+$('#tooltipModal<%= @user_category.id %>').modal('hide');
+$("#roadmap-id<%= @user_category.category.id %>").empty();
+$("#roadmap-id<%= @user_category.category.id %>").append('<%= escape_javascript(render :partial => 'roadmap/user_category', locals: {user_category: @user_category}) %>')
+$('#roadmap-error<%= @user_category.id %>').html(' ')

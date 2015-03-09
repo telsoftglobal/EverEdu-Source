@@ -1,0 +1,82 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  signup:
+    title_signup: "Create account!"
+    lb_name: "Name"
+    lb_first_name: "First name"
+    lb_last_name: "Last name"
+    lb_user_name: "User name"
+    lb_email: "Email"
+    lb_password: "Password"
+    lb_password_confirmation: "Password Confirmation"
+    bt_signup: "Sign Up"
+    lb_signup: "Do not have account?"
+    lk_signup: "Sign Up!"
+    title_update_account: "Update account information"
+    js:
+      validate:
+        msg_first_name_required: "Please enter your first name."
+        msg_last_name_required: "Please enter your last name."
+        msg_user_name_required: "Please enter your user name."
+        msg_user_name_minlength: "Please enter at least {0} characters."
+        msg_user_name_invalid: "Please enter valid user name."
+        msg_email_invalid: "Please enter a valid email address."
+        msg_email_required: "Please enter your email address."
+        msg_password_required: "Please provide a password."
+        msg_password_minlength: "Please enter at least {0} characters."
+        msg_password_confirmation_required: "Please provide a password."
+        msg_password_confirmation_minlength: "Please enter at least {0} characters."
+        msg_password_confirmation_equalto: "Please enter the same password as above."
+        msg_first_name_maxlength: "Please enter less than {0} characters."
+        msg_last_name_maxlength: "Please enter less than {0} characters."
+        msg_user_name_maxlength: "Please enter less than {0} characters."
+        msg_email_maxlength: "Please enter less than {0} characters."
+        msg_first_name_alphanumeric: "First name contains invalid characters."
+        msg_last_name_alphanumeric: "Last name contains invalid characters."
+        msg_user_name_alphanumeric: "User name contains invalid characters."
+
+  signin:
+    title_signin: "Sign In!"
+    lb_email: "Email"
+    lb_password: "Password"
+    bt_signin: "Sign In"
+    lb_signin: "Have an account?"
+    lk_signin: "Sign In!"
+    msg_signin_fail: "Email address or password is incorrect."
+    title_forgot: "Forgot password !"
+    lk_forgot: "Forgot"
+    js:
+      validate:
+        msg_email_invalid: "Please enter a valid email address."
+        msg_email_required: "Please enter your email address."
+        msg_password_required: "Please provide a password."
+
+  signout:
+    bt_signout: "Sign out"
+
+  become_mentor:
+    bt_become_mentor: "Become to mentor"
+
+
+  error_session_expired: "Session expired"
+

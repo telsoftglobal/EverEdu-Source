@@ -1,0 +1,117 @@
+<div class="roadmap-id" data-id="<%= user_category.id %>" >
+  <!--<div class="row">-->
+    <div  class="col-md-8 col-sm-8" style="margin: 0px auto;  border: 1px solid #913228; float: none;" >
+      <div id="roadmap-chart<%= user_category.id %>" style="margin: 10px">
+      </div>
+    </div>
+  <!--</div>-->
+
+  <script>
+      $(document).ready(function () {
+          var data = [];
+          <% user_category.category.levels.order('level_order asc').each_with_index  do |level,ii| %>
+          var level_order = <%=level.level_order%>;
+          var level_current = <%=user_category.level.level_order%>;
+          if(level_order == level_current)
+              data.push({y:<%=level.yaxis%>,name:'<%=level.level_name%>', description:'<%= sanitize level.description%>',marker: {
+//                  radius: 6,
+//                  lineColor: 'green',lineWidth: 2
+                  symbol: 'url(http://upload.wikimedia.org/wikipedia/commons/thumb/0/0d/Ski_trail_rating_symbol-blue_square.svg/18px-Ski_trail_rating_symbol-blue_square.png)'
+              }});
+          else
+              data.push({y:<%=level.yaxis%>,name:'<%=level.level_name%>', description:'<%= sanitize level.description%>'});
+//                            data2.push(<%= level.xaxis%>)
+
+          <%end%>
+          $('#roadmap-chart<%= user_category.id %>').highcharts({
+
+              chart: {
+                  type: 'spline'
+//                  borderWidth: 1,
+//                  borderColor: '#913228',
+//                  spacingBottom: 5,
+//                  spacingTop: 10,
+//                  spacingLeft: 5,
+//                  spacingRight: 5,
+//                    marginLeft: -1,
+//                    marginRight: -1
+//                  width: 800
+
+              },
+              title: {
+                  text: '<%=user_category.category.category_name%>',
+                  align: 'left',
+                  style: {
+                      fontWeight: 'bold'
+                  }
+              },
+//              subtitle: {
+//                  text: '<%=user_category.level.level_name%>',
+//                  align: 'left'
+//              },
+              legend:{
+                  enabled: false
+              },
+              navigation: {
+                  buttonOptions: {
+                      enabled: false
+                  }
+              },
+              credits: {
+                  enabled: false
+              },
+              xAxis: {
+                  lineWidth: 0,
+                  minorGridLineWidth: 0,
+                  lineColor: 'transparent',
+                  labels: {
+                      enabled: false
+                  },
+                  minorTickLength: 0,
+                  tickLength: 0
+              },
+              yAxis: {
+                  gridLineWidth: 0,
+                  minorGridLineWidth: 0,
+                  title:{
+                      text: ''
+                  },
+                  labels: {
+                      enabled: false
+                  }
+              },
+              tooltip: {
+                  useHTML: true,
+                  formatter: function () {
+                      return "<b>" + this.point.name + "</b><div style='width: 200px; white-space:normal;'>"+ this.point.description + "</div>";
+                  }
+              },
+              colors: ['#913228'],
+              plotOptions: {
+                  spline: {
+                      marker: {
+                          radius: 4,
+                          lineColor: '#913228',
+                          lineWidth: 1
+
+                      },
+                      cursor: 'pointer',
+                      dataLabels: {
+                          enabled: true,
+                          formatter: function () {
+                              return this.point.name;
+                          }
+                      }
+                  }
+              },
+              series: [{
+                  name: 'IT',
+                  marker: {
+                      symbol: 'square'
+                  },
+                  data: data
+              }]
+          });
+      });
+  </script>
+</div>

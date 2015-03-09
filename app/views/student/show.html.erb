@@ -1,0 +1,60 @@
+<div class="row  row-offcanvas row-offcanvas-right" >
+  <!--Left Column-->
+  <div  class="col-xs-12 col-sm-9 col-md-9">
+    <div id="divContent">
+        <%= render 'student/content' %>
+    </div>
+    <!--Comment-->
+    <div id='divComments' class="widget media-body">
+      <%= render 'comments/comments' %>
+    </div>
+    <!--End comment-->
+ </div>
+  <!--End left column-->
+  <div class="col-xs-6 col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <!--Right Column-->
+    <div id="divRight" class="widget media-body" style="height: auto">
+      <div class="innerAll menu-right">
+        <div id="div_menu_right">
+            <%= render 'student/menu_right' %>
+        </div>
+        <div id="div_menu_right1">
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // End right column  -->
+</div>
+<script>
+    $(document).ready(function () {
+        $('#divRight').on("click", "a", function () {
+            $('#divRight a').removeClass("strong");
+            $(this).addClass("strong");
+            $.ajax({
+                url: '/student/update_curriculum_detail',
+                type: 'GET',
+                dataType: 'script',
+                data: {
+                    curriculum_id: $(this).attr("curriculum_id"),
+                    object_type: $(this).attr("object_type"),
+                    object_id: $(this).attr("object_id")
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+                },
+                success: function () {
+                    $.loader.close();
+                    $('[data-toggle="offcanvas"]').unbind( "click" );
+                    $('[data-toggle="offcanvas"]').click(function () {
+                        $('.row-offcanvas').toggleClass('active');
+                        $(this).find("i").toggleClass('fa-arrow-left');
+                        $(this).find("i").toggleClass('fa-arrow-right');
+                    });
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                }
+            });
+        });
+    });
+</script>

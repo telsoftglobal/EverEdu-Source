@@ -1,0 +1,8 @@
+<%= render partial: 'users/show_user_profile' %>
+notyfy({
+    text: '<%= flash[:now]%>',
+    type: 'alert',
+    dismissQueue: false,
+    layout: 'top',
+    timeout: 5000 // delay for closing event. Set false for sticky notifications
+});

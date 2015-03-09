@@ -1,0 +1,108 @@
+<div class="roadmap-id" id="roadmap-default">
+  <div class="col-md-8 col-sm-8" style="margin: 0px auto;  border: 1px solid #913228; float: none;">
+    <div id="roadmap-chart-default" style=" margin: 10px"></div>
+  </div>
+</div>
+  <script>
+      $(document).ready(function () {
+          var data = [
+              {y:0,name:'New Grad/Entry Level/Internship', description:'<p><b>Description:</b></p><p>You can work that is not related to the management to further hone my experience, work skills</p><p><b>Requirement:</b></p><p>- University graduate </p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure.<br></p>',marker: {
+              symbol: 'url(<%= asset_path("assets/18px-Ski_trail_rating_symbol-blue_square.png") %>)'}},
+              {y:7,name:'Experienced (Non-Manager)', description:'<p><span style=\'font-weight: bold;\'>Description:</span></p><p>Project management, human resource management</p><p><span style=\'font-weight: bold;\'>Requirement:</span></p><p>- University graduate, majoring in Advertising/Promotion/PR</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- Have leadership skills</p><p>Good organizational and planning skills.<br></p>'},
+              {y:17,name:'Team Leader/Supervisor', description:'<p><b>Description:</b></p><p>Team leader, guiding people to work, participate in the development, quality assurance project</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- You have at least experience 3 years</p><p>- Have leadership skills.<br></p>'},
+              {y:27,name:'Manager', description:'<p><b>Description:</b></p><p>Project management, human resource management</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- You have at least experience 3 years</p><p>- Have leadership skills.</p><p>Experience in project management with a team of 10 or more.<br></p>'},
+              {y:35,name:'Vice Director', description:'<p><b>Description:</b></p><p>Project management, human resource management</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- Have leadership skills</p><p>Good organizational and planning skills.<br></p>'},
+              {y:42,name:'CEO', description:'<p><b>Description:</b></p><p>Project management, human resource management</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- You have at least experience 3 years</p><p>- Have leadership skills.<br></p>'},
+              {y:50,name:'Vice President', description:'<p><b>Description:</b></p><p>Project management, human resource management</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- You have at least experience 3 years</p><p>- Have leadership skills.<br></p>'},
+              {y:55,name:'President', description:'<p><b>Description:</b></p><p>Project management, human resource management</p><p><b>Requirement:</b></p><p>- University graduate</p><p>- Good English skills</p><p>- Flexible, ability to work independently</p><p>- Good interpersonal skills and can work under pressure</p><p>- You have at least experience 3 years</p><p>- Have leadership skills.<br></p>'}
+          ];
+
+          $('#roadmap-chart-default').highcharts({
+
+              chart: {
+                  type: 'spline'
+              },
+              title: {
+                  text: 'ロードマップの例',
+                  align: 'left',
+                  style: {
+                      fontWeight: 'bold'
+                  }
+              },
+              subtitle: {
+                  text: 'あなたのロードマップを持っているしたい場合は、あなたのロードマップを作成する。',
+                  align: 'left'
+              },
+              legend:{
+                  enabled: false
+              },
+              navigation: {
+                  buttonOptions: {
+                      enabled: false
+                  }
+              },
+              credits: {
+                  enabled: false
+              },
+              xAxis: {
+                  lineWidth: 0,
+                  minorGridLineWidth: 0,
+                  lineColor: 'transparent',
+                  labels: {
+                      enabled: false
+                  },
+                  minorTickLength: 0,
+                  tickLength: 0
+//                                    categories: data2
+              },
+              yAxis: {
+                  gridLineWidth: 0,
+                  minorGridLineWidth: 0,
+                  title:{
+                      text: ''
+                  },
+                  labels: {
+                      enabled: false
+                  }
+              },
+              tooltip: {
+                  useHTML: true,
+                  formatter: function () {
+                      return "<b>" + this.point.name + "</b><div style='width: 200px; white-space:normal;'>"+ this.point.description +"</div>";
+                  }
+
+              },
+              colors: ['#913228'],
+              plotOptions: {
+                  spline: {
+                      marker: {
+                          radius: 4,
+                          lineColor: '#913228',
+                          lineWidth: 1,
+                          states: {
+                              hover: {
+                                  radiusPlus: 6
+                              }
+                          }
+
+                      },
+                      cursor: 'pointer',
+                      dataLabels: {
+                          enabled: true,
+                          formatter: function () {
+                              return this.point.name;
+                          }
+                      }
+                  }
+              },
+              series: [{
+                  name: 'IT',
+                  marker: {
+                      symbol: 'square'
+                  },
+                  data: data
+              }]
+          });
+      });
+  </script>
+</div>

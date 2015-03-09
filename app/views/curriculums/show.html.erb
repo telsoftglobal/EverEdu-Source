@@ -1,0 +1,98 @@
+<div class="row  row-offcanvas row-offcanvas-right"  >
+  <!--Left Column-->
+  <div class="col-xs-12 col-sm-9 col-md-9">
+
+    <div class="panel-group accordion accordion-2" id="accordion">
+      <!--<p id="pullright" class="pull-right visible-xs">-->
+        <!--<a href="javascript:;" data-toggle="offcanvas" class="no-ajaxify btn-outline"><i class="fa fa-arrow-left"></i></a>-->
+      <!--</p>-->
+      <!--<p class="aes-pull-right">-->
+        <!--<a id="href_start_material" href="<%= join_curriculum_path(@curriculum)%>" class="btn btn-primary aes-border-white"><i class="fa fa-chain"></i> <%= t('curriculum.btn_jon')%></a>-->
+      <!--</p>-->
+      <div class="panel panel-default" id="panel1">
+        <div class="panel-heading">
+          <p id="pullrightstudent" class="pull-right visible-xs">
+            <a href="javascript:;" data-toggle="offcanvas" class="no-ajaxify btn-outline"><i class="fa fa-arrow-left"></i></a>
+          </p>
+          <div class="nav" style="margin-right: 20px;">
+            <a id="href_start_material" href="<%= join_curriculum_path(@curriculum)%>" class="btn btn-primary aes-border-white" data-target="body"><i class="fa fa-chain"></i> <%= t('curriculum.btn_jon')%></a>
+          </div>
+          <h4 class="panel-title strong"><a class="accordion-toggle font" data-toggle="collapse" data-parent="#accordion" href="#collapse-1">
+            <i class="fa fa-ticket"></i>&nbsp;<%= t('curriculum.lb_curriculum_name')%></a></h4>
+        </div>
+        <div id="collapse-1" class="panel-collapse collapse in" style="height: auto;">
+          <div class="panel-body">
+            <h4><%= @curriculum.curriculum_name%></h4>
+            <p><span><i class="fa fa-user">&nbsp;</i><%= @curriculum.mentor.user_name%></span>&nbsp;|&nbsp;<span><i class="fa fa-calendar">&nbsp;</i><%= @curriculum.created_at.strftime("%Y/%m/%d")%></span></p>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default " id="panel2">
+        <div class="panel-heading">
+          <h4 class="panel-title strong"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-2"><i class="fa fa-tasks"></i>&nbsp;<%= t('curriculum.lb_summary')%></a></h4>
+        </div>
+        <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
+          <div class="panel-body aes-content1" >
+            <%= @curriculum.summary.html_safe %>
+          </div>
+        </div>
+      </div>
+      <div class="panel panel-default" id="panel3">
+        <div class="panel-heading">
+          <h4 class="panel-title strong"><a class="accordion-toggle collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapse-3"><i class="fa  fa-file-text-o"></i>&nbsp;<%= t('curriculum.lb_description')%></a></h4>
+        </div>
+        <div id="collapse-3" class="panel-collapse collapse" style="height: 0px;">
+          <div class="panel-body aes-content1">
+            <%= @curriculum.description.html_safe%>
+          </div>
+        </div>
+      </div>
+      <!--New comment form-->
+      <div id="comment-new" class="innerAll" style="background-color: white" >
+        <%= render partial: 'comments/comment_form', locals: {object: @object} %>
+      </div>
+      <!--End new comment form-->
+    </div>
+
+    <!--Comment-->
+    <div id='divComments' class="widget media-body">
+      <%= render 'comments/comments' %>
+    </div>
+    <!--End comment-->
+  </div>
+  <!--End left column-->
+  <div class="col-xs-6 col-sm-3 col-md-3 sidebar-offcanvas" id="sidebar" role="navigation">
+    <!--Right Column-->
+    <!--Material-->
+    <div id="divRight" class="widget media-body">
+      <div class="innerAll menu-right" style="height: auto">
+        <div>
+          <h4 class="aes-border-bottom aes-color strong"><%= t('material.title_material')%></h4>
+          <ul class="fa-ul" >
+            <% @materials.each do |material| %>
+                <li>
+                  <i class="fa-li fa fa-square"></i><%= material.material_name %>
+                  <ul class="fa-ul">
+                    <% material.children.each do |child| %>
+                        <li><i class="fa-li fa fa-square"></i><%= child.material_name %></li>
+                    <%end%>
+                  </ul>
+                </li>
+            <%end%>
+          </ul>
+        </div>
+        <!--Edd Material-->
+        <!--Action-->
+        <div>
+          <h4 class="aes-border-bottom aes-color strong"><%= t('action.title_action')%></h4>
+          <ul class="fa-ul">
+            <% @curriculum.actions.each do |action| %>
+                <li><i class="fa-li fa fa-square"></i><%= action.action_name %></li>
+            <%end%>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- // End right column  -->
+</div>

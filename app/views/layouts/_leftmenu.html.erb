@@ -1,0 +1,108 @@
+ <div id="sidebar-social-wrapper">
+  <div id="brandWrapper">
+    <a href="#"><span class="text"><%= t('app.app_name') %></span></a>
+  </div>
+  <ul class="menu list-unstyled">
+    <!--<li class="">-->
+      <!--<a href="#">-->
+        <!--<i class="icon-graduation"></i>-->
+        <!--<span>My Course</span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li class="">-->
+      <!--<a href="#">-->
+        <!--<i class="icon-user-1"></i>-->
+        <!--<span>My Mentor</span>-->
+      <!--</a>-->
+    <!--</li>-->
+    <!--<li class="">-->
+      <!--<a href="#">-->
+        <!--<i class="icon-calendar-1"></i>-->
+        <!--<span>My Schedule</span>-->
+      <!--</a>-->
+    <!--</li>-->
+
+    <li class="">
+      <%= link_to search_search_curriculum_path, data: {target:'body'} do %>
+          <i class="fa fa-search"></i>
+          <span><%=t('search_curriculum.title_search_curriculum')%></span>
+      <% end %>
+    </li>
+    <li class="">
+      <%= link_to  student_index_path, data: {target:'body'} do %>
+          <i class="fa fa-graduation-cap"></i>
+          <span><%=t('student_home.title_student_home')%></span>
+      <% end %>
+    </li>
+    <% if current_user.is_mentor? %>
+        <li class="">
+          <%= link_to  curriculums_path,class:"glyphicons book_open", data: {target:'body'} do %>
+              <i></i>
+          <span><%=t('curriculum.lb_curriculum')%></span>
+          <% end %>
+        </li>
+    <% end %>
+    <li class="">
+      <%= link_to roadmap_index_path, data: {target:'body'} do %>
+          <i class="fa fa-level-up"></i>
+          <span><%=t('roadmap.title_roadmap')%></span>
+      <% end %>
+    </li>
+
+    <li class="category">
+      <span><%= t('app.lb_account')%></span>
+    </li>
+    <li class="reset">
+      <div class="innerLR innerB">
+        <ul>
+          <!--<li><a href=""><span class="fa icon-bell text-success"></span> Reminder</a></li>-->
+          <!--<li><a href=""><span class="fa icon-bulleted-list text-info"></span> My Profile</a></li>-->
+          <% if !current_user.is_mentor? %>
+          <li>
+              <%= link_to  become_mentor_path, data: {target:'body'} do %>
+                    <span class="fa fa-user text-primary"></span>
+                    <%=t('become_mentor.bt_become_mentor')%>
+            <% end %>
+            </li>
+          <% end %>
+
+          <li>
+            <%= link_to  signout_path, data: {target:'body'} do %>
+                <span class="fa fa-sign-out text-primary"></span>
+                <%= t('signout.bt_signout')%>
+            <% end %>
+          </li>
+        </ul>
+      </div>
+    </li>
+  </ul>
+</div>
+
+
+
+ <script>
+     $(document).ready(function(){
+         $("#btnReset").click(function(){
+             BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_yes') %>','<%= t('button.btn_no') %>','<%= t('users.title_confirm_reset')%>', function(result){
+                 $.loader.open({size:32});
+                 if(result) {
+                     $.ajax({
+                         type: "post",
+                         url: "<%= users_resetpassword_path %>",
+                         beforeSend: function (xhr) {
+                             $.loader.open({size:32});
+                         },
+                         success: function(data){
+                             $.loader.close(true);
+                         },
+                         error: function(xhr, status, response) {
+                             $.loader.close(true);
+                         }
+                     });
+                 }else{
+                    $.loader.close(true);
+                 }
+             });
+         });
+     })
+ </script>

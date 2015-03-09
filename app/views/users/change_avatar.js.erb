@@ -1,0 +1,5 @@
+$('#avatar').html('<%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>');
+$('#avatarModal').modal('hide');
+
+var file_avatar = $('#file_avatar');
+file_avatar.replaceWith(file_avatar.val('').clone(true));

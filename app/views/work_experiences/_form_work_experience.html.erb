@@ -1,0 +1,91 @@
+<%= form_for @work_experience, html: {id: 'work_experience_form', role: 'form'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div id="panelworkexperience" class="innerLR">
+          <div class="workexperience" id="<%= @work_experience.id %>">
+            <div class="form-group">
+                <%= f.collection_select :category_id, Category.get_all_categories, :id, :category_name, {:include_blank =>  t('work_experiences.placeholder_category')}, {class: 'form-control'} %>
+            </div>
+
+            <div class="form-group">
+                <%= f.collection_select :level_id, Level.where(category_id: @work_experience.category_id).order_by(level_order: 1), :id, :level_name, {:include_blank =>  t('work_experiences.placeholder_level')}, {class: 'form-control'} %>
+            </div>
+
+            <div class="form-group">
+                <div class="checkbox">
+                  <label class="checkbox-custom">
+                    <%= f.check_box :current%><i class="fa fa-fw fa-square-o" style="margin-left: -13px;"></i> <%= t('work_experiences.lb_current') %>
+                  </label>
+                </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <%= f.select :start_year, year_options_for_select, {:include_blank => t('work_experiences.placeholder_start_year')}, {class: "form-control"} %>
+                </div>
+                <div class="col-xs-6 col-sm-6 col-md-6">
+                  <%= f.select :end_year, year_options_for_select, {:include_blank => t('work_experiences.placeholder_end_year')},  {class: "form-control"}%>
+                </div>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+                <%= f.text_field :work_place, maxlength: 200, class: "form-control", placeholder: t('work_experiences.placeholder_work_place') %>
+            </div>
+
+            <div class="form-group">
+                <%= f.text_area :description, maxlength: 200, class: 'form-control', placeholder: t('work_experiences.placeholder_description'), rows: 2 %>
+            </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $("#work_experience_category_id").change(function () {
+            $.ajax('/work_experiences/update_levels', {
+                type: 'GET',
+                dataType: 'script',
+                data: {
+                    category_id: $("#work_experience_category_id option:selected").val()
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + textStatus);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $.loader.close(true);
+                }
+            });
+        });
+
+        $('.checkbox-custom > input[type=checkbox]').each(function () {
+            var $this = $(this);
+            if ($this.data('checkbox')) return;
+            $this.checkbox($this.data());
+        });
+
+        if ($("#work_experience_current").attr('checked') == 'checked') {
+            $("#work_experience_end_year").val('');
+            $("#work_experience_end_year").prop('disabled',true);
+        }
+
+        $("#work_experience_current").change(function() {
+            if(this.checked) {
+                $("#work_experience_end_year").val('');
+                $("#work_experience_end_year").prop('disabled',true);
+            } else {
+                $("#work_experience_end_year").prop('disabled',false);
+            }
+        });
+
+    });
+</script>

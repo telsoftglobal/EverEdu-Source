@@ -1,0 +1,4 @@
+
+if($('#roadmaps-list').children('div').length == 1){
+    $('#roadmaps-list').prepend('<%= escape_javascript(render :partial => 'roadmap/roadmap_default') %>')
+}

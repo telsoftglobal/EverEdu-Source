@@ -1,0 +1,37 @@
+<div class="innerAll border-bottom" id="education<%= education.id %>" data-id="<%= education.id %>">
+  <div class="row">
+    <div class="col-sm-10">
+      <ul class="media-list margin-none">
+        <li class="media">
+
+          <span class="pull-left innerAll half empty-photo"><i class="fa fa-graduation-cap fa-2x text-muted"></i></span>
+
+          <div class="media-body innerAll half">
+            <span class="media-heading aes-color" style="word-wrap: break-word;"><%= education.school_name%></span>
+            <br/>
+
+            <% if education.end_year && !education.end_year.nil?%>
+                <small><i class="fa fa-calendar"></i> <%=education.start_year%> - <%=education.end_year%></small>
+            <% else %>
+                <small><i class="fa fa-calendar"></i> <%=education.start_year%> - <%=t("educations.lb_current")%></small>
+            <% end %>
+
+            <br/>
+
+            <% if education.description && !education.description.empty? %>
+                <small style="word-wrap: break-word;"><%=t('educations.lb_description')%>: <%= education.description%></small>
+            <% else %>
+                <small><%=t('educations.lb_description')%>: NA</small>
+            <% end %>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <div class="innerT half pull-right">
+        <a class="editEducation btn btn-xs btn-primary" url="<%= edit_education_path(education) %>" objectId="<%= education.id%>" href="#" data-toggle="modal"  modal_title="<%=t('educations.title_edit_education')%>"><i class="fa fa-pencil fa-fw"></i></a>
+        <a class="deleteEducation btn btn-xs btn-primary" url="<%= education_path(education) %>" href="#" data-toggle="modal"  modal_title="<%=t('educations.title_delete_education')%>" title_confirm="<%=t('educations.title_confirm_delete_education')%>" title_msg_confirm="<%=t('educations.msg_confirm_delete_education')%>" title_button_ok="<%=t('button.btn_ok')%>" title_button_cancel="<%=t('button.btn_cancel')%>"><i class="fa fa-times fa-fw"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,139 @@
+<%= form_for @work_experience, html: {id: 'work_experience_form', role: 'form', class: 'form-horizontal'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div id="panelworkexperience" class="innerLR">
+          <div class="workexperience" id="<%= @work_experience.id %>">
+            <div class="form-group">
+              <label for="category_id" class="col-md-2 control-label"><%= t('work_experiences.lb_category') %>
+                <span class="requiredfield">*</span></label>
+              <div class="col-md-10">
+                <%= f.collection_select :category_id, Category.get_all_categories, :id, :category_name, {prompt: t('work_experiences.placeholder_category')}, {class: 'form-control'} %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="level_id" class="col-md-2 control-label"><%= t('work_experiences.lb_level') %>
+                <span class="requiredfield">*</span></label>
+
+              <div class="col-md-10">
+                <%= f.collection_select :level_id, Level.where(category_id: @work_experience.category_id).order_by(level_order: -1), :id, :level_name, {prompt: t('work_experiences.placeholder_level')}, {class: 'form-control'} %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="work_place" class="col-md-2 control-label"><%= t('work_experiences.lb_work_place') %></label>
+
+              <div class="col-md-10">
+                <%= f.text_field :work_place, require: true, maxlength: 200, class: "form-control", placeholder: t('work_experiences.placeholder_work_place') %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="start_year" class="col-md-2 control-label"><%= t('work_experiences.lb_start_year') %> <span class="requiredfield">*</span></label>
+              <div class="col-md-10">
+                <%= f.select :start_year, (1905..Time.now.year).to_a.reverse, {prompt: t('work_experiences.placeholder_year')}, {class: "form-control"}%>
+              </div>
+            </div>
+            <div class="form-group">
+              <label for="end_year" class="col-md-2 control-label"><%= t('work_experiences.lb_end_year') %></label>
+              <div class="col-md-10">
+                <%= f.select :end_year, (1905..Time.now.year).to_a.reverse, {prompt: t('work_experiences.placeholder_year')},  {class: "form-control"}%>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <div class="checkbox">
+                  <label class="checkbox-custom">
+                    <%= f.check_box :current %>
+                    <i class="fa fa-fw fa-square-o"></i> <%= t('work_experiences.lb_current') %>
+                  </label>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="description" class="col-md-2 control-label"><%= t('work_experiences.lb_description') %></label>
+              <div class="col-md-10">
+                <%= f.text_area :description, maxlength: 200, class: 'form-control', placeholder: t('work_experiences.lb_description'), rows: 2 %>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-offset-2 col-sm-10">
+                <button type="submit" class="btn btn-primary"><%=t('work_experiences.btn_create')%></button>
+              </div>
+            </div>
+
+            <!--<div class="actions">-->
+              <!--<%= f.submit %>-->
+            <!--</div>-->
+          </div>
+        </div>
+      </div>
+    </div>
+    </div>
+
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $("#work_experience_form").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "work_experience[category_id]": {required: true},
+                "work_experience[level_id]": {required: true},
+                "work_experience[start_year]": {required: true},
+//                "work_experience[end_year]": {greater_or_equals: "#work_experience_start_year"},
+                "work_experience[work_place]": {maxlength: 200},
+                "work_experience[description]": {maxlength: 200}
+            },
+            messages: {
+                "work_experience[category_id]": {required: I18n.t('js.validate.msg_required')},
+                "work_experience[level_id]": {required: I18n.t('js.validate.msg_required')},
+                "work_experience[start_year]": {required: I18n.t('js.validate.msg_required')},
+//                "work_experience[end_year]": {greater_or_equals: I18n.t('work_experiences.js.validate.msg_to_year_greater_or_equals_from_year')},
+                "work_experience[work_place": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                "work_experience[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+                $('#work_experience_form').find('input:text').each(function () {
+                    $(this).val($.trim($(this).val()));
+                });
+                form.submit();
+            },
+            invalidHandler: function (form, validator) {
+                $('#div_msg_error').text('');
+
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
+
+        $("#work_experience_category_id").change(function () {
+            $.ajax('/work_experiences/update_levels', {
+                type: 'GET',
+                dataType: 'script',
+                data: {
+                    category_id: $("#work_experience_category_id option:selected").val()
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + textStatus);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $.loader.close(true);
+                }
+            });
+        })
+    });
+</script>

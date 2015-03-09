@@ -1,0 +1,80 @@
+// Place all the styles related to the roadmap controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.roadmap-id {
+  padding:5px;
+}
+.p-error{
+  margin-left: 40%;
+}
+.tooltip-roadmap{
+  width: 200px;
+  white-space:normal;
+//  height: 200px;
+}
+
+.ui-widget-header {
+  border: 1px solid #913228;
+  background: #913228 50% 50% repeat-x;
+  color: #ffffff;
+  font-weight: bold;
+}
+.ui-state-default .ui-icon {
+  background-image: url("ui-icons_222222_256x240.png");
+}
+.ui-state-hover .ui-icon,
+.ui-state-focus .ui-icon {
+  background-image: url("ui-icons_222222_256x240.png");
+  background-color: #B25050;
+  border: 1px solid #913228;
+}
+
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default {
+  border: 1px solid #913228;
+  background: #913228 50% 50% repeat-x;
+  font-weight: bold;
+  color: #ffffff;
+
+}
+.ui-button{
+  height: 34px;
+  padding: 0px 12px 12px 12px;
+}
+.ui-button:hover{
+  background-color: #B25050;
+  border: 1px solid #913228;
+}
+
+.modal-header{
+  background-color: #913228;
+}
+.modal-title{
+  color: #ffffff;
+  font-size: 16px;
+}
+
+.carousel .carousel-control{
+  top: 100px;
+  color: #000000;
+  text-align: left;
+  font-size: 20px;
+}
+.modal-height{
+  max-height: 500px;
+}
+@media (max-width: 800px) {
+  .roadmap-id{
+    padding:3px;
+  }
+  .p-error{
+    margin: auto;
+  }
+  .modal-height{
+    max-height: 300px;
+  }
+
+}
+

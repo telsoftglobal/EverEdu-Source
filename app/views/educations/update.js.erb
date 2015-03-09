@@ -1,0 +1,19 @@
+$('#education<%= @education.id %>').replaceWith('<%= escape_javascript(render partial: @education) %>');
+//notyfy({
+//    text: '<%= flash[:notice]%>',
+//    type: 'alert',
+//    dismissQueue: false,
+//    layout: 'top',
+//    timeout: 5000 // delay for closing event. Set false for sticky notifications
+//});
+$('#educationModal').modal('hide');
+
+var editElement = $('#education<%= @education.id %>').find(".editEducation");
+$(editElement).bind('click', function (e) {
+    openEditEducationModal(this, e)
+});
+
+var deleteElement = $('#education<%= @education.id %>').find(".deleteEducation");
+$(deleteElement).bind('click', function (e) {
+    processDeleteEducation(this, e);
+});

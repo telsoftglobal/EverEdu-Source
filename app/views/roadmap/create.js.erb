@@ -1,0 +1,10 @@
+if(document.getElementById('roadmap-id<%= @user_category.category.id %>')){
+    $('#roadmap-id<%= @user_category.category.id %>').remove();
+}
+$('#roadmaps-list').prepend('<div class="roadmap-id" data-id="<%= @user_category.id %>" id="roadmap-id<%= @user_category.category.id %>"><div>')
+$('#roadmap-id<%= @user_category.category.id %>').append('<%= escape_javascript(render :partial => 'roadmap/user_category', locals: {user_category: @user_category}) %>')
+$('#roadmap-chart-default').remove()
+$('#roadmap-default').remove()
+$('#roadmap-error').html('');
+$("#category_option").val("");
+$("#level_option").val("");

@@ -1,0 +1,15 @@
+development:
+  session_expire: 1
+  gmail_username: 'global@telsoft.com.vn'
+  gmail_password: 'tlsglobal123'
+  server_smtp: 'smtp.gmail.com'
+test:
+  session_expire: 1
+  gmail_username: 'global@telsoft.com.vn'
+  gmail_password: 'tlsglobal123'
+  server_smtp: 'smtp.gmail.com'
+production:
+  session_expire: 1
+  gmail_username: 'global@telsoft.com.vn'
+  gmail_password: 'tlsglobal123'
+  server_smtp: 'smtp.gmail.com'

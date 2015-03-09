@@ -1,0 +1,10 @@
+$('#roadmaps-list').append('<%= escape_javascript(render :partial => 'roadmap/user_categories', locals: {user_categories: @user_categories}) %>')
+$('#load-more-error').html('')
+
+var total_roadmaps = '<%= @total_roadmaps %>'
+var roadmaps_length = $('.roadmap-id').length
+if (roadmaps_length >= total_roadmaps) {
+    $('#load-more').hide()
+} else {
+    $('#load-more').show()
+}

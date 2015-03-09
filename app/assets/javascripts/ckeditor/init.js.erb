@@ -1,0 +1,13 @@
+//= require_self
+//= require ckeditor/ckeditor
+//= require ckeditor/adapters/jquery
+//= require ckeditor/config
+
+
+
+//init.js.erb
+(function() {
+    if (typeof window['CKEDITOR_BASEPATH'] === "undefined" || window['CKEDITOR_BASEPATH'] === null) {
+        window['CKEDITOR_BASEPATH'] = "<%= config.relative_url_root %>/assets/ckeditor/";
+    }
+}).call(this);

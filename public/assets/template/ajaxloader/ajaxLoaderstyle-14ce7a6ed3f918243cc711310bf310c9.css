@@ -1,0 +1,48 @@
+/* line 3, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading {
+  margin: auto;
+}
+
+/* line 5, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading span {
+  line-height: 32px;
+  margin-left: 12px;
+  font-size: 16px;
+  vertical-align: middle;
+}
+
+/* line 12, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading img {
+  vertical-align: middle;
+}
+
+/* line 14, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading_wrp {
+  background-color: #FFF;
+  display: block;
+  height: 100%;
+  left: 0;
+  opacity: 0.5;
+  filter: alpha(opacity=50);
+  position: absolute;
+  top: 0;
+  width: 100%;
+  z-index: 1040;
+}
+
+/* line 27, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading_wrp .x16 {
+  line-height: 16px;
+  font-size: 12px;
+  margin-left: 6px;
+  width: 16px;
+  height: 16px;
+  background-image: url(/assets/template/ajaxloader/images/loading16x16.gif);
+}
+
+/* line 36, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
+.loading_wrp .x32 {
+  width: 32px;
+  height: 32px;
+  background-image: url(/assets/template/ajaxloader/images/loading32x32.gif);
+}

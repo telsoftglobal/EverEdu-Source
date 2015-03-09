@@ -1,0 +1,1 @@
+$("#work_experience_level_id").empty().append("<%= escape_javascript(render(:partial => 'work_experiences/levels')) %>")

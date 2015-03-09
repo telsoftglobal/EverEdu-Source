@@ -1,0 +1,10 @@
+$('#comments-list').append('<%= escape_javascript(render(:partial => @comments)) %>')
+$('#load-more-error').html('')
+
+var total_comments = '<%= @total_only_comments %>'
+var comments_length = $('.comment').length
+if (comments_length >= total_comments) {
+    $('.load-more-comment').hide()
+} else {
+    $('.load-more-comment').show()
+}

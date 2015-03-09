@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>
+<html class="ie lt-ie9 lt-ie8 lt-ie7 paceCounter paceSocial sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if IE 7]>
+<html class="ie lt-ie9 lt-ie8 paceCounter paceSocial sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if IE 8]>
+<html class="ie lt-ie9 paceCounter paceSocial sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if gt IE 8]>
+<html class="ie paceCounter paceSocial sidebar sidebar-social footer-sticky"> <![endif]-->
+<!--[if !IE]><!-->
+<html class="paceCounter paceSocial sidebar sidebar-social footer-sticky">
+<!-- <![endif]-->
+
+<head>
+  <title><%= t('app.app_name') %></title>
+
+  <!-- Meta -->
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+
+  <!--[if lt IE 9]>
+   <%= stylesheet_link_tag 'template/library/bootstrap/css/bootstrap.min.css' %>
+  <![endif]-->
+
+  <%= stylesheet_link_tag 'default' %>
+  <%= javascript_include_tag 'default' %>
+
+  <%= javascript_include_tag "i18n" %>
+  <%= javascript_include_tag "translations" %>
+  <%= javascript_tag do %>
+      I18n.defaultLocale = "<%= I18n.default_locale %>";
+      I18n.locale = "<%= I18n.locale %>";
+      I18n.frontend = "<%= I18n.locale %>";
+  <% end %>
+  <%= csrf_meta_tags %>
+  <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+  <![endif]-->
+  <!-- Global -->
+  <script>
+      //    $(document).on('page:change', function(){
+      //        $.loader.close(true);
+      ////        alert('dd');
+      //    });
+
+      $(document).on("page:fetch", function(){
+          $.loader.open({size: 32});
+      });
+
+      $(window).bind('beforeunload',function(){
+          //save info somewhere
+          $.loader.open({size: 32});
+
+      });
+
+      $(document).on("page:receive", function(){
+          $.loader.close(true);
+      });
+
+//      $(document).on("page:fetch", function() {
+//          for (name in CKEDITOR.instances) {
+//              CKEDITOR.instances[name].destroy()
+//          }
+//      });
+      $(document).on("page:load", function(){
+          if($("#curriculum_form").length!=0) {
+              var haveinstance = true;
+              for (name in CKEDITOR.instances) {
+                  haveinstance = false;
+              }
+              if (haveinstance) {
+                  $.loader.close(true);
+              } else {
+                  $.loader.open({size: 32});
+                  CKEDITOR.instances["curriculum_description"].on('instanceReady', function (evt) {
+                      // your stuff here
+                      $.loader.close(true);
+                  });
+              }
+          }
+      });
+      CKEDITOR.config.language = '<%= I18n.default_locale %>' ;
+  </script>
+
+</head>
+<body class=" menu-right-hidden">
+<!-- Main Container Fluid -->
+<div class="container-fluid ">
+<%= render partial: "layouts/header"%>
+<!-- // Main Sidebar Menu END -->
+<div id="sb-site">
+<!-- Content START -->
+    <div id="content">
+      <div id="main_content" class="innerAll" >
+        <div style="display: none" >
+            <%= render_flash_messages %>
+        </div>
+        <%= yield %>
+      </div>
+    </div>
+</div>
+<div class="clearfix"></div>
+<!-- // Sidebar menu & content wrapper END -->
+<div id="menu" class="sb-slidebar sb-left">
+<%= render partial: "layouts/leftmenu"%>
+</div>
+<!-- /.sb-left -->
+
+<!-- Footer -->
+<!--<div id="footer" class="hidden-print">-->
+
+  <!--&lt;!&ndash;  Copyright Line &ndash;&gt;-->
+  <!--<div class="copy">&copy; 2014 - <a href="http://www.telsoft.com.vn">Telsoft JSC</a> - All Rights Reserved.-->
+    <!--<a href="http://telsoft.com.vn" target="_blank">Adult Education Social </a> - Current version: v0.1-->
+  <!--</div>-->
+  <!--&lt;!&ndash;  End Copyright Line &ndash;&gt;-->
+<!--</div>-->
+<!-- // Footer END -->
+
+</div>
+<!-- // Main Container Fluid END -->
+<a href="#0" class="cd-top">Top</a>
+<script data-id="App.Config">
+    var App = {};
+    var basePath = '',
+            commonPath = '<%= asset_path('template/images/')%>',
+            rootPath = '../',
+            DEV = false,
+            componentsPath = '<%= asset_path('template/images/components/')%>';
+
+    var primaryColor = '#913228',
+            dangerColor = '#b55151',
+            successColor = '#609450',
+            infoColor = '#4a8bc2',
+            warningColor = '#ab7a4b',
+            inverseColor = '#45484d';
+
+    var themerPrimaryColor = primaryColor;
+</script>
+<script>
+    if (/*@cc_on!@*/ false && document.documentMode === 10) {
+        document.documentElement.className += ' ie ie10';
+    }
+    function printError(){
+        if($("#flash_error").length>0){
+            $.gritter.add({
+                title: '<%= t('system.system_message') %>',
+                text: $("#flash_error").html(),
+                before_open: function(){
+                    if($('.gritter-item-wrapper').length == 1)
+                    {
+                        return false;
+                    }
+                }
+            });
+        }
+        if($("#flash_notice").length>0){
+            notyfy({
+                text: $("#flash_notice").html(),
+                type: 'alert',
+                dismissQueue: false,
+                layout: 'top',
+                timeout: 5000 // delay for closing event. Set false for sticky notifications
+            });
+        }
+    }
+    $(document).ready(function(){
+        printError();
+    });
+</script>
+<script>
+    (function($) {
+        $(document).ready(function() {
+            // Initiate Slidebars
+//            $.slidebars();
+            var mySlidebars = new $.slidebars({
+                siteClose: false // true or false
+//                disableOver: 480, // integer or false
+//                hideControlClasses: true, // true or false
+//                scrollLock: true // true or false
+            }); // Create new instance of Slidebars
+            $("#menu").find($("a[href$='"+$.url().attr('relative')+"']")).parent("li").addClass("active");
+
+        });
+    }) (jQuery);
+</script>
+<%= javascript_include_tag 'defaultafter' %>
+<script type="text/javascript">
+    $(document).ready(function () {
+        $('[data-toggle="offcanvas"]').click(function () {
+            $('.row-offcanvas').toggleClass('active');
+            $(this).find("i").toggleClass('fa-arrow-left');
+            $(this).find("i").toggleClass('fa-arrow-right');
+        });
+    });
+
+//    $(function(){
+//        $("body a").click(linkclick);
+//        $("body a").on("click",linkclick);
+//
+//        function linkclick(event) {
+//            var link = $(this).attr("href");
+//            console.log(link);
+//            if (link != null && link != undefined && link !== ''&& link != '#') {
+//                event.preventDefault(); // Prevent to transfer page
+//                $.ajax({
+//                    url: link,
+//                    type: 'GET',
+//                    beforeSend: function (xhr) {
+//                        $.loader.open({size:32});
+//                    },
+//                    success: function(data){
+//                        if (link != window.location)
+//                            window.history.pushState({ path: link }, '', link);
+//                        $("#main_content").html(data);
+//                        $.loader.close(true);
+//                        $("#main_content a").on("click",linkclick);
+//                    },
+//                    error: function(xhr, status, response) {
+//                        $.loader.close(true);/* your error callback*/
+//                    }
+//                });
+//            }
+//        }
+
+//        $(window).on('popstate', function () {
+////            $.get(location.pathname, function(content){
+//////                alert(location.pathname);
+////                console.log(content);
+////                console.log(location.pathname)
+////                $("#main_content").html(content);
+////                dpUI.loading.stop();
+//
+//                console.log('init');
+////            alert('close');
+//                $.loader.close(true);
+////            });
+//
+//        });
+//    });
+
+
+//
+//    $(function () {
+//
+//        $('a,button').on('click', function () {
+//            $data = {
+//                size: 32
+//            };
+//            switch ($(this).data('target')){
+//                case 'body':
+//                    $.loader.open($data);
+//                    break;
+//                case 'self':
+//                    $(this).loader($data);
+//                    break;
+//                case 'form':
+//                    $('form').loader($data);
+//                    break;
+//                case 'close':
+//                    $.loader.close(true);
+//
+//            }
+//        });
+//    })
+
+
+//    CuongCT disabled 2014-01-09
+    // Scroll to TOP
+//    jQuery(document).ready(function($){
+//        // browser window scroll (in pixels) after which the "back to top" link is shown
+//        var offset = 300,
+//        //browser window scroll (in pixels) after which the "back to top" link opacity is reduced
+//                offset_opacity = 1200,
+//        //duration of the top scrolling animation (in ms)
+//                scroll_top_duration = 700,
+//        //grab the "back to top" link
+//                $back_to_top = $('.cd-top');
+//
+//        //hide or show the "back to top" link
+//        $(window).scroll(function(){
+//            ( $(this).scrollTop() > offset ) ? $back_to_top.addClass('cd-is-visible') : $back_to_top.removeClass('cd-is-visible cd-fade-out');
+//            if( $(this).scrollTop() > offset_opacity ) {
+//                $back_to_top.addClass('cd-fade-out');
+//            }
+//        });
+//
+//        //smooth scroll to top
+//        $back_to_top.on('click', function(event){
+//            event.preventDefault();
+//            $('body,html').animate({
+//                        scrollTop: 0
+//                    }, scroll_top_duration
+//            );
+//        });
+//    });
+</script>
+</body>
+
+</html>
