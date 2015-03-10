@@ -1,0 +1,8 @@
+[global]
+locale = 'us'
+cache = false
+key_id = 'AKIAIGHRHSRTN2C6BMDA'
+secret_key_id = 'Z+QZ3AzzUSnLjoY/XHyQyWLAn/sgTIGRjtgnVJTy'
+
+[us]
+associate = 'cu0f0-20'

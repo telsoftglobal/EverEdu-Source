@@ -1,35 +1,35 @@
-<h3 style="padding-left: 30px; padding-bottom: 10px;" class="aes-color border-bottom" ><i class="icon-user-2"></i><%= @user.first_name + ' '+ @user.last_name %> <a id="btn_update_profile" href="#" ><i class="fa fa-edit"></i> </a></h3>
-<div class="innerAll row-fluid">
+<h3 style="padding-left: 30px; padding-bottom: 10px;" class="aes-color border-bottom" ><i class="fa fa-user"></i></i><%= @user.first_name + ' '+ @user.last_name %> <a id="btn_update_profile" href="#" ><i class="fa fa-edit"></i> </a></h3>
+<div class="row-fluid col-md-8">
   <!--<div class="row">-->
     <!--<label class="col-md-12 h3 aes-color border-bottom" style="padding-bottom: 10px;" ><%= @user.first_name + ' '+ @user.last_name %> <a id="btn_update_profile" href="#" ><i class="fa fa-edit"></i> </a></label>-->
   <!--</div>-->
   <div class="row">
-    <label class="col-md-2 " ><%= t('signup.lb_email') %></label>
-    <label class="col-md-10 " ><%= @user.email %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('signup.lb_email') %></label>
+    <label class="col-md-9 col-xs-9" ><%= @user.email %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_gender') %></label>
-    <label class="col-md-10 " ><%= @user.gender ? t('users.lb_male') : t('users.lb_female')  %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_gender') %></label>
+    <label class="col-md-9 col-xs-9" ><%= @user.gender ? t('users.lb_male') : t('users.lb_female')  %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_phone') %></label>
-    <label class="col-md-10 " ><%= (@user.phone.nil?)? '' : @user.phone %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_phone') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.phone.nil?)? '' : @user.phone %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_birthday') %></label>
-    <label class="col-md-10 " ><%= (@user.birth_day.nil?)? '' : @user.birth_day %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_birthday') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.birth_day.nil?)? '' : @user.birth_day %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_address') %></label>
-    <label class="col-md-10 " ><%= (@user.address.nil?) ? '' : @user.address %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_address') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.address.nil?) ? '' : @user.address %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_city') %></label>
-    <label class="col-md-10 " ><%= (@user.city.nil?) ? '' : @user.city %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_city') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.city.nil?) ? '' : @user.city %></label>
   </div>
   <div class="row">
-    <label class="col-md-2 " ><%= t('users.lb_country') %></label>
-    <label class="col-md-10 " ><%= (@user.country.nil?) ? '' : @user.country.name %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_country') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.country.nil?) ? '' : @user.country.name %></label>
   </div>
 </div>
 

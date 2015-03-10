@@ -3,9 +3,29 @@ class UsersController < ApplicationController
   layout 'default'
 
   before_action :authenticate, except: [:forgotpassword]
+  #before_action :is_my_user, only: [:profile]
+
+  # Description: this method check my user
+  # @param
+  # @return
+  # @throws Exception
+  # @author HuyenDT
+  # Create Date: 20150309
+  # Modify Date:
+  def is_my_user
+    if params[:id].nil?
+      flash[:error] = t('msg_access_error')
+      redirect_to home_error_path
+    else
+      if params[:id].to_s != session[:user_id].to_s
+        flash[:error] = t('msg_access_error')
+        redirect_to home_error_path
+      end
+    end
+  end
 
   def about
-    @user = User.find(session[:user_id])
+    @user = User.find(params[:id])
 
     if @user.nil?
       flash[:error] = t('users.msg_user_not_found')
@@ -14,21 +34,36 @@ class UsersController < ApplicationController
 
   end
 
+  def profile
+    @user = User.find(session[:user_id]);
+    @specialties = Specialty.where(user_id: @user.id).order_by(created_at: -1).limit(4)
+  end
+
   def show
 
   end
 
+  # Description: this method processes change avatar of user
+  # @param
+  # @return
+  # @throws Exception
+  # @author HuyenDT
+  # Create Date: 20150309
+  # Modify Date:
   def change_avatar
     begin
-      @user = current_user
+      @user = User.find(session[:user_id]);
       @avatar = Photo.new
       @avatar.photo = params[:file_avatar]
       if @avatar.save
-        @user.avatar_url = @avatar.photo.url(:thumb)
+        @user.avatar_url = @avatar.photo.url(:avatar)
         @user.avatar = @avatar
         @user.save
       else
         if @avatar.errors
+          if @avatar.errors.messages[:photo]
+            @avatar.errors.messages[:photo] = nil;
+          end
           flash.now[:error] = @avatar.errors.full_messages.to_sentence(:last_word_connector => ', ');
         else
           flash.now[:error] = t('users.msg_change_avatar_fail')
@@ -149,89 +184,96 @@ class UsersController < ApplicationController
       end
   end
 
-
-
   def show_user_profile
     id = BSON::ObjectId.from_string(session[:user_id])
 
     @user  = User.find_by(id: id )
     render partial: 'users/show_user_profile'
   end
-
+  # Description: this method processes update user basic information
+  # @param
+  # @return
+  # @throws Exception
+  # @author CuongCT
+  # Create Date: 20150309
+  # Modify Date:
   def update_user_profile
 
     if request.method == 'GET'
       id = BSON::ObjectId.from_string(session[:user_id])
       @user  = User.find_by(id: id )
-      render action: 'form_update_user_profile'
+      render action: 'form_update_user_basic_information'
     else
       email = params[:user][:email]
       first_name = params[:user][:first_name]
       last_name = params[:user][:last_name]
       if email.nil? || email=='' || first_name.nil? || first_name=='' || last_name.nil? || last_name==''
       #   messgae empty
-        flash[:now] = t('users.msg_empty_field')
+        flash[:error] = t('users.msg_empty_field')
         render partial: 'users/update_basic_information/update_fail'
       else
 
-        if email.length>100 || first_name.length>50 || last_name>50
-          flash[:now] = t('users.msg_verify_data')
+        if email.length>100 || first_name.length>50 || last_name.length>50
+          flash[:error] = t('users.msg_verify_data')
           render partial: 'users/update_basic_information/update_fail'
-        end
-
-        begin
-        id = BSON::ObjectId.from_string(session[:user_id])
-        @user  = User.find_by(id: id )
-
-        gender = params[:user][:gender]
-        gender = (gender.nil?) ? true : gender
-        birth_day = params[:user][:birth_day]
-        birth_day = (birth_day.nil? || birth_day=='') ? nil : birth_day
-        phone = params[:user][:phone]
-        phone = (phone.nil? || phone=='') ? nil : phone
-        address = params[:user][:address]
-        address = (address.nil? || address=='') ? nil : address
-        city = params[:user][:city]
-        city = (city.nil? || city=='') ? nil : city
-        if params[:user][:country].nil? || params[:user][:country]==''
-          country = nil
         else
-          country = Country.find_by(id: BSON::ObjectId.from_string(params[:user][:country]))
-        end
+          begin
+          id = BSON::ObjectId.from_string(session[:user_id])
+          @user  = User.find_by(id: id )
+          gender = params[:user][:gender]
+          gender = (gender.nil?) ? true : gender
+          birth_day = params[:user][:birth_day]
+          birth_day = (birth_day.nil? || birth_day=='') ? nil : birth_day
+          phone = params[:user][:phone]
+          phone = (phone.nil? || phone=='') ? nil : phone
+          address = params[:user][:address]
+          address = (address.nil? || address=='') ? nil : address
+          city = params[:user][:city]
+          city = (city.nil? || city=='') ? nil : city
+          if params[:user][:country].nil? || params[:user][:country]==''
+            country = nil
+          else
+            country = Country.find_by(id: BSON::ObjectId.from_string(params[:user][:country]))
+          end
 
-        if(@user.email!=params[:user][:email])
-          if User.find_by_email(params[:user][:email]).nil?
-            if params[:user][:password_confirmation].nil? || params[:user][:password_confirmation]=='' || @user.hashed_password != User.encrypt_password(params[:user][:password_confirmation], @user.salt)
-              raise t('users.msg_empty_or_wrong_password')
-            else
-              #   update email
-              if @user.update_attributes(email: email, first_name: first_name, last_name: last_name, gender: gender, birth_day: birth_day, phone: phone,  address: address, city: city, country: country )
-                flash[:now] = t('users.msg_update_success')
-                render partial: 'users/update_basic_information/update_success'
+          if(@user.email!=params[:user][:email])
+            if User.find_by_email(params[:user][:email]).nil?
+              if params[:user][:password_confirmation].nil? || params[:user][:password_confirmation]=='' || @user.hashed_password != User.encrypt_password(params[:user][:password_confirmation], @user.salt)
+                raise t('users.msg_empty_or_wrong_password')
               else
-                raise t('users.msg_update_failed')
+                #   update email
+                if @user.update_attributes(email: email, first_name: first_name, last_name: last_name, gender: gender, birth_day: birth_day, phone: phone,  address: address, city: city, country: country )
+                  flash[:now] = t('users.msg_update_success')
+                  render partial: 'users/update_basic_information/update_success'
+                else
+                  raise t('users.msg_update_failed')
+                end
               end
+            else
+            #  mes trung mail
+              raise t('users.msg_email_exist')
             end
           else
-          #  mes trung mail
-            raise t('users.msg_email_exist')
+            # / khong update email
+            if @user.update_attributes(first_name: first_name, last_name: last_name, gender: gender, birth_day: birth_day, phone: phone,  address: address, city: city, country: country )
+              flash[:now] = t('users.msg_update_success')
+              render partial: 'users/update_basic_information/update_success'
+            else
+              raise t('users.msg_update_failed')
+            end
           end
-        else
-          # / khong update email
-          if @user.update_attributes(first_name: first_name, last_name: last_name, gender: gender, birth_day: birth_day, phone: phone,  address: address, city: city, country: country )
-            flash[:now] = t('users.msg_update_success')
-            render partial: 'users/update_basic_information/update_success'
-          else
-            raise t('users.msg_update_failed')
+          User.process_when_update(@user)
+          rescue Exception => e
+            flash[:error] = e.message
+            render partial: 'users/update_basic_information/update_fail'
           end
-        end
-        User.process_when_update(@user)
-        rescue Exception => e
-          flash[:now] = e.message
-          render partial: 'users/update_basic_information/update_fail'
         end
       end
     end
   end
+
+
+  # //TODO Phone fomat
+
 
 end

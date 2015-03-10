@@ -1,16 +1,20 @@
-<div class="widget">
+<div class="widget innerLR">
   <div class="media">
-    <div class="pull-left innerAll text-center">
-      <div id="avatar">
-        <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
-      </div>
+    <!--<div class="pull-left innerAll text-center">-->
+    <div class="col-md-2" style="text-align: center">
+    <div id="avatar" class="innerAll">
+        <% if !@user.avatar_url.nil? %>
+            <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
+        <% else %>
+            <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
+        <% end %>
       <div class="changeavatar">
         <a class="linkChangeAvatar" title=<%= t('users.lb_changeavatar')%> rel="tooltip" href="#" role="button" data-toggle="modal" modal_title="<%=t('users.title_changeavatar')%>">
           <i class="fa fa-camera" style="font-size: 16pt;"></i>
         </a>
       </div>
+      </div>
 
-      <h3 class="strong margin-none"><%= @user.user_name%></h3>
     </div>
     <div id="user_profile" class="media-body">
       <%= render 'basic_information',  locals: {user: @user}  %>
@@ -29,9 +33,11 @@
       </div>
       <div id="modalContent" class="modal-body" style="max-height: 430px; overflow-y: auto">
         <%= form_tag change_avatar_path, id: 'change_avatar_form', role: 'form', multipart: true do %>
+            <p><span class="small"><%= t('users.help_change_avatar') %></span></p>
             <div class="form-group">
               <%= file_field_tag "file_avatar",  :accept => 'image/*', class: 'form-control'%>
             </div>
+
         <% end %>
       </div>
       <div class="modal-footer">
@@ -50,12 +56,20 @@
             var title = $(this).attr("modal_title");
             $('#avatarModal').modal({backdrop: 'static',  keyboard: false});
             $("#avatarModalLabel").text(title);
+
+            // remove error
+            var file_avatar = $('#file_avatar')
+            var parent = file_avatar.parents('.form-group:first');
+            parent.removeClass('has-error');
+            parent.find('.has-error').remove();
+
+            file_avatar.replaceWith(file_avatar.val('').clone(true));
         });
 
-        $('#avatarModal').on('hidden.bs.modal', function (e) {
-            var file_avatar = $('#file_avatar')
-            file_avatar.replaceWith(file_avatar.val('').clone(true));
-        })
+//        $('#avatarModal').on('hidden.bs.modal', function (e) {
+//            var file_avatar = $('#file_avatar')
+//            file_avatar.replaceWith(file_avatar.val('').clone(true));
+//        })
 
 
         $("#btnSave").click(function(){
@@ -94,12 +108,12 @@
                 type: "POST",
                 url: url,
                 data: data,
-                beforeSend: function (xhr) {
-                    $.loader.open({size:32});
-                },
                 processData: false,
                 contentType: false,
                 dataType: "script",
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
                 success: function () {
                     $.loader.close(true);
                 },

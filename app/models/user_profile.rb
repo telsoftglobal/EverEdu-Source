@@ -9,14 +9,6 @@
 class UserProfile
   include Mongoid::Document
 
-  #fields
-  # field :title, type: Integer
-  field :birthday, type: Date
-  field :phone, type: String
-  field :address, type: String
-  field :city, type: String
-  has_one :user_profile
-
   #relations
   belongs_to :user
 end

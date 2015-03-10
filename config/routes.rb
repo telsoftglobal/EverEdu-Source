@@ -28,7 +28,9 @@ Rails.application.routes.draw do
   resources :materials
   #router for users
   get 'users/about'
+  get 'users/profile'
   match 'about/:id', to: 'users#about', via: [:get],  as: 'about'
+  match 'profile/:id', to: 'users#profile', via: [:get],  as: 'profile'
 
   get 'users/show_user_profile'
   match 'update_user_profile', :to => 'users#update_user_profile', :via => [:get, :patch]

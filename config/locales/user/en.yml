@@ -23,6 +23,7 @@ en:
   users:
     msg_user_not_found: "User not found"
     title_about: "About"
+    title_user_profile: "User Profile"
     lb_changeavatar: "Change avatar"
     title_changeavatar: "Change avatar"
     title_user_information: "User information"
@@ -62,6 +63,6 @@ en:
     msg_change_password_minlenght_error: "Password must more than 6"
     title_confirm_reset: "Are you sure to reset password ?"
     msg_confirm_change_email: "To change Email please confirm password"
-    msg_verify_data: "Please verify data"
+    msg_verify_data: "Please verify information too long"
   email:
     title_change_password: "Confirm change password"

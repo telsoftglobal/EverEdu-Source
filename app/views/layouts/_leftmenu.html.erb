@@ -46,6 +46,21 @@
       <%= link_to roadmap_index_path, data: {target:'body'} do %>
           <i class="fa fa-level-up"></i>
           <span><%=t('roadmap.title_roadmap')%></span>
+
+      <% end %>
+    </li>
+
+    <li class="">
+      <%= link_to work_experiences_path, data: {target:'body'} do %>
+          <i class="fa fa-briefcase"></i>
+          <span><%=t('work_experiences.title_work_experiences')%></span>
+      <% end %>
+    </li>
+
+    <li class="">
+      <%= link_to educations_path, data: {target:'body'} do %>
+          <i class="fa fa-graduation-cap"></i>
+          <span><%=t('educations.title_educations')%></span>
       <% end %>
     </li>
 
@@ -65,6 +80,13 @@
             <% end %>
             </li>
           <% end %>
+
+          <li>
+            <%= link_to  users_profile_path, data: {target:'body'} do %>
+                <span class="fa fa-user text-primary"></span>
+                <%=t('users.title_user_profile')%>
+            <% end %>
+          </li>
 
           <li>
             <%= link_to  signout_path, data: {target:'body'} do %>

@@ -23,6 +23,7 @@
 //= #require template/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker
 //= require template/plugins/forms_validator/jquery-validation/dist/jquery.validate.min
 //= require template/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker
+//= require template/plugins/forms_elements_inputmask/jquery.inputmask.bundle.min
 //= require template/plugins/notifications_notyfy/js/jquery.notyfy
 //= #require template/components/admin_notifications_notyfy/notyfy.init
 

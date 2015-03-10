@@ -51,6 +51,6 @@ $.validator.addMethod("accept_file_extension", function(value, element, param) {
     var fileExtension = splitedFileName[splitedFileName.length - 1];
 
     var acceptExtensions = param.split(',');
-    return this.optional(element) || acceptExtensions.indexOf(fileExtension) >= 0
+    return this.optional(element) || acceptExtensions.indexOf(fileExtension.toLowerCase()) >= 0
 }, "This extension file is invalid.");
 

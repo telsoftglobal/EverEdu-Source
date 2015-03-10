@@ -22,6 +22,7 @@ ja:
   users:
     msg_user_not_found: "ユーザーが見つからない。"
     title_about: "およそ"
+    title_user_profile: "ユーザーのプロフィール"
     lb_changeavatar: "変更のアバター"
     title_changeavatar: "変更のアバター"
     title_user_information: "ユーザー情報"
@@ -61,6 +62,6 @@ ja:
     msg_change_password_minlenght_error: "パスワードなければならない以上6"
     title_confirm_reset: "あなたがパスワードをリセットしてもよろしいです?"
     msg_confirm_change_email: "メールを変更するにはパスワードを確認してください"
-    msg_verify_data: "データを確認してください"
+    msg_verify_data: "長すぎるの情報を確認してください"
   email:
     title_change_password: "パスワード変更の確認"
