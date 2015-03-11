@@ -1,0 +1,19 @@
+<div class="innerAll border-top" id="specialty<%= specialty.id %>" data-id="<%= specialty.id %>">
+  <div class="row">
+    <div class="col-sm-10">
+      <ul class="media-list margin-none">
+        <li class="media">
+          <div class="media-body innerAll half">
+            <span class="media-heading aes-color"><%= specialty.specialty%></span>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <div class="innerT half pull-right">
+        <a class="editSpecialty btn btn-xs btn-primary" url="<%= edit_specialty_path(specialty) %>" objectId="<%= specialty.id%>" href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_edit_specialty')%>"><i class="fa fa-pencil fa-fw"></i></a>
+        <a class="deleteSpecialty btn btn-xs btn-primary" url="<%= specialty_path(specialty) %>" href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_delete_specialty')%>" title_confirm="<%=t('specialties.title_confirm_delete_specialty')%>" title_msg_confirm="<%=t('specialties.msg_confirm_delete_specialty')%>" title_button_ok="<%=t('button.btn_ok')%>" title_button_cancel="<%=t('button.btn_cancel')%>"><i class="fa fa-times fa-fw"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

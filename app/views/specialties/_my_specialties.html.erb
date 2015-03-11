@@ -1,0 +1,34 @@
+<div class="innerAll">
+  <h4 class="margin-none strong"><%=t('specialties.title_specialties')%></h4>
+  <div class="clearfix"></div>
+</div>
+
+<div class="widget innerLR">
+
+    <!-- New specialty -->
+
+    <div class="innerAll" id="specialty_new">
+          <ul class="media-list margin-none">
+            <a class="specialty" url="<%= new_specialty_path %>"  href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_new_specialty')%>">
+                <li class="media">
+                <span class="pull-left innerAll half empty-photo">
+                    <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i>
+                    <%= t('specialties.title_new_specialty')%>
+                </span>
+                </li>
+            </a>
+          </ul>
+    </div>
+
+    <!--End new specialty-->
+
+  <!-- Specialty List -->
+
+  <div id="specialties_list" class="widget-body padding-none">
+    <%= render @specialties %>
+  </div>
+
+  <!-- End specialty List -->
+
+
+</div>

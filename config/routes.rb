@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :specialties
+
   resources :photos
 
   #router educations
