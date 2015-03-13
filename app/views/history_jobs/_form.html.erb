@@ -1,0 +1,69 @@
+<%= form_for @history_job, html: {id: 'history_job_form', role: 'form'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div id="panelhistoryjob" class="innerLR">
+          <!--<div class="historyjob" id="<%= @history_job.id %>">-->
+            <div class="form-group">
+              <%= f.text_field :company_name, maxlength: 100, class: 'form-control', placeholder: 'Company name' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :title, maxlength: 100, class: 'form-control', placeholder: 'Title' %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :location, maxlength: 100, class: 'form-control', placeholder: 'Location' %>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-1 col-sm-1 col-md-1">
+                  <%= f.select :start_time.month, month_options_for_select, {:include_blank => 'Month'}, {class: 'form-control'} %>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1">
+                  <%= f.select :start_time.year, year_options_for_select, {:include_blank => 'Year'},  {class: 'form-control'}%>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1">
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1">
+                  <%= f.select :end_time.month, month_options_for_select, {:include_blank => 'Month'}, {class: 'form-control'} %>
+                </div>
+                <div class="col-xs-1 col-sm-1 col-md-1">
+                  <%= f.select :end_time.year, year_options_for_select, {:include_blank => 'Year'},  {class: 'form-control'}%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="checkbox", style="margin-left: 20px">
+                <label class="checkbox-custom">
+                <%= f.check_box :current%>
+                <!--<i class="fa fa-fw fa-square-o" style="margin-left: -13px;"></i> -->
+                <%= t('work_experiences.lb_current') %>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_area :description, maxlength: 2000, class: 'form-control', placeholder: 'Description', rows: 4 %>
+            </div>
+
+            <!--<div class="form-group">-->
+              <!--<div class="row">-->
+                <!--<div class="col-md-2 col-sm-2">-->
+                  <!--<button type="submit" class="fa fa-search form-control btn btn-primary height34" data-target="body">&nbsp;<%= t('history_job.btnSave') %></button>-->
+                <!--</div>-->
+              <!--</div>-->
+              <!--<div class="col-md-2 col-sm-2">-->
+                <!--<button type="cancel" class="fa fa-search form-control btn btn-primary height34" data-target="body">&nbsp;<%= t('history_job.btnCancel') %></button>-->
+              <!--</div>-->
+            <!--</div>-->
+          </div>
+        <!--</div>-->
+      </div>
+    </div>
+
+<% end %>
+
+
+

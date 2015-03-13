@@ -1,0 +1,2 @@
+$('#modalContentHistoryJob').html('<%= escape_javascript(render(:partial  => 'history_jobs/form_history_job', locals: {history_job: @history_job})) %>')
+$('#historyJobModal').modal({backdrop: 'static', keyboard: false});

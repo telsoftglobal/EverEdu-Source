@@ -1,0 +1,28 @@
+ja:
+  history_job:
+    title_history_job: "歴史ジョブ"
+    title_new_history_job: "新しいジョブを追加"
+    current_job: "現在"
+    title_edit_job: "編集"
+    title_delete_job: "削除"
+    title_confirm_delete_job: "削除のジョブを確認してください"
+    msg_confirm_delete_job: "あなたはこのジョブを削除しますか。"
+    company_name: "会社名"
+    title: "タイトル"
+    location: "場所"
+    month: "月"
+    year: "年"
+    lb_current: "現在"
+    description: "説明"
+    time_period: "期間"
+    start_time: "から"
+    end_time: "まで"
+
+    msg_create_fail: "履歴ジョブが作成失敗した。"
+    msg_update_fail: "履歴ジョブが更新され失敗した。"
+    msg_delete_fail: "履歴ジョブが破壊され失敗した。"
+
+    msg_history_job_not_found: "履歴ジョブが見つかりません。"
+    msg_delete_successfully: "履歴ジョブが正常に破壊された。"
+
+    msg_endtime_greater_starttime: "終了時間が大きいか、開始時間と等しくなります。"

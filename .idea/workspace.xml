@@ -30,13 +30,13 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_phone_number__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_phone_number: JP-AES_v0.2 Coverage Results" MODIFIED="1426134359209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_init_Country__JP_AES_v0_2.coverage" NAME="test_init_Country: JP-AES_v0.2 Coverage Results" MODIFIED="1426219027106" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_birth_day__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_birth_day: JP-AES_v0.2 Coverage Results" MODIFIED="1426134325634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1426041628135" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1426244916566" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_last_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_last_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134712942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_generate_test_data__JP_AES_v0_2.coverage" NAME="test_generate_test_data: JP-AES_v0.2 Coverage Results" MODIFIED="1425794776594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134753926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_should_get_show__JP_AES_v0_2.coverage" NAME="test_should_get_show: JP-AES_v0.2 Coverage Results" MODIFIED="1425922370639" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_phone_format__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_phone_format: JP-AES_v0.2 Coverage Results" MODIFIED="1426244311762" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Run_test__UsersControllerTest___JP_AES_v0_2.coverage" NAME="Run test 'UsersControllerTest': JP-AES_v0.2 Coverage Results" MODIFIED="1426244384042" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Run_test__UsersControllerTest___JP_AES_v0_2.coverage" NAME="Run test 'UsersControllerTest': JP-AES_v0.2 Coverage Results" MODIFIED="1426244447364" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@Run_test__Amazon_affTest___JP_AES_v0_2.coverage" NAME="Run test 'Amazon_affTest': JP-AES_v0.2 Coverage Results" MODIFIED="1425981601735" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_first_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_first_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134524294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134376240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
@@ -55,21 +55,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="users_controller_test.rb" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/test/controllers/users_controller_test.rb">
+      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.04712042" vertical-offset="1188" max-vertical-offset="5130">
-              <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="4610" max-vertical-offset="5256">
+              <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="users_controller.rb" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+      <file leaf-file-name="mongoid.yml" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="3440" max-vertical-offset="5238">
-              <caret line="191" column="6" selection-start-line="191" selection-start-column="6" selection-end-line="191" selection-end-column="6" />
+            <state vertical-scroll-proportion="0.6527778" vertical-offset="1284" max-vertical-offset="1908">
+              <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
               <folding />
             </state>
           </provider>
@@ -129,7 +129,6 @@
         <option value="$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb" />
         <option value="$PROJECT_DIR$/test/models/amazon_aff_test.rb" />
         <option value="$PROJECT_DIR$/test/models/country_test.rb" />
-        <option value="$PROJECT_DIR$/config/mongoid.yml" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/template/plugins/forms_elements_bootstrap-datepicker/js/bootstrap-datepicker.js" />
         <option value="$PROJECT_DIR$/config/locales/user/ja.yml" />
         <option value="$PROJECT_DIR$/config/locales/user/en.yml" />
@@ -139,6 +138,7 @@
         <option value="$PROJECT_DIR$/app/controllers/users_controller.rb" />
         <option value="$PROJECT_DIR$/app/views/curriculums/_form.html.erb" />
         <option value="$PROJECT_DIR$/test/controllers/users_controller_test.rb" />
+        <option value="$PROJECT_DIR$/config/mongoid.yml" />
       </list>
     </option>
   </component>
@@ -212,101 +212,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="test" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
+              <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -339,40 +245,7 @@
       <recent name="$PROJECT_DIR$/app/views/users/update_profile" />
     </key>
   </component>
-  <component name="RunManager" selected="Test::Unit/Shoulda/Minitest.Run test 'UsersControllerTest': JP-AES_v0.2">
-    <configuration default="false" name="test_update_user_basic_information_maxlength_address: JP-AES_v0.2" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
-      <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
-      <module name="JP-AES_v0.2" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift) -Itest" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
-      <envs>
-        <env name="RAILS_ENV" value="test" />
-        <env name="JRUBY_OPTS" value="-X+O" />
-      </envs>
-      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="true" />
-      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
-      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
-        <COVERAGE_PATTERN ENABLED="true">
-          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
-        </COVERAGE_PATTERN>
-      </EXTENSION>
-      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TESTS_FOLDER_PATH" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_SCRIPT_PATH" VALUE="$MODULE_DIR$/test/controllers/users_controller_test.rb" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_FILE_MASK" VALUE="" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_METHOD_NAME" VALUE="test_update_user_basic_information_maxlength_address" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="TEST_TEST_TYPE" VALUE="TEST_METHOD" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="DRB" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
-      <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
-      <RunnerSettings RunnerId="RubyRunner" />
-      <ConfigurationWrapper RunnerId="RubyRunner" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Rake.assets:precompile: JP-AES_v0.2">
     <configuration default="false" name="test_update_user_basic_information_email_format: JP-AES_v0.2" type="TestUnitRunConfigurationType" factoryName="Test::Unit/Shoulda/Minitest" temporary="true">
       <predefined_log_file id="RUBY_TESTUNIT" enabled="true" />
       <module name="JP-AES_v0.2" />
@@ -503,6 +376,32 @@
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="ZEUS" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="SPRING" VALUE="false" />
       <RTEST_RUN_CONFIG_SETTINGS_ID NAME="RUNNER_OPTIONS" VALUE="" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
+      <method />
+    </configuration>
+    <configuration default="false" name="assets:precompile: JP-AES_v0.2" type="RakeRunConfigurationType" factoryName="Rake" temporary="true">
+      <module name="JP-AES_v0.2" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="WORK DIR" VALUE="$MODULE_DIR$" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="SHOULD_USE_SDK" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="ALTERN_SDK_NAME" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="myPassParentEnvs" VALUE="true" />
+      <envs />
+      <EXTENSION ID="BundlerRunConfigurationExtension" bundleExecEnabled="false" />
+      <EXTENSION ID="JRubyRunConfigurationExtension" NailgunExecEnabled="false" />
+      <EXTENSION ID="RubyCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" track_test_folders="true" runner="rcov">
+        <COVERAGE_PATTERN ENABLED="true">
+          <PATTERN REGEXPS="/.rvm/" INCLUDED="false" />
+        </COVERAGE_PATTERN>
+      </EXTENSION>
+      <EXTENSION ID="org.jetbrains.plugins.ruby.motion.run.MotionSimulatorRunExtension" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_NAME" VALUE="assets:precompile" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ARGS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_ATTACHED_TEST_FRAMEWORKS" VALUE="" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_TRACE" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_DRYRUN" VALUE="false" />
+      <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RAKE_TASK_OPTION_PREREQS" VALUE="false" />
       <RunnerSettings RunnerId="RubyRunner" />
       <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
@@ -657,19 +556,19 @@
       <item index="4" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_phone_format: JP-AES_v0.2" />
       <item index="5" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_should_get_show: JP-AES_v0.2" />
       <item index="6" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information: JP-AES_v0.2" />
-      <item index="7" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_maxlength_address: JP-AES_v0.2" />
-      <item index="8" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_email_format: JP-AES_v0.2" />
-      <item index="9" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'UsersControllerTest': JP-AES_v0.2" />
-      <item index="10" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_insert_a_record: JP-AES_v0.2" />
-      <item index="11" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_init_Country: JP-AES_v0.2" />
+      <item index="7" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_email_format: JP-AES_v0.2" />
+      <item index="8" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'UsersControllerTest': JP-AES_v0.2" />
+      <item index="9" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_insert_a_record: JP-AES_v0.2" />
+      <item index="10" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_init_Country: JP-AES_v0.2" />
+      <item index="11" class="java.lang.String" itemvalue="Rake.assets:precompile: JP-AES_v0.2" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'UsersControllerTest': JP-AES_v0.2" />
-        <item index="1" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_init_Country: JP-AES_v0.2" />
-        <item index="2" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_insert_a_record: JP-AES_v0.2" />
-        <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_email_format: JP-AES_v0.2" />
-        <item index="4" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_maxlength_address: JP-AES_v0.2" />
+        <item index="0" class="java.lang.String" itemvalue="Rake.assets:precompile: JP-AES_v0.2" />
+        <item index="1" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.Run test 'UsersControllerTest': JP-AES_v0.2" />
+        <item index="2" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_init_Country: JP-AES_v0.2" />
+        <item index="3" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_insert_a_record: JP-AES_v0.2" />
+        <item index="4" class="java.lang.String" itemvalue="Test::Unit/Shoulda/Minitest.test_update_user_basic_information_email_format: JP-AES_v0.2" />
       </list>
     </recent_temporary>
   </component>
@@ -708,17 +607,17 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-3" y="0" width="1372" height="745" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.13824885" sideWeight="0.7465857" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32872504" sideWeight="0.7465857" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3296582" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3255287" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.47311828" sideWeight="0.6327769" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2642089" sideWeight="0.67602426" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.29493088" sideWeight="0.67602426" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4668721" sideWeight="0.3239757" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -773,7 +672,7 @@
         </line-breakpoint>
         <line-breakpoint enabled="true" type="ruby-line">
           <url>file://$PROJECT_DIR$/app/controllers/users_controller.rb</url>
-          <line>249</line>
+          <line>250</line>
           <option name="timeStamp" value="67" />
         </line-breakpoint>
       </breakpoints>
@@ -1016,23 +915,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1062" max-vertical-offset="1908">
-          <caret line="63" column="72" selection-start-line="63" selection-start-column="72" selection-end-line="63" selection-end-column="72" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/template/components/forms_elements_bootstrap-datepicker/bootstrap-datepicker.init.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.03522505" vertical-offset="0" max-vertical-offset="972">
-          <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/assets/template/components/forms_elements_bootstrap-datepicker/bootstrap-datepicker.init-5029794a624c94c4414d084ee49cbde4.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.03522505" vertical-offset="0" max-vertical-offset="990">
           <caret line="1" column="4" selection-start-line="1" selection-start-column="4" selection-end-line="1" selection-end-column="4" />
         </state>
       </provider>
@@ -1140,18 +1025,26 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
+    <entry file="file://$PROJECT_DIR$/test/controllers/users_controller_test.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="3440" max-vertical-offset="5238">
-          <caret line="191" column="6" selection-start-line="191" selection-start-column="6" selection-end-line="191" selection-end-column="6" />
+        <state vertical-scroll-proportion="-1.3429602" vertical-offset="1662" max-vertical-offset="5130">
+          <caret line="51" column="0" selection-start-line="51" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test/controllers/users_controller_test.rb">
+    <entry file="file://$PROJECT_DIR$/app/controllers/users_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.04712042" vertical-offset="1188" max-vertical-offset="5130">
-          <caret line="67" column="45" selection-start-line="67" selection-start-column="45" selection-end-line="67" selection-end-column="45" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="4610" max-vertical-offset="5256">
+          <caret line="193" column="5" selection-start-line="193" selection-start-column="5" selection-end-line="193" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6527778" vertical-offset="1284" max-vertical-offset="1908">
+          <caret line="87" column="13" selection-start-line="87" selection-start-column="13" selection-end-line="87" selection-end-column="13" />
           <folding />
         </state>
       </provider>

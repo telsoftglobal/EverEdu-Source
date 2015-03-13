@@ -1,0 +1,31 @@
+<div class="innerAll border-bottom" id="historyjob<%= history_job.id %>" data-id="<%= history_job.id %>">
+  <div class="row">
+    <div class="col-sm-10">
+      <ul class="media-list margin-none">
+        <li class="media">
+
+          <!--<span class="pull-left innerAll half empty-photo"><i class="fa fa-graduation-cap fa-2x text-muted"></i></span>-->
+
+          <div class="media-body innerAll half">
+            <span class="media-heading aes-color" style="word-wrap: break-word;"><%= history_job.title%></span>
+            <br/>
+            <small><%=history_job.company_name%></small>
+            <br/>
+            <% if history_job.end_time && !history_job.end_time.nil?%>
+                <small><%=history_job.start_time.strftime("%Y/%m")%> - <%=history_job.end_time.strftime("%Y/%m")%></small>
+            <% else %>
+                <small></i> <%=history_job.start_time.strftime("%Y/%m")%> - <%=t("history_job.current_job")%></small>
+            <% end %>
+
+          </div>
+        </li>
+      </ul>
+    </div>
+    <div class="col-sm-2">
+      <div class="innerT half pull-right">
+        <a class="editHistoryJob btn btn-xs btn-primary" url="<%= edit_history_job_path(history_job) %>" objectId="<%= history_job.id%>" href="#" data-toggle="modal"  modal_title="<%=t('history_job.title_edit_job')%>"><i class="fa fa-pencil fa-fw"></i></a>
+        <a class="deleteHistoryJob btn btn-xs btn-primary" url="<%= history_job_path(history_job) %>" href="#" data-toggle="modal"  modal_title="<%=t('history_job.title_delete_job')%>" title_confirm="<%=t('history_job.title_confirm_delete_job')%>" title_msg_confirm="<%=t('history_job.msg_confirm_delete_job')%>" title_button_ok="<%=t('button.btn_ok')%>" title_button_cancel="<%=t('button.btn_cancel')%>"><i class="fa fa-times fa-fw"></i></a>
+      </div>
+    </div>
+  </div>
+</div>

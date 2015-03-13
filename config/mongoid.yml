@@ -82,9 +82,9 @@ production:
     default:
 
 #    DB for test
-      uri: mongodb://DeployMongoDB:123456@linus.mongohq.com:10072/jp-aes
+#      uri: mongodb://DeployMongoDB:123456@linus.mongohq.com:10072/jp-aes
 #      DB that
-#      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
+      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
       options:
       #database: jp_aes_production
       #hosts:

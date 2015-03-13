@@ -1,0 +1,13 @@
+$('#history_jobs_list').prepend('<%= escape_javascript(render(:partial  => 'history_jobs/history_job', locals: {history_job: @history_job})) %>');
+
+$('#historyJobModal').modal('hide');
+
+var editElement = $('#historyjob<%= @history_job.id %>').find(".editHistoryJob");
+$(editElement).bind('click', function (e) {
+    openEditHistoryJobModal(this, e);
+});
+
+var deleteElement = $('#historyjob<%= @history_job.id %>').find(".deleteHistoryJob");
+$(deleteElement).bind('click', function (e) {
+    processDeleteHistoryJob(this, e);
+});

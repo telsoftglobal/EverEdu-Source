@@ -1,0 +1,30 @@
+en:
+  history_job:
+    title_history_job: "History job"
+    title_new_history_job: "Add new job"
+    current_job: "Present"
+    title_edit_job: "Edit"
+    title_delete_job: "Delete"
+    title_confirm_delete_job: "Confirm delete job"
+    msg_confirm_delete_job: "Do you want delete this job?"
+    company_name: "Company name"
+    title: "Title"
+    location: "Location"
+    month: "Month"
+    year: "Year"
+    lb_current: "Set current job"
+    description: "Description"
+    time_period: "Time period"
+    start_time: "Start"
+    end_time: "End"
+
+    msg_create_fail: "History job was fail created."
+    msg_update_fail: "History job was fail updated."
+    msg_delete_fail: "History job was fail destroyed."
+
+    msg_history_job_not_found: "History job not found"
+    msg_delete_successfully: "History job was successfully destroyed."
+
+    msg_endtime_greater_starttime: "End time is greater or equal with start time"
+
+

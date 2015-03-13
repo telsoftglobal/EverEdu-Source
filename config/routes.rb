@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :history_jobs
   resources :specialties
 
   resources :photos

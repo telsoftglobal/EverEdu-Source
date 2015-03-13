@@ -1,0 +1,98 @@
+<%= form_for @history_job, html: {id: 'history_job_form', role: 'form'} do |f| %>
+    <div class="widget ">
+      <div class="widget-body">
+        <div id="panelhistoryjob" class="innerLR">
+          <div class="historyjob" id="<%= @history_job.id %>">
+            <div class="form-group">
+              <%= f.text_field :company_name, maxlength: 100, class: 'form-control', placeholder: t('history_job.company_name') %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :title, maxlength: 100, class: 'form-control', placeholder: t('history_job.title') %>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_field :location, maxlength: 100, class: 'form-control', placeholder: t('history_job.location') %>
+            </div>
+
+            <div class="form-group">
+              <label><%= t('history_job.time_period')%></label>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <label><%= t('history_job.start_time')%></label>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10">
+                  <%= f.date_select :start_time , discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-2 col-sm-2 col-md-2">
+                  <label id="lbEndTime" ><%= t('history_job.end_time')%></label>
+                </div>
+                <div class="col-xs-10 col-sm-10 col-md-10">
+                  <%= f.date_select :end_time , discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="checkbox">
+                <label class="checkbox-custom">
+                  <%= f.check_box :current, :style => 'left:0'%>
+                  <%= t('history_job.lb_current') %>
+                </label>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <%= f.text_area :description, maxlength: 2000, class: 'form-control', placeholder: t('history_job.description'), rows: 4 %>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+<% end %>
+
+<script>
+    $(document).ready(function () {
+        $('.checkbox-custom > input[type=checkbox]').each(function () {
+            var $this = $(this);
+            if ($this.data('checkbox')) return;
+            $this.checkbox($this.data());
+        });
+
+        if ($("#history_job_current").attr('checked') == 'checked') {
+            $("#history_job_end_time_2i").val('');
+            $("#history_job_end_time_2i").hide();
+            $("#history_job_end_time_1i").val('');
+            $("#history_job_end_time_1i").hide();
+            $("#lbEndTime").text('Present');
+
+        }
+
+        $("#history_job_current").change(function() {
+            if(this.checked) {
+                $("#history_job_end_time_2i").val('');
+                $("#history_job_end_time_2i").hide();
+                $("#history_job_end_time_1i").val('');
+                $("#history_job_end_time_1i").hide();
+                $("#lbEndTime").text('Present');
+            } else {
+                $("#history_job_end_time_2i").show();
+                $("#history_job_end_time_1i").show();
+                $("#lbEndTime").text('End');
+            }
+        });
+
+    });
+</script>
+
+
+

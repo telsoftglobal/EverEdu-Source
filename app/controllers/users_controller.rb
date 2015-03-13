@@ -36,6 +36,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(session[:user_id]);
+    @history_jobs = HistoryJob.where(user_id: session[:user_id]).order_by(current:-1,end_time: -1, start_time: -1)
     @specialties = Specialty.where(user_id: @user.id).order_by(created_at: -1);
   end
 

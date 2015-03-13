@@ -1,0 +1,39 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Company name:</strong>
+  <%= @history_job.company_name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @history_job.title %>
+</p>
+
+<p>
+  <strong>Location:</strong>
+  <%= @history_job.location %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @history_job.start_time %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @history_job.end_time %>
+</p>
+
+<p>
+  <strong>Current:</strong>
+  <%= @history_job.current %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @history_job.description %>
+</p>
+
+<%= link_to 'Edit', edit_history_job_path(@history_job) %> |
+<%= link_to 'Back', history_jobs_path %>
