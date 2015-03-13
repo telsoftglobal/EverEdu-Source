@@ -46,6 +46,10 @@ en:
     btn_confirm: "Confirm"
   search:
     placeholder: "Search for mentors or courses"
+  date:
+    day: "Day"
+    month: "Month"
+    year: "Year"
   shared:
     lb_previous: "Previous"
     lb_next: "Next"

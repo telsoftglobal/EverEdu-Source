@@ -4,7 +4,13 @@
       <ul class="media-list margin-none">
         <li class="media">
           <div class="media-body innerAll half">
-            <span class="media-heading aes-color"><%= specialty.specialty%></span>
+            <span class="media-heading aes-color" style="word-wrap: break-word;"><%= specialty.specialty%></span>
+            <br>
+            <% if specialty.years_of_experience %>
+                <small style="word-wrap: break-word;"><%=t('specialties.lb_years_of_experience')%>: <%= specialty.years_of_experience%></small>
+            <% else %>
+                <small><%=t('specialties.lb_years_of_experience')%>: NA</small>
+            <% end %>
           </div>
         </li>
       </ul>
@@ -17,3 +23,4 @@
     </div>
   </div>
 </div>
+

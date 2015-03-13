@@ -21,11 +21,25 @@
 
 en:
   specialties:
-    title_specialties: "Specialties"
+    title_specialties: "Specialty"
     title_new_specialty: "Add new specialty"
     title_edit_specialty: "Edit specialty"
     title_delete_specialty: "Delete specialty"
     msg_confirm_save: "Do you want to save?"
     title_confirm_delete_specialty: "Confirm delete specialty"
     msg_confirm_delete_specialty: "Do you want delete this specialty?"
+    placeholder_specialty: "Specialty"
+    placeholder_years_of_experience: "Years of experience"
+    placeholder_description: "Description"
+    lb_specialty: "Specialty"
+    lb_years_of_experience: "Years of experience"
+    lb_description: "Description"
+    msg_create_successfully: "Specialty was successfully created."
+    msg_update_successfully: "Specialty was successfully updated."
+    msg_delete_successfully: "Specialty was successfully destroyed."
+
+    msg_create_fail: "Specialty was fail created."
+    msg_update_fail: "Specialty was fail updated."
+    msg_delete_fail: "Specialty was fail destroyed."
+    msg_specialty_not_found: "Specialty not found."
 

@@ -12,8 +12,8 @@
     <label class="col-md-9 col-xs-9" ><%= @user.gender ? t('users.lb_male') : t('users.lb_female')  %></label>
   </div>
   <div class="row">
-    <label class="col-md-3 col-xs-3" ><%= t('users.lb_phone') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.phone.nil?)? '' : @user.phone %></label>
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_phone_number') %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.phone_number.nil?)? '' : @user.phone_number %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_birthday') %></label>

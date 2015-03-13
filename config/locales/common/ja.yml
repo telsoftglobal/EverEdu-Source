@@ -46,6 +46,10 @@ ja:
     btn_confirm: "確認する"
   search:
     placeholder: "メンターやコースを検索する"
+  date:
+    day: "日"
+    month: "月"
+    year: "年"
   shared:
     lb_previous: "前"
     lb_next: "次"

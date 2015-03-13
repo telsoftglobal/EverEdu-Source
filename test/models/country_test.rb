@@ -6,7 +6,7 @@ class CountryTest < ActiveSupport::TestCase
   # end
 
   test 'init Country' do
-    File.open("/Users/cuongct/Documents/EverEdu/JP-AES_v0.2/test/models/countries_test_data.yml", "r") do |f|
+    File.open("/home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/test/models/countries_test_data.yml", "r") do |f|
       f.each_line do |line|
         puts line
 

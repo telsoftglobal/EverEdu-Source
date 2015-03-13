@@ -1,3 +1,22 @@
+<style>
+    .year,.month,.day{
+        /*display: block;*/
+    width: 32.4%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857;
+    color: #555;
+    background-color: #FFF;
+    background-image: none;
+    border: 1px solid #CCC;
+    border-radius: 4px;
+    box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+    transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+    }
+
+</style>
+
 <h3 style="padding-left: 30px;" class="aes-color"><i class="fa fa-user"></i><%= t('users.title_update_user_information')%></h3>
 <%= form_for @user ,:url => update_user_profile_path, html: {id: "update_user_profile", role: 'form', role:'form',class:'form-horizontal'} do |f| %>
     <div class="widget ">
@@ -29,7 +48,6 @@
           <div class="form-group">
             <div class="row">
               <div class="col-md-6">
-
             <label class="col-md-4 control-label" for="users[email]"><%= t('signup.lb_email') %><span class="requiredfield">*</span></label>
             <div class="col-md-8">
               <%= f.text_field :email, class: "form-control", placeholder: t('signup.lb_email'),maxlength:100 %>
@@ -38,13 +56,10 @@
           <!--#Email -->
           <!--#Gender -->
                 <div class="col-md-6">
-
-                  <label class="col-md-3 control-label" for="users[phone]"><%= t('users.lb_phone') %></label>
+                  <label class="col-md-3 control-label" for="users[phone_number]"><%= t('users.lb_phone_number') %></label>
                   <div class="col-md-9">
-                    <%= f.text_field :phone, class: "form-control", placeholder: t('users.lb_phone'),maxlength:100 %>
+                    <%= f.text_field :phone_number, class: "form-control", placeholder: t('users.lb_phone_number'),maxlength:100 %>
                   </div>
-
-
                 </div>
             </div>
           </div>
@@ -56,7 +71,7 @@
               <div class="col-md-6">
             <label class="col-md-4 control-label" for="users[birth_day]"><%= t('users.lb_birthday') %></label>
             <div class="col-md-8">
-              <%= f.text_field :birth_day, class: "form-control", placeholder: t('users.lb_birthday') %>
+              <%= f.date_select :birth_day, with_css_classes: "form-control", placeholder: t('users.lb_birthday'), end_year:1900, start_year:Time.now.year, use_month_numbers: true, :prompt => {year: t('date.year'), month: t('date.month'), day: t('date.day') } %>
             </div>
               </div>
           <!--#BirthDay -->
@@ -126,27 +141,29 @@
 
 <script>
 
-    if (typeof $.fn.bdatepicker == 'undefined')
-        $.fn.bdatepicker = $.fn.datepicker.noConflict();
-
-    $(function()
-    {
-
-
-        /*
-         * Input Masks
-         */
-        $.extend($.inputmask.defaults, {
-            'autounmask': true
-        });
-
-        $("#user_phone").inputmask("mask", {"mask": "(999) 999-9999"});
-        $("#user_birth_day").bdatepicker({
-            format: 'yyyy-mm-dd'
-        });
-    });
-
-
+//    if (typeof $.fn.bdatepicker == 'undefined')
+//        $.fn.bdatepicker = $.fn.datepicker.noConflict();
+//
+//    $(function()
+//    {
+//
+//
+//        /*
+//         * Input Masks
+//         */
+//        $.extend($.inputmask.defaults, {
+//            'autounmask': true
+//        });
+//
+        $("#user_phone_number").inputmask("mask", {"mask": "999-999-9999"});
+//        $("#user_birth_day").bdatepicker({
+//            format: 'yyyy-mm-dd',
+//            language: 'ja'
+//        });
+//        $("#user_birth_day").inputmask("mask", {"mask": "9999-99-99"});
+//    });
+//
+//
 
 
 
@@ -189,12 +206,29 @@
 
 
         $("#btnSave").click(function(e){
+            $("#user_address").val($("#user_address").val().trim());
+            $("#user_city").val($("#user_city").val().trim());
+
             e.preventDefault();
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
             if($("#update_user_profile").valid()==false){
                 return;
             }
+
+            var year_select = $("#user_birth_day_1i").val();
+            var month_select = $("#user_birth_day_2i").val();
+            var day_select = $("#user_birth_day_3i");
+
+            if(!((year_select!="" && month_select!="" && day_select.val()!="") || (year_select=="" && month_select=="" && day_select.val()==""))){
+                if((year_select=="" || month_select=="" || day_select.val()=="")){
+                    day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
+                return;
+                }
+
+            }
+
+
             if($("#user_email").val()!=$("#old_email").val()){
 
                 BootstrapDialog.show({
@@ -383,4 +417,32 @@
 
 
     });
+
+    $("#user_birth_day_1i").change(function(){
+        calculateDay();
+    });
+    $("#user_birth_day_2i").change(function(){
+        calculateDay();
+    });
+        function calculateDay(){
+            var year_select = $("#user_birth_day_1i").val();
+            var month_select = $("#user_birth_day_2i").val();
+            var days;
+            if(!(year_select=="" || month_select=="")){
+                days = new Date(year_select,month_select,1,-1).getDate();
+
+                $("#user_birth_day_3i option").hide();
+    //            alert(days);
+                $("#user_birth_day_3i option[value='']").show();
+                for(var i=1;i<=days;i++){
+
+                    $("#user_birth_day_3i option[value="+i+"]").show();
+                }
+
+                if($("#user_birth_day_3i").val()>days){
+                    $("#user_birth_day_3i").val(days);
+                }
+            }
+        }
+
 </script>

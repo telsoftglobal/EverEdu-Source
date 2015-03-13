@@ -15,7 +15,8 @@ class User
   PASSWORD_MIN_LENGTH = 6
   NAME_MAX_LENGTH = 50
   EMAIL_MAX_LENGTH = 100
-
+  ADDRESS_MAX_LENGTH = 100
+  PHONE_NUMBER_MAX_LENGTH = 20
   #fields
   field :first_name, type: String
   field :last_name, type: String
@@ -27,7 +28,7 @@ class User
   field :avatar_url, type: String
   field :gender, type: Boolean
   field :birth_day, type: Date
-  field :phone, type: String
+  field :phone_number, type: String
   field :address, type: String
   field :city, type: String
   belongs_to :country
@@ -41,6 +42,9 @@ class User
   validates_length_of :first_name, :last_name, :user_name, maximum: NAME_MAX_LENGTH
   validates_format_of :user_name, with:/\A[a-z0-9_\-\.]*\z/i
   validates_length_of :email, maximum: EMAIL_MAX_LENGTH
+  validates_length_of :address,:city, maximum: ADDRESS_MAX_LENGTH
+  validates_length_of :phone_number, maximum: PHONE_NUMBER_MAX_LENGTH
+
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validate :validate_password_length, :validate_match_password
   validates_uniqueness_of :user_name, case_sensitive: false

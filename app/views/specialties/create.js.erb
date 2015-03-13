@@ -1,0 +1,12 @@
+$('#specialties_list').prepend('<%= escape_javascript(render partial: @specialty) %>');
+$('#specialtyModal').modal('hide');
+
+var editElement = $('#specialty<%= @specialty.id %>').find(".editSpecialty");
+$(editElement).bind('click', function (e) {
+    openEditSpecialtyModal(this, e);
+});
+
+var deleteElement = $('#specialty<%= @specialty.id %>').find(".deleteSpecialty");
+$(deleteElement).bind('click', function (e) {
+    processDeleteSpecialty(this, e);
+});

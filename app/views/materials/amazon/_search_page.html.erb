@@ -1,0 +1,1027 @@
+<style type="text/css">
+    /* Reset CSS */
+    /*html,body,div,span,applet,object,iframe,h1,h2,h3,h4,h5,h6,p,blockquote,pre,a,abbr,acronym,address,big,cite,code,del,dfn,em,img,ins,kbd,q,s,samp,small,strike,strong,sub,*/
+    /*sup,tt,var,b,u,i,center,dl,dt,dd,ol,ul,li,fieldset,form,label,legend,table,caption,tbody,tfoot,thead,tr,th,td,article,aside,canvas,details,embed,figure,figcaption,footer,*/
+    /*header,hgroup,menu,nav,output,ruby,section,summary,time,mark,audio,video{margin:0;padding:0;border:0;font-size:100%;font:inherit;vertical-align:baseline;}*/
+    /*article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section{display:block;}body{line-height:1;}ol,ul{list-style:none;}blockquote,q{quotes:none;}*/
+    /*blockquote:before,blockquote:after,q:before,q:after{content:'';content:none;}table{border-collapse:collapse;border-spacing:0;}body{-webkit-text-size-adjust:none;}*/
+    #amazon-Container p {
+        margin:0;
+    }
+    #amazon-Container * {
+        overflow: hidden;
+        font-family: Arial,sans-serif;
+    }
+    #amazon-Container {
+        width: 99%;
+        height: auto;
+        margin: auto;
+        overflow: hidden;
+        border-top:3px solid #f59c38;
+        border-left:1px solid #ccc;
+        border-right:1px solid #ccc;
+        border-bottom:1px solid #ccc;
+        background: none;
+        border-radius: 3px;
+        font-family: Arial,sans-serif;
+    }
+    #amazon-Container a:hover {
+        text-decoration: underline !important;
+    }
+    #amazon-Container ul {
+        list-style: none;
+    }
+    #amazon-Container #container {
+        border: none;
+        background: none #FFFFFF;
+    }
+    #amazon-Container .gradient-background {
+        background: #f6f6f6;
+        background: -moz-linear-gradient(top, rgba(255,255,255,0.9), rgba(238,238,238,0.9)); /* (255,255,255)==FFF, (238,238,238)==EEE */
+        background: -webkit-linear-gradient(top, rgba(255,255,255,0.9), rgba(238,238,238,0.9));
+        background: -o-linear-gradient(top, rgba(255,255,255,0.9), rgba(238,238,238,0.9));
+        background: -ms-linear-gradient(top, rgba(255,255,255,0.9), rgba(238,238,238,0.9));
+        background: linear-gradient(top, rgba(255,255,255,0.9), rgba(238,238,238,0.9));
+        filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#D8FFFFFF', endColorstr='#D8EEEEEE', GradientType=0);
+    }
+    #amazon-Container .left {
+        float: left;
+    }
+    #amazon-Container .right {
+        float: right;
+    }
+    #amazon-Container .clear-all {
+        clear: both;
+    }
+    #amazon-Container #criteriaSection {
+        padding: 0 10px;
+        border-bottom: 1px solid #ccc;
+    }
+    #amazon-Container header {
+        width: auto;
+        display: block;
+        overflow: hidden;
+        padding: 0;
+        margin: 7px 0 5px;
+        min-width: 180px;
+    }
+    #amazon-Container #logoHolder a, #logoHolder a:hover{
+        text-decoration: none !important;
+    }
+    #amazon-Container #amazonLogo {
+        height: 20px;
+        width: 60px;
+        display: inline-block;
+        cursor: pointer;
+        background: transparent url('https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/search-widget-sprit._V1005784189_.png') -166px -1px;
+        text-indent: -9999px;
+    }
+    #amazon-Container #logoSuffix {
+        height: 16px;
+        width: 0px;
+        display: inline-block;
+        cursor: pointer;
+        background: transparent url('https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/search-widget-sprit._V1005784189_.png') no-repeat;
+        vertical-align: top;
+        margin-top: -2px;
+        margin-left: -7px;
+    }
+    #amazon-Container #logoSuffix.US {
+        display: none;
+    }
+    #amazon-Container #logoSuffix.GB {
+        width: 40px;
+        background-position: -172px -76px;
+    }
+    #amazon-Container #logoSuffix.GB.dark {
+        background-position: -172px -51px;
+    }
+    #amazon-Container #logoSuffix.DE {
+        width: 20px;
+        background-position: -226px -76px;
+    }
+    #amazon-Container #logoSuffix.DE.dark {
+        background-position: -226px -51px;
+    }
+    #amazon-Container #logoSuffix.FR {
+        width: 14px;
+        background-position: -212px -76px;
+    }
+    #amazon-Container #logoSuffix.FR.dark {
+        background-position: -212px -51px;
+    }
+    #amazon-Container  #logoSuffix.IN {
+        width: 14px;
+        background-position: -247px -76px;
+    }
+    #amazon-Container #logoSuffix.IN.dark {
+        background-position: -247px -51px;
+    }
+    #amazon-Container #logoSuffix.JP {
+        height: 18px;
+        width: 35px;
+        background-position: -137px -76px;
+    }
+    #amazon-Container #logoSuffix.JP.dark {
+        background-position: -137px -52px;
+    }
+    #amazon-Container #categoryHolder {
+        cursor: pointer;
+        font-size: 13px;
+        display: block;
+        color: #333;
+        padding: 1px 4px;
+        border-radius: 3px;
+    }
+    #amazon-Container #categoryHolder:hover, #categoryHolder:active {
+        background-color: #ebebeb;
+    }
+    #amazon-Container #categoryHolder:active, #categoryHolder:focus {
+        outline:none;
+    }
+    #amazon-Container #categoryHolder.clicked {
+        background-color: #EBEBEB;
+        outline: 0 none;
+        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
+        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
+    }
+    #amazon-Container #categorySelection {
+        max-width: 120px;
+        height: 14px;
+        display: inline-block;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+    }
+    #amazon-Container #categorySelection.full {
+        max-width: 160px;
+    }
+    #amazon-Container #categorySelection.mid {
+        max-width: 140px;
+    }
+    #amazon-Container #categorySelection.low {
+        max-width: 107px;
+    }
+    #amazon-Container #arrow {
+        display: inline-block;
+        vertical-align: middle;
+        width: 10px;
+        height: 5px;
+        background: transparent url('https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/search-widget-sprit._V1005784189_.png') -2px -2px no-repeat;
+        text-indent: -9999px;
+        margin-top: -4px;
+    }
+    #amazon-Container #searchBoxDiv {
+        margin:0; padding:0;
+        height: 40px;
+        position: relative;
+    }
+    #amazon-Container #searchBoxDiv > form {
+        position: relative;
+        width: 100%;
+        display: table;
+    }
+    #amazon-Container #searchBoxDiv #searchFieldHolder {
+        display: table-cell;
+        width: 100%;
+        margin: 0; padding: 0;
+        background: #FFF;
+        height: 30px;
+        border-top:1px solid #ccc;
+        border-right:none;
+        border-bottom:1px solid #ccc;
+        border-left:1px solid #ccc;
+        outline: none;
+        border-radius: 4px 0 0 4px;
+    }
+    #amazon-Container #searchBoxDiv #searchFieldHolder.focus {
+        border-color: #e49747;
+        -webkit-box-shadow: 0 0 3px rgba(228, 121, 17, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+        -moz-box-shadow: 0 0 3px rgba(228, 121, 17, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+        box-shadow: 0 0 3px rgba(228, 121, 17, 0.5), 0 1px 0 rgba(0, 0, 0, 0.07) inset;
+    }
+    #amazon-Container #searchBoxDiv #searchFieldHolder input {
+        width: 100%;
+        height: 26px;
+        border: none;
+        outline: none;
+        vertical-align: baseline;
+        font-size: 13px;
+        background: #fff;
+    }
+    #amazon-Container input.placeholder {
+        color: #a9a9a9;
+    }
+    #amazon-Container #searchBoxDiv #submitHolder {
+        display: table-cell;
+        margin: 0; padding: 0;
+        background: #5B626A;
+        border-color: #485059 #2C3137 #363C43 #485059;
+        border-radius: 0 4px 4px 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0 4px 4px 0;
+        border-style: solid;
+        border-width: 1px;
+    }
+    #amazon-Container #searchBoxDiv #submitHolder #submit {
+        color: #FFF;
+        width: 40px;
+        height: 30px;
+        vertical-align: middle;
+        text-align: center;
+        text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+        padding: 0; margin: 0;
+        background: #5B626A;
+        background: -moz-linear-gradient(top, #72787f, #444c55);
+        background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #72787f), color-stop(100%, #444c55));
+        background: -webkit-linear-gradient(top, #72787f, #444c55);
+        background: -o-linear-gradient(top, #72787f, #444c55);
+        background: -ms-linear-gradient(top, #72787f, #444c55);
+        background: linear-gradient(top, #72787f, #444c55);
+        border:0;
+        border-radius: 0 4px 4px 0;
+        -webkit-appearance: none;
+        -webkit-border-radius: 0 4px 4px 0;
+        overflow: hidden;
+        cursor:pointer;
+        font-weight: bold;
+    }
+    #amazon-Container #searchBoxDiv #submitHolder #submit:hover {
+        background: #232323;
+        background: -moz-linear-gradient(top, #232323, #000000);
+        background: -webkit-linear-gradient(top, #232323, #000000);
+        background: -o-linear-gradient(top, #232323, #000000);
+        background: -ms-linear-gradient(top, #232323, #000000);
+        background: linear-gradient(top, #232323, #000000);
+    }
+    #amazon-Container #loader {
+        width:auto; background:rgba(255,255,255,0.9); display:none; padding:10px; text-align:center;
+    }
+    #amazon-Container #searchResult {
+        display: block;
+        width: 100%;
+        display: none;
+        max-height: 224px;
+        overflow-y:scroll;
+        background: rgba(255,255,255,.95);
+    }
+    #amazon-Container #searchResult::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    #amazon-Container #searchResult::-webkit-scrollbar-thumb {
+        border-radius: 4px;
+        background-color: rgba(0,0,0,.5);
+        -webkit-box-shadow: 0 0 1px rgba(255,255,255,.5);
+    }
+    #amazon-Container #searchResult.full-width .__ma-sw-search-item {
+        width: 100%;
+    }
+    #amazon-Container #searchResult.half-width .__ma-sw-search-item {
+        width: 50%;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item {
+        border-top: 1px solid #ccc;
+        height:74px;
+        float:left;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item:first-child {
+        border-top: none;
+    }
+    #amazon-Container #searchResult.half-width .__ma-sw-search-item:nth-child(2) {
+        border-top: none;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .search-item {
+        margin: 7px;
+        height:60px;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .search-item a {
+        color:#2b4c97;
+        text-decoration:none;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .thumbnail-holder {
+        float:left;
+        width:25%;
+        height:100%;
+        vertical-align:middle;
+        text-align:left;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .details-holder {
+        float:left;
+        width:75%;
+        height:100%;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .details-holder .details p {
+        float: left;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .details-holder .price {
+        color: #9b0000;
+        font-weight: bold;
+        font-size: 12px;
+        margin-left: 5px;
+        /*float: left;*/
+        margin-top: 2px;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .reviews-count-link {
+        color: #000;
+        text-decoration: none;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item span.star-rating {
+        display: inline-block;
+        vertical-align: middle;
+        height: 16px;
+        width: 80px;
+        text-indent:-9999px;
+        background: url('https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/search-widget-sprit._V1005784189_.png') -21px -31px;
+    }
+    #amazon-Container #searchResult .__ma-sw-search-item .amazon-prime {
+        display: inline-block;
+        vertical-align: middle;
+        height: 15px;
+        width: 50px;
+        background: url('https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/search-widget-sprit._V1005784189_.png') -83px 0px;
+    }
+    #amazon-Container #footer {
+        width:auto; border-top:1px solid #ccc; text-align:left; padding:5px 10px; display:none;
+    }
+    #amazon-Container #footer > a {
+        color:#2b4c97;
+        text-decoration:none;
+        font-size: 13px;
+    }
+    #amazon-Container #footer > a b {
+        font-weight:bold;
+    }
+    #amazon-Container #resultTemplate {
+        display: none;
+    }
+</style>
+<div id="amazon-Container">
+<div id="container">
+  <div id="criteriaSection" class="gradient-background">
+    <header>
+      <div class="left" id="logoHolder">
+        <a href="https://www.amazon.com/ref=assoc_res_sw_logo?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank">
+          <span id="amazonLogo">amazon</span>
+          <span id="logoSuffix" class="light US"></span>
+        </a>
+      </div>
+      <div id="categoryHolder" class="right" tabindex="0">
+        <span id="categorySelection" data-value="stripbooks" data-search="Books">Books</span>
+        &nbsp;<span id="arrow">arrow</span>
+      </div>
+      <div class="clear-all"></div>
+    </header>
+    <div id="searchBoxDiv">
+      <form action="https://www.amazon.com/s/ref=assoc_res_sw_view_all?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" method="get" target="_blank">
+        <div id="searchFieldHolder">
+          <div style="padding:0 5px;">
+            <input id="searchField" name="field-keywords" type="text" autocomplete="off"
+                   placeholder="Search Amazon" />
+          </div>
+        </div>
+        <div id="submitHolder">
+          <input id="submit" type="submit" value="Go" />
+        </div>
+      </form>
+    </div>
+  </div>
+  <div id="loader">
+    <img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/loader._V1005784189_.gif" alt="Loading..." />
+  </div>
+  <div id="searchResult" class="half-width">
+  </div>
+  <div id="footer" class="gradient-background">
+    <a href="#" target="_blank">View all </a>
+    <a  href="https://www.amazon.com/ref=assoc_res_sw_no_result?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU"
+        style="display:none;" target="_blank">No result found</a>
+  </div>
+  <div id="resultTemplate">
+    <div class="__ma-sw-search-item">
+      <div class="search-item">
+        <div style="width:100%; height:100%;">
+          <div class="thumbnail-holder">
+            <a href="https://www.amazon.com/?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" class="thumbnail-amazon">
+              <img src="" style="max-width:100%;max-height:100%;" />
+            </a>
+          </div>
+          <div class="details-holder">
+            <ul style="list-style:none; overflow:hidden; padding-left:0px;">
+              <li style="overflow: hidden; margin-bottom:5px;">
+                <p class="title" style="font-size:12px; font-weight:bold; margin:0 5px;overflow:hidden;">
+                  <a href="https://www.amazon.com/?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" style="display:block;">Title</a>
+                </p>
+              </li>
+              <li class="details" style="width:70%; float:left;">
+                <p>
+                  <span class="price">--</span> <span class="amazon-prime" style="margin-left:10px;"></span>
+                </p>
+                <p style="font-size:12px; font-weight:normal; margin-left:5px;">
+                  <a href="#" target="_blank" class="star-rating-link"><span
+                  class="star-rating">star-rating</span></a>
+                  &nbsp;
+                  <a href="#" target="_blank" class="reviews-count-link"><span class="reviews-count" style="font-size:11px; height:15px;"></span></a>
+                </p>
+                <div style="clear: both;"></div>
+              </li>
+              <li class="details" style="width:30%">
+                <a class="btnSelect label label-primary" href="#" style="color:white; font-weight:bold;">Select</a>
+              </li>
+            </ul>
+          </div>
+          <div style="clear: both;"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<script type="text/javascript">
+    function reloadEvent()
+    {
+        $(".btnSelect").click(function(e){
+            e.preventDefault();
+//            alert($(this).attr("href"));
+            $(".__ma-sw-search-item").css("background-color","");
+            $(".urlformat:visible").val($(this).attr("href"));
+            $(this).closest(".__ma-sw-search-item").css("background-color","#F8C7C1");
+        });
+    }
+
+    var amazon_assoc_ir_f_call_associates_ads = function(map) {
+        var logTypeStr = "", foresterURL, json;
+        if(typeof JSON !== 'undefined') json = JSON.stringify(map);
+        else if(typeof amzn_assoc_utils !== 'undefined') json = amzn_assoc_utils.stringify(map);
+        else return;
+        if(typeof map.logType !== "undefined") logTypeStr = "&logType=" + map.logType;
+        // forester URLs are of format //<end_point>/<api_version>/<channel_id>/<channel_version>/<OPERATION>/
+        // Depending on operation, we either pass the data in the URI or we pass them as query parameters
+        // if operation is OP, data must be in query parameters while if operation is TOP,
+        // data must be in the URI itself
+        foresterURL = "//fls-na.amazon-adsystem.com/1/associates-ads/1/OP/r/json";
+        foresterURL = foresterURL + "?cb=" + (new Date()).getTime() + logTypeStr + "&p=" + encodeURIComponent(json);
+        (new Image()).src = foresterURL;
+    };
+    var amazon_assoc_ir_f_call = amazon_assoc_ir_f_call_associates_ads;
+    var make_ir_call = function(linkCode)
+    {
+        var img = new Image();
+        img.src = location.protocol + '//' + 'ir-na.amazon-adsystem.com/e/ir?o=1&t=cu0f0-20&l='+linkCode;
+    };
+    var make_fs_call = function(adUnit_data, customParams)
+    {
+        var p = {};
+        p.mobile_supported  = "true";
+        p.tracking_id = "cu0f0-20";
+        p.action = customParams.action;
+        p.adunit_type = customParams.adunit_type;
+        p.logType = customParams.logType;
+        adUnit_data.region = "US";
+        adUnit_data.marketplace = "amazon";
+        adUnit_data.adunit_script_type = "script";
+        adUnit_data.link_id = "5DAFSJF6MHT2KLCU";
+        p.adunit_properties = adUnit_data;
+
+        amazon_assoc_ir_f_call(p);
+    };
+
+
+    var foresterCall = function(foresterParams) {
+        var adUnit_data = {
+            link_code: "w13",
+            height: "280",
+            width: "336" ,
+            theme: "light",
+            color: "FFFFFF",
+            is_responsive: "false",
+            adunit_subtype: "search_widget",
+            pageURL : ((window.location != window.parent.location) ? document.referrer : window.location)
+        };
+        if(foresterParams.action == 'onload') {
+            adUnit_data.search_term= "";
+            adUnit_data.category= "Books";
+        } else {
+            adUnit_data.search_term= foresterParams.search_term ? foresterParams.search_term : '';
+            adUnit_data.category= foresterParams.search_cat ? foresterParams.search_cat : '';
+        }
+        var customParams = {
+            action: foresterParams.action,
+            logType: foresterParams.logType,
+            adunit_type: foresterParams.adunit_type
+        };
+        make_fs_call(adUnit_data, customParams);
+    };
+
+    var widgetId = '__mobileAssociatesSearchWidget_adunit_4';
+    var postToParent = function(data) {
+        parent.postMessage(JSON.stringify(data), '*');
+    };
+    var resizeFrame = function(){
+        postToParent({
+            'widgetId': widgetId,
+            'operation': 'resizeAd',
+            'height': document.getElementsByTagName('body')[0].clientHeight
+        });
+    };
+    var completionService = {
+        'US' : 'completion.amazon.com',
+        'CA' : 'completion.amazon.com',
+        'IT' : 'completion.amazon.co.uk',
+        'ES' : 'completion.amazon.co.uk',
+        'DE' : 'completion.amazon.co.uk',
+        'GB' : 'completion.amazon.co.uk',
+        'IN' : 'completion.amazon.co.uk',
+        'FR' : 'completion.amazon.co.uk',
+        'JP' : 'completion.amazon.co.jp'
+    };
+    (function(){
+        var result_count = 10;
+        {
+            if(280 < 178){
+                result_count = 0; //No area to show the results
+                /*if(console && console.log)
+                 console.log("No Area to display results, converting search widget to search box.");*/
+            } else
+                document.getElementById('searchResult').style['maxHeight']=(280-24-80+2-1) + 'px'; //Hack to hide border-bottom of result
+
+            if(result_count==0) document.getElementById('criteriaSection').style['borderBottom'] = 'none';
+        }
+        { //Category handling
+            window.categoryVisible = false;
+            var categoryHolder = document.getElementById('categoryHolder');
+            categoryHolder.onclick = function(){
+                postToParent({
+                    'widgetId': widgetId,
+                    'operation': 'hideSuggestion'
+                });
+                if(window.categoryVisible) {
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'hideCategory'
+                    });
+                    window.categoryVisible = false;
+                    categoryHolder.setAttribute('class', 'right');
+                } else {
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'showCategory'
+                    });
+                    window.categoryVisible = true;
+                    categoryHolder.setAttribute('class', 'right clicked');
+                }
+            };
+            window.hideCategory = function() {
+                if(window.categoryVisible) {
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'hideCategory'
+                    });
+                    window.categoryVisible = false;
+                    categoryHolder.setAttribute('class', 'right');
+                }
+            };
+        }
+        window.addEventListener('message', function(event){ //Communication between parent and iframe
+            if(!event.data) return;
+            var mydata = JSON.parse(event.data);
+            if(!(mydata &&  mydata.operation)) return;
+
+            if(mydata.operation=='selectCategory') {
+                var category = document.getElementById('categorySelection');
+                category.innerHTML = mydata.html;
+                category.setAttribute('data-value', mydata.value);
+                category.setAttribute('data-search', mydata.search);
+                if(window.hideCategory) window.hideCategory();
+                if(result_count){
+                    var searchField = document.getElementById('searchField');
+                    var loadResult = searchField.getAttribute('class') == 'placeholder' ? false : (searchField.value ? true : false);
+                    if(loadResult)
+                        document.getElementById('submit').click();
+                    else if(typeof loadTopSeller == "function")
+                        loadTopSeller();
+                }
+            } else if (mydata.operation == 'selectSuggestion') {
+                document.getElementById('searchField').value = mydata.text;
+                document.getElementById('searchField').focus();
+
+                var category = document.getElementById('categorySelection');
+                if(mydata.catValue && mydata.catHTML && mydata.catSearch && (mydata.catValue!=category.getAttribute('data-value'))) {
+                    category.innerHTML = mydata.catHTML;
+                    category.setAttribute('data-value', mydata.catValue);
+                    category.setAttribute('data-search', mydata.catSearch);
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'updateCategory',
+                        'catValue': mydata.catValue
+                    });
+                }
+                if(mydata.clicked && result_count>0)
+                    document.getElementById('submit').click();
+            } else if(mydata.operation == 'hideCategoriesInSrchWidget') {
+                if(window.hideCategory) window.hideCategory();
+            } else if(mydata.operation == 'loseFocus') {
+                document.getElementById('amazonLogo').focus();
+            }
+        }, false);
+        if(true){  //Autocomplete of search
+            var searchField = document.getElementById('searchField');
+            var oldLength = searchField.value ? searchField.value.length : 0;
+            searchField.addEventListener('keyup', function(event) {
+                if(searchField.value && (oldLength!=searchField.value.length) && (event.keyCode!=38 && event.keyCode!=40 && event.keyCode!=13)){
+                    oldLength = searchField.value.length;
+                    var searchKey = searchField.value;
+                    if(!(searchKey && searchKey.length>=2)) return;
+
+                    window.isSearchStarted = false;
+                    searchKey = encodeURIComponent(searchKey);
+                    var searchAlias = document.getElementById('categorySelection');
+                    if(searchAlias)
+                        searchAlias = searchAlias.getAttribute('data-value');
+                    else
+                        searchAlias = 'aps';
+                    if(window.__maSwJsNode)
+                        if(window.__maSwJsNode.parentNode){
+                            window.__maSwJsNode.parentNode.removeChild(window.__maSwJsNode);
+                            //console.log('Trying to abort JSONP call.'); // Removing console log, as it is creating problem in IE9
+                        }
+                    window.__maSwJsNode = document.createElement('script');
+                    window.__maSwJsNode.src = location.protocol + '//' + completionService['JP'] + '/search/complete?method=completion&q=' + searchKey +
+                    '&search-alias=' + searchAlias + '&mkt=1&fb=1&xcat=0&x=__maSwAutocomplete&sc=1&noCacheIE=1391185589270';
+                    document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode);
+                }
+            }, false);
+            searchField.addEventListener('keydown', function(event) {
+                if(event.keyCode==38 || event.keyCode==40) { // UP & DOWN key
+                    event.stopImmediatePropagation();
+                    event.preventDefault();
+                }
+                if(event.keyCode==9 || event.keyCode==13 || event.keyCode==27) { // TAB, ENTER & ESC key
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'hideSuggestion'
+                    });
+                } else if(event.keyCode==40){ //Down Arrow
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'selectSuggestion',
+                        'key': 'DOWN',
+                        'oldValue': searchField.value
+                    });
+                } else if(event.keyCode==38){ // Up Arrow
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'selectSuggestion',
+                        'key': 'UP',
+                        'oldValue': searchField.value
+                    });
+                }
+            }, false);
+        }
+        { // Handle keyboard event for category selection
+            var categoryHolder = document.getElementById('categoryHolder');
+            categoryHolder.addEventListener('keydown', function(event) {
+                if(!window.categoryVisible) return;
+                if(event.keyCode==9 || event.keyCode==13 || event.keyCode==27 || event.keyCode==38 || event.keyCode==40) {
+                    event.preventDefault();
+                    postToParent({
+                        'widgetId': widgetId,
+                        'operation': 'keyPressCategory',
+                        'key': event.keyCode
+                    });
+                }
+            });
+        }
+        { // Handle the submit event
+            var resultCount = result_count; //Set the search result size
+            if(resultCount < 0) resultCount = 0;
+            else if (resultCount > 20) resultCount = 20;
+            document.getElementById('searchBoxDiv').getElementsByTagName('form')[0].addEventListener('submit', function(event){
+                event.preventDefault();
+                postToParent({
+                    'widgetId': widgetId,
+                    'operation': 'hideSuggestion'
+                });
+                var searchField = document.getElementById('searchField');
+                window.isSearchStarted = true;
+                if(!searchField.value) return;
+
+                document.getElementById('searchResult').style['display'] = 'none';
+                document.getElementById('footer').style['display'] = 'none';
+                if(resultCount) {
+                    document.getElementById('loader').style['display'] = 'block';
+                    resizeFrame();
+                }
+
+                if(window.__maSwJsNode2)
+                    if(window.__maSwJsNode2.parentNode){
+                        window.__maSwJsNode2.parentNode.removeChild(window.__maSwJsNode2);
+                        //console.log('Trying to aboring JSONP-2 call.'); //IE9 fix
+                    }
+
+                var selectedCat = document.getElementById('categorySelection');
+                var searchTerm = encodeURIComponent(searchField.value);
+                var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
+                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
+                {
+                    foresterCall({search_term:searchTerm , logType: 'search_navigation',
+                        search_cat : (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps'),
+                        action: 'submit',  adunit_type: 'responsive_search_widget'});
+                }
+                if(resultCount) {
+                    var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
+                    window.__maSwJsNode2 = document.createElement('script');
+                    window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
+                    +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+                    document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
+                    if(window.submitTimer) {
+                        clearTimeout(window.submitTimer);
+                        delete window.submitTimer;
+                    }
+                    window.submitTimer = setTimeout(function(){
+                        document.getElementById('submit').click();
+                    }, 3000);
+                } else {
+                    window.open(href);
+                }
+            }, false);
+        }
+        { /* Handling focus of Search field */
+            var searchField = document.getElementById('searchField');
+            searchField.onfocus = function(event){
+                document.getElementById('searchFieldHolder').setAttribute('class', 'focus');
+                if(window.hideCategory)
+                    window.hideCategory();
+            };
+            searchField.onblur = function(event){
+                document.getElementById('searchFieldHolder').setAttribute('class', '');
+            };
+        }
+        { // Changing from one to two layout
+            var resultContainer = document.getElementById('searchResult');
+//            var body = document.getElementsByTagName('body')[0];
+            var body = document.getElementById('amazon-Container');
+            var cat = document.getElementById('categorySelection');
+            var resizeHandler = function(event) {
+                if(body.offsetWidth > 600) {
+                    resultContainer.setAttribute('class', 'half-width');
+                } else {
+                    resultContainer.setAttribute('class', 'full-width');
+                }
+                if(body.offsetWidth > 285)
+                    cat.setAttribute('class', 'full');
+                else if(body.offsetWidth > 260)
+                    cat.setAttribute('class', 'mid');
+                else if(body.offsetWidth > 240)
+                    cat.setAttribute('class', 'low');
+                resizeFrame();
+                if(typeof improviseTitle == 'function') improviseTitle();
+            };
+            resizeHandler();
+            window.addEventListener('resize', resizeHandler, false);
+        }
+        {
+            if(navigator.userAgent && navigator.userAgent.length >= 84 && navigator.userAgent.substring(75, 81)=="Chrome") {
+                var chromeVersion = parseInt(navigator.userAgent.substring(82, 84));
+                if(!isNaN(chromeVersion) && chromeVersion <=30)
+                    document.getElementById('submitHolder').style['display']='-webkit-inline-box';
+            }
+        }
+        window.loadTopSeller = function() {
+            window.topseller_display_callback = window.search_callback;
+
+            document.getElementById('loader').style['display'] = 'block';
+            document.getElementById('searchResult').style['display'] = 'none';
+            document.getElementById('footer').style['display'] = 'none';
+            resizeFrame();
+            var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
+            var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
+
+            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+            if(cat == 'aps') {
+                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+            }
+            document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
+
+            window.__maSwJsNode2 = document.createElement('script');
+            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent('https://ws-na.amazon-adsystem.com') +
+            '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
+            document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
+
+            foresterCall({search_cat: cat, logType: 'search_navigation', action: 'submit', adunit_type: 'responsive_search_widget'});
+        }
+        window.addEventListener('DOMContentLoaded', function(event){
+            if(''.length){ // Default Search Load
+                var searchField = document.getElementById('searchField');
+                searchField.value = '';
+                searchField.removeAttribute('class');
+                if(result_count && result_count>0)
+                    document.getElementById('submit').click();
+            } else if(result_count && result_count>0) {
+                window.submitTimer = setInterval(loadTopSeller, 3000);
+                loadTopSeller();
+            }
+            {
+                make_ir_call("w13");
+                foresterCall({action:'onload', logType: 'search_navigation', adunit_type: 'responsive_search_widget'});
+            }
+        }, false);
+        { // Hide the category and suggestion when clicked anywhere in body
+            var isFromSameDiv = function(node, target) {
+                if(node==target) return true;
+                while(target.parentNode) {
+                    target = target.parentNode;
+                    if(node==target) return true;
+                }
+                return false;
+            };
+            var isIOS = (navigator.userAgent.match(/iPad|iPhone|iPod/i)) ? true : false;
+            document.getElementById('container').addEventListener('click', function(event){
+                if(event.target && !isFromSameDiv(document.getElementById('categoryHolder'), event.target)) {
+                    if(window.hideCategory)
+                        window.hideCategory();
+                    if(isIOS && !isFromSameDiv(document.getElementById('searchField'), event.target)) document.getElementById('amazonLogo').focus();
+                }
+                postToParent({
+                    'widgetId': widgetId,
+                    'operation': 'hideSuggestion'
+                });
+            });
+        }
+        {
+            var resultPane = document.getElementById('searchResult');
+            window.improviseTitle = function(){
+                var titles = resultPane.getElementsByClassName('title');
+                if(titles && titles.length) {
+                    for(var i=0; i<titles.length; i++) {
+                        var anchorTag = titles[i].getElementsByTagName('a')[0];
+                        var title = anchorTag.getAttribute('data-title');
+                        anchorTag.innerHTML = title;
+
+                        var height = anchorTag.clientHeight ? anchorTag.clientHeight : anchorTag.scrollHeight;
+                        while(height > 26) {
+                            title = title.substring(0, title.length - 5);
+                            anchorTag.innerHTML = title + '&hellip;';
+                            height = anchorTag.clientHeight ? anchorTag.clientHeight : anchorTag.scrollHeight;
+                        }
+                    }
+                }
+            };
+        }
+    }());
+    window.search_callback = function(result) {
+        if(window.submitTimer) {
+            clearTimeout(window.submitTimer);
+            delete window.submitTimer;
+        }
+        var findDisplacement = function(ratings){
+            if(ratings && ratings.length) {
+                var intVal = parseInt(ratings);
+                var floatVal = parseFloat(ratings);
+                if(intVal == floatVal) {
+                    return 20 + ((5-intVal)*16);
+                } else {
+                    return 191 + ((4-intVal)*15);
+                }
+            }
+            return 100;
+        };
+        var roundToHundred = function(num) {
+            var intVal = parseInt(num);
+            if(isNaN(intVal) || intVal<10)
+                return "";
+            else if(num.length==2)
+                return num.substring(0,1) + "0+ ";
+            else if(num.length>=3 && num.length<=5)
+                return num.substring(0, num.length-2) + "00+ ";
+            else if(num.length>5)
+                return num.substring(0, num.length-3) + "000+ ";
+            return "";
+        };
+        var resultPane = document.getElementById('searchResult');
+        resultPane.innerHTML = '';
+        if(result && result.results)
+            for(var i=0; i<result.results.length; i++) {
+                var data = result.results[i];
+                var template = document.getElementById('resultTemplate').getElementsByClassName('__ma-sw-search-item')[0].cloneNode(true);
+                var href = data.DetailPageURL+'?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU&ref_=assoc_res_sw_result_'+(i+1);
+                template.getElementsByClassName('thumbnail-amazon')[0].setAttribute('href', href);
+                var thumb = template.getElementsByClassName('thumbnail-amazon')[0].getElementsByTagName('img')[0];
+                if(data.ImageUrl)
+                    thumb.setAttribute('src', data.ImageUrl);
+                else
+                    thumb.setAttribute('src', 'https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/no-img-lg.gif');
+                var title = template.getElementsByClassName('title')[0].getElementsByTagName('a')[0];
+                title.setAttribute('href', href);
+                title.setAttribute('data-title', data.Title);
+                title.innerHTML = data.Title;
+                template.getElementsByClassName('price')[0].innerHTML = data.Price;
+                if(!(data.IsPrimeEligible && data.IsPrimeEligible=="1"))
+                    template.getElementsByClassName('amazon-prime')[0].removeAttribute('class');
+                if(data.TotalReviews)
+                    template.getElementsByClassName('reviews-count')[0].innerHTML = '('+data.TotalReviews+')';
+
+                var starRating = template.getElementsByClassName('star-rating')[0];
+                if(data.Rating)
+                    starRating.style.backgroundPosition = '-'+ findDisplacement(data.Rating) +'px -31px';
+                else
+                    starRating.style.display = 'none';
+
+                var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                template.getElementsByClassName('star-rating-link')[0].setAttribute('href', reviewURL);
+                template.getElementsByClassName('reviews-count-link')[0].setAttribute('href', reviewURL);
+                template.getElementsByClassName('btnSelect')[0].setAttribute('href', reviewURL);
+                resultPane.appendChild(template);
+            }
+        var clearDiv = document.createElement('div');
+        clearDiv.style['clear'] = 'both';
+        resultPane.appendChild(clearDiv);
+
+        var footer = document.getElementById('footer');
+        var anchor = footer.getElementsByTagName('a');
+        if(typeof result.NumRecords == "undefined")
+            anchor[0].innerHTML =
+                    "View more products on <b>Amazon.com</b>";
+        else
+            anchor[0].innerHTML =
+                    "View all "
+                    + roundToHundred(result.NumRecords) + "results on <b>Amazon.com</b>";
+
+        document.getElementById('loader').style['display'] = 'none';
+        resultPane.style['display'] = 'block';
+        footer.style['display'] = 'block';
+        if(result.NumRecords=="0") {
+            anchor[0].style['display']='none';
+            anchor[1].style['display']='block';
+            resultPane.style['display'] = 'none';
+        } else {
+            anchor[1].style['display']='none';
+            anchor[0].style['display']='block';
+        }
+        if(typeof improviseTitle == "function") improviseTitle();
+        var heightchange = (result.results.length+1)*75;
+        if(result.results.length >=5){
+            heightchange = 6*75;
+        }
+
+        document.getElementById('searchResult').style['maxHeight']=(heightchange-24-80+2-1) + 'px'; //Hack to hide border-bottom of result
+        resizeFrame();
+        reloadEvent();
+        resultPane.scrollTop = 0;
+        if(window.__maSwJsNode2)
+            if(window.__maSwJsNode2.parentNode){
+                window.__maSwJsNode2.parentNode.removeChild(window.__maSwJsNode2);
+                //console.log('Removing already used js2 nodes.'); // IE9 fix
+            }
+        delete window.__maSwJsNode2;
+    };
+    window.__maSwAutocomplete = function(){
+        if(!completion) return;
+
+        var data = completion;
+        var searchField = document.getElementById('searchField');
+        if(searchField.value && data[0]==searchField.value.toLowerCase() && !window.isSearchStarted) {
+            if(data[1] && data[1].length) {
+                postToParent({
+                    'widgetId': widgetId,
+                    'operation': 'showSuggestion',
+                    'suggestion': data[1],
+                    'category': data[2]
+                });
+            }
+        }
+        if(window.__maSwJsNode)
+            if(window.__maSwJsNode.parentNode){
+                window.__maSwJsNode.parentNode.removeChild(window.__maSwJsNode);
+                //console.log('Removing already used js nodes.'); // IE9 fix
+            }
+        delete window.__maSwJsNode;
+    };
+</script>
+<!--[if lte IE 9]>
+<script type="text/javascript">
+    (function(){
+        var searchField = document.getElementById('searchField');
+        var putPlaceHolder = function(){
+            if(searchField.value.length==0) {
+                searchField.value = searchField.getAttribute('placeholder');
+                searchField.setAttribute('class', 'placeholder');
+            }
+        };
+        var resetPlaceHolder = function(){
+            if(searchField.getAttribute('class')=='placeholder') {
+                searchField.value = '';
+                searchField.setAttribute('class', '');
+            }
+        };
+        putPlaceHolder();
+        searchField.addEventListener('focus', function(event){
+            resetPlaceHolder();
+        });
+        searchField.addEventListener('blur', function(event){
+            putPlaceHolder();
+        });
+    }());
+</script>
+<![endif]-->
+

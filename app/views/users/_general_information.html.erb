@@ -2,12 +2,14 @@
   <div class="media">
     <!--<div class="pull-left innerAll text-center">-->
     <div class="col-md-2" style="text-align: center">
-    <div id="avatar" class="innerAll">
+    <div id="avatar_area" class="innerAll">
+      <div id="avatar">
         <% if !@user.avatar_url.nil? %>
             <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
         <% else %>
             <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
         <% end %>
+      </div>
       <div class="changeavatar">
         <a class="linkChangeAvatar" title=<%= t('users.lb_changeavatar')%> rel="tooltip" href="#" role="button" data-toggle="modal" modal_title="<%=t('users.title_changeavatar')%>">
           <i class="fa fa-camera" style="font-size: 16pt;"></i>
@@ -31,18 +33,17 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="avatarModalLabel">Modal title</h4>
       </div>
-      <div id="modalContent" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalAvatarContent" class="modal-body" style="max-height: 430px; overflow-y: auto">
         <%= form_tag change_avatar_path, id: 'change_avatar_form', role: 'form', multipart: true do %>
             <p><span class="small"><%= t('users.help_change_avatar') %></span></p>
             <div class="form-group">
               <%= file_field_tag "file_avatar",  :accept => 'image/*', class: 'form-control'%>
             </div>
-
         <% end %>
       </div>
       <div class="modal-footer">
+        <button id="btnAvatarSave" type="button" class="btn btn-primary"><%=t('button.btn_save')%></button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('button.btn_cancel')%></button>
-        <button id="btnSave" type="button" class="btn btn-primary"><%=t('button.btn_save')%></button>
       </div>
     </div>
   </div>
@@ -72,7 +73,7 @@
 //        })
 
 
-        $("#btnSave").click(function(){
+        $("#btnAvatarSave").click(function(){
             $("#change_avatar_form").validate({
                 onfocusout: false,
                 onkeyup: false,

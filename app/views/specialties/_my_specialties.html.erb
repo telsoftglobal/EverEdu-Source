@@ -9,7 +9,7 @@
 
     <div class="innerAll" id="specialty_new">
           <ul class="media-list margin-none">
-            <a class="specialty" url="<%= new_specialty_path %>"  href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_new_specialty')%>">
+            <a class="addSpecialty" url="<%= new_specialty_path %>"  href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_new_specialty')%>">
                 <li class="media">
                 <span class="pull-left innerAll half empty-photo">
                     <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i>
@@ -30,5 +30,219 @@
 
   <!-- End specialty List -->
 
-
 </div>
+
+<!-- Modal -->
+<div class="modal fade" id="specialtyModal" tabindex="-1" role="dialog" aria-labelledby="specialtyModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="specialtyModalLabel">Modal title</h4>
+      </div>
+      <div id="modalSpecialtyContent" class="modal-body" style="overflow-y: auto">
+      </div>
+      <div class="modal-footer">
+        <button id="btnSpecialtySave" type="button" class="btn btn-primary"><%= t('button.btn_save')%></button>
+        <button id="btnCancel" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- End Modal -->
+
+<script>
+    $(document).ready(function () {
+        $('#specialtyModal').on('shown.bs.modal', function() {
+            $('#specialty_specialty').focus();
+        })
+
+        $('a.addSpecialty').click(function (e) {
+            openSpecialtyModal(this, e);
+        });
+
+        $('a.editSpecialty').click( function (e) {
+            openEditSpecialtyModal(this, e);
+        });
+
+        $('a.deleteSpecialty').click( function (e) {
+            processDeleteSpecialty(this, e);
+        });
+
+
+        $("#btnSpecialtySave").click(function(){
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+
+            $("#specialty_form").validate({
+                onfocusout: false,
+                onkeyup: false,
+                rules: {
+                    "specialty[specialty]": {required: true, maxlength: {
+                        param: 100,
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    }},
+                    "specialty[years_of_experience]": {digits: {
+                        param: true,
+                        depends:function(){
+//                            var text = $.trim($(this).val());
+//                            text=text.replace(/\s+/g, ' ');
+//                            $(this).val(text);
+                            return true;
+                        }
+                    }, range: [1, 99]},
+                    "specialty[description]": {maxlength: {
+                        param: 2000,
+                        depends:function(){
+                            var text = $.trim($(this).val());
+//                            text=text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    }}
+                },
+                messages: {
+                    "specialty[specialty]": {required: I18n.t('js.validate.msg_required')},
+                    "specialty[years_of_experience]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "specialty[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                },
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+                submitHandler: function (form) {
+                },
+                invalidHandler: function (form, validator) {
+                    $('#div_msg_error').text('');
+
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        validator.errorList[0].element.focus();
+                    }
+                }
+            });
+
+            var valid = $("#specialty_form").valid();
+            if(!valid) {
+                return false;
+            }
+
+            var url = $("#specialty_form").attr("action");
+            var data = $("#specialty_form").serializeArray();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                beforeSend: function (xhr) {
+                    $.loader.open({size:32});
+                },
+                dataType: "script",
+                success: function () {
+                    $.loader.close(true);
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
+                    $.loader.close(true);
+                }
+            });
+        });
+    });
+</script>
+
+<script>
+    function openSpecialtyModal(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("modal_title");
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                id: id
+            },
+            beforeSend: function (xhr) {
+                $.loader.open({size:32});
+            },
+            dataType: "script",
+            success: function () {
+                $.loader.close(true);
+                $('#specialtyModal').modal({backdrop: 'static',
+                    keyboard: false});
+                $("#specialtyModalLabel").text(title);
+            },
+            error: function (xhr, status, response) {
+                console.log("AJAX Error: " + status)
+                $.loader.close(true);
+            }
+        });
+    };
+
+    function processDeleteSpecialty(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("title");
+        var title_confirm = $(element).attr("title_confirm");
+        var title_msg_confirm = $(element).attr("title_msg_confirm");
+        var title_button_ok = $(element).attr("title_button_ok");
+        var title_button_cancel = $(element).attr("title_button_cancel");
+
+        BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel,title_msg_confirm, function(result){
+            $.loader.open({size:32});
+            if(result) {
+                $.ajax({
+                    type: "DELETE",
+                    url: url,
+                    data: {
+                        id: id
+                    },
+                    beforeSend: function (xhr) {
+                        $.loader.open({size:32});
+                    },
+                    dataType: "script",
+                    success: function () {
+                        $.loader.close(true);
+                    },
+                    error: function (xhr, status, response) {
+                        console.log("AJAX Error: " + status)
+                        $.loader.close(true);
+                    }
+                });
+            }else {
+                $.loader.close(true);
+            }
+        });
+    };
+
+    function openEditSpecialtyModal(element, e) {
+        e.preventDefault();
+        var url = $(element).attr("url");
+        var id = $(element).attr("objectId");
+        var title = $(element).attr("modal_title");
+        $.ajax({
+            type: "GET",
+            url: url,
+            data: {
+                id: id
+            },
+            beforeSend: function (xhr) {
+                $.loader.open({size:32});
+            },
+            dataType: "script",
+            success: function (data) {
+                $.loader.close(true);
+
+                $("#specialtyModalLabel").text(title);
+            },
+            error: function (xhr, status, response) {
+                console.log("AJAX Error: " + status)
+                $.loader.close(true);
+            }
+        });
+    };
+</script>

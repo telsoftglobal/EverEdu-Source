@@ -3,7 +3,7 @@ class Specialty
   include Mongoid::Timestamps
 
   SPECIALTY_MAX_LENGTH = 100
-  DESCRIPTION_MAX_LENGTH = 200
+  DESCRIPTION_MAX_LENGTH = 2000
 
   #fields
   field :specialty, type: String
@@ -17,8 +17,8 @@ class Specialty
   validates_presence_of :specialty
   validates_length_of :specialty, maximum: SPECIALTY_MAX_LENGTH
   validates_length_of :description, maximum: DESCRIPTION_MAX_LENGTH
-  validates_numericality_of :years_of_experience, greater_than: 0, less_than: 100
-  validates_uniqueness_of :specialty, scope: :user
+  validates_numericality_of :years_of_experience, greater_than: 0, less_than: 100, allow_blank: true
+  validates_uniqueness_of :specialty, scope: :user, case_sensitive: false
 
   #indexes
   index({user_id: 1, specialty: 1}, {unique: true})
