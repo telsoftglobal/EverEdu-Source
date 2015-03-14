@@ -17,7 +17,7 @@
 
 </style>
 
-<h3 style="padding-left: 30px;" class="aes-color"><i class="fa fa-user"></i><%= t('users.title_update_user_information')%></h3>
+<h3 style="padding-left: 30px;" class="aes-color"><i class="fa fa-user"></i> <%= t('users.title_update_user_information')%></h3>
 <%= form_for @user ,:url => update_user_profile_path, html: {id: "update_user_profile", role: 'form', role:'form',class:'form-horizontal'} do |f| %>
     <div class="widget ">
       <div class="widget-body col-md-11">
@@ -212,23 +212,26 @@
             e.preventDefault();
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
-            if($("#update_user_profile").valid()==false){
-                return;
-            }
-
             var year_select = $("#user_birth_day_1i").val();
             var month_select = $("#user_birth_day_2i").val();
             var day_select = $("#user_birth_day_3i");
-
+            var kt = false;
             if(!((year_select!="" && month_select!="" && day_select.val()!="") || (year_select=="" && month_select=="" && day_select.val()==""))){
                 if((year_select=="" || month_select=="" || day_select.val()=="")){
                     day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
-                return;
+                    kt=true;
                 }
-
             }
-
-
+            if(new Date(year_select,month_select-1,day_select.val())>new Date()){
+                day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
+                kt=true;
+            }
+            if($("#update_user_profile").valid()==false){
+                kt=true;
+            }
+            if(kt){
+                return;
+            }
             if($("#user_email").val()!=$("#old_email").val()){
 
                 BootstrapDialog.show({
