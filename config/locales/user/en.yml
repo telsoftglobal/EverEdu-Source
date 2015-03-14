@@ -48,6 +48,7 @@ en:
     lb_address: "Address"
     lb_city: "City"
     lb_country: "Country"
+    lb_introduction: "Introduction"
     msg_empty_field: "Please enter required field"
     msg_empty_or_wrong_password: "Please verify information"
     msg_update_failed: "Update user profile failed"

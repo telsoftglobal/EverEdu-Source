@@ -1,22 +1,21 @@
 <div class="widget innerLR">
   <div class="media">
     <!--<div class="pull-left innerAll text-center">-->
-    <div class="col-md-2" style="text-align: center">
-    <div id="avatar_area" class="innerAll">
-      <div id="avatar">
-        <% if !@user.avatar_url.nil? %>
-            <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
-        <% else %>
-            <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
-        <% end %>
-      </div>
-      <div class="changeavatar">
-        <a class="linkChangeAvatar" title=<%= t('users.lb_changeavatar')%> rel="tooltip" href="#" role="button" data-toggle="modal" modal_title="<%=t('users.title_changeavatar')%>">
-          <i class="fa fa-camera" style="font-size: 16pt;"></i>
-        </a>
-      </div>
-      </div>
-
+    <div class="col-md-2" class="media-body" style="text-align: center">
+        <div id="avatar_area" style="margin-top: 20px">
+          <div id="avatar">
+            <% if !@user.avatar_url.nil? %>
+                <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
+            <% else %>
+                <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
+            <% end %>
+          </div>
+          <div class="changeavatar">
+            <a class="linkChangeAvatar" title=<%= t('users.lb_changeavatar')%> rel="tooltip" href="#" role="button" data-toggle="modal" modal_title="<%=t('users.title_changeavatar')%>">
+              <i class="fa fa-camera" style="font-size: 16pt;"></i>
+            </a>
+          </div>
+        </div>
     </div>
     <div id="user_profile" class="media-body">
       <%= render 'basic_information',  locals: {user: @user}  %>

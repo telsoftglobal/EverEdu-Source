@@ -24,7 +24,7 @@
               </span>
               <% end %>
             </p>
-            <p class="margin-none" style="word-wrap:break-word;"><%= normalize_text curriculum_study.curriculum.summary %></p>
+            <p class="margin-none" style="word-wrap:break-word; white-space: pre-wrap;"><%= curriculum_study.curriculum.summary %></p>
             <p class="margin-none text-right">
               <!--<span><a href="edit_curriculum_path(curriculum)"><i class="fa"></i><%= t('curriculum.bt_edit')%></a></span>-->
               <span><%= link_to '<i class= "fa fa-file-text-o"></i>'.html_safe, show_curriculum_detail_for_student_path(curriculum_study.curriculum), :title => t('curriculum.bt_view_detail'), :rel => 'tooltip',:style => 'font-size: 16pt', data:{target:'body'} %></span>

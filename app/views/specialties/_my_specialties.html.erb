@@ -1,13 +1,14 @@
+
 <div class="innerAll">
   <h4 class="margin-none strong"><%=t('specialties.title_specialties')%></h4>
   <div class="clearfix"></div>
 </div>
-
 <div class="widget innerLR">
+
 
     <!-- New specialty -->
 
-    <div class="innerAll" id="specialty_new">
+    <div class="innerAll border-bottom" id="specialty_new">
           <ul class="media-list margin-none">
             <a class="addSpecialty" url="<%= new_specialty_path %>"  href="#" data-toggle="modal"  modal_title="<%=t('specialties.title_new_specialty')%>">
                 <li class="media">
@@ -87,15 +88,7 @@
                             return true;
                         }
                     }},
-                    "specialty[years_of_experience]": {digits: {
-                        param: true,
-                        depends:function(){
-//                            var text = $.trim($(this).val());
-//                            text=text.replace(/\s+/g, ' ');
-//                            $(this).val(text);
-                            return true;
-                        }
-                    }, range: [1, 99]},
+                    "specialty[years_of_experience]": {digits: true, range: [1, 99]},
                     "specialty[description]": {maxlength: {
                         param: 2000,
                         depends:function(){
@@ -107,8 +100,10 @@
                     }}
                 },
                 messages: {
-                    "specialty[specialty]": {required: I18n.t('js.validate.msg_required')},
-                    "specialty[years_of_experience]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "specialty[specialty]": {required: I18n.t('js.validate.msg_required'),
+                                            maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "specialty[years_of_experience]": {digits: I18n.t('js.validate.msg_number_invalid'),
+                                            range: I18n.t('js.validate.msg_range')},
                     "specialty[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
                 },
                 errorPlacement: function (error, element) {

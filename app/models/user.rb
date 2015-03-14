@@ -17,6 +17,7 @@ class User
   EMAIL_MAX_LENGTH = 100
   ADDRESS_MAX_LENGTH = 100
   PHONE_NUMBER_MAX_LENGTH = 20
+  INTRODUCTION_MAX_LENGTH = 2000
   #fields
   field :first_name, type: String
   field :last_name, type: String
@@ -32,7 +33,7 @@ class User
   field :address, type: String
   field :city, type: String
   belongs_to :country
-
+  field :introduction, type: String
 
   #attributes
   attr_accessor :password, :password_confirmation
@@ -44,7 +45,7 @@ class User
   validates_length_of :email, maximum: EMAIL_MAX_LENGTH
   validates_length_of :address,:city, maximum: ADDRESS_MAX_LENGTH
   validates_length_of :phone_number, maximum: PHONE_NUMBER_MAX_LENGTH
-
+  validates_length_of :introduction, maximum: INTRODUCTION_MAX_LENGTH
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
   validate :validate_password_length, :validate_match_password
   validates_uniqueness_of :user_name, case_sensitive: false

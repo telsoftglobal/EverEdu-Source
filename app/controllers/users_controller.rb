@@ -225,7 +225,6 @@ class UsersController < ApplicationController
               raise t('users.msg_verify_data')
             end
           end
-
           phone_number = params[:user][:phone_number]
           # phone_number = (phone_number.nil? || phone_number=='') ? nil : phone_number
           if (phone_number.nil? || phone_number=='' || !(phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/))
@@ -235,8 +234,8 @@ class UsersController < ApplicationController
           # address = (address.nil? || address=='') ? nil : address
           city = params[:user][:city]
           # city = (city.nil? || city=='') ? nil : city
-
-          if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>20 || address.length>100 || city.length>100
+          introduction = params[:user][:introduction]
+          if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>20 || address.length>100 || city.length>100 || introduction.gsub("\n",'').strip.length>2000
             raise t('users.msg_verify_data')
             # render partial: 'users/update_basic_information/update_fail'
           else
@@ -253,7 +252,7 @@ class UsersController < ApplicationController
                   raise t('users.msg_empty_or_wrong_password')
                 else
                   #   update email
-                  if @user.update_attributes(email: email.strip, first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country )
+                  if @user.update_attributes(email: email.strip, first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country, introduction: introduction.gsub("\n",'').strip )
                     flash[:now] = t('users.msg_update_success')
                     render partial: 'users/update_basic_information/update_success'
                   else
@@ -266,7 +265,7 @@ class UsersController < ApplicationController
               end
             else
               # / khong update email
-              if @user.update_attributes(first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country )
+              if @user.update_attributes(first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country, introduction: introduction.gsub("\n",'').strip )
                 flash[:now] = t('users.msg_update_success')
                 render partial: 'users/update_basic_information/update_success'
               else

@@ -3097,6 +3097,15 @@ p.margin-none
 .cke_bottom {
     border-top: 1px solid #913228 !important;
 }
+select.form-control,input.form-control{
+    font-size: 13px;
+}
+.year,.month,.day{
+    width: 32.4%;
+    padding: 6px 12px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}
 /*Custom bootstrap*/
 /*
 @media class

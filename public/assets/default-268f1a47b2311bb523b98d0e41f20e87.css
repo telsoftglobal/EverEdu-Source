@@ -24062,6 +24062,15 @@ p.margin-none
 .cke_bottom {
     border-top: 1px solid #913228 !important;
 }
+select.form-control,input.form-control{
+    font-size: 13px;
+}
+.year,.month,.day{
+    width: 32.4%;
+    padding: 6px 12px;
+    background-color: #FFF;
+    border: 1px solid #CCC;
+}
 /* line 3, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ajaxloader/ajaxLoaderstyle.css.scss */
 .loading {
   margin: auto;
@@ -24964,20 +24973,20 @@ img.img-me {
   cursor: pointer;
 }
 
-/* line 11, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+/* line 10, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
 .avatar {
-  width: 120px;
-  height: 120px;
+  width: 150px;
+  height: 150px;
 }
 
 @media (max-width: 767px) {
-  /* line 17, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+  /* line 16, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
   .avatar {
-    width: 80px;
-    height: 80px;
+    width: 120px;
+    height: 120px;
   }
 
-  /* line 22, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
+  /* line 21, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/users.css.scss */
   .changeavatar {
     margin: -25px 33px 0px 33px;
     cursor: pointer;

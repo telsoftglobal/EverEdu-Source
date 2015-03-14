@@ -47,6 +47,7 @@ ja:
     lb_address: "アドレス"
     lb_city: "シティ"
     lb_country: "カントリー"
+    lb_introduction: "はじめに"
     msg_empty_field: "必須フィールドを入力してください"
     msg_empty_or_wrong_password: "情報を確認してください。"
     msg_update_failed: "更新ユーザープロファイルに失敗しました"

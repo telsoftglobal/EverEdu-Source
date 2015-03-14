@@ -31,6 +31,10 @@
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_country') %></label>
     <label class="col-md-9 col-xs-9" ><%= (@user.country.nil?) ? '' : @user.country.name %></label>
   </div>
+  <div class="row">
+    <label class="col-md-3 col-xs-3" ><%= t('users.lb_introduction') %></label>
+    <label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil?) ? '' : @user.introduction %></label>
+  </div>
 </div>
 
 <script>
