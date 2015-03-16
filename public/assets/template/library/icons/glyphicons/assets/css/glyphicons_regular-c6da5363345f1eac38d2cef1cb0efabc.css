@@ -1,0 +1,2390 @@
+@font-face {
+  font-family: 'Glyphicons Regular';
+  src: url(/assets/template/library/icons/glyphicons/assets/fonts/glyphicons_regular/glyphicons-regular.eot);
+  src: url(/assets/template/library/icons/glyphicons/assets/fonts/glyphicons_regular/glyphicons-regular.eot?#iefix) format("embedded-opentype"), url(/assets/template/library/icons/glyphicons/assets/fonts/glyphicons_regular/glyphicons-regular.woff) format("woff"), url(/assets/template/library/icons/glyphicons/assets/fonts/glyphicons_regular/glyphicons-regular.ttf) format("truetype"), url(/assets/template/library/icons/glyphicons/assets/fonts/glyphicons_regular/glyphicons-regular.svg#glyphiconsregular) format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons {
+  display: inline-block;
+  position: relative;
+  padding-left: 48px;
+  color: #1d1d1b;
+  text-decoration: none;
+  *display: inline;
+  *zoom: 1;
+  vertical-align: middle;
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons i:before {
+  position: absolute;
+  left: 0;
+  top: 0;
+  display: inline-block;
+  font: 24px/1em 'Glyphicons Regular';
+  font-style: normal;
+  font-weight: normal;
+  color: #1d1d1b;
+  *display: inline;
+  *zoom: 1;
+  text-transform: none;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.white i:before {
+  color: #fff;
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.glass i:before {
+  content: "\E001";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.leaf i:before {
+  content: "\E002";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.dog i:before {
+  content: "\1F415";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.user i:before {
+  content: "\E004";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.girl i:before {
+  content: "\1F467";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.car i:before {
+  content: "\E006";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.user_add i:before {
+  content: "\E007";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.user_remove i:before {
+  content: "\E008";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.film i:before {
+  content: "\E009";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.magic i:before {
+  content: "\E010";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.envelope i:before {
+  content: "\2709";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.camera i:before {
+  content: "\1F4F7";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.heart i:before {
+  content: "\E013";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.beach_umbrella i:before {
+  content: "\E014";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.train i:before {
+  content: "\1F686";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.print i:before {
+  content: "\E016";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bin i:before {
+  content: "\E017";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.music i:before {
+  content: "\E018";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.note i:before {
+  content: "\E019";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.heart_empty i:before {
+  content: "\E020";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.home i:before {
+  content: "\E021";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.snowflake i:before {
+  content: "\2744";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fire i:before {
+  content: "\1F525";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.magnet i:before {
+  content: "\E024";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.parents i:before {
+  content: "\E025";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.binoculars i:before {
+  content: "\E026";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.road i:before {
+  content: "\E027";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.search i:before {
+  content: "\E028";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cars i:before {
+  content: "\E029";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.notes_2 i:before {
+  content: "\E030";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pencil i:before {
+  content: "\270F";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bus i:before {
+  content: "\1F68C";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.wifi_alt i:before {
+  content: "\E033";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.luggage i:before {
+  content: "\E034";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.old_man i:before {
+  content: "\E035";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.woman i:before {
+  content: "\1F469";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.file i:before {
+  content: "\E037";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.coins i:before {
+  content: "\E038";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.airplane i:before {
+  content: "\2708";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.notes i:before {
+  content: "\E040";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.stats i:before {
+  content: "\E041";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.charts i:before {
+  content: "\E042";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pie_chart i:before {
+  content: "\E043";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.group i:before {
+  content: "\E044";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.keys i:before {
+  content: "\E045";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.calendar i:before {
+  content: "\1F4C5";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.router i:before {
+  content: "\E047";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.camera_small i:before {
+  content: "\E048";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.dislikes i:before {
+  content: "\E049";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.star i:before {
+  content: "\E050";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.link i:before {
+  content: "\E051";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.eye_open i:before {
+  content: "\E052";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.eye_close i:before {
+  content: "\E053";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.alarm i:before {
+  content: "\E054";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.clock i:before {
+  content: "\E055";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.stopwatch i:before {
+  content: "\E056";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.projector i:before {
+  content: "\E057";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.history i:before {
+  content: "\E058";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.truck i:before {
+  content: "\E059";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cargo i:before {
+  content: "\E060";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.compass i:before {
+  content: "\E061";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.keynote i:before {
+  content: "\E062";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.paperclip i:before {
+  content: "\1F4CE";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.power i:before {
+  content: "\E064";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.lightbulb i:before {
+  content: "\E065";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tag i:before {
+  content: "\E066";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tags i:before {
+  content: "\E067";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cleaning i:before {
+  content: "\E068";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ruller i:before {
+  content: "\E069";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.gift i:before {
+  content: "\E070";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.umbrella i:before {
+  content: "\2602";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.book i:before {
+  content: "\E072";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bookmark i:before {
+  content: "\1F516";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.wifi i:before {
+  content: "\E074";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cup i:before {
+  content: "\E075";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.stroller i:before {
+  content: "\E076";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.headphones i:before {
+  content: "\E077";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.headset i:before {
+  content: "\E078";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.warning_sign i:before {
+  content: "\E079";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.signal i:before {
+  content: "\E080";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.retweet i:before {
+  content: "\E081";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.refresh i:before {
+  content: "\E082";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.roundabout i:before {
+  content: "\E083";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.random i:before {
+  content: "\E084";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.heat i:before {
+  content: "\E085";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.repeat i:before {
+  content: "\E086";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.display i:before {
+  content: "\E087";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.log_book i:before {
+  content: "\E088";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.address_book i:before {
+  content: "\E089";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.building i:before {
+  content: "\E090";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.eyedropper i:before {
+  content: "\E091";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.adjust i:before {
+  content: "\E092";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tint i:before {
+  content: "\E093";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.crop i:before {
+  content: "\E094";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_square i:before {
+  content: "\E095";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_circle i:before {
+  content: "\E096";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_polygon i:before {
+  content: "\E097";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_line i:before {
+  content: "\E098";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_curve i:before {
+  content: "\E099";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vector_path_all i:before {
+  content: "\E100";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.font i:before {
+  content: "\E101";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.italic i:before {
+  content: "\E102";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bold i:before {
+  content: "\E103";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_underline i:before {
+  content: "\E104";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_strike i:before {
+  content: "\E105";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_height i:before {
+  content: "\E106";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_width i:before {
+  content: "\E107";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_resize i:before {
+  content: "\E108";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.left_indent i:before {
+  content: "\E109";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.right_indent i:before {
+  content: "\E110";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.align_left i:before {
+  content: "\E111";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.align_center i:before {
+  content: "\E112";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.align_right i:before {
+  content: "\E113";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.justify i:before {
+  content: "\E114";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.list i:before {
+  content: "\E115";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_smaller i:before {
+  content: "\E116";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.text_bigger i:before {
+  content: "\E117";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.embed i:before {
+  content: "\E118";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.embed_close i:before {
+  content: "\E119";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.table i:before {
+  content: "\E120";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_full i:before {
+  content: "\E121";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_empty i:before {
+  content: "\E122";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_in i:before {
+  content: "\E123";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_out i:before {
+  content: "\E124";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_plus i:before {
+  content: "\E125";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_minus i:before {
+  content: "\E126";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_ban i:before {
+  content: "\E127";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_flag i:before {
+  content: "\E128";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_lock i:before {
+  content: "\E129";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_new i:before {
+  content: "\E130";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox i:before {
+  content: "\E131";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox_plus i:before {
+  content: "\E132";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox_minus i:before {
+  content: "\E133";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox_lock i:before {
+  content: "\E134";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox_in i:before {
+  content: "\E135";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.inbox_out i:before {
+  content: "\E136";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cogwheel i:before {
+  content: "\E137";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cogwheels i:before {
+  content: "\E138";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.picture i:before {
+  content: "\E139";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.adjust_alt i:before {
+  content: "\E140";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.database_lock i:before {
+  content: "\E141";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.database_plus i:before {
+  content: "\E142";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.database_minus i:before {
+  content: "\E143";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.database_ban i:before {
+  content: "\E144";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_open i:before {
+  content: "\E145";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_plus i:before {
+  content: "\E146";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_minus i:before {
+  content: "\E147";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_lock i:before {
+  content: "\E148";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_flag i:before {
+  content: "\E149";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_new i:before {
+  content: "\E150";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.edit i:before {
+  content: "\E151";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.new_window i:before {
+  content: "\E152";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.check i:before {
+  content: "\E153";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.unchecked i:before {
+  content: "\E154";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.more_windows i:before {
+  content: "\E155";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.show_big_thumbnails i:before {
+  content: "\E156";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.show_thumbnails i:before {
+  content: "\E157";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.show_thumbnails_with_lines i:before {
+  content: "\E158";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.show_lines i:before {
+  content: "\E159";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.playlist i:before {
+  content: "\E160";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.imac i:before {
+  content: "\E161";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.macbook i:before {
+  content: "\E162";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ipad i:before {
+  content: "\E163";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.iphone i:before {
+  content: "\E164";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.iphone_transfer i:before {
+  content: "\E165";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.iphone_exchange i:before {
+  content: "\E166";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ipod i:before {
+  content: "\E167";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ipod_shuffle i:before {
+  content: "\E168";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ear_plugs i:before {
+  content: "\E169";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.record i:before {
+  content: "\E170";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.step_backward i:before {
+  content: "\E171";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fast_backward i:before {
+  content: "\E172";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.rewind i:before {
+  content: "\E173";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.play i:before {
+  content: "\E174";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pause i:before {
+  content: "\E175";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.stop i:before {
+  content: "\E176";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.forward i:before {
+  content: "\E177";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fast_forward i:before {
+  content: "\E178";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.step_forward i:before {
+  content: "\E179";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.eject i:before {
+  content: "\E180";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.facetime_video i:before {
+  content: "\E181";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.download_alt i:before {
+  content: "\E182";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.mute i:before {
+  content: "\E183";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.volume_down i:before {
+  content: "\E184";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.volume_up i:before {
+  content: "\E185";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.screenshot i:before {
+  content: "\E186";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.move i:before {
+  content: "\E187";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.more i:before {
+  content: "\E188";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.brightness_reduce i:before {
+  content: "\E189";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.brightness_increase i:before {
+  content: "\E190";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_plus i:before {
+  content: "\E191";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_minus i:before {
+  content: "\E192";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_remove i:before {
+  content: "\E193";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_ok i:before {
+  content: "\E194";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_question_mark i:before {
+  content: "\E195";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_info i:before {
+  content: "\E196";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_exclamation_mark i:before {
+  content: "\E197";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.remove i:before {
+  content: "\E198";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ok i:before {
+  content: "\E199";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ban i:before {
+  content: "\E200";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.download i:before {
+  content: "\E201";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.upload i:before {
+  content: "\E202";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shopping_cart i:before {
+  content: "\E203";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.lock i:before {
+  content: "\1F512";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.unlock i:before {
+  content: "\E205";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.electricity i:before {
+  content: "\E206";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ok_2 i:before {
+  content: "\E207";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.remove_2 i:before {
+  content: "\E208";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cart_out i:before {
+  content: "\E209";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cart_in i:before {
+  content: "\E210";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.left_arrow i:before {
+  content: "\E211";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.right_arrow i:before {
+  content: "\E212";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.down_arrow i:before {
+  content: "\E213";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.up_arrow i:before {
+  content: "\E214";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.resize_small i:before {
+  content: "\E215";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.resize_full i:before {
+  content: "\E216";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_arrow_left i:before {
+  content: "\E217";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_arrow_right i:before {
+  content: "\E218";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_arrow_top i:before {
+  content: "\E219";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.circle_arrow_down i:before {
+  content: "\E220";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.play_button i:before {
+  content: "\E221";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.unshare i:before {
+  content: "\E222";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.share i:before {
+  content: "\E223";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.chevron-right i:before {
+  content: "\E224";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.chevron-left i:before {
+  content: "\E225";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bluetooth i:before {
+  content: "\E226";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.euro i:before {
+  content: "\20AC";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.usd i:before {
+  content: "\E228";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.gbp i:before {
+  content: "\E229";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.retweet_2 i:before {
+  content: "\E230";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.moon i:before {
+  content: "\E231";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sun i:before {
+  content: "\2609";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cloud i:before {
+  content: "\2601";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.direction i:before {
+  content: "\E234";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.brush i:before {
+  content: "\E235";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pen i:before {
+  content: "\E236";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.zoom_in i:before {
+  content: "\E237";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.zoom_out i:before {
+  content: "\E238";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pin i:before {
+  content: "\E239";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.albums i:before {
+  content: "\E240";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.rotation_lock i:before {
+  content: "\E241";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.flash i:before {
+  content: "\E242";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.google_maps i:before {
+  content: "\E243";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.anchor i:before {
+  content: "\2693";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.conversation i:before {
+  content: "\E245";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.chat i:before {
+  content: "\E246";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.male i:before {
+  content: "\E247";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.female i:before {
+  content: "\E248";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.asterisk i:before {
+  content: "\002A";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.divide i:before {
+  content: "\00F7";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.snorkel_diving i:before {
+  content: "\E251";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.scuba_diving i:before {
+  content: "\E252";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.oxygen_bottle i:before {
+  content: "\E253";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fins i:before {
+  content: "\E254";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fishes i:before {
+  content: "\E255";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.boat i:before {
+  content: "\E256";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.delete i:before {
+  content: "\E257";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sheriffs_star i:before {
+  content: "\E258";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.qrcode i:before {
+  content: "\E259";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.barcode i:before {
+  content: "\E260";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pool i:before {
+  content: "\E261";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.buoy i:before {
+  content: "\E262";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.spade i:before {
+  content: "\E263";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bank i:before {
+  content: "\1F3E6";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vcard i:before {
+  content: "\E265";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.electrical_plug i:before {
+  content: "\E266";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.flag i:before {
+  content: "\E267";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.credit_card i:before {
+  content: "\E268";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.keyboard-wireless i:before {
+  content: "\E269";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.keyboard-wired i:before {
+  content: "\E270";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shield i:before {
+  content: "\E271";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ring i:before {
+  content: "\02DA";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cake i:before {
+  content: "\E273";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.drink i:before {
+  content: "\E274";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.beer i:before {
+  content: "\E275";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fast_food i:before {
+  content: "\E276";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cutlery i:before {
+  content: "\E277";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pizza i:before {
+  content: "\E278";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.birthday_cake i:before {
+  content: "\E279";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tablet i:before {
+  content: "\E280";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.settings i:before {
+  content: "\E281";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bullets i:before {
+  content: "\E282";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cardio i:before {
+  content: "\E283";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.t-shirt i:before {
+  content: "\E284";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pants i:before {
+  content: "\E285";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sweater i:before {
+  content: "\E286";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fabric i:before {
+  content: "\E287";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.leather i:before {
+  content: "\E288";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.scissors i:before {
+  content: "\E289";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bomb i:before {
+  content: "\1F4A3";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.skull i:before {
+  content: "\1F480";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.celebration i:before {
+  content: "\E292";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tea_kettle i:before {
+  content: "\E293";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.french_press i:before {
+  content: "\E294";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.coffe_cup i:before {
+  content: "\E295";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pot i:before {
+  content: "\E296";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.grater i:before {
+  content: "\E297";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.kettle i:before {
+  content: "\E298";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hospital i:before {
+  content: "\1F3E5";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hospital_h i:before {
+  content: "\E300";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.microphone i:before {
+  content: "\1F3A4";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.webcam i:before {
+  content: "\E302";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.temple_christianity_church i:before {
+  content: "\E303";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.temple_islam i:before {
+  content: "\E304";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.temple_hindu i:before {
+  content: "\E305";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.temple_buddhist i:before {
+  content: "\E306";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bicycle i:before {
+  content: "\1F6B2";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.life_preserver i:before {
+  content: "\E308";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.share_alt i:before {
+  content: "\E309";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.comments i:before {
+  content: "\E310";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.flower i:before {
+  content: "\2698";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.baseball i:before {
+  content: "\26BE";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.rugby i:before {
+  content: "\E313";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.ax i:before {
+  content: "\E314";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.table_tennis i:before {
+  content: "\E315";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bowling i:before {
+  content: "\1F3B3";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tree_conifer i:before {
+  content: "\E317";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tree_deciduous i:before {
+  content: "\E318";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.more_items i:before {
+  content: "\E319";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort i:before {
+  content: "\E320";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.filter i:before {
+  content: "\E321";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.gamepad i:before {
+  content: "\E322";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.playing_dices i:before {
+  content: "\E323";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.calculator i:before {
+  content: "\E324";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tie i:before {
+  content: "\E325";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.wallet i:before {
+  content: "\E326";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.piano i:before {
+  content: "\E327";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sampler i:before {
+  content: "\E328";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.podium i:before {
+  content: "\E329";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.soccer_ball i:before {
+  content: "\E330";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.blog i:before {
+  content: "\E331";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.dashboard i:before {
+  content: "\E332";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.certificate i:before {
+  content: "\E333";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bell i:before {
+  content: "\1F514";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.candle i:before {
+  content: "\E335";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pushpin i:before {
+  content: "\1F4CC";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.iphone_shake i:before {
+  content: "\E337";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pin_flag i:before {
+  content: "\E338";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.turtle i:before {
+  content: "\1F422";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.rabbit i:before {
+  content: "\1F407";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.globe i:before {
+  content: "\E341";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.briefcase i:before {
+  content: "\1F4BC";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hdd i:before {
+  content: "\E343";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.thumbs_up i:before {
+  content: "\E344";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.thumbs_down i:before {
+  content: "\E345";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hand_right i:before {
+  content: "\E346";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hand_left i:before {
+  content: "\E347";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hand_up i:before {
+  content: "\E348";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hand_down i:before {
+  content: "\E349";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fullscreen i:before {
+  content: "\E350";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shopping_bag i:before {
+  content: "\E351";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.book_open i:before {
+  content: "\E352";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.nameplate i:before {
+  content: "\E353";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.nameplate_alt i:before {
+  content: "\E354";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.vases i:before {
+  content: "\E355";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bullhorn i:before {
+  content: "\E356";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.dumbbell i:before {
+  content: "\E357";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.suitcase i:before {
+  content: "\E358";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.file_import i:before {
+  content: "\E359";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.file_export i:before {
+  content: "\E360";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bug i:before {
+  content: "\1F41B";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.crown i:before {
+  content: "\1F451";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.smoking i:before {
+  content: "\E363";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cloud-upload i:before {
+  content: "\E364";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cloud-download i:before {
+  content: "\E365";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.restart i:before {
+  content: "\E366";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.security_camera i:before {
+  content: "\E367";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.expand i:before {
+  content: "\E368";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.collapse i:before {
+  content: "\E369";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.collapse_top i:before {
+  content: "\E370";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.globe_af i:before {
+  content: "\E371";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.global i:before {
+  content: "\E372";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.spray i:before {
+  content: "\E373";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.nails i:before {
+  content: "\E374";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.claw_hammer i:before {
+  content: "\E375";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.classic_hammer i:before {
+  content: "\E376";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hand_saw i:before {
+  content: "\E377";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.riflescope i:before {
+  content: "\E378";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.electrical_socket_eu i:before {
+  content: "\E379";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.electrical_socket_us i:before {
+  content: "\E380";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.message_forward i:before {
+  content: "\E381";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.coat_hanger i:before {
+  content: "\E382";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.dress i:before {
+  content: "\1F457";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.bathrobe i:before {
+  content: "\E384";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shirt i:before {
+  content: "\E385";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.underwear i:before {
+  content: "\E386";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.log_in i:before {
+  content: "\E387";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.log_out i:before {
+  content: "\E388";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.exit i:before {
+  content: "\E389";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.new_window_alt i:before {
+  content: "\E390";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.video_sd i:before {
+  content: "\E391";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.video_hd i:before {
+  content: "\E392";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.subtitles i:before {
+  content: "\E393";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sound_stereo i:before {
+  content: "\E394";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sound_dolby i:before {
+  content: "\E395";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sound_5_1 i:before {
+  content: "\E396";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sound_6_1 i:before {
+  content: "\E397";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sound_7_1 i:before {
+  content: "\E398";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.copyright_mark i:before {
+  content: "\E399";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.registration_mark i:before {
+  content: "\E400";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.radar i:before {
+  content: "\E401";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.skateboard i:before {
+  content: "\E402";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.golf_course i:before {
+  content: "\E403";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sorting i:before {
+  content: "\E404";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-alphabet i:before {
+  content: "\E405";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-alphabet-alt i:before {
+  content: "\E406";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-order i:before {
+  content: "\E407";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-order-alt i:before {
+  content: "\E408";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-attributes i:before {
+  content: "\E409";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.sort-by-attributes-alt i:before {
+  content: "\E410";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.compressed i:before {
+  content: "\E411";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.package i:before {
+  content: "\1F4E6";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cloud_plus i:before {
+  content: "\E413";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.cloud_minus i:before {
+  content: "\E414";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_save i:before {
+  content: "\E415";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_open i:before {
+  content: "\E416";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_saved i:before {
+  content: "\E417";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_remove i:before {
+  content: "\E418";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_import i:before {
+  content: "\E419";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.disk_export i:before {
+  content: "\E420";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.tower i:before {
+  content: "\E421";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.send i:before {
+  content: "\E422";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_branch i:before {
+  content: "\E423";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_create i:before {
+  content: "\E424";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_private i:before {
+  content: "\E425";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_delete i:before {
+  content: "\E426";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_merge i:before {
+  content: "\E427";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_pull_request i:before {
+  content: "\E428";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_compare i:before {
+  content: "\E429";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.git_commit i:before {
+  content: "\E430";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.construction_cone i:before {
+  content: "\E431";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shoe_steps i:before {
+  content: "\E432";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.plus i:before {
+  content: "\002B";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.minus i:before {
+  content: "\2212";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.redo i:before {
+  content: "\E435";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.undo i:before {
+  content: "\E436";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.golf i:before {
+  content: "\E437";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.hockey i:before {
+  content: "\E438";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.pipe i:before {
+  content: "\E439";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.wrench i:before {
+  content: "\1F527";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.folder_closed i:before {
+  content: "\E441";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.phone_alt i:before {
+  content: "\E442";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.earphone i:before {
+  content: "\E443";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.floppy_disk i:before {
+  content: "\E444";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.floppy_saved i:before {
+  content: "\E445";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.floppy_remove i:before {
+  content: "\E446";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.floppy_save i:before {
+  content: "\E447";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.floppy_open i:before {
+  content: "\E448";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.translate i:before {
+  content: "\E449";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.fax i:before {
+  content: "\E450";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.factory i:before {
+  content: "\1F3ED";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shop_window i:before {
+  content: "\E452";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.shop i:before {
+  content: "\E453";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.kiosk i:before {
+  content: "\E454";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.kiosk_wheels i:before {
+  content: "\E455";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.kiosk_light i:before {
+  content: "\E456";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.kiosk_food i:before {
+  content: "\E457";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.transfer i:before {
+  content: "\E458";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.money i:before {
+  content: "\E459";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.header i:before {
+  content: "\E460";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.blacksmith i:before {
+  content: "\E461";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.saw_blade i:before {
+  content: "\E462";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.basketball i:before {
+  content: "\E463";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server i:before {
+  content: "\E464";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_plus i:before {
+  content: "\E465";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_minus i:before {
+  content: "\E466";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_ban i:before {
+  content: "\E467";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_flag i:before {
+  content: "\E468";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_lock i:before {
+  content: "\E469";
+}
+
+/* line 1, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/library/icons/glyphicons/assets/css/glyphicons_regular.css.scss */
+.glyphicons.server_new i:before {
+  content: "\E470";
+}

@@ -1,0 +1,28 @@
+/* line 9, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
+.search-form select.form-control {
+  margin-bottom: 10px;
+  border-radius: 0;
+  border-color: #efefef;
+}
+
+@media screen and (max-width: 767px) {
+  /* line 23, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
+  .search-form .btn-primary {
+    width: 100%;
+    margin-top: 10px;
+  }
+}
+/* line 34, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
+p.has-error {
+  color: #A94442;
+  font-weight: normal;
+}
+
+/* line 46, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
+.warning {
+  background-color: #913228;
+  border-color: #913228;
+  color: white;
+  margin-bottom: 10px;
+  padding: 10px;
+}

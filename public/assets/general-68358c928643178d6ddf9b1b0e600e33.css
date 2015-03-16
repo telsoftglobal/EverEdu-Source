@@ -1,0 +1,443 @@
+@charset "UTF-8";
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the bottom of the
+ * compiled file so the styles you add here take precedence over styles defined in any styles
+ * defined in the other CSS/SCSS files in this directory. It is generally better to create a new
+ * file per style scope.
+ */
+/* line 15, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+body {
+  font-size: 11pt;
+  margin: 0px;
+  font-family: "ヒラギノ角ゴ Pro W3", "HiraginoKaku Gothic Pro", "Osaka", "メイリオ", "Meiryo", "ＭＳＰゴシック", "MS PGothic", "sans-serif", "Arial", "Helvetica";
+  background-color: #f7f7f7;
+  background-repeat: no-repeat;
+}
+
+/* line 22, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+label.error {
+  color: red;
+  font-weight: normal;
+}
+
+/* line 27, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.msg_error {
+  color: red;
+}
+
+/* line 31, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.msg_error.ul.li {
+  style-type: none;
+}
+
+/* line 35, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+input[type="text"]:focus, input[type="text"]:active, input[type="text"]:hover {
+  background-color: #f7f7f7;
+}
+
+/* line 39, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+  border-color: #efefef;
+  box-shadow: none !important;
+  moz-box-shadow: none !important;
+  webkit-box-shadow: none !important;
+}
+
+/* line 46, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+select, textarea, input[type="text"], input[type="password"], input[type="email"] {
+  border-color: #efefef;
+  border-radius: 0 0 0 0;
+  box-shadow: none !important;
+  font-size: 13px;
+  moz-border-radius: 0 0 0 0;
+  moz-box-shadow: none !important;
+  webkit-border-radius: 0 0 0 0;
+  webkit-box-shadow: none !important;
+}
+
+/* line 57, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+label, input, button, select, textarea {
+  font-size: 13px;
+}
+
+/* line 61, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+input[type=text], input[type=password], select, textarea {
+  border-color: #efefef;
+}
+
+/* line 65, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.input-group .input-group-addon {
+  background: #fff;
+  border-color: #efefef;
+}
+
+/* line 70, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.form-control {
+  border-color: #efefef;
+  box-shadow: none;
+  height: auto;
+}
+
+/* line 76, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.aes-color {
+  color: #913228;
+}
+
+/* line 80, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.padding5 {
+  padding: 5px;
+}
+
+/* line 84, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.padding10 {
+  padding: 10px;
+}
+
+/* line 88, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.padding15 {
+  padding: 15px;
+}
+
+/* line 91, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.requiredfield {
+  color: #A94442;
+  font-size: 16px;
+}
+
+/* line 98, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+textarea.form-control:focus {
+  background-color: #f7f7f7;
+  border-color: #efefef;
+  border-radius: 0;
+}
+
+/* line 103, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+textarea.form-control.has-error:focus {
+  background-color: #F7F7F7 !important;
+  border-color: #EFEFEF !important;
+}
+
+/*SonNH: 2014/12/18*/
+/* line 110, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.aes-content {
+  overflow: hidden;
+  word-wrap: break-word;
+}
+
+/* line 115, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+textarea#curriculum_summary {
+  resize: none;
+}
+
+/* line 118, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+div.selectr {
+  border: none;
+}
+
+/* line 121, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+div.panel-footer {
+  display: none;
+}
+
+/* line 130, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.modal-header {
+  background-color: #913228;
+}
+
+/* line 133, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.modal-title {
+  color: #FFF;
+}
+
+/* line 145, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#accordion ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+/* line 161, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items {
+  padding: 18px 0;
+}
+
+/* line 165, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items li {
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* line 170, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items > li > a {
+  display: block;
+  text-indent: 10px;
+  line-height: 39px;
+}
+
+/* line 178, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items > li > a::after {
+  position: absolute;
+  right: 30px;
+  margin-top: 2px;
+  font-family: "FontAwesome";
+}
+
+/* line 185, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items > li > a::after {
+  right: 30px;
+  content: "\f0da";
+}
+
+/* line 190, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items > li > a:hover, #items > li > a.expanded {
+  background-color: #913228;
+  color: #fff;
+  font-weight: 600;
+  -webkit-transition: background-color .4s ease-in-out;
+  -moz-transition: background-color .4s ease-in-out;
+  -o-transition: background-color .4s ease-in-out;
+  transition: background-color .4s ease-in-out;
+}
+
+/* line 200, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#items > li > a.expanded::after {
+  content: "\f0d7";
+}
+
+/* line 204, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items > li:first-child > a {
+  margin-top: 17px;
+  height: 34px;
+}
+
+/* line 209, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items > li:last-child > a {
+  margin-bottom: 17px;
+  height: 34px;
+}
+
+/* line 214, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span {
+  position: relative;
+  display: block;
+  margin: 0 auto;
+  width: 232px;
+  text-indent: 24px;
+  line-height: 39px;
+}
+
+/* line 223, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span {
+  border-left: 2px solid #913228;
+}
+
+/* line 227, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span:lang(fa) {
+  border-right: 2px solid #913228;
+  border-left: none;
+}
+
+/* line 232, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span.current {
+  position: relative;
+  color: #8ee8f1;
+  font-weight: 600;
+}
+
+/* line 238, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span.current::before {
+  position: absolute;
+  background-color: #fff;
+  color: #913228;
+  content: "\f0da";
+  font-family: "FontAwesome";
+}
+
+/* line 247, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span.current::before {
+  left: -29px;
+}
+
+/* line 251, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items span.current:lang(fa)::before {
+  right: -29px;
+  left: auto;
+}
+
+/* line 256, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items > li:hover > a {
+  color: #913228;
+  -webkit-transition: color 0.4s ease-in-out;
+  -moz-transition: color 0.4s ease-in-out;
+  -o-transition: color 0.4s ease-in-out;
+  transition: color 0.4s ease-in-out;
+}
+
+/* line 264, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.sub-items {
+  display: none;
+}
+
+/* line 605, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+button.close {
+  color: rgba(255, 255, 255, 0.73);
+  opacity: 1;
+}
+
+/* line 613, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#menu li.active a {
+  background: none repeat scroll 0% 0% #2B2B2B;
+  color: #FFF;
+}
+
+/* line 618, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.modal-ios {
+  position: absolute;
+  overflow: visible;
+}
+
+/* line 622, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.note-editor {
+  border: 1px solid #913228 !important;
+}
+
+/* line 625, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.note-editor .note-toolbar {
+  border-bottom: 1px solid #913228 !important;
+}
+
+/* line 628, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+button.selectpicker {
+  border-radius: 0px;
+}
+
+/* line 646, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.form-control {
+  border-radius: 0px !important;
+}
+
+/* line 650, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.btn-outline {
+  font-size: 20px;
+}
+
+/* line 653, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.bootstrap-select {
+  border-color: #913228 !important;
+}
+
+/* line 657, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.dropdown-menu .open {
+  max-height: 300px;
+  overflow-y: scroll;
+  z-index: 2500;
+}
+
+/* line 663, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#accordion .panel-heading {
+  position: relative;
+}
+
+/* line 667, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#accordion ul.nav {
+  top: 0;
+  right: 0px;
+  position: absolute;
+  z-index: 100;
+  height: 100%;
+}
+
+/* line 675, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#accordion li.dropdown {
+  height: 100%;
+}
+
+/* line 678, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#drop6 {
+  height: 100%;
+  border-radius: 0px;
+  background-color: transparent;
+}
+
+/* line 683, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#drop6 span.caret {
+  vertical-align: inherit;
+  color: white;
+}
+
+/* line 687, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#pullright {
+  margin-right: 30px;
+  margin-bottom: 0px;
+  margin-top: 5px;
+}
+
+/* line 692, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#pullrightstudent {
+  top: 0px;
+  position: absolute;
+  right: 0px;
+}
+
+/* line 698, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#pullrightstudent a {
+  color: #FFF;
+}
+
+/* line 702, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#accordion div.nav {
+  top: 0;
+  right: 0px;
+  position: absolute;
+  z-index: 100;
+  margin-top: 2px;
+}
+
+/* line 710, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#pullright a {
+  color: #FFF;
+}
+
+/* line 713, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#divRight_sidebar {
+  word-wrap: break-word;
+}
+
+/* line 717, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.description_update, .summary_update, .url_update, .name_update {
+  word-wrap: break-word;
+  text-align: justify;
+}
+
+/* line 722, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#selectCategory div.dropdown-menu {
+  max-height: 246px;
+  overflow: hidden;
+}
+
+/* line 726, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+#selectCategory ul.selectpicker {
+  max-height: 246px;
+  overflow-y: auto;
+}
+
+/* line 730, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.modal-header {
+  border-radius: 5px 5px 0 0;
+}
+
+/* line 734, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+textarea.summernote {
+  resize: none;
+}
+
+/* line 737, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/general.css.scss */
+.glyphicons i:before {
+  color: #913228;
+}
