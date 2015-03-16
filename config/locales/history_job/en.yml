@@ -17,14 +17,22 @@ en:
     time_period: "Time period"
     start_time: "Start"
     end_time: "End"
+    company_url: "URL"
+    category: "Category"
+    level: "Level"
+    placeholder_category: "Choose category"
+    placeholder_level: "Choose level"
 
     msg_create_fail: "History job was fail created."
     msg_update_fail: "History job was fail updated."
     msg_delete_fail: "History job was fail destroyed."
 
     msg_history_job_not_found: "History job not found"
+    msg_create_successfully: "History job was successfully created."
+    msg_update_successfully: "History job was successfully updated."
     msg_delete_successfully: "History job was successfully destroyed."
 
     msg_endtime_greater_starttime: "End time is greater or equal with start time"
+    msg_valid_date: "Date is invalid"
 
 

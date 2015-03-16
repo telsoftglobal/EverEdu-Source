@@ -1,10 +1,13 @@
 class SpecialtiesController < ApplicationController
+  layout 'default'
+  before_action :authenticate
   before_action :set_specialty, only: [:show, :edit, :update, :destroy]
 
   # GET /specialties
   # GET /specialties.json
   def index
-    @specialties = Specialty.all
+    # @specialties = Specialty.where(user_id: current_user.id).order_by(created_at: -1);
+    @specialties = @current_user.specialties
   end
 
   # GET /specialties/1
@@ -32,26 +35,21 @@ class SpecialtiesController < ApplicationController
   def create
     begin
       @specialty = Specialty.new(specialty_params)
-      @specialty.user_id = session[:user_id]
+      @current_user.specialties << @specialty
 
-
-      if @specialty.save
+      if @specialty.errors && !@specialty.errors.messages.empty?
+        flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
+        respond_to do |format|
+          format.html { render :new }
+          format.json { render json: @specialty.errors, status: :unprocessable_entity }
+          format.js { render action: 'create_fail' }
+        end
+      else
         flash.now[:notice] = t('specialties.msg_create_successfully')
         respond_to do |format|
           format.html { redirect_to @specialty, notice: t('specialties.msg_create_successfully') }
           format.json { render :show, status: :created, location: @specialty }
           format.js
-        end
-      else
-        if @specialty.errors
-          flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
-        else
-          flash.now[:error] = t('specialties.msg_create_fail')
-        end
-        respond_to do |format|
-          format.html { render :new }
-          format.json { render json: @specialty.errors, status: :unprocessable_entity }
-          format.js { render action: 'create_fail' }
         end
       end
 
@@ -75,22 +73,21 @@ class SpecialtiesController < ApplicationController
           format.js { render action: 'update_fail' }
         end
       else
-        if @specialty.update(specialty_params)
-          respond_to do |format|
-            format.html { redirect_to @specialty, notice: t('specialties.msg_update_successfully') }
-            format.json { render :show, status: :ok, location: @specialty }
-            format.js
-          end
-        else
-          if @specialty.errors
-            flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('specialties.msg_update_fail')
-          end
+        @specialty.update_attributes(specialty_params)
+
+        if @specialty.errors && !@specialty.errors.messages.empty?
+          flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
+
           respond_to do |format|
             format.html { render :edit }
             format.json { render json: @specialty.errors, status: :unprocessable_entity }
             format.js { render action: 'update_fail' }
+          end
+        else
+          respond_to do |format|
+            format.html { redirect_to @specialty, notice: t('specialties.msg_update_successfully') }
+            format.json { render :show, status: :ok, location: @specialty }
+            format.js
           end
         end
       end
@@ -114,21 +111,17 @@ class SpecialtiesController < ApplicationController
           format.js { render action: 'destroy_fail' }
         end
       else
-        if @specialty.destroy
+        @current_user.specialties.delete(@specialty)
+        if @specialty.errors  && !@specialty.errors.messages.empty?
+          flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
+          respond_to do |format|
+            format.js { render action: 'destroy_fail' }
+          end
+        else
           respond_to do |format|
             format.html { redirect_to work_experiences_url, notice: t('specialties.msg_delete_successfully') }
             format.json { head :no_content }
             format.js
-          end
-        else
-          if @specialty.errors
-            flash.now[:error] = @specialty.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('specialties.msg_delete_fail')
-          end
-
-          respond_to do |format|
-            format.js { render action: 'destroy_fail' }
           end
         end
       end
@@ -145,7 +138,7 @@ class SpecialtiesController < ApplicationController
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_specialty
-      @specialty = Specialty.find(params[:id])
+      @specialty = @current_user.specialties.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.

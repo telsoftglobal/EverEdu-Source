@@ -214,8 +214,8 @@
             var title = 'Delete';
             var title_confirm = '<%= t('roadmap.title_confirm_delete')%>';
             var title_msg_confirm = '<%= t('roadmap.msg_confirm_delete')%>';
-            var title_button_ok = 'Ok';
-            var title_button_cancel = "<%= t('roadmap.btn_cancel')%>";
+            var title_button_ok = '<%= t('button.btn_save')%>';
+            var title_button_cancel = "<%= t('button.btn_cancel')%>";
 
             BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel, title_msg_confirm, function (result) {
                 $.loader.open({size: 32});

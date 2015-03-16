@@ -27,3 +27,7 @@ ja:
          attributes:
            photo:
              spoofed_media_type: "は偽装されたメディアタイプです。"
+
+ paperclip:
+   errors:
+    invalid_content: "は無効なコンテンツです。"

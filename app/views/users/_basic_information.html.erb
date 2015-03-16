@@ -13,27 +13,27 @@
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_phone_number') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.phone_number.nil?)? '' : @user.phone_number %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.phone_number.nil? || @user.phone_number=='')? 'N/A' : @user.phone_number %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_birthday') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.birth_day.nil?)? '' : @user.birth_day %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.birth_day.nil? || @user.birth_day=='')? 'N/A' : @user.birth_day %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_address') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.address.nil?) ? '' : @user.address %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.address.nil? || @user.address=='') ? 'N/A' : @user.address %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_city') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.city.nil?) ? '' : @user.city %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.city.nil? || @user.city=='') ? 'N/A' : @user.city %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_country') %></label>
-    <label class="col-md-9 col-xs-9" ><%= (@user.country.nil?) ? '' : @user.country.name %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.country.nil? || @user.country=='' ) ? 'N/A' : @user.country.name %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_introduction') %></label>
-    <label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil?) ? '' : @user.introduction %></label>
+    <label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil? || @user.introduction=='') ? 'N/A' : @user.introduction %></label>
   </div>
 </div>
 

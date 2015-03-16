@@ -27,3 +27,7 @@ en:
           attributes:
             photo:
               spoofed_media_type: "is spoofed media type."
+
+  paperclip:
+    errors:
+      invalid_content: "is invalid content"

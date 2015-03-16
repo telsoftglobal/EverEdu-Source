@@ -36,7 +36,7 @@ class UsersController < ApplicationController
 
   def profile
     @user = User.find(session[:user_id]);
-    @history_jobs = HistoryJob.where(user_id: session[:user_id]).order_by(current:-1,end_time: -1, start_time: -1)
+    @history_jobs = @user.history_jobs.order_by(current:-1,end_time: -1, start_time: -1).limit(HistoryJobsController::COUNT_JOB_DISPLAY)
     @specialties = Specialty.where(user_id: @user.id).order_by(created_at: -1);
   end
 
@@ -63,8 +63,26 @@ class UsersController < ApplicationController
       else
         if @avatar.errors
           # remove duplicate error message
-          @avatar.errors.messages[:photo_file_size] = nil;
-          @avatar.errors.messages[:photo_file_type] = nil;
+          photo_file_size =
+          if @avatar.errors[:photo]
+            @avatar.errors[:photo].each do |error|
+              existed = false
+              if @avatar.errors.messages[:photo_file_size] && @avatar.errors.messages[:photo_file_size].include?(error)
+                existed = true
+              end
+
+              if @avatar.errors.messages[:photo_file_type] && @avatar.errors.messages[:photo_file_type].include?(error)
+                existed = true
+              end
+
+              if !existed
+                @avatar.errors.messages[:photo_content] = Array.new
+                @avatar.errors.messages[:photo_content] << t('paperclip.errors.invalid_content')
+                break
+              end
+            end
+          end
+          @avatar.errors.messages[:photo] = nil
 
           flash.now[:error] = @avatar.errors.full_messages.to_sentence(:last_word_connector => ', ');
         else
@@ -225,17 +243,25 @@ class UsersController < ApplicationController
               raise t('users.msg_verify_data')
             end
           end
+
           phone_number = params[:user][:phone_number]
           # phone_number = (phone_number.nil? || phone_number=='') ? nil : phone_number
-          if (phone_number.nil? || phone_number=='' || !(phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/))
-            raise t('users.msg_verify_data')
-          end
+          # if !phone_number.nil?
+          #   if !phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/
+          #     raise t('users.msg_verify_data')
+          #   end
+          # else
+          #   raise t('users.msg_verify_data')
+          # end
+          # if (phone_number.nil? || phone_number=='' || !(phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/))
+          #
+          # end
           address = params[:user][:address]
           # address = (address.nil? || address=='') ? nil : address
           city = params[:user][:city]
           # city = (city.nil? || city=='') ? nil : city
           introduction = params[:user][:introduction]
-          if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>20 || address.length>100 || city.length>100 || introduction.gsub("\n",'').strip.length>2000
+          if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>25 || address.length>100 || city.length>100 || introduction.gsub("\n",'').strip.length>2000
             raise t('users.msg_verify_data')
             # render partial: 'users/update_basic_information/update_fail'
           else
@@ -244,7 +270,7 @@ class UsersController < ApplicationController
             if params[:user][:country].nil? || params[:user][:country]==''
               country = nil
             else
-              country = Country.find_by(id: BSON::ObjectId.from_string(params[:user][:country]))
+              country = Country.find_by(id: params[:user][:country])
             end
             if(@user.email!=params[:user][:email])
               if User.find_by_email(params[:user][:email]).nil?

@@ -9,8 +9,9 @@ class CountryTest < ActiveSupport::TestCase
     File.open("/home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/test/models/countries_test_data.yml", "r") do |f|
       f.each_line do |line|
         puts line
-
-        country = Country.new(name: line.strip)
+        id = line.split(',')[0].strip.gsub(/\n/, '')
+        name = line.split(',')[1].strip.gsub(/\n/, '')
+        country = Country.new(id: id, name: name)
         country.save
 
 

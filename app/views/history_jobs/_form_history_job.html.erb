@@ -1,41 +1,111 @@
+<style>
+    .month, .year{
+        height: 33px;
+        padding: 6px 12px;
+        font-size: 13px;
+        line-height: 1.42857;
+        color: #555;
+        background-color: #FFF;
+        background-image: none;
+        border: 1px solid #CCC;
+        border-radius: 4px;
+        box-shadow: 0px 1px 1px rgba(0, 0, 0, 0.075) inset;
+        transition: border-color 0.15s ease-in-out 0s, box-shadow 0.15s ease-in-out 0s;
+        border-radius: 0px;
+    }
+</style>
 <%= form_for @history_job, html: {id: 'history_job_form', role: 'form'} do |f| %>
-    <div class="widget ">
-      <div class="widget-body">
+    <!--<div class="widget ">-->
+      <div class="widget widget-body">
         <div id="panelhistoryjob" class="innerLR">
           <div class="historyjob" id="<%= @history_job.id %>">
             <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.company_name')%><span class="requiredfield">*</span></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
               <%= f.text_field :company_name, maxlength: 100, class: 'form-control', placeholder: t('history_job.company_name') %>
+                </div>
+                </div>
             </div>
 
             <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.company_url')%></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
+                  <%= f.text_field :company_url, maxlength: 500, class: 'form-control', placeholder: t('history_job.company_url') %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.title')%><span class="requiredfield">*</span></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
               <%= f.text_field :title, maxlength: 100, class: 'form-control', placeholder: t('history_job.title') %>
+                </div>
+                </div>
             </div>
 
             <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.category')%></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
+                  <%= f.collection_select :category_id, Category.get_all_categories, :id, :category_name, {:include_blank =>  t('history_job.placeholder_category')}, {class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.level')%></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
+                  <%= f.collection_select :level_id, Level.where(category_id: @history_job.category_id).order_by(level_order: 1), :id, :level_name, {:include_blank =>  t('history_job.placeholder_level')}, {class: 'form-control'} %>
+                </div>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="row">
+                <div class="col-xs-12 col-sm-2 col-md-2">
+                  <label><%= t('history_job.location')%></label>
+                </div>
+                <div class="col-xs-12 col-sm-10 col-md-10">
               <%= f.text_field :location, maxlength: 100, class: 'form-control', placeholder: t('history_job.location') %>
+                </div>
+                </div>
             </div>
 
             <div class="form-group">
-              <label><%= t('history_job.time_period')%></label>
+              <label><%= t('history_job.time_period')%><span class="requiredfield">*</span></label>
             </div>
 
             <div class="form-group">
               <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2">
-                  <label><%= t('history_job.start_time')%></label>
+                  <label><%= t('history_job.start_time')%><span class="requiredfield">*</span></label>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10">
-                  <%= f.date_select :start_time , discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
+                  <%= f.date_select :start_time , with_css_classes: true, discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
                 </div>
               </div>
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-xs-2 col-sm-2 col-md-2">
-                  <label id="lbEndTime" ><%= t('history_job.end_time')%></label>
+                  <label id="lbEndTime" ><%= t('history_job.end_time')%></label><span id="spanEndTime" class="requiredfield">*</span>
                 </div>
                 <div class="col-xs-10 col-sm-10 col-md-10">
-                  <%= f.date_select :end_time , discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
+                  <%= f.date_select :end_time, with_css_classes: true, discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
                 </div>
               </div>
             </div>
@@ -48,20 +118,41 @@
                 </label>
               </div>
             </div>
-
             <div class="form-group">
-              <%= f.text_area :description, maxlength: 2000, class: 'form-control', placeholder: t('history_job.description'), rows: 4 %>
+              <label><%= t('history_job.description')%></label>
+            </div>
+            <div class="form-group">
+              <%= f.text_area :description, maxlength: 2000, class: 'form-control', placeholder: t('history_job.description'), rows: 3 %>
             </div>
 
           </div>
         </div>
       </div>
-    </div>
+    <!--</div>-->
 
 <% end %>
 
 <script>
     $(document).ready(function () {
+        $("#history_job_category_id").change(function () {
+            $.ajax('/history_jobs/update_levels', {
+                type: 'GET',
+                dataType: 'script',
+                data: {
+                    category_id: $("#history_job_category_id option:selected").val()
+                },
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + textStatus);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $.loader.close(true);
+                }
+            });
+        });
         $('.checkbox-custom > input[type=checkbox]').each(function () {
             var $this = $(this);
             if ($this.data('checkbox')) return;
@@ -74,6 +165,7 @@
             $("#history_job_end_time_1i").val('');
             $("#history_job_end_time_1i").hide();
             $("#lbEndTime").text('Present');
+            $("#spanEndTime").text('');
 
         }
 
@@ -84,10 +176,12 @@
                 $("#history_job_end_time_1i").val('');
                 $("#history_job_end_time_1i").hide();
                 $("#lbEndTime").text('Present');
+                $("#spanEndTime").text('');
             } else {
                 $("#history_job_end_time_2i").show();
                 $("#history_job_end_time_1i").show();
-                $("#lbEndTime").text('End');
+                $("#lbEndTime").text("<%= t('history_job.end_time')%>");
+                $("#spanEndTime").text('*');
             }
         });
 

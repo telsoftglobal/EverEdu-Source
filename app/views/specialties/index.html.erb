@@ -1,29 +1,9 @@
-<h1>Listing specialties</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Specialty</th>
-      <th>Years of experience</th>
-      <th>Description</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @specialties.each do |specialty| %>
-      <tr>
-        <td><%= specialty.specialty %></td>
-        <td><%= specialty.years_of_experience %></td>
-        <td><%= specialty.description %></td>
-        <td><%= link_to 'Show', specialty %></td>
-        <td><%= link_to 'Edit', edit_specialty_path(specialty) %></td>
-        <td><%= link_to 'Destroy', specialty, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Specialty', new_specialty_path %>
+<div class="innerLR">
+  <!--Specialties-->
+  <div id='divSpecialties' class="row">
+    <div class="widget">
+      <%= render 'my_specialties' %>
+    </div>
+  </div>
+  <!-- End specialties -->
+</div>

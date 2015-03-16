@@ -16,7 +16,7 @@ class User
   NAME_MAX_LENGTH = 50
   EMAIL_MAX_LENGTH = 100
   ADDRESS_MAX_LENGTH = 100
-  PHONE_NUMBER_MAX_LENGTH = 20
+  PHONE_NUMBER_MAX_LENGTH = 25
   INTRODUCTION_MAX_LENGTH = 2000
   #fields
   field :first_name, type: String
@@ -56,6 +56,8 @@ class User
   has_one :user_profile
   has_and_belongs_to_many :roles
   belongs_to  :avatar, :class_name => "Photo", :foreign_key => "avatar_id"
+  embeds_many :specialties
+  embeds_many :history_jobs
 
   #indexes
   index({ user_name: 1 }, { unique: true, name: 'user_name_index' })

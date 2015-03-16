@@ -80,5 +80,8 @@ ja:
     user: "ユーザ"
     school_name: "学校名"
     photo: "写真"
+    photo_file_size: "写真ファイルサイズ"
+    photo_file_type: "写真ファイルの種類"
+    photo_content: "写真コンテンツ"
     specialty: "専門"
     years_of_experience: "長年の経験"

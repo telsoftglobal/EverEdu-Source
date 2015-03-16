@@ -223,7 +223,7 @@
         border-style: solid;
         border-width: 1px;
     }
-    #amazon-Container #searchBoxDiv #submitHolder #submit {
+    #amazon-Container #searchBoxDiv #submitHolder #btnsubmit {
         color: #FFF;
         width: 40px;
         height: 30px;
@@ -246,7 +246,7 @@
         cursor:pointer;
         font-weight: bold;
     }
-    #amazon-Container #searchBoxDiv #submitHolder #submit:hover {
+    #amazon-Container #searchBoxDiv #submitHolder #btnsubmit:hover {
         background: #232323;
         background: -moz-linear-gradient(top, #232323, #000000);
         background: -webkit-linear-gradient(top, #232323, #000000);
@@ -373,7 +373,7 @@
       <div class="clear-all"></div>
     </header>
     <div id="searchBoxDiv">
-      <form action="https://www.amazon.com/s/ref=assoc_res_sw_view_all?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" method="get" target="_blank">
+      <!--<form action="https://www.amazon.com/s/ref=assoc_res_sw_view_all?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" method="get" target="_blank">-->
         <div id="searchFieldHolder">
           <div style="padding:0 5px;">
             <input id="searchField" name="field-keywords" type="text" autocomplete="off"
@@ -381,9 +381,9 @@
           </div>
         </div>
         <div id="submitHolder">
-          <input id="submit" type="submit" value="Go" />
+          <input id="btnsubmit" type="submit" value="Go" />
         </div>
-      </form>
+      <!--</form>-->
     </div>
   </div>
   <div id="loader">
@@ -442,8 +442,12 @@
         $(".btnSelect").click(function(e){
             e.preventDefault();
 //            alert($(this).attr("href"));
+            if($(".urlformat:visible:not([readonly])").length){
+                $(this).blur();
+                return;
+            }
             $(".__ma-sw-search-item").css("background-color","");
-            $(".urlformat:visible").val($(this).attr("href"));
+            $(".urlformat:visible:not([readonly])").val($(this).attr("href"));
             $(this).closest(".__ma-sw-search-item").css("background-color","#F8C7C1");
         });
     }
@@ -695,7 +699,9 @@
             var resultCount = result_count; //Set the search result size
             if(resultCount < 0) resultCount = 0;
             else if (resultCount > 20) resultCount = 20;
-            document.getElementById('searchBoxDiv').getElementsByTagName('form')[0].addEventListener('submit', function(event){
+
+
+            $("#btnsubmit").click(function(event){
                 event.preventDefault();
                 postToParent({
                     'widgetId': widgetId,
@@ -744,7 +750,60 @@
                 } else {
                     window.open(href);
                 }
-            }, false);
+            })
+
+
+
+//            document.getElementById('searchBoxDiv').getElementsByTagName('form')[0].addEventListener('submit', function(event){
+//                event.preventDefault();
+//                postToParent({
+//                    'widgetId': widgetId,
+//                    'operation': 'hideSuggestion'
+//                });
+//                var searchField = document.getElementById('searchField');
+//                window.isSearchStarted = true;
+//                if(!searchField.value) return;
+//
+//                document.getElementById('searchResult').style['display'] = 'none';
+//                document.getElementById('footer').style['display'] = 'none';
+//                if(resultCount) {
+//                    document.getElementById('loader').style['display'] = 'block';
+//                    resizeFrame();
+//                }
+//
+//                if(window.__maSwJsNode2)
+//                    if(window.__maSwJsNode2.parentNode){
+//                        window.__maSwJsNode2.parentNode.removeChild(window.__maSwJsNode2);
+//                        //console.log('Trying to aboring JSONP-2 call.'); //IE9 fix
+//                    }
+//
+//                var selectedCat = document.getElementById('categorySelection');
+//                var searchTerm = encodeURIComponent(searchField.value);
+//                var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
+//                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+//                document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
+//                {
+//                    foresterCall({search_term:searchTerm , logType: 'search_navigation',
+//                        search_cat : (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps'),
+//                        action: 'submit',  adunit_type: 'responsive_search_widget'});
+//                }
+//                if(resultCount) {
+//                    var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
+//                    window.__maSwJsNode2 = document.createElement('script');
+//                    window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
+//                    +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+//                    document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
+//                    if(window.submitTimer) {
+//                        clearTimeout(window.submitTimer);
+//                        delete window.submitTimer;
+//                    }
+//                    window.submitTimer = setTimeout(function(){
+//                        document.getElementById('submit').click();
+//                    }, 3000);
+//                } else {
+//                    window.open(href);
+//                }
+//            }, false);
         }
         { /* Handling focus of Search field */
             var searchField = document.getElementById('searchField');
@@ -930,7 +989,7 @@
                 var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
                 template.getElementsByClassName('star-rating-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('reviews-count-link')[0].setAttribute('href', reviewURL);
-                template.getElementsByClassName('btnSelect')[0].setAttribute('href', reviewURL);
+                template.getElementsByClassName('btnSelect')[0].setAttribute('href', href);
                 resultPane.appendChild(template);
             }
         var clearDiv = document.createElement('div');
@@ -958,13 +1017,23 @@
             anchor[1].style['display']='none';
             anchor[0].style['display']='block';
         }
-        if(typeof improviseTitle == "function") improviseTitle();
-        var heightchange = (result.results.length+1)*75;
-        if(result.results.length >=5){
-            heightchange = 6*75;
+        var maxresult = 4;
+        var degree = 20;
+        if($("#amazonModal").length){
+            maxresult = 5;
+            degree = 0;
+            if(result.NumRecords>10000){
+                degree = 2;
+            }
         }
 
-        document.getElementById('searchResult').style['maxHeight']=(heightchange-24-80+2-1) + 'px'; //Hack to hide border-bottom of result
+        if(typeof improviseTitle == "function") improviseTitle();
+        var heightchange = (result.results.length+1)*75;
+        if(result.results.length >=maxresult){
+            heightchange = maxresult*75;
+        }
+
+        document.getElementById('searchResult').style['maxHeight']=(heightchange-24-60-1-degree) + 'px'; //Hack to hide border-bottom of result
         resizeFrame();
         reloadEvent();
         resultPane.scrollTop = 0;

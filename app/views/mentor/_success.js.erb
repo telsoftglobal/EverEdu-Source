@@ -38,7 +38,7 @@ if($("#quick_form").find("input.url_update").val()!=null){
         $("#div_Url").empty();
     }else{
         var material_url = $("#quick_form").find("input.url_update").val();
-        var urltemplate = "<p><span class=\"strong\"><%=t('material.lb_url')%></span>: <a class=\"url_update\" href=\""+material_url+"\">"+material_url+"</a></p>";
+        var urltemplate = "<p><span class=\"strong\"><%=t('material.lb_url')%></span>: <a class=\"url_update\" target=\"_blank\" href=\""+material_url+"\">"+material_url+"</a></p>";
         $("#div_Url").html(urltemplate);
     }
 }

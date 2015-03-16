@@ -17,6 +17,11 @@ ja:
     time_period: "期間"
     start_time: "から"
     end_time: "まで"
+    company_url: "URL"
+    category: "カテゴリ"
+    level: "レベル"
+    placeholder_category: "カテゴリを選択"
+    placeholder_level: "レベルを選択"
 
     msg_create_fail: "履歴ジョブが作成失敗した。"
     msg_update_fail: "履歴ジョブが更新され失敗した。"
@@ -24,5 +29,7 @@ ja:
 
     msg_history_job_not_found: "履歴ジョブが見つかりません。"
     msg_delete_successfully: "履歴ジョブが正常に破壊された。"
+    msg_create_successfully: "歴史ジョブの作成に成功しました。"
+    msg_update_successfully: "履歴ジョブが正常に更新されました。"
 
     msg_endtime_greater_starttime: "終了時間が大きいか、開始時間と等しくなります。"

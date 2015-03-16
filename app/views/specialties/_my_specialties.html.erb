@@ -1,6 +1,5 @@
-
 <div class="innerAll">
-  <h4 class="margin-none strong"><%=t('specialties.title_specialties')%></h4>
+  <h4 class="margin-none strong"><a href="<%= specialties_path %>"><%=t('specialties.title_specialties')%></a></h4>
   <div class="clearfix"></div>
 </div>
 <div class="widget innerLR">
@@ -88,7 +87,14 @@
                             return true;
                         }
                     }},
-                    "specialty[years_of_experience]": {digits: true, range: [1, 99]},
+                    "specialty[years_of_experience]": {digits: {
+                        param: true,
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            $(this).val(text);
+                            return true;
+                        }
+                    }, range: [1, 99]},
                     "specialty[description]": {maxlength: {
                         param: 2000,
                         depends:function(){

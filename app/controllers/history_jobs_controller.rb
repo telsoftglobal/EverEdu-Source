@@ -1,14 +1,16 @@
 class HistoryJobsController < ApplicationController
   before_action :authenticate
   before_action :set_history_job, only: [:show, :edit, :update, :destroy]
+  layout 'default'
 
   COUNT_JOB_DISPLAY = 6
 
   # GET /history_jobs
   # GET /history_jobs.json
   def index
-    user_id = session[:user_id]
-    @history_jobs = HistoryJob.where(user_id: user_id).order_by(current: -1, end_time: -1, start_time: -1)
+    # user_id = session[:user_id]
+    # @history_jobs = HistoryJob.where(user_id: user_id).order_by(current: -1, end_time: -1, start_time: -1)
+    @history_jobs = @current_user.history_jobs.order_by(current: -1, end_time: -1, start_time: -1)
   end
 
   # GET /history_jobs/1
@@ -36,23 +38,19 @@ class HistoryJobsController < ApplicationController
   def create
     begin
       @history_job = HistoryJob.new(history_job_params)
-      @history_job.user_id = session[:user_id]
-
-      respond_to do |format|
-        if @history_job.save
-          format.js
-          format.html
-          # format.json { render :show, status: :created, location: @history_job }
-          # render 'history_jobs/create'
-        else
-          if @history_job.errors
-            flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('history_job.msg_create_fail')
-          end
-          format.js { render action: 'create_fail' }
+      @current_user.history_jobs << @history_job
+      if @history_job.errors && !@history_job.errors.messages.empty?
+        flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
+        respond_to do |format|
           # format.html { render :new }
-          # format.json { render json: @history_job.errors, status: :unprocessable_entity }
+          format.js { render action: 'create_fail' }
+        end
+      else
+        respond_to do |format|
+          format.js
+          format.html { redirect_to @history_job, notice: t('history_job.msg_create_successfully') }
+          format.json { render :show, status: :created, location: @history_job }
+          # format.js
         end
       end
     rescue Exception => e
@@ -75,23 +73,20 @@ class HistoryJobsController < ApplicationController
           format.js { render action: 'update_fail' }
         end
       else
-        if @history_job.update(history_job_params)
-          respond_to do |format|
-            format.js
-            format.html
-            # format.json { render :show, status: :ok, location: @history_job }
-            # format.js
-          end
-        else
-          if @history_job.errors
-            flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('history_job.msg_update_fail')
-          end
+        @history_job.update_attributes(history_job_params)
+
+        if @history_job.errors && !@history_job.errors.messages.empty?
+          flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
           respond_to do |format|
             format.js { render action: 'update_fail' }
-            # format.html { render :edit }
-            # format.json { render json: @history_job.errors, status: :unprocessable_entity }
+            format.html { render :edit }
+            format.json { render json: @history_job.errors, status: :unprocessable_entity }
+          end
+        else
+          respond_to do |format|
+            format.js
+            format.html { redirect_to @history_job, notice: t('history_job.msg_update_successfully') }
+            format.json { render :show, status: :ok, location: @history_job }
           end
         end
       end
@@ -115,21 +110,18 @@ class HistoryJobsController < ApplicationController
           format.js { render action: 'destroy_fail' }
         end
       else
-        if @history_job.destroy
+        @current_user.history_job.delete(@history_job)
+
+        if @history_job.errors && !@history_job.errors.messages.empty?
+          flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
+          respond_to do |format|
+            format.js { render action: 'destroy_fail' }
+          end
+        else
           respond_to do |format|
             format.html { redirect_to work_experiences_url, notice: t('history_job.msg_delete_successfully') }
             format.json { head :no_content }
             format.js
-          end
-        else
-          if @history_job.errors
-            flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('history_job.msg_delete_fail')
-          end
-
-          respond_to do |format|
-            format.js { render action: 'destroy_fail' }
           end
         end
       end
@@ -141,22 +133,24 @@ class HistoryJobsController < ApplicationController
         format.html
       end
     end
-    # @history_job.destroy
-    # respond_to do |format|
-    #   format.html { redirect_to history_jobs_url, notice: 'History job was successfully destroyed.' }
-    #   format.json { head :no_content }
-    #   format.js
-    # end
+  end
+
+
+  def update_levels
+    @levels = Level.where(category_id: params[:category_id]).order_by(level_order: 1)
+    respond_to do |format|
+      format.js
+    end
   end
 
   private
   # Use callbacks to share common setup or constraints between actions.
   def set_history_job
-    @history_job = HistoryJob.find(params[:id])
+    @history_job = @current_user.history_jobs.find(params[:id])
   end
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def history_job_params
-    params.require(:history_job).permit(:company_name, :title, :location, :start_time, :end_time, :current, :description)
+    params.require(:history_job).permit(:company_name, :title, :location, :start_time, :end_time, :current, :description, :category_id, :level_id, :company_url)
   end
 end

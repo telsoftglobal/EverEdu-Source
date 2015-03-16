@@ -1,7 +1,3 @@
-<style>
-
-</style>
-
 <h3 style="padding-left: 30px;" class="aes-color"><i class="fa fa-user"></i> <%= t('users.title_update_user_information')%></h3>
 <%= form_for @user ,:url => update_user_profile_path, html: {id: "update_user_profile", role: 'form', role:'form',class:'form-horizontal'} do |f| %>
     <div class="widget ">
@@ -43,7 +39,7 @@
                 <div class="col-md-6">
                   <label class="col-md-3 control-label" for="users[phone_number]"><%= t('users.lb_phone_number') %></label>
                   <div class="col-md-9">
-                    <%= f.text_field :phone_number, class: "form-control", placeholder: t('users.lb_phone_number'),maxlength:100 %>
+                    <%= f.text_field :phone_number, class: "form-control", placeholder: t('users.lb_phone_number'),maxlength:25 %>
                   </div>
                 </div>
             </div>
@@ -96,7 +92,7 @@
               <div class="col-md-6">
             <label class="col-md-4 control-label" for="users[country]"><%= t('users.lb_country') %></label>
             <div class="col-md-8">
-              <%= f.select :country, Country.all.collect {|u| [u.name, u.id]},{selected: (f.object.country.nil?) ? '' : f.object.country.id, include_blank: true},{:class => "form-control"} %>
+              <%= f.select :country, Country.all.order('name asc').collect {|u| [u.name, u.id]},{selected: (f.object.country.nil?) ? '' : f.object.country.id, include_blank: true},{:class => "form-control"} %>
             </div>
               </div>
             </div>
@@ -151,7 +147,7 @@
 //            'autounmask': true
 //        });
 //
-        $("#user_phone_number").inputmask("mask", {"mask": "999-999-9999"});
+//        $("#user_phone_number").inputmask("mask", {"mask": "999-999-9999"});
 //        $("#user_birth_day").bdatepicker({
 //            format: 'yyyy-mm-dd',
 //            language: 'ja'
@@ -218,7 +214,7 @@
                     kt=true;
                 }
             }
-            if(new Date(year_select,month_select-1,day_select.val())>new Date()){
+            if(new Date(year_select,month_select-1,day_select.val())>new Date(<%= Time.now.year.to_s+',' +Time.now.month.to_s + ','+Time.now.day.to_s %>)){
                 day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
                 kt=true;
             }
@@ -384,7 +380,7 @@
                     },
                     minlength: 6},
                 "user[phone_number]": {
-                    maxlength:20
+                    maxlength:25
                 },
                 "user[address]": {
                     maxlength:100
