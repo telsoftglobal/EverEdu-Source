@@ -10,6 +10,8 @@ class User
   include Mongoid::Document
   include Mongoid::Timestamps
   include Mongoid::Paperclip
+  # include Sunspot::Mongoid
+  # include Mongoid::Search
 
   #constanst
   PASSWORD_MIN_LENGTH = 6
@@ -68,6 +70,15 @@ class User
   #before save callback
   before_save :update_hashed_password
 
+  # search with Sunspot Solr
+  # searchable do
+  #   text :first_name, :last_name
+  # end
+
+  # search with mongoid_search
+  # search_in :first_name, :last_name, :specialties => :special, :history_jobs => :title
+
+
   #validate password_confirmation is match with password
   def validate_match_password
     if password_confirmation && password != password_confirmation
@@ -94,6 +105,40 @@ class User
       self.salt = User.generate_salt
       self.hashed_password = User.encrypt_password(password, salt)
     end
+  end
+
+  def full_name
+    first_name + ' ' + last_name
+  end
+
+  def specialty_info
+    specialty_info = ''
+    self.specialties.each do |s|
+      specialty_info << s.specialty
+      specialty_info << ', '
+    end
+
+    specialty_info = specialty_info.strip
+    if !specialty_info.blank?
+      specialty_info = specialty_info[0, specialty_info.length - 1]
+    end
+
+    specialty_info
+  end
+
+  def history_jobs_info
+    history_jobs_info = ''
+    self.history_jobs.each do |hj|
+      history_jobs_info << hj.title
+      history_jobs_info << ', '
+    end
+
+    history_jobs_info = history_jobs_info.strip
+    if !history_jobs_info.blank?
+      history_jobs_info = history_jobs_info[0, history_jobs_info.length - 1]
+    end
+
+    history_jobs_info
   end
 
   class << self
@@ -160,6 +205,22 @@ class User
 
     def process_when_update(user)
 
+    end
+
+    # Description: search mentor
+    # @param: keyword, page number, item per page
+    # @return: users
+    # @throws Exception
+    # @author HuyenDT
+    # Create Date: 20150317
+    # Modify Date:
+    def search_mentor(keyword, page_number, item_per_page)
+      # select mentor role
+      mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
+
+      @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({user_name: /#{keyword}/i}, {first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
+
+      @users
     end
 
   end

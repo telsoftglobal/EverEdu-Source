@@ -44,6 +44,8 @@ en:
     btn_yes: "Yes"
     btn_no: "No"
     btn_confirm: "Confirm"
+    btn_go: "Go"
+    btn_select: "Select"
   search:
     placeholder: "Search for mentors or courses"
   date:

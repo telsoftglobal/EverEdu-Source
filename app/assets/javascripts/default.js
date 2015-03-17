@@ -51,7 +51,7 @@
 //= require seemore.js
 //= require work_experiences.js
 //= require validator.js
-//=#require template/library/jquery-ui/js/jquery-ui.min
+//=require template/library/jquery-ui/js/jquery-ui.min
 //=# require show_for_student
 //= require ckeditor/bootstrap-ckeditor-fix
 //=# require ckeditor/plugin/maxlength

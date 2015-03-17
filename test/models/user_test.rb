@@ -457,4 +457,12 @@ class UserTest < ActiveSupport::TestCase
     puts salt
     puts User.encrypt_password(password, salt)
   end
+
+  test 'ex' do
+    user = User.find_by_username("cuongct")
+    user.update_attributes({gender:nil})
+
+    puts user
+  end
+
 end

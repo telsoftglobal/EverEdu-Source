@@ -1,0 +1,31 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+ja:
+  amazon:
+    seach_place_holder: "アマゾンを検索"
+    title_book: "図書"
+    msg_result_not_found: "見つから検索結果はありません"
+    title_view_all: "すべてを表示する "
+    title_loading: "荷重..."
+    title_result_on: "上の結果"
+    title_view_more: "上の多くの製品を見る"
+    title_select: "選択する"

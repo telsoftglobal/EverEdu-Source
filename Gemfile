@@ -68,8 +68,7 @@ gem "will_paginate_mongoid"
 gem 'jquery-turbolinks'
 
 gem "paperclip"
-gem 'aws-sdk', '~> 1'
-
+gem 'aws-sdk'
 gem 's3_direct_upload'
 
 gem "mongoid-paperclip", :require => "mongoid_paperclip"
@@ -79,8 +78,3 @@ gem 'fog'
 gem "paperclip-dropbox", ">= 1.1.7"
 
 gem 'social_shares'
-
-gem 'therubyracer'
-
-gem 'ruby-aaws'
-gem 'iconv'

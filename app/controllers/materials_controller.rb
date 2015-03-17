@@ -98,9 +98,10 @@ class MaterialsController < ApplicationController
       #     #format.html
       #   end
       # end
+      @object_type = 'material'
       material_id = BSON::ObjectId.from_string(params[:material][:id])
-      material = Material.find_by(:id => material_id)
-      if material.nil?
+      @material = Material.find_by(:id => material_id)
+      if @material.nil?
         # if !material.save
         #   respond_to do |format|
         #     if material.errors
@@ -119,10 +120,10 @@ class MaterialsController < ApplicationController
           # format.html
         end
       else
-        if !material.update_attributes(:material_name => normalize_string(params[:material][:material_name]),:material_url => params[:material][:material_url], :description => normalize_string(params[:material][:description]),:material_type => params[:material][:material_type_id])
+        if !@material.update_attributes(:material_name => normalize_string(params[:material][:material_name]),:material_url => params[:material][:material_url], :description => normalize_string(params[:material][:description]),:material_type => params[:material][:material_type_id])
           respond_to do |format|
-            if material.errors
-              flash.now[:error] = material.errors.full_messages.to_sentence(:last_word_connector => ', ')
+            if @material.errors
+              flash.now[:error] = @material.errors.full_messages.to_sentence(:last_word_connector => ', ')
             else
               flash.now[:error] = t('material.msg_update_failed')
             end

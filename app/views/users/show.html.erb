@@ -1,5 +1,157 @@
-<%= form_tag('/users/send_mail', method: :post) do %>
-Email:<%= text_field_tag 'email'%><br/>
-Name:<%= text_field_tag 'name'%><br/>
-<button type="submit">send </button>
-<% end %>
+<div class="innerLR">
+  <!--<h3><%= t('users.title_user_profile') %></h3>-->
+
+  <div id='general' class="row">
+    <div class="widget innerLR">
+      <div class="media">
+        <!--<div class="pull-left innerAll text-center">-->
+        <div class="col-md-2" class="media-body" style="text-align: center">
+          <div id="avatar_area" style="margin-top: 20px">
+            <div id="avatar">
+              <% if !@user.avatar_url.nil? %>
+                  <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: "Avatar"%>
+              <% else %>
+                  <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: "Avatar"%>
+              <% end %>
+            </div>
+          </div>
+        </div>
+        <div id="user_profile" class="media-body">
+          <h3 style="padding-left: 30px; padding-bottom: 10px;" class="aes-color border-bottom" ><i class="fa fa-user"></i></i><%= @user.first_name + ' '+ @user.last_name %></h3>
+          <div class="row-fluid col-md-8">
+            <!--<div class="row">-->
+            <!--<label class="col-md-12 h3 aes-color border-bottom" style="padding-bottom: 10px;" ><%= @user.first_name + ' '+ @user.last_name %> <a id="btn_update_profile" href="#" ><i class="fa fa-edit"></i> </a></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('signup.lb_email') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= @user.email %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_gender') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= @user.gender ? t('users.lb_male') : t('users.lb_female')  %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_phone_number') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= (@user.phone_number.nil? || @user.phone_number=='')? 'N/A' : @user.phone_number %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_birthday') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= (@user.birth_day.nil? || @user.birth_day=='')? 'N/A' : @user.birth_day %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_address') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= (@user.address.nil? || @user.address=='') ? 'N/A' : @user.address %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_city') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= (@user.city.nil? || @user.city=='') ? 'N/A' : @user.city %></label>-->
+            <!--</div>-->
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_country') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" ><%= (@user.country.nil? || @user.country=='' ) ? 'N/A' : @user.country.name %></label>-->
+            <!--</div>-->
+            <div class="row">
+              <label class="col-md-3 col-xs-3" ><%= t('users.lb_introduction') %></label>
+              <label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil? || @user.introduction=='') ? 'N/A' : @user.introduction %></label>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id='general' class="row">
+    <div class="widget">
+      <div class="innerAll">
+        <h4 class="margin-none strong aes-color">
+          <%= t('history_job.title_history_job') %>
+        </h4>
+
+        <div class="clearfix"></div>
+      </div>
+      <% if !@history_jobs.nil? && !@history_jobs.empty? %>
+      <div class="widget innerLR">
+        <div id="history_jobs_list" class="widget-body padding-none">
+          <% @history_jobs.each do |history_job| %>
+              <div class="innerAll border-bottom" id="historyjob<%= history_job.id %>" data-id="<%= history_job.id %>">
+                <div class="row">
+
+                    <ul class="media-list margin-none">
+                      <li class="media">
+
+                        <!--<span class="pull-left innerAll half empty-photo"><i class="fa fa-graduation-cap fa-2x text-muted"></i></span>-->
+
+                        <div class="media-body innerAll half">
+                          <span class="media-heading aes-color" style="word-wrap: break-word;"><%= history_job.title%></span>
+                          <br/>
+                          <small><%=history_job.company_name%></small>
+                          <br/>
+                          <% if history_job.end_time && !history_job.end_time.nil?%>
+                              <small><%=history_job.start_time.strftime("%Y/%m")%> - <%=history_job.end_time.strftime("%Y/%m")%></small>
+                          <% else %>
+                              <small></i> <%=history_job.start_time.strftime("%Y/%m")%> - <%=t("history_job.current_job")%></small>
+                          <% end %>
+
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+          <% end %>
+        </div>
+      </div>
+          <% end %>
+
+    </div>
+  </div>
+
+  <!--<div id='general' class="row">-->
+  <!--<div class="widget">-->
+
+  <!--Education Information-->
+
+  <!--</div>-->
+  <!--</div>-->
+
+  <!--Specialties-->
+  <div id='divSpecialties' class="row">
+    <div class="widget">
+      <div class="innerAll">
+        <h4 class="margin-none strong aes-color"><%=t('specialties.title_specialties')%></h4>
+        <div class="clearfix"></div>
+      </div>
+      <% if !@specialties.nil? && !@specialties.empty? %>
+      <div class="widget innerLR">
+        <!-- Specialty List -->
+
+        <div id="specialties_list" class="widget-body padding-none">
+          <% @specialties.each do |specialty| %>
+              <div class="innerAll border-bottom" id="specialty<%= specialty.id %>" data-id="<%= specialty.id %>">
+                <div class="row">
+                    <ul class="media-list margin-none">
+                      <li class="media">
+                        <div class="media-body innerAll half">
+                          <span class="media-heading aes-color" style="word-wrap: break-word;"><%= specialty.specialty%></span>
+                          <br>
+                          <% if specialty.years_of_experience %>
+                              <small style="word-wrap: break-word;"><%=t('specialties.lb_years_of_experience')%>: <%= specialty.years_of_experience%></small>
+                          <% else %>
+                              <small><%=t('specialties.lb_years_of_experience')%>: NA</small>
+                          <% end %>
+                        </div>
+                      </li>
+                    </ul>
+                </div>
+              </div>
+        <% end %>
+        </div>
+
+        <!-- End specialty List -->
+
+      </div>
+          <% end %>
+    </div>
+  </div>
+
+
+</div>

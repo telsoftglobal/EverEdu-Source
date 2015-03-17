@@ -95,20 +95,46 @@
                 </div>
                 <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
                   <div class="panel-body">
-                    <p>
-                      <span class="strong"><%=t('material.lb_type')%></span>: <span class="type_update"><%=@object.material_type.material_type_name%></span>
-                    </p>
-                    <div id="div_Url">
-                      <%if !@object.material_url.nil? && !@object.material_url.empty?%>
-                          <p>
-                            <span class="strong"><%=t('material.lb_url')%></span>: <a class="url_update" href="<%= @object.material_url%>" target="_blank"><%= @object.material_url%></a>
-                          </p>
-                      <% end %>
+                    <div class="row">
+                      <div class="col-md-2" id="amazon_book" style="height: 240px;">
+
+                      </div>
+                      <div class="col-md-10">
+                        <p>
+                          <span class="strong"><%=t('material.lb_type')%></span>: <span class="type_update"><%=@object.material_type.material_type_name%></span>
+                        </p>
+                        <div id="div_Url">
+                          <%if !@object.material_url.nil? && !@object.material_url.empty?%>
+                              <p>
+                                <span class="strong"><%=t('material.lb_url')%></span>: <a class="url_update" href="<%= @object.material_url%>" target="_blank"><%= @object.material_url%></a>
+                              </p>
+                          <% end %>
+                        </div>
+                        <div class="description_update"><%= @object.description.html_safe %></div>
+                      </div>
                     </div>
-                      <div class="description_update"><%= @object.description.html_safe %></div>
                   </div>
                 </div>
               </div>
+
+
+              <%if !@object.material_url.nil? && !@object.material_url.empty?%>
+                  <% if @object.material_url.start_with?('https://www.amazon.com') || @object.material_url.start_with?('https://amazon.com')
+                       http = @object.material_url
+                       http = http.split("/").split("?")[0][5].split("?")
+                       productcode = http[0]
+                       param = http[1].split("&")%>
+
+                    <script>
+                      $('#accordion').on('shown.bs.collapse', function () {
+                          if($("#amazon_book").find("iframe").length==0){
+                            $("#amazon_book").html("<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=<%= APP_CONFIG['amazon_tag'] %>&marketplace=amazon&region=US&placement=B003L1ZYYM&asins=<%= productcode %>&<%= param[2] %>&show_border=true&link_opens_in_new_window=true\"></iframe>");
+                          }
+                      });
+                    </script>
+                  <% end %>
+              <% end %>
+
               <!--New comment form-->
               <div id="comment-new" class="innerAll" style="background-color: white" >
                 <%= render partial: 'comments/comment_form', locals: {object: @object} %>
@@ -318,4 +344,6 @@
             $.loader.close(true);
         })
     });
+
+
 </script>

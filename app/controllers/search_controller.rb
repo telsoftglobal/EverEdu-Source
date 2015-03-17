@@ -39,6 +39,33 @@ class SearchController < ApplicationController
     end
   end
 
+
+  # Description: This method processes search mentor
+  # @param
+  # @return
+  # @throws Exception
+  # @author HuyenDT
+  def search_mentor
+    # @search = User.solr_search do
+    #   fulltext params[:keyword]
+    # end
+    #
+    # @users = @search.results
+    page_number = params[:page]
+    keyword = params[:keyword]
+    if !keyword.nil?
+      keyword = keyword.to_s
+      keyword = keyword.strip
+      keyword = normalize_special_characters(keyword)
+    end
+
+    if keyword.blank?
+    else
+      @users = User.search_mentor(keyword, page_number, ITEM_PER_PAGE)
+      @total_entries = @users.total_entries
+    end
+  end
+
   # Description: This method processes get levels by category
   # @param
   # @return

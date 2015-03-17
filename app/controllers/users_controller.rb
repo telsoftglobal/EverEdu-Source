@@ -37,11 +37,17 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(session[:user_id]);
     @history_jobs = @user.history_jobs.order_by(current:-1,end_time: -1, start_time: -1).limit(HistoryJobsController::COUNT_JOB_DISPLAY)
-    @specialties = Specialty.where(user_id: @user.id).order_by(created_at: -1);
+    @specialties = @user.specialties.limit(6)
   end
 
   def show
-
+    if session[:user_id] == params[:id]
+      redirect_to users_profile_path
+    else
+      @user = User.find(params[:id])
+      @history_jobs = @user.history_jobs.order_by(current:-1,end_time: -1, start_time: -1)
+      @specialties = @user.specialties
+    end
   end
 
   # Description: this method processes change avatar of user
@@ -233,7 +239,7 @@ class UsersController < ApplicationController
           render partial: 'users/update_basic_information/update_fail'
         else
           gender = params[:user][:gender]
-          gender = (gender.nil?) ? true : gender
+          gender = (gender.nil? || gender=='') ? nil : gender
           # day = Date.new(params[:user][:birth_day][:f])
           if params[:user]['birth_day(1i)'].nil? || params[:user]['birth_day(1i)']=='' || params[:user]['birth_day(2i)'].nil? || params[:user]['birth_day(2i)']=='' || params[:user]['birth_day(3i)'].nil? || params[:user]['birth_day(3i)']==''
             birth_day = nil

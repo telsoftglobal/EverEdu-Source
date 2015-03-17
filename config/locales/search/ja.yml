@@ -33,3 +33,11 @@ ja:
       validate:
         msg_category_required: カテゴリを選択してください。
 
+  search_mentor:
+    title_search_mentor: "検索メンター"
+    placeholder_keyword: "名前、タイトルを入力し、特別な"
+    lb_search_results: "結果"
+    lb_search_result: "結果"
+    btn_search: "サーチ"
+    lb_history_jobs_info: "歴史ジョブ"
+    lb_specialty_info: "専門"

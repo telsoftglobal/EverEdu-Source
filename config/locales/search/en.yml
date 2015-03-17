@@ -33,6 +33,18 @@ en:
       validate:
         msg_category_required: Please choose a category.
 
+  search_mentor:
+    title_search_mentor: Search Mentor
+    placeholder_keyword: Enter name, title, special
+    lb_search_results: results
+    lb_search_result: result
+    lb_read_more: read more
+    btn_search: Search
+    lb_history_jobs_info: Job
+    lb_specialty_info: Specialty
+
+
+
 
 
 

@@ -361,47 +361,47 @@
   <div id="criteriaSection" class="gradient-background">
     <header>
       <div class="left" id="logoHolder">
-        <a href="https://www.amazon.com/ref=assoc_res_sw_logo?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank">
+        <a href="https://www.amazon.com/ref=assoc_res_sw_logo?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank">
           <span id="amazonLogo">amazon</span>
           <span id="logoSuffix" class="light US"></span>
         </a>
       </div>
       <div id="categoryHolder" class="right" tabindex="0">
-        <span id="categorySelection" data-value="stripbooks" data-search="Books">Books</span>
-        &nbsp;<span id="arrow">arrow</span>
+        <span id="categorySelection" data-value="stripbooks" data-search="Books"><%= t('amazon.title_book') %></span>
+        <!--&nbsp;<span id="arrow">arrow</span>-->
       </div>
       <div class="clear-all"></div>
     </header>
     <div id="searchBoxDiv">
-      <!--<form action="https://www.amazon.com/s/ref=assoc_res_sw_view_all?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" method="get" target="_blank">-->
+      <!--<form action="https://www.amazon.com/s/ref=assoc_res_sw_view_all?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" method="get" target="_blank">-->
         <div id="searchFieldHolder">
           <div style="padding:0 5px;">
             <input id="searchField" name="field-keywords" type="text" autocomplete="off"
-                   placeholder="Search Amazon" />
+                   placeholder="<%= t('amazon.seach_place_holder') %>" />
           </div>
         </div>
         <div id="submitHolder">
-          <input id="btnsubmit" type="submit" value="Go" />
+          <input id="btnsubmit" type="submit" value="<%= t('button.btn_go') %>" />
         </div>
       <!--</form>-->
     </div>
   </div>
   <div id="loader">
-    <img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/loader._V1005784189_.gif" alt="Loading..." />
+    <img src="https://images-na.ssl-images-amazon.com/images/G/01/associates/widgets/20070822/US/img/loader._V1005784189_.gif" alt="<%= t('amazon.title_loading') %>" />
   </div>
   <div id="searchResult" class="half-width">
   </div>
   <div id="footer" class="gradient-background">
-    <a href="#" target="_blank">View all </a>
-    <a  href="https://www.amazon.com/ref=assoc_res_sw_no_result?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU"
-        style="display:none;" target="_blank">No result found</a>
+    <a href="#" target="_blank"><%= t('amazon.title_view_all') %></a>
+    <a  href="https://www.amazon.com/ref=assoc_res_sw_no_result?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU"
+        style="display:none;" target="_blank"><%= t('amazon.msg_result_not_found') %></a>
   </div>
   <div id="resultTemplate">
     <div class="__ma-sw-search-item">
       <div class="search-item">
         <div style="width:100%; height:100%;">
           <div class="thumbnail-holder">
-            <a href="https://www.amazon.com/?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" class="thumbnail-amazon">
+            <a href="https://www.amazon.com/?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" class="thumbnail-amazon">
               <img src="" style="max-width:100%;max-height:100%;" />
             </a>
           </div>
@@ -409,10 +409,10 @@
             <ul style="list-style:none; overflow:hidden; padding-left:0px;">
               <li style="overflow: hidden; margin-bottom:5px;">
                 <p class="title" style="font-size:12px; font-weight:bold; margin:0 5px;overflow:hidden;">
-                  <a href="https://www.amazon.com/?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" style="display:block;">Title</a>
+                  <a href="https://www.amazon.com/?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" style="display:block;">Title</a>
                 </p>
               </li>
-              <li class="details" style="width:70%; float:left;">
+              <li class="details" style="width:75%; float:left;">
                 <p>
                   <span class="price">--</span> <span class="amazon-prime" style="margin-left:10px;"></span>
                 </p>
@@ -424,8 +424,8 @@
                 </p>
                 <div style="clear: both;"></div>
               </li>
-              <li class="details" style="width:30%">
-                <a class="btnSelect label label-primary" href="#" style="color:white; font-weight:bold;">Select</a>
+              <li class="details" style="width:25%">
+                <a class="btnSelect label label-primary" href="#" style="color:white; font-weight:bold;"><%= t('button.btn_select') %></a>
               </li>
             </ul>
           </div>
@@ -441,14 +441,73 @@
     {
         $(".btnSelect").click(function(e){
             e.preventDefault();
-//            alert($(this).attr("href"));
-            if($(".urlformat:visible:not([readonly])").length){
+            var thisbtn = $(this);
+            if(!$(".urlformat:visible:not([readonly])").length){
                 $(this).blur();
                 return;
             }
-            $(".__ma-sw-search-item").css("background-color","");
-            $(".urlformat:visible:not([readonly])").val($(this).attr("href"));
-            $(this).closest(".__ma-sw-search-item").css("background-color","#F8C7C1");
+
+            var cart = $('.urlformat:visible:not([readonly])');
+            var imgtodrag = $(this).closest('.search-item').find("img").eq(0);
+//            console.log(imgtodrag);
+            if (imgtodrag) {
+                var imgclone = imgtodrag.clone()
+                        .offset({
+                            top: imgtodrag.offset().top,
+                            left: imgtodrag.offset().left
+                        })
+                        .css({
+                            'opacity': '0.5',
+                            'position': 'absolute',
+                            'height': '150px',
+                            'width': '150px',
+                            'z-index': '100000'
+                        })
+                        .appendTo($('body'))
+                        .animate({
+                            'top': cart.offset().top + 10,
+                            'left': cart.offset().left + 10,
+                            'width': 75,
+                            'height': 75
+                        }, 1000, 'easeInOutExpo');
+
+                setTimeout(function () {
+                    cart.effect("shake", {
+                        times: 2
+                    }, 200);
+                }, 1500);
+
+                imgclone.animate({
+                    'width': 0,
+                    'height': 0
+                }, function () {
+                    $(this).detach();
+
+                });
+
+            }
+            $(".urlformat:visible:not([readonly])").fadeOut("medium", function() {
+                $(this).val($(thisbtn).attr("href")).fadeIn("medium");
+            });
+
+
+
+
+
+
+
+
+//            alert($(this).attr("href"));
+
+//            $(".__ma-sw-search-item").css("background-color","");
+//            $(".urlformat:visible:not([readonly])").val($(this).attr("href"));
+
+
+
+
+
+
+//            $(this).closest(".__ma-sw-search-item").css("background-color","#F8C7C1");
         });
     }
 
@@ -470,13 +529,13 @@
     var make_ir_call = function(linkCode)
     {
         var img = new Image();
-        img.src = location.protocol + '//' + 'ir-na.amazon-adsystem.com/e/ir?o=1&t=cu0f0-20&l='+linkCode;
+        img.src = location.protocol + '//' + 'ir-na.amazon-adsystem.com/e/ir?o=1&t=<%= APP_CONFIG['amazon_tag'] %>&l='+linkCode;
     };
     var make_fs_call = function(adUnit_data, customParams)
     {
         var p = {};
         p.mobile_supported  = "true";
-        p.tracking_id = "cu0f0-20";
+        p.tracking_id = "<%= APP_CONFIG['amazon_tag'] %>";
         p.action = customParams.action;
         p.adunit_type = customParams.adunit_type;
         p.logType = customParams.logType;
@@ -536,7 +595,9 @@
         'GB' : 'completion.amazon.co.uk',
         'IN' : 'completion.amazon.co.uk',
         'FR' : 'completion.amazon.co.uk',
-        'JP' : 'completion.amazon.co.jp'
+        'JP' : 'completion.amazon.co.jp',
+        'ja' : 'completion.amazon.co.jp',
+        'en' : 'completion.amazon.com'
     };
     (function(){
         var result_count = 10;
@@ -600,7 +661,7 @@
                     var searchField = document.getElementById('searchField');
                     var loadResult = searchField.getAttribute('class') == 'placeholder' ? false : (searchField.value ? true : false);
                     if(loadResult)
-                        document.getElementById('submit').click();
+                        document.getElementById('btnsubmit').click();
                     else if(typeof loadTopSeller == "function")
                         loadTopSeller();
                 }
@@ -620,7 +681,7 @@
                     });
                 }
                 if(mydata.clicked && result_count>0)
-                    document.getElementById('submit').click();
+                    document.getElementById('btnsubmit').click();
             } else if(mydata.operation == 'hideCategoriesInSrchWidget') {
                 if(window.hideCategory) window.hideCategory();
             } else if(mydata.operation == 'loseFocus') {
@@ -649,7 +710,8 @@
                             //console.log('Trying to abort JSONP call.'); // Removing console log, as it is creating problem in IE9
                         }
                     window.__maSwJsNode = document.createElement('script');
-                    window.__maSwJsNode.src = location.protocol + '//' + completionService['JP'] + '/search/complete?method=completion&q=' + searchKey +
+//                    window.__maSwJsNode.src = location.protocol + '//' + completionService['JP'] + '/search/complete?method=completion&q=' + searchKey +
+                    window.__maSwJsNode.src = location.protocol + '//' + completionService['<%= I18n.default_locale %>'] + '/search/complete?method=completion&q=' + searchKey +
                     '&search-alias=' + searchAlias + '&mkt=1&fb=1&xcat=0&x=__maSwAutocomplete&sc=1&noCacheIE=1391185589270';
                     document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode);
                 }
@@ -727,12 +789,12 @@
                 var selectedCat = document.getElementById('categorySelection');
                 var searchTerm = encodeURIComponent(searchField.value);
                 var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
-                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
                 document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
                 {
                     foresterCall({search_term:searchTerm , logType: 'search_navigation',
                         search_cat : (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps'),
-                        action: 'submit',  adunit_type: 'responsive_search_widget'});
+                        action: 'btnsubmit',  adunit_type: 'responsive_search_widget'});
                 }
                 if(resultCount) {
                     var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
@@ -745,7 +807,7 @@
                         delete window.submitTimer;
                     }
                     window.submitTimer = setTimeout(function(){
-                        document.getElementById('submit').click();
+                        document.getElementById('btnsubmit').click();
                     }, 3000);
                 } else {
                     window.open(href);
@@ -780,7 +842,7 @@
 //                var selectedCat = document.getElementById('categorySelection');
 //                var searchTerm = encodeURIComponent(searchField.value);
 //                var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
-//                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+//                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
 //                document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
 //                {
 //                    foresterCall({search_term:searchTerm , logType: 'search_navigation',
@@ -856,9 +918,9 @@
             var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
             var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
 
-            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
             if(cat == 'aps') {
-                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
             }
             document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
 
@@ -867,7 +929,7 @@
             '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
             document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
 
-            foresterCall({search_cat: cat, logType: 'search_navigation', action: 'submit', adunit_type: 'responsive_search_widget'});
+            foresterCall({search_cat: cat, logType: 'search_navigation', action: 'btnsubmit', adunit_type: 'responsive_search_widget'});
         }
         window.addEventListener('DOMContentLoaded', function(event){
             if(''.length){ // Default Search Load
@@ -875,7 +937,7 @@
                 searchField.value = '';
                 searchField.removeAttribute('class');
                 if(result_count && result_count>0)
-                    document.getElementById('submit').click();
+                    document.getElementById('btnsubmit').click();
             } else if(result_count && result_count>0) {
                 window.submitTimer = setInterval(loadTopSeller, 3000);
                 loadTopSeller();
@@ -963,7 +1025,7 @@
             for(var i=0; i<result.results.length; i++) {
                 var data = result.results[i];
                 var template = document.getElementById('resultTemplate').getElementsByClassName('__ma-sw-search-item')[0].cloneNode(true);
-                var href = data.DetailPageURL+'?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU&ref_=assoc_res_sw_result_'+(i+1);
+                var href = data.DetailPageURL+'?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU&ref_=assoc_res_sw_result_'+(i+1);
                 template.getElementsByClassName('thumbnail-amazon')[0].setAttribute('href', href);
                 var thumb = template.getElementsByClassName('thumbnail-amazon')[0].getElementsByTagName('img')[0];
                 if(data.ImageUrl)
@@ -986,7 +1048,7 @@
                 else
                     starRating.style.display = 'none';
 
-                var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag=cu0f0-20&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
                 template.getElementsByClassName('star-rating-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('reviews-count-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('btnSelect')[0].setAttribute('href', href);
@@ -1000,11 +1062,11 @@
         var anchor = footer.getElementsByTagName('a');
         if(typeof result.NumRecords == "undefined")
             anchor[0].innerHTML =
-                    "View more products on <b>Amazon.com</b>";
+                    "<%= t('amazon.title_view_more') %> <b>Amazon</b>";
         else
             anchor[0].innerHTML =
-                    "View all "
-                    + roundToHundred(result.NumRecords) + "results on <b>Amazon.com</b>";
+                    "<%= t('amazon.title_view_all') %>"
+                    + roundToHundred(result.NumRecords) + "<%= t('amazon.title_result_on') %> <b>Amazon</b>";
 
         document.getElementById('loader').style['display'] = 'none';
         resultPane.style['display'] = 'block';

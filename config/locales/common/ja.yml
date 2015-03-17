@@ -44,6 +44,8 @@ ja:
     btn_yes: "はい"
     btn_no: "しない"
     btn_confirm: "確認する"
+    btn_go: "行く"
+    btn_select: "選択する"
   search:
     placeholder: "メンターやコースを検索する"
   date:

@@ -1,0 +1,49 @@
+<% if @users %>
+      <% @users.each do |user| %>
+          <div class="media innerAll border-bottom">
+            <div class="media-object pull-left">
+              <% if !user.avatar_url.nil? %>
+                  <%= image_tag user.avatar_url, class: "media-object comment-avatar", alt: "" %>
+              <% else %>
+                  <%= image_tag 'noavatar.png', class: "media-object comment-avatar", alt: "" %>
+              <% end %>
+            </div>
+            <div class="media-body innerTB half">
+              <h5 class="strong"><%= link_to user.full_name,  user, data:{target:'body'} %></h5>
+              <% if !user.history_jobs_info.blank? %>
+                  <%= t('search_mentor.lb_history_jobs_info') %>: <%=user.history_jobs_info%>
+              <% end %>
+              <% if !user.specialty_info.blank? %>
+                  <br/>
+                <%= t('search_mentor.lb_specialty_info') %>: <%=user.specialty_info%>
+              <% end %>
+            </div>
+          </div>
+      <% end %>
+          <div class="separator"></div>
+          <div class="digg_pagination">
+            <%= will_paginate @users, :container => false  %>
+          </div>
+  <% end %>
+
+  <script>
+      $(document).ready(function () {
+          $('.digg_pagination').on("click", "a", function () {
+              $.loader.open({size: 32});
+              $.get( this.href, function() {
+//                  $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+              },'script').done(function() {
+                  $.loader.close(true);
+              }).error(
+                      function() {
+                          $.loader.close(true);
+                      }
+              );
+              return false;
+          });
+
+//          $(".digg_pagination a").click(function(){
+//              $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading32x32.gif') %>"});
+//          });
+      })
+  </script>

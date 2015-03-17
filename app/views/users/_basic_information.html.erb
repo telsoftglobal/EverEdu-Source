@@ -9,7 +9,7 @@
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_gender') %></label>
-    <label class="col-md-9 col-xs-9" ><%= @user.gender ? t('users.lb_male') : t('users.lb_female')  %></label>
+    <label class="col-md-9 col-xs-9" ><%= (@user.gender.nil? || @user.gender=='')? 'N/A' : (@user.gender ? t('users.lb_male') : t('users.lb_female'))  %></label>
   </div>
   <div class="row">
     <label class="col-md-3 col-xs-3" ><%= t('users.lb_phone_number') %></label>
