@@ -337,13 +337,37 @@
                     },
                     minlength: 6},
                 "user[phone_number]": {
-                    maxlength:25
+                    maxlength:{
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            if (text == '') {
+                                $(this).val(text);
+                            }
+                            return 25;
+                        }
+                    }
                 },
                 "user[address]": {
-                    maxlength:100
+                    maxlength:{
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            if (text == '') {
+                                $(this).val(text);
+                            }
+                            return 100;
+                        }
+                    }
                 },
                 "user[city]": {
-                    maxlength:100
+                    maxlength:{
+                        depends:function(){
+                            var text = $.trim($(this).val());
+                            if (text == '') {
+                                $(this).val(text);
+                            }
+                            return 100;
+                        }
+                    }
                 },
                 "user[introduction]": {
                     maxlength:2000
