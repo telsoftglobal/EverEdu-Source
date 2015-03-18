@@ -337,35 +337,38 @@
                     },
                     minlength: 6},
                 "user[phone_number]": {
-                    maxlength:{
+                    maxlength:25,
+                    required: {
                         depends:function(){
                             var text = $.trim($(this).val());
                             if (text == '') {
                                 $(this).val(text);
                             }
-                            return 25;
+                            return false;
                         }
                     }
                 },
                 "user[address]": {
-                    maxlength:{
+                    maxlength:100,
+                    required: {
                         depends:function(){
                             var text = $.trim($(this).val());
                             if (text == '') {
                                 $(this).val(text);
                             }
-                            return 100;
+                            return false;
                         }
                     }
                 },
                 "user[city]": {
-                    maxlength:{
+                    maxlength:100,
+                    required: {
                         depends:function(){
                             var text = $.trim($(this).val());
                             if (text == '') {
                                 $(this).val(text);
                             }
-                            return 100;
+                            return false;
                         }
                     }
                 },
