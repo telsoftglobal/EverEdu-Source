@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+
+  resources :educations
+
+  get 'history_jobs/update_levels'
   resources :history_jobs
   resources :specialties
 
