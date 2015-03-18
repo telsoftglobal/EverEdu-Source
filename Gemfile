@@ -78,3 +78,5 @@ gem 'fog'
 gem "paperclip-dropbox", ">= 1.1.7"
 
 gem 'social_shares'
+
+gem 'therubyracer', :platforms => :ruby

@@ -61,13 +61,13 @@ test:
   sessions:
     default:
 #      uri: mongodb://DeployMongoDB:123456@linus.mongohq.com:10072/jp-aes
-#      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
+      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
 
-      database: jp_aes_test_cuongct
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
-      hosts:
-        - 10.10.10.8:27017
+#      database: jp_aes_test_cuongct
+#      # Provides the hosts the default session can connect to. Must be an array
+#      # of host:port pairs. (required)
+#      hosts:
+#        - 10.10.10.8:27017
       options:
         read: primary
         # In the test environment we lower the retries and retry interval to

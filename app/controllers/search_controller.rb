@@ -83,4 +83,8 @@ class SearchController < ApplicationController
     string = string.gsub(pattern){|match|"\\"  + match}
     string
   end
+
+  def searchdesgin
+    render 'search/cuong_desgin'
+  end
 end

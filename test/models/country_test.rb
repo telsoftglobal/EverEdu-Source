@@ -20,4 +20,9 @@ class CountryTest < ActiveSupport::TestCase
     end
   end
 
+  test 'remove country' do
+    # Country.delete_all
+    # country = Country.all
+    # puts ''
+  end
 end

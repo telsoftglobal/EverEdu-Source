@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-
+  get 'search/searchdesgin'
+  resources :app_params
   resources :educations
 
   get 'history_jobs/update_levels'
