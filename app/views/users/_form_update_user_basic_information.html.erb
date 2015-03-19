@@ -169,11 +169,13 @@
             if(!((year_select!="" && month_select!="" && day_select.val()!="") || (year_select=="" && month_select=="" && day_select.val()==""))){
                 if((year_select=="" || month_select=="" || day_select.val()=="")){
                     day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
+                    $("#user_birth_day_3i").closest(".form-group").addClass("has-error");
                     kt=true;
                 }
             }
             if(new Date(year_select,month_select-1,day_select.val())>new Date(<%= Time.now.year.to_s+',' +Time.now.month.to_s + ','+Time.now.day.to_s %>)){
                 day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
+                $("#user_birth_day_3i").closest(".form-group").addClass("has-error");
                 kt=true;
             }
             if($("#update_user_profile").valid()==false){
@@ -401,9 +403,9 @@
                 "user[introduction]": {maxlength: I18n.t("js.validate.msg_maxlength")}
 
             },
-            errorPlacement: function (error, element) {
-                error.insertAfter(element);
-            },
+//            errorPlacement: function (error, element) {
+//                error.insertAfter(element);
+//            },
             invalidHandler: function(form, validator) {
                 $('#div_msg_error').text('');
 

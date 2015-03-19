@@ -1,3 +1,5 @@
+
+
 class SearchController < ApplicationController
   layout 'default'
 
@@ -81,7 +83,7 @@ class SearchController < ApplicationController
       page_number = params[:page]
       first_name = normalize_string(params[:first_name])
       last_name = normalize_string(params[:last_name])
-      location = normalize_string(params[:location])
+      country = normalize_string(params[:country])
 
       # normalize_special_characters
       first_name = normalize_special_characters(first_name)
@@ -101,7 +103,7 @@ class SearchController < ApplicationController
       end
 
       # process searching
-      @users = User.search_mentor_advance(first_name, last_name, location, specialties, history_jobs, page_number, ITEM_PER_PAGE)
+      @users = User.search_mentor_advance(first_name, last_name, country, specialties, history_jobs, page_number, ITEM_PER_PAGE)
       @total_entries = @users.total_entries
     rescue Exception => e
       logger.error("search mentor error: #{e.message}")

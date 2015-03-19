@@ -56,6 +56,7 @@ ja:
         msg_ranglength: "{0} 文字から {1} 文字までの値を入力してください。"
         msg_min: "{0} 以上の値を入力してください。"
         msg_max: "{0} 以下の値を入力してください。"
+        msg_alphanumeric: "有効な文字を入力してください。"
 
   signin:
     title_signin: サインイン!

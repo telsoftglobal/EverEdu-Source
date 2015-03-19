@@ -9,13 +9,15 @@
               <% end %>
             </div>
             <div class="media-body innerTB half">
-              <h5 class="strong"><%= link_to user.full_name,  user, data:{target:'body'} %></h5>
+              <span class="media-heading aes-color strong" style="word-wrap: break-word;"><%= link_to user.full_name,  user, data:{target:'body'} %></span>
+              <br>
               <% if !user.history_jobs_info.blank? %>
-                  <%= t('search_mentor.lb_history_jobs_info') %>: <%=user.history_jobs_info%>
+                  <small style="word-wrap: break-word;"><%= t('search_mentor.lb_history_jobs_info') %>: <%=user.history_jobs_info%></small>
                   <br/>
               <% end %>
+
               <% if !user.specialty_info.blank? %>
-                <%= t('search_mentor.lb_specialty_info') %>: <%=user.specialty_info%>
+                  <small style="word-wrap: break-word;"><%= t('search_mentor.lb_specialty_info') %>: <%=user.specialty_info%></small>
               <% end %>
             </div>
           </div>

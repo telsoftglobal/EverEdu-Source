@@ -226,13 +226,13 @@ class User
     end
 
     # Description: search mentor advance
-    # @param: first_name, last_name, location, specialties, history_jobs, page_number, item_per_page
+    # @param: first_name, last_name, country, specialties, history_jobs, page_number, item_per_page
     # @return: users
     # @throws Exception
     # @author HuyenDT
     # Create Date: 20150317
     # Modify Date:
-    def search_mentor_advance(first_name, last_name, location, specialties, history_jobs, page_number, item_per_page)
+    def search_mentor_advance(first_name, last_name, country, specialties, history_jobs, page_number, item_per_page)
       # select mentor role
       mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
 
@@ -250,8 +250,8 @@ class User
       end
 
       # location
-      if !location.blank?
-        query = query.and(contry: location)
+      if !country.blank?
+        query = query.and(country: country)
       end
 
       # specialties

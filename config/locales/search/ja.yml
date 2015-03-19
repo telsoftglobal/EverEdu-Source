@@ -35,11 +35,18 @@ ja:
 
   search_mentor:
     title_search_mentor: "検索メンター"
+    title_search_mentor_advance: "メンターアドバンス検索"
     placeholder_keyword: "名前、タイトルを入力し、特別な"
     lb_search_results: "結果"
     lb_search_result: "結果"
     btn_search: "サーチ"
+    btn_reset: "リセット"
     lb_history_jobs_info: "歴史ジョブ"
     lb_specialty_info: "専門"
     msg_error: "検索はエラーがあります。"
     msg_require_search_condition: "少なくとも1検索条件を入力してください。"
+    lb_job_title: "職名"
+    title_job_title: "職名"
+    placeholder_job_title: "職名"
+    title_specialty: "専門"
+    placeholder_specialty: "専門"

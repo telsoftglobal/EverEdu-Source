@@ -40,6 +40,7 @@ class HistoryJob
   validates_presence_of :company_name, :title, :start_time
   validates_presence_of :end_time, :if => "current.eql?(false)"
 
+
   validate :validate_date
 
   def validate_date

@@ -35,15 +35,22 @@ en:
 
   search_mentor:
     title_search_mentor: "Search Mentor"
+    title_search_mentor_advance: "Search Mentor Advance"
     placeholder_keyword: "Enter name, title, special"
     lb_search_results: "results"
     lb_search_result: "result"
+    btn_reset: "Reset"
     lb_read_more: "read more"
     btn_search: "Search"
     lb_history_jobs_info: "Job"
     lb_specialty_info: "Specialty"
     msg_error: "Searching has error."
     msg_require_search_condition: "Please enter at least 1 search condition."
+    lb_job_title: "Job Title"
+    title_job_title: "Job Title"
+    placeholder_job_title: "Job Title"
+    title_specialty: "Specialty"
+    placeholder_specialty: "Specialty"
 
 
 

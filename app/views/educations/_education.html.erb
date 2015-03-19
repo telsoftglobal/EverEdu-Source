@@ -9,25 +9,27 @@
           <div class="media-body innerAll half">
             <span class="media-heading aes-color" style="word-wrap: break-word;"><%= education.school_name%></span>
 </br>
-            <small><%=t('education.lb_degree')%>:</small>
-            <% if !education.app_param.nil?%>
-                <small><%=education.app_param.value%>,</small>
+            <% if !education.degree.nil? && !education.degree.blank?%>
+                <small><%=t('education.lb_degree')%>: <%=education.degree.name%></small>
                 <%else%>
-                <small>N/A,</small>
+                <small><%=t('education.lb_degree')%>: N/A</small>
             <%end%>
-            <small><%=t('education.lb_field_of_study')%>:</small>
-            <% if !education.field_of_study.nil?%>
-                <small><%=education.field_of_study%>,</small>
+            </br>
+            <% if !education.field_of_study.nil? && !education.field_of_study.blank?%>
+                <small><%=t('education.lb_field_of_study')%>: <%=education.field_of_study%></small>
                     <%else%>
-                    <small>N/A,</small>
+                    <small><%=t('education.lb_field_of_study')%>: N/A</small>
             <%end%>
-            <small><%=t('education.lb_date_attended')%>:</small>
+            </br>
+            <small></small>
             <% if !education.start_year.nil? && !education.graduation_year.nil?%>
-                <small><%=education.start_year%></small>-<small><%=education.graduation_year%></small>
+                <small><%=t('education.lb_date_attended')%>: <%=education.start_year%></small>-<small><%=education.graduation_year%></small>
                 <%else if !education.start_year.nil?%>
-                    <small><%=education.start_year%></small>
+                    <small><%=t('education.lb_date_attended')%>: <%=education.start_year%></small>
                 <%else if !education.graduation_year.nil?%>
-                        <small><%=education.graduation_year%></small>(expected)
+                        <small><%=t('education.lb_date_attended')%>: <%=education.graduation_year%>(or expected)</small>
+                        <%else%>
+                        <small><%=t('education.lb_date_attended')%>: N/A</small>
             <%end%>
                     <%end%>
             <%end%>

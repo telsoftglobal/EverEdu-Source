@@ -64,20 +64,21 @@ en:
     system_message: "Message from System!"
   js:
     validate:
-      msg_required: This field is required.
-      msg_minlength: Please enter at least {0} characters.
-      msg_maxlength: Please enter less than {0} characters.
-      msg_rangelength: Please enter a value with length between {0} and {1}.
-      msg_min: Please enter a value greater than or equal to {0}.
-      msg_max: Please enter a value less than or equal to {0}.
-      msg_range: Please enter a value between {0} and {1}.
-      msg_email_invalid: Please enter a valid email address.
-      msg_url_invalid: Please enter a valid URL.
-      msg_date_invalid: Please enter a valid date.
-      msg_number_invalid: Please enter a valid number.
-      msg_confirm_passowrd_equalto: Please enter the same password as above.
+      msg_required: "This field is required."
+      msg_minlength: "Please enter at least {0} characters."
+      msg_maxlength: "Please enter less than {0} characters."
+      msg_rangelength: "Please enter a value with length between {0} and {1}."
+      msg_min: "Please enter a value greater than or equal to {0}."
+      msg_max: "Please enter a value less than or equal to {0}."
+      msg_range: "Please enter a value between {0} and {1}."
+      msg_email_invalid: "Please enter a valid email address."
+      msg_url_invalid: "Please enter a valid URL."
+      msg_date_invalid: "Please enter a valid date."
+      msg_number_invalid: "Please enter a valid number."
+      msg_confirm_passowrd_equalto: "Please enter the same password as above."
       msg_greater_than_start_date: "Please enter greater than or equal start year."
       msg_invalid_file_extension: "Please choose a valid file."
       msg_accept_file_extension: "Please choose a valid file extension."
+      msg_alphanumeric: "Please enter valid characters."
   tip:
     titleTip: "Tip:"

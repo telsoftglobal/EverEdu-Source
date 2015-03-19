@@ -48,6 +48,7 @@ class UsersController < ApplicationController
       @user = User.find(params[:id])
       @history_jobs = @user.history_jobs.order_by(current:-1,end_time: -1, start_time: -1)
       @specialties = @user.specialties
+      @educations = @user.educations.order_by(start_year: -1)
     end
   end
 

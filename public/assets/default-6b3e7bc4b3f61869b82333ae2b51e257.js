@@ -13000,13 +13000,14 @@ $.validator.setDefaults(
             $.each(list, function(index, error)
             {
                 var ee = $(error.element);
+                console.log(ee.parents('label:first'));
                 var eep = ee.parents('label:first').length ? ee.parents('label:first') : ee.parents('div:first');
                 //'.form-group:first'
-                ee.parent().addClass('has-error');
+                ee.closest(".form-group").addClass('has-error');
                 eep.find('.has-error').remove();
                 eep.append('<p class="has-error help-block">' + error.message + '</p>');
-                $.loader.close(true);
             });
+            $.loader.close(true);
             //refreshScrollers();
 
         }

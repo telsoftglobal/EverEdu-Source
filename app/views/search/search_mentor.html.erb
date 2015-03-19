@@ -1,54 +1,3 @@
-
-<style>
-    .row-fluid div {
-        height: 200px;
-        -webkit-transition: width 0.3s ease, margin 0.3s ease;
-        -moz-transition: width 0.3s ease, margin 0.3s ease;
-        -o-transition: width 0.3s ease, margin 0.3s ease;
-        transition: width 0.3s ease, margin 0.3s ease;
-    }
-
-    .row-fluid .span0 {
-        width: 0%;
-    }
-
-    #col1 {
-        background-color: #A6BFBA;
-    }
-
-    #col2 {
-        background-color: #DE4124;
-    }
-
-    #trig {
-        margin: 50px;
-    }
-
-    .row-fluid .span0 + [class*="span"]{
-        margin-left: 0;
-    }
-</style>
-
-
-<div class="container-fluid">
-  <div class="row-fluid">
-    <div id="col2" class="span0"></div>
-    <div id="col1" class="span12">
-      <a id="trig" class="btn btn-inverse">Reflow Me</a>
-    </div>
-
-  </div>
-</div>
-
-<script>
-
-    $('#trig').on('click', function () {
-        $('#col1').toggleClass('span12 span3');
-        $('#col2').toggleClass('span0 span9');
-    });
-</script>
-
-
 <%=stylesheet_link_tag 'student' %>
 <div class="innerLR">
   <h3 class="aes-color"><i class="fa fa-search"></i>&nbsp;<%= t('search_mentor.title_search_mentor') %></h3>
@@ -68,7 +17,7 @@
                   <div class="input-group">
                     <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control search_all", maxlength:200 %>
                     <div class="input-group-btn"><button class="btn btn-primary rounded-none" type="submit" style="height: 33px;"><i class="fa fa-search"></i></button></div>
-                    <div id="group_advance" class="input-group-btn"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 33px;"><%= t('button.btn_advance') %></button></div>
+                    <div id="group_advance" class="input-group-btn"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 32px;"><%= t('button.btn_advance') %></button></div>
                   </div>
             <% end %>
             </div>
@@ -87,15 +36,15 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="updateModalLabel"><%= t('search_mentor.title_search_mentor') %></h4>
+        <h4 class="modal-title" id="updateModalLabel"><%= t('search_mentor.title_search_mentor_advance') %></h4>
       </div>
       <div id="Search_mentor_Content" class="modal-body">
         <%= render 'search/mentor_advance' %>
       </div>
       <div style="clear: both"></div>
       <div class="modal-footer">
-        <button id="Search_mentor_Modal_btnSave" type="button" class="btn btn-primary"><%= t('button.btn_save')%></button>
-        <button id="Search_mentor_Modal_btnCancel" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
+        <button id="btnSearchMentorAdvance" type="button" class="btn btn-primary"><%= t('search_mentor.btn_search')%></button>
+        <button id="btnCancelSearchMentorAdvance" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
       </div>
     </div>
   </div>
@@ -112,7 +61,7 @@
         e.preventDefault();
         $("#Search_mentor_Modal").modal();
     });
-    $("#Search_mentor_Modal_btnSave").click(function(e){
+    $("#btnSearchMentorAdvance").click(function(e){
       e.preventDefault();
 
         var valid = false;
@@ -133,18 +82,45 @@
             return;
         }
 
-        $("#Search_mentor_Modal").find('form').submit();
+//        $("#Search_mentor_Modal").find('form').submit();
+
+        $.ajax('/search/search_mentor_advance', {
+            type: 'GET',
+            dataType: 'script',
+            data:  $("#search_mentor_advance").serializeArray(),
+            beforeSend: function (xhr) {
+                $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                $.loader.close(true);
+                console.log("AJAX Error: " + textStatus);
+            },
+            success: function (data, textStatus, jqXHR) {
+                $.loader.close(true);
+            }
+        });
     });
-    $("#Search_mentor_Modal_btnCancel").click(function(e){
+    $("#btnCancelSearchMentorAdvance").click(function(e){
         e.preventDefault();
         $("#Search_mentor_Modal").modal("hide");
+//        $('#search_mentor_advance')[0].reset();
     });
+
+
     $(document).ready(function () {
         $("#search_mentor_form").validate({
             onfocusout: false,
             onkeyup: false,
             rules: {
-                "keyword": {maxlength: 200}
+                "keyword": { maxlength: {
+                    param: 200,
+                    depends:function(){
+                        var text = $.trim($(this).val());
+                        text=text.replace(/\s+/g, ' ');
+                        $(this).val(text);
+                        return true;
+                    }
+                }}
             },
             messages: {
                 "keyword": {maxlength :I18n.t('js.validate.msg_maxlength')}

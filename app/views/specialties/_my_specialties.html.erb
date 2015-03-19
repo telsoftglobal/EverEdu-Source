@@ -73,7 +73,6 @@
         $("#btnSpecialtySave").click(function(){
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
-            alert($("#specialty_description").val());
             $("#specialty_form").validate({
                 onfocusout: false,
                 onkeyup: false,
@@ -99,7 +98,6 @@
                         param: 2000,
                         depends:function(){
                             var text = $.trim($(this).val());
-//                            text=text.replace(/\s+/g, ' ');
                             $(this).val(text);
                             return true;
                         }
