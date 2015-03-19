@@ -60,6 +60,7 @@ class User
   belongs_to  :avatar, :class_name => "Photo", :foreign_key => "avatar_id"
   embeds_many :specialties
   embeds_many :history_jobs
+  embeds_many :educations
 
   #indexes
   index({ user_name: 1 }, { unique: true, name: 'user_name_index' })
@@ -208,7 +209,7 @@ class User
     end
 
     # Description: search mentor
-    # @param: keyword, page number, item per page
+    # @param: keyword, page_number, item_per_page
     # @return: users
     # @throws Exception
     # @author HuyenDT
@@ -218,8 +219,57 @@ class User
       # select mentor role
       mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
 
+      # query users
       @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({user_name: /#{keyword}/i}, {first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
 
+      @users
+    end
+
+    # Description: search mentor advance
+    # @param: first_name, last_name, location, specialties, history_jobs, page_number, item_per_page
+    # @return: users
+    # @throws Exception
+    # @author HuyenDT
+    # Create Date: 20150317
+    # Modify Date:
+    def search_mentor_advance(first_name, last_name, location, specialties, history_jobs, page_number, item_per_page)
+      # select mentor role
+      mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
+
+      # default query role mentor and status = 1
+      query = User.where(role_ids: mentor_role.id).and(status: 1)
+
+      # first name
+      if !first_name.blank?
+        query = query.and(first_name: /#{first_name}/i)
+      end
+
+      # last name
+      if !last_name.blank?
+        query = query.and(last_name: /#{last_name}/i)
+      end
+
+      # location
+      if !location.blank?
+        query = query.and(contry: location)
+      end
+
+      # specialties
+      if !specialties.nil? && !specialties.empty?
+        specialties = specialties.map{|s|/^#{s.strip}$/i}
+        query = query.and("specialties.specialty" => { "$in" => specialties})
+      end
+
+      # history jobs
+      if !history_jobs.nil? && !history_jobs.empty?
+        history_jobs = history_jobs.map{|s|/^#{s.strip}$/i}
+        query = query.and("history_jobs.title" => { "$in" => history_jobs})
+      end
+
+      # paginate
+      @users = query.paginate(:page => page_number, :per_page => item_per_page)
+
+      # return result
       @users
     end
 

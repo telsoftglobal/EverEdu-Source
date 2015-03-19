@@ -16,16 +16,28 @@
     <%= f.text_field :school_name %>
   </div>
   <div class="field">
+    <%= f.label :school_url %><br>
+    <%= f.text_field :school_url %>
+  </div>
+  <div class="field">
     <%= f.label :start_year %><br>
-    <%= f.number_field :start_year %>
+    <%= f.text_field :start_year %>
   </div>
   <div class="field">
-    <%= f.label :end_year %><br>
-    <%= f.number_field :end_year %>
+    <%= f.label :graduation_year %><br>
+    <%= f.text_field :graduation_year %>
   </div>
   <div class="field">
-    <%= f.label :current %><br>
-    <%= f.check_box :current %>
+    <%= f.label :field_of_study %><br>
+    <%= f.text_field :field_of_study %>
+  </div>
+  <div class="field">
+    <%= f.label :grade %><br>
+    <%= f.text_field :grade %>
+  </div>
+  <div class="field">
+    <%= f.label :activities_societies %><br>
+    <%= f.text_field :activities_societies %>
   </div>
   <div class="field">
     <%= f.label :description %><br>

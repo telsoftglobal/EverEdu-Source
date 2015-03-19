@@ -1,20 +1,15 @@
 class EducationsController < ApplicationController
-  layout 'default'
   before_action :authenticate
   before_action :set_education, only: [:show, :edit, :update, :destroy]
+  layout 'default'
+
+  COUNT_EDUCATION_DISPLAY = 6
 
   # GET /educations
   # GET /educations.json
-  # Description: This method processes list educations of user
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
-  # Modify Date:
   def index
-    user_id = session[:user_id]
-    @educations = Education.where(user_id: user_id).order_by(created_at: -1)
+    # @educations = Education.all
+    @educations = @current_user.educations.order_by(start_year: -1)
   end
 
   # GET /educations/1
@@ -23,26 +18,14 @@ class EducationsController < ApplicationController
   end
 
   # GET /educations/new
-  # Description: This method processes init new education
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
   def new
     @education = Education.new
   end
 
   # GET /educations/1/edit
-  # Description: This method processes edit education of user
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
   def edit
     if @education.nil?
-      flash.now[:error] = t('educations.msg_education_not_found')
+      flash.now[:error] = t('education.msg_education_not_found')
       respond_to do |format|
         format.js { render action: 'edit_fail', :not_found => true }
       end
@@ -51,38 +34,28 @@ class EducationsController < ApplicationController
 
   # POST /educations
   # POST /educations.json
-  # Description: This method processes create education of user
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
   def create
     begin
       @education = Education.new(education_params)
-      @education.user_id = session[:user_id]
-
-      respond_to do |format|
-        if @education.save
-          flash.now[:notice] = t('educations.msg_create_successfully')
-          format.html { redirect_to @education, notice: t('educations.msg_create_successfully') }
-          format.json { render :show, status: :created, location: @education }
-          format.js
-        else
-          if @education.errors
-            flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
-          else
-            flash.now[:error] = t('educations.msg_create_fail')
-          end
-          format.html { render :new }
-          format.json { render json: @education.errors, status: :unprocessable_entity }
+      @current_user.educations << @education
+      if @education.errors && !@education.errors.messages.empty?
+        flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
+        respond_to do |format|
+          # format.html { render :new }
           format.js { render action: 'create_fail' }
+        end
+      else
+        respond_to do |format|
+          format.js
+          format.html { redirect_to @education, notice: t('education.msg_create_successfully') }
+          format.json { render :show, status: :created, location: @education }
+          # format.js
         end
       end
     rescue Exception => e
       logger.error("education save error: #{e.message}")
       respond_to do |format|
-        flash.now[:error] = t('educations.msg_create_fail')
+        flash.now[:error] = t('education.msg_create_fail')
         format.js { render action: 'create_fail' }
         format.html
       end
@@ -91,41 +64,35 @@ class EducationsController < ApplicationController
 
   # PATCH/PUT /educations/1
   # PATCH/PUT /educations/1.json
-  # Description: This method processes update education of user
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
   def update
     begin
       if @education.nil?
-        flash.now[:error] = t('educations.msg_education_not_found')
+        flash.now[:error] = t('education.msg_education_not_found')
         respond_to do |format|
           format.js { render action: 'update_fail' }
         end
       else
-        respond_to do |format|
-          if @education.update(education_params)
-            format.html { redirect_to @education, notice: t('educations.msg_update_successfully')}
-            format.json { render :show, status: :ok, location: @education }
-            format.js
-          else
-            if @education.errors
-              flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
-            else
-              flash.now[:error] = t('educations.msg_update_fail')
-            end
+        @education.update_attributes(education_params)
+
+        if @education.errors && !@education.errors.messages.empty?
+          flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
+          respond_to do |format|
+            format.js { render action: 'update_fail' }
             format.html { render :edit }
             format.json { render json: @education.errors, status: :unprocessable_entity }
-            format.js { render action: 'update_fail' }
+          end
+        else
+          respond_to do |format|
+            format.js
+            format.html { redirect_to @education, notice: t('education.msg_update_successfully') }
+            format.json { render :show, status: :ok, location: @education }
           end
         end
       end
     rescue Exception => e
       logger.error("education save error: #{e.message}")
       respond_to do |format|
-        flash.now[:error] = t('educations.msg_update_fail')
+        flash.now[:error] = t('education.msg_update_fail')
         format.js { render action: 'update_fail' }
         format.html
       end
@@ -134,64 +101,47 @@ class EducationsController < ApplicationController
 
   # DELETE /educations/1
   # DELETE /educations/1.json
-  # Description: This method processes delete education of user
-  # @param
-  # @return
-  # @throws Exception
-  # @author HuyenDT
-  # Create Date: 2014/12/24
   def destroy
     begin
-    if @education.nil?
-      flash.now[:error] = t('educations.msg_education_not_found')
-      respond_to do |format|
-        format.js {render action: 'destroy_fail'}
-      end
-    else
-      if @education.destroy
+      if @education.nil?
+        flash.now[:error] = t('education.msg_education_not_found')
         respond_to do |format|
-          format.html { redirect_to educations_url, notice: t('educations.msg_delete_successfully') }
-          format.json { head :no_content }
-          format.js
+          format.js { render action: 'destroy_fail' }
         end
       else
-        if @education.errors
-          flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
-        else
-          flash.now[:error] = t('educations.msg_delete_fail')
-        end
+        @current_user.educations.delete(@education)
 
-        respond_to do |format|
-          format.js {render action: 'destroy_fail'}
+        if @education.errors && !@education.errors.messages.empty?
+          flash.now[:error] = @education.errors.full_messages.to_sentence(:last_word_connector => ', ');
+          respond_to do |format|
+            format.js { render action: 'destroy_fail' }
+          end
+        else
+          respond_to do |format|
+            format.js
+            format.html { redirect_to work_experiences_url, notice: t('education.msg_delete_successfully') }
+            format.json { head :no_content }
+          end
         end
       end
-    end
     rescue Exception => e
       logger.error("education save error: #{e.message}")
       respond_to do |format|
-        flash.now[:error] = t('educations.msg_delete_fail')
+        flash.now[:error] = t('education.msg_delete_fail')
         format.js { render action: 'destroy_fail' }
         format.html
       end
     end
-
   end
 
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_education
-      @education = Education.find(params[:id])
+      @education = @current_user.educations.find(params[:id])
     end
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def education_params
-      if params[:education][:school_name]
-        params[:education][:school_name] = params[:education][:school_name].strip
-      end
-
-      if params[:education][:description]
-        params[:education][:description] = params[:education][:description].strip
-      end
-      params.require(:education).permit(:school_name, :start_year, :end_year, :current, :description)
+      params.require(:education).permit(:school_name, :school_url, :start_year, :graduation_year, :field_of_study, :grade, :activities_societies, :description, :app_param_id)
     end
 end

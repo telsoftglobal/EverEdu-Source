@@ -27,7 +27,7 @@ en:
     msg_update_fail: "History job was fail updated."
     msg_delete_fail: "History job was fail destroyed."
 
-    msg_history_job_not_found: "History job not found"
+    msg_history_job_not_found: "History job not found."
     msg_create_successfully: "History job was successfully created."
     msg_update_successfully: "History job was successfully updated."
     msg_delete_successfully: "History job was successfully destroyed."

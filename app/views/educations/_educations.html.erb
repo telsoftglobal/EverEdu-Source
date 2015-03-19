@@ -1,43 +1,43 @@
 <!--<div class="widget ">-->
 <div class="innerAll">
   <h4 class="margin-none strong">
-    <%= t('history_job.title_history_job') %>
+    <a url="<%= educations_path %>" href="<%= educations_path %>" data-toggle="modal"><%= t('education.title_education') %></a>
   </h4>
 
   <div class="clearfix"></div>
 </div>
 <div class="widget innerLR">
-  <div class="innerAll border-bottom" id="historyjob_new">
+  <div class="innerAll border-bottom" id="education_new">
     <ul class="media-list margin-none">
-      <a class="historyJob" url="<%= new_history_job_path %>" href="#" data-toggle="modal" modal_title="<%= t('history_job.title_new_history_job') %>">
+      <a class="education" url="<%= new_education_path %>" href="#" data-toggle="modal" modal_title="<%= t('education.title_new_education') %>">
         <li class="media">
                 <span class="pull-left innerAll half empty-photo">
                     <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i>
-                  <%= t('history_job.title_new_history_job') %>
+                  <%= t('education.title_new_education') %>
                 </span>
         </li>
       </a>
     </ul>
 
   </div>
-  <div id="history_jobs_list" class="widget-body padding-none">
-    <%= render @history_jobs %>
+  <div id="educations_list" class="widget-body padding-none">
+    <%= render @educations %>
   </div>
 </div>
 
 <!-- Modal -->
-<div class="modal fade" id="historyJobModal" tabindex="-1" role="dialog" aria-labelledby="historyJobModalLabel" aria-hidden="true">
+<div class="modal fade" id="educationModal" tabindex="-1" role="dialog" aria-labelledby="educationModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal">
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title" id="historyJobModalLabel">Modal title</h4>
+        <h4 class="modal-title" id="educationModalLabel">Modal title</h4>
       </div>
-      <div id="modalContentHistoryJob" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalContentEducation" class="modal-body" style="max-height: 430px; overflow-y: auto">
       </div>
       <div class="modal-footer">
-        <button id="btnSaveHistoryJob" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
+        <button id="btnSaveEducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel') %></button>
       </div>
     </div>
@@ -47,27 +47,31 @@
 
 <script>
     $(document).ready(function () {
-        $('a.historyJob').click(function (e) {
-            openHistoryJobModal(this, e);
+        $('#educationModal').on('shown.bs.modal', function() {
+            $('#education_school_name').focus();
+        })
+        $('a.education').click(function (e) {
+            openEducationModal(this, e);
         });
 
-        $('a.editHistoryJob').click(function (e) {
-            openEditHistoryJobModal(this, e);
+        $('a.editEducation').click(function (e) {
+            openEditEducationModal(this, e);
         });
 
-        $('a.deleteHistoryJob').click(function (e) {
-            processDeleteHistoryJob(this, e);
+        $('a.deleteEducation').click(function (e) {
+            processDeleteEducation(this, e);
         });
 
-        $("#btnSaveHistoryJob").click(function () {
+        $("#btnSaveEducation").click(function () {
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
+//            alert("fjsd");
 
-            $("#history_job_form").validate({
+            $("#education_form").validate({
                 onfocusout: false,
                 onkeyup: false,
                 rules: {
-                    "history_job[company_name]": {
+                    "education[school_name]": {
                         required: {
                             depends: function () {
                                 var text = $.trim($(this).val());
@@ -77,17 +81,7 @@
                             }
                         }, maxlength: 100
                     },
-                    "history_job[title]": {
-                        required: {
-                            depends: function () {
-                                var text = $.trim($(this).val());
-                                text = text.replace(/\s+/g, ' ');
-                                $(this).val(text);
-                                return true;
-                            }
-                        }, maxlength: 100
-                    },
-                    "history_job[location]": {
+                    "education[field_of_study]": {
                         maxlength: {
                             param: 100,
                             depends: function () {
@@ -98,25 +92,9 @@
                             }
                         }
                     },
-                    "history_job[start_time(2i)]": {required: true, validStartTime: true},
-                    "history_job[start_time(1i)]": {required: true},
-                    "history_job[end_time(2i)]": {
-                        required: function (element) {
-                            return $('#history_job_current').is(':unchecked');
-                        }, end_time_greater_or_equal_start_time: function (element) {
-                            return $('#history_job_current').is(':unchecked');
-                        }, validEndTime: true
-                    },
-                    "history_job[end_time(1i)]": {
-                        required: function (element) {
-                            return $('#history_job_current').is(':unchecked');
-                        }, end_time_greater_or_equal_start_time: function (element) {
-                            return $('#history_job_current').is(':unchecked');
-                        }
-                    },
-                    "history_job[description]": {
+                    "education[grade]": {
                         maxlength: {
-                            param: 2000,
+                            param: 100,
                             depends: function () {
                                 var text = $.trim($(this).val());
                                 text = text.replace(/\s+/g, ' ');
@@ -125,7 +103,31 @@
                             }
                         }
                     },
-                    "history_job[company_url]": {
+//                    "education[start_year]": {validStartTime: true},
+                    "education[graduation_year]": {end_time_greater_or_equal_start_time:true},
+                    "education[activities_societies]": {
+                        maxlength: {
+                            param:500 ,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }
+                    },
+                    "education[description]": {
+                        maxlength: {
+                            param:1000 ,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }
+                    },
+                    "education[school_url]": {
                         url: {
                             depends: function () {
                                 var text = $.trim($(this).val());
@@ -136,27 +138,18 @@
                         }, maxlength: 500
                     },
                     messages: {
-                        "history_job[company_name]": {
+                        "education[school_name]": {
                             required: I18n.t('js.validate.msg_required'),
                             maxlength: I18n.t('js.validate.msg_maxlength')
                         },
-                        "history_job[title]": {required: I18n.t('js.validate.msg_required')},
-                        "history_job[start_time(1i)]": {required: I18n.t('js.validate.msg_required')},
-                        "history_job[start_time(2i)]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            validStartTime: I18n.t('history_job.msg_valid_date')
-                        },
-                        "history_job[end_time(2i)]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime'),
-                            validEndTime: I18n.t('history_job.msg_valid_date')
-                        },
-                        "history_job[end_time(1i)]": {
-                            required: I18n.t('js.validate.msg_required'),
+                        "education[field_of_study]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[grade]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[start_year]": {validEndTime: I18n.t('history_job.msg_valid_date')},
+                        "education[graduation_year]": {
                             end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
                         },
-                        "history_job[end_time]": {greater_or_equals: I18n.t('js.validate.msg_greater_than_start_date')},
-                        "history_job[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                        "education[activities_societies]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
                     },
                     errorPlacement: function (error, element) {
                         error.insertAfter(element);
@@ -165,38 +158,28 @@
                     },
                     invalidHandler: function (form, validator) {
                         $('#div_msg_error').text('');
-
+                        alert(validator.errorList[0].element);
                         var errors = validator.numberOfInvalids();
                         if (errors) {
+                            alert(validator.errorList[0].element);
                             validator.errorList[0].element.focus();
+
                         }
                     }
                 }
             });
             $.validator.addMethod("end_time_greater_or_equal_start_time", function (value, element) {
-                var end_year = $('#history_job_end_time_1i').val();
-                var end_month = $("#history_job_end_time_2i").val();
-                var end_time = new Date(end_year, end_month);
-                var start_year = $('#history_job_start_time_1i').val();
-                var start_month = $("#history_job_start_time_2i").val();
-                var start_time = new Date(start_year, start_month);
-                return (end_time >= start_time)
+                var start_year = $('#education_start_year').val();
+                var graduation_year = $("#education_graduation_year").val();
+                return (graduation_year >= start_year)
             }, "end time greater or equal to start time");
 
             $.validator.addMethod("validStartTime", function (value, element) {
-                var start_year = $('#history_job_start_time_1i').val();
-                var start_month = $("#history_job_start_time_2i").val();
-                var start_time = new Date(start_year, start_month);
-                return (start_time < new Date())
+                var start_year = $('#education_start_year').val();
+                return (start_year <= new Date().year)
             }, "date invalid");
-            $.validator.addMethod("validEndTime", function (value, element) {
-                var end_year = $('#history_job_end_time_1i').val();
-                var end_month = $("#history_job_end_time_2i").val();
-                var end_time = new Date(end_year, end_month);
-                return (end_time < new Date())
-            }, "date invalid ");
 
-            var valid = $("#history_job_form").valid();
+            var valid = $("#education_form").valid();
             if (!valid) {
                 return false;
             }
@@ -204,8 +187,8 @@
 //            BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('educations.msg_confirm_save')%>', function(result){
 //                $.loader.open({size:32});
 //                if(result) {
-            var url = $("#history_job_form").attr("action");
-            var data = $("#history_job_form").serializeArray();
+            var url = $("#education_form").attr("action");
+            var data = $("#education_form").serializeArray();
             $.ajax({
                 type: "POST",
                 url: url,
@@ -233,7 +216,7 @@
 </script>
 
 <script>
-    function processDeleteHistoryJob(element, e) {
+    function processDeleteEducation(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
@@ -271,7 +254,7 @@
     }
     ;
 
-    function openHistoryJobModal(element, e) {
+    function openEducationModal(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
@@ -290,11 +273,11 @@
             dataType: "script",
             success: function () {
                 $.loader.close(true);
-                $('#historyJobModal').modal({
+                $('#educationModal').modal({
                     backdrop: 'static',
                     keyboard: false
                 });
-                $("#historyJobModalLabel").text(title);
+                $("#educationModalLabel").text(title);
             },
             error: function (xhr, status, response) {
                 console.log("AJAX Error: " + status)
@@ -304,13 +287,13 @@
     }
     ;
 
-    function openEditHistoryJobModal(element, e) {
+    function openEditEducationModal(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
         var title = $(element).attr("modal_title");
-        $("#historyJobModalLabel").text(title);
-        console.log('openEditHistoryJobModal' + url + id + title)
+        $("#educationModalLabel").text(title);
+        console.log('openEditEducationModal' + url + id + title)
         $.ajax({
             type: "GET",
             url: url,

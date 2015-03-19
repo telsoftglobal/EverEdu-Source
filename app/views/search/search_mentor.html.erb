@@ -1,3 +1,20 @@
+
+<!--<style>-->
+    /*.row-fluid div {*/
+        /*height: 2000px;*/
+        /*-webkit-transition: width 0.3s ease, margin 0.3s ease;*/
+        /*-moz-transition: width 0.3s ease, margin 0.3s ease;*/
+        /*-o-transition: width 0.3s ease, margin 0.3s ease;*/
+        /*transition: width 0.3s ease, margin 0.3s ease;*/
+    /*}*/
+    /*.row-fluid .span0 {*/
+        /*width: 0%;*/
+    /*}*/
+
+    /*.row-fluid .span0 + [class*="span"]{*/
+        /*margin-left: 0;*/
+    /*}*/
+<!--</style>-->
 <%=stylesheet_link_tag 'student' %>
 <div class="innerLR">
   <h3 class="aes-color"><i class="fa fa-search"></i>&nbsp;<%= t('search_mentor.title_search_mentor') %></h3>
@@ -5,47 +22,117 @@
   <div class="row">
     <div class="widget"> ‌ ‌
       <div class="widget-body">
-        <div class="search-form">
-        <%= form_tag search_search_mentor_path, id: 'search_mentor_form', role: 'form', method: :get do %>
-            <% if flash.now[:error] %>
-                <div id="div_msg_error" class="msg_error">
-                  <ul>
-                    <li><%= flash.now[:error] %></li>
-                  </ul>
-                </div>
+            <div class="search-form">
+            <%= form_tag search_search_mentor_path, id: 'search_mentor_form', role: 'form', method: :get do %>
+                <% if flash.now[:error] %>
+                    <div id="div_msg_error" class="msg_error">
+                      <ul>
+                        <li><%= flash.now[:error] %></li>
+                      </ul>
+                    </div>
+                <% end %>
+                  <div class="input-group">
+                    <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control search_all", maxlength:200 %>
+                    <div class="input-group-btn"><button class="btn btn-primary rounded-none" type="submit" style="height: 33px;"><i class="fa fa-search"></i></button></div>
+                    <div id="group_advance" class="input-group-btn"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 33px;"><%= t('button.btn_advance') %></button></div>
+                  </div>
             <% end %>
-              <div class="row">
-                <div class="col-md-10 col-sm-10">
-                  <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control search_all", maxlength:200 %>
-                </div>
-                <div class="col-md-2 col-sm-2">
-                  <button type="submit" class="fa fa-search btn btn-primary btn-block height34" data-target="body"></button>
-                </div>
-
-              </div>
-
-        <% end %>
-        </div>
+            </div>
       </div>
     </div>
   </div>
 
-  <% if @users %>
-      <div class="widget"> ‌
-        <h5 class="text-uppercase strong innerAll border-bottom" style="margin-top: -20px"><%= @total_entries %> <%= t('search_mentor.lb_search_results')%></h5>
-        <div id="search-result" style="margin-top: -8px">
-          <%= render partial: "search/users" %>
-        </div>
-      </div>
-  <% end%>
+  <div id="result">
+    <%= render partial: "search/search_mentor_result" %>
+  </div>
 </div>
 
-
+<!-- Modal -->
+<div class="modal fade" style="overflow: auto;" id="Search_mentor_Modal" tabindex="-1" role="dialog" aria-labelledby="updateModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <h4 class="modal-title" id="updateModalLabel"><%= t('search_mentor.title_search_mentor') %></h4>
+      </div>
+      <div id="Search_mentor_Content" class="modal-body">
+        <%= render 'search/mentor_advance' %>
+      </div>
+      <div style="clear: both"></div>
+      <div class="modal-footer">
+        <button id="Search_mentor_Modal_btnSave" type="button" class="btn btn-primary"><%= t('button.btn_save')%></button>
+        <button id="Search_mentor_Modal_btnCancel" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
+      </div>
+    </div>
+  </div>
+</div>
 
 <script>
+    $("#keyword").focus(function() {
+        $("#group_advance").fadeOut("medium");
+    });
+    $("#keyword").blur(function() {
+        $("#group_advance").fadeIn("medium");
+    });
+    $("#advsearchButton").click(function(e){
+        e.preventDefault();
+        $("#Search_mentor_Modal").modal();
+    });
+    $("#Search_mentor_Modal_btnSave").click(function(e){
+      e.preventDefault();
 
+        var valid = false;
+        if(!$("#search_mentor_advance").valid()){
+            valid=true;
+        }
+        if($("#history_job:visible").length==1){
+            $("#history_job").closest(".accordion-inner").find("p.has-error").remove();
+            $("#history_job").after("<p class=\"has-error help-block\"><%= t('js.validate.msg_required') %></p>")
+            valid=true;
+        }
+        if($("#specialty:visible").length==1){
+            $("#specialty").closest(".accordion-inner").find("p.has-error").remove();
+            $("#specialty").after("<p class=\"has-error help-block\"><%= t('js.validate.msg_required') %></p>")
+            valid=true;
+        }
+        if(valid){
+            return;
+        }
+
+        $("#Search_mentor_Modal").find('form').submit();
+    });
+    $("#Search_mentor_Modal_btnCancel").click(function(e){
+        e.preventDefault();
+        $("#Search_mentor_Modal").modal("hide");
+    });
     $(document).ready(function () {
+        $("#search_mentor_form").validate({
+            onfocusout: false,
+            onkeyup: false,
+            rules: {
+                "keyword": {maxlength: 200}
+            },
+            messages: {
+                "keyword": {maxlength :I18n.t('js.validate.msg_maxlength')}
+            },
+            errorPlacement: function (error, element) {
+                error.insertAfter(element);
+            },
+            submitHandler: function (form) {
+                $('#search_mentor_form').find('input:text').each(function () {
+                    $(this).val($.trim($(this).val()));
+                });
+                form.submit();
+            },
+            invalidHandler: function (form, validator) {
+                $('#div_msg_error').text('');
 
+                var errors = validator.numberOfInvalids();
+                if (errors) {
+                    validator.errorList[0].element.focus();
+                }
+            }
+        });
     });
 
 </script>

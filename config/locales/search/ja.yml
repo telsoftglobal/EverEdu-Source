@@ -20,18 +20,18 @@
 
 ja:
   search_curriculum:
-    title_search_curriculum: カリキュラムをサーチ
-    placeholder_keyword: カリキュラム名を入力してください。
-    placeholder_category: カテゴリを選択してください。
-    placeholder_level: レベルを選択してください。
-    lb_search_results: カリキュラム
-    lb_read_more: 続きを読む
-    btn_search: サーチ
-    msg_category_required: カテゴリを選択してください。
+    title_search_curriculum: "カリキュラムをサーチ"
+    placeholder_keyword: "カリキュラム名を入力してください。"
+    placeholder_category: "カテゴリを選択してください。"
+    placeholder_level: "レベルを選択してください。"
+    lb_search_results: "カリキュラム"
+    lb_read_more: "続きを読む"
+    btn_search: "サーチ"
+    msg_category_required: "カテゴリを選択してください。"
 
     js:
       validate:
-        msg_category_required: カテゴリを選択してください。
+        msg_category_required: "カテゴリを選択してください。"
 
   search_mentor:
     title_search_mentor: "検索メンター"
@@ -41,3 +41,5 @@ ja:
     btn_search: "サーチ"
     lb_history_jobs_info: "歴史ジョブ"
     lb_specialty_info: "専門"
+    msg_error: "検索はエラーがあります。"
+    msg_require_search_condition: "少なくとも1検索条件を入力してください。"

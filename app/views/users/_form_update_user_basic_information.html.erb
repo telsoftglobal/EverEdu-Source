@@ -92,11 +92,13 @@
           </div>
           <!--#Address -->
           <div class="row">
+            <div class="col-md-12">
             <div class="form-group">
               <label class="col-md-2 control-label" for="users[introduction]"><%= t('users.lb_introduction') %></label>
               <div class="col-md-10">
-                <%= f.text_area :introduction, class: "form-control", placeholder: t('users.lb_introduction'),maxlength:2000, :style => "margin-left:8px;width:99%" %>
+                <%= f.text_area :introduction, class: "form-control", placeholder: t('users.lb_introduction'),maxlength:2000 %>
               </div>
+            </div>
             </div>
           </div>
         </div>
@@ -109,7 +111,7 @@
           </div>
         </div>
         <!--#Confirm_password -->
-        <div class="form-group"  >
+        <div>
           <label class="col-md-2 control-label"> </label>
           <div class="col-md-10" style=" height:34px;">
             <button id="btnSave" type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
@@ -329,6 +331,7 @@
                     required: {
                         depends:function(){
                             var text = $.trim($(this).val());
+                            text=text.replace(/\s+/g, ' ');
                             if (text == '') {
                                 $(this).val(text);
                             }
@@ -337,43 +340,47 @@
                     },
                     minlength: 6},
                 "user[phone_number]": {
-                    maxlength:25,
-                    required: {
-                        depends:function(){
+                    maxlength: {
+                        param: 25,
+                        depends: function () {
                             var text = $.trim($(this).val());
-                            if (text == '') {
-                                $(this).val(text);
-                            }
-                            return false;
+                            text = text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
                         }
                     }
                 },
                 "user[address]": {
-                    maxlength:100,
-                    required: {
-                        depends:function(){
+                    maxlength: {
+                        param: 100,
+                        depends: function () {
                             var text = $.trim($(this).val());
-                            if (text == '') {
-                                $(this).val(text);
-                            }
-                            return false;
+                            text = text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
                         }
                     }
                 },
                 "user[city]": {
-                    maxlength:100,
-                    required: {
-                        depends:function(){
+                    maxlength: {
+                        param: 100,
+                        depends: function () {
                             var text = $.trim($(this).val());
-                            if (text == '') {
-                                $(this).val(text);
-                            }
-                            return false;
+                            text = text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
                         }
                     }
                 },
                 "user[introduction]": {
-                    maxlength:2000
+                    maxlength: {
+                        param: 100,
+                        depends: function () {
+                            var text = $.trim($(this).val());
+                            $(this).val(text);
+                            return true;
+                        }
+                    }
                 }
             },
             messages: {
@@ -425,17 +432,29 @@
             var days;
             if(!(year_select=="" || month_select=="")){
                 days = new Date(year_select,month_select,1,-1).getDate();
-
+                var current_select = $("#user_birth_day_3i").val();
                 $("#user_birth_day_3i option").hide();
+                $("#user_birth_day_3i option").prop('disabled', true);
     //            alert(days);
                 $("#user_birth_day_3i option[value='']").show();
+                $("#user_birth_day_3i option[value='']").prop('disabled', false);
                 for(var i=1;i<=days;i++){
 
                     $("#user_birth_day_3i option[value="+i+"]").show();
+                    $("#user_birth_day_3i option[value="+i+"]").prop('disabled', false);
                 }
+                if(current_select!=null){
+                    if(current_select>days){
+                        $("#user_birth_day_3i").val(days);
+                    }
+                }
+            }else{
+                $("#user_birth_day_3i option[value='']").show();
+                $("#user_birth_day_3i option[value='']").prop('disabled', false);
+                for(var i=1;i<=31;i++){
 
-                if($("#user_birth_day_3i").val()>days){
-                    $("#user_birth_day_3i").val(days);
+                    $("#user_birth_day_3i option[value="+i+"]").show();
+                    $("#user_birth_day_3i option[value="+i+"]").prop('disabled', false);
                 }
             }
         }

@@ -20,17 +20,22 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
-  educations:
-    title_educations: "Education"
+  education:
+    title_education: "Education"
     title_new_education: "New Education"
     title_edit_education: "Edit Education"
     title_delete_education: "Delete Education"
 
     lb_school_name: "School Name"
-    lb_start_year: "Start year"
-    lb_end_year: "End year"
-    lb_current: "Current"
+    lb_school_url: "School URL"
+    lb_date_attended: "Date attended"
+    lb_year: "Year"
+    lb_degree: "Degree"
+    lb_field_of_study: "Field of study"
+    lb_grade: "Grade"
+    lb_activities_societies: "Activities and societies"
     lb_description: "Description"
+    placeholder_degree: "Please choose degree."
     placeholder_start_year: "Start year"
     placeholder_end_year: "End year"
     placeholder_school_name: "Please enter school name."

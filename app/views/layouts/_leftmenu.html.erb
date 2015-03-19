@@ -29,6 +29,12 @@
       <% end %>
     </li>
     <li class="">
+      <%= link_to search_search_mentor_path, data: {target:'body'} do %>
+          <i class="fa fa-search"></i>
+          <span><%=t('search_mentor.title_search_mentor')%></span>
+      <% end %>
+    </li>
+    <li class="">
       <%= link_to  student_index_path, data: {target:'body'} do %>
           <i class="fa fa-graduation-cap"></i>
           <span><%=t('student_home.title_student_home')%></span>
@@ -47,20 +53,6 @@
           <i class="fa fa-level-up"></i>
           <span><%=t('roadmap.title_roadmap')%></span>
 
-      <% end %>
-    </li>
-
-    <li class="">
-      <%= link_to work_experiences_path, data: {target:'body'} do %>
-          <i class="fa fa-briefcase"></i>
-          <span><%=t('work_experiences.title_work_experiences')%></span>
-      <% end %>
-    </li>
-
-    <li class="">
-      <%= link_to educations_path, data: {target:'body'} do %>
-          <i class="fa fa-graduation-cap"></i>
-          <span><%=t('educations.title_educations')%></span>
       <% end %>
     </li>
 

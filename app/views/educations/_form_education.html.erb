@@ -1,62 +1,97 @@
 <%= form_for @education, html: {id: 'education_form', role: 'form'} do |f| %>
-    <div class="widget ">
-      <div class="widget-body">
-        <div id="paneleducation" class="innerLR">
-          <div class="education" id="<%= @education.id %>">
-            <div class="form-group">
-              <%= f.text_field :school_name, maxlength: 200, class: 'form-control', placeholder: t('educations.placeholder_school_name') %>
-            </div>
-
-            <div class="form-group">
-                <div class="checkbox">
-                  <label class="checkbox-custom">
-                    <%= f.check_box :current%><i class="fa fa-fw fa-square-o" style="margin-left: -13px;"></i> <%= t('educations.lb_current') %>
-                  </label>
-                </div>
-            </div>
-
-            <div class="form-group">
-              <div class="row">
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <%= f.select :start_year, year_options_for_select, {:include_blank => t('educations.placeholder_start_year')}, {class: "form-control"} %>
-                </div>
-                <div class="col-xs-6 col-sm-6 col-md-6">
-                  <%= f.select :end_year, year_options_for_select, {:include_blank => t('educations.placeholder_end_year')},  {class: "form-control"}%>
-                </div>
+    <!--<div class="widget ">-->
+    <div class="widget widget-body">
+      <div id="panelEducation" class="innerLR">
+        <div class="education" id="<%= @education.id %>">
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-2 col-md-2">
+                <label><%= t('education.lb_school_name')%><span class="requiredfield">*</span></label>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10">
+                <%= f.text_field :school_name, maxlength: 100, class: 'form-control', placeholder: t('education.lb_school_name') %>
               </div>
             </div>
+          </div>
 
-            <div class="form-group">
-                <%= f.text_area :description, maxlength: 200, class: 'form-control', placeholder: t('educations.placeholder_description'), rows: 2 %>
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-2 col-md-2">
+                <label><%= t('education.lb_school_url')%></label>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10">
+                <%= f.text_field :school_url, maxlength: 500, class: 'form-control', placeholder: t('education.lb_school_url') %>
+              </div>
             </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-4 col-sm-2 col-md-2">
+                <label><%= t('education.lb_date_attended')%></label>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <%= f.select :start_year, year_options_for_select, {:include_blank => t('education.lb_year')}, {class: "form-control"} %>
+              </div>
+              <div class="col-xs-3 col-sm-3 col-md-3">
+                <%= f.select :graduation_year, year_options_for_select, {:include_blank => t('education.lb_year')},  {class: "form-control"}%>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-2 col-md-2">
+                <label><%= t('education.lb_degree')%></label>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10">
+                <%= f.collection_select :app_param_id, AppParam.where(name: 'degree').order_by(code: 1), :id, :value, {:include_blank =>  t('education.placeholder_degree')}, {class: 'form-control'} %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-2 col-md-2">
+                <label><%= t('education.lb_field_of_study')%></label>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10">
+                <%= f.text_field :field_of_study, maxlength: 100, class: 'form-control', placeholder: t('education.lb_field_of_study') %>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <div class="row">
+              <div class="col-xs-12 col-sm-2 col-md-2">
+                <label><%= t('education.lb_grade')%></label>
+              </div>
+              <div class="col-xs-12 col-sm-10 col-md-10">
+                <%= f.text_field :grade, maxlength: 100, class: 'form-control', placeholder: t('education.lb_grade') %>
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label><%= t('education.lb_activities_societies')%></label>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :activities_societies, maxlength: 2000, class: 'form-control', placeholder: t('education.lb_activities_societies'), rows: 3 %>
+          </div>
+          <div class="form-group">
+            <label><%= t('education.lb_description')%></label>
+          </div>
+          <div class="form-group">
+            <%= f.text_area :description, maxlength: 2000, class: 'form-control', placeholder: t('education.lb_description'), rows: 3 %>
+          </div>
+
         </div>
       </div>
     </div>
-    </div>
+    <!--</div>-->
 
 <% end %>
 
-<script>
-    $(document).ready(function () {
-        $('.checkbox-custom > input[type=checkbox]').each(function () {
-            var $this = $(this);
-            if ($this.data('checkbox')) return;
-            $this.checkbox($this.data());
-        });
 
-        if ($("#education_current").attr('checked') == 'checked') {
-            $("#education_end_year").val('');
-            $("#education_end_year").prop('disabled',true);
-        }
 
-        $("#education_current").change(function() {
-            if(this.checked) {
-                $("#education_end_year").val('');
-                $("#education_end_year").prop('disabled',true);
-            } else {
-                $("#education_end_year").prop('disabled',false);
-            }
-        });
 
-    });
-</script>
+

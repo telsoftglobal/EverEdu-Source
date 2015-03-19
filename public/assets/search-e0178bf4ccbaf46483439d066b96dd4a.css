@@ -5,13 +5,6 @@
   border-color: #efefef;
 }
 
-@media screen and (max-width: 767px) {
-  /* line 23, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
-  .search-form .btn-primary {
-    width: 100%;
-    margin-top: 10px;
-  }
-}
 /* line 34, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/search.css.scss */
 p.has-error {
   color: #A94442;

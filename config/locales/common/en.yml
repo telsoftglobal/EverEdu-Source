@@ -46,6 +46,7 @@ en:
     btn_confirm: "Confirm"
     btn_go: "Go"
     btn_select: "Select"
+    btn_advance: "Advance"
   search:
     placeholder: "Search for mentors or courses"
   date:

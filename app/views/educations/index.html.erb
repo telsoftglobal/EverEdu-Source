@@ -1,33 +1,44 @@
-<div class="innerLR">
+<!--<div class="widget ">-->
+<div class="innerAll">
+  <h4 class="margin-none strong">
+    <a url="<%= educations_path %>" href="<%= educations_path %>" data-toggle="modal"><%= t('education.title_education') %></a>
+  </h4>
 
-  <div class="widget">
-    <div class="innerAll bg-gray border-bottom">
-      <h4 class="margin-none strong"><%=t('educations.title_educations')%> </h4>
-      <div class="clearfix"></div>
-    </div>
-
-    <%= render 'new_education'%>
-    <div id="educations_list" class="widget-body padding-none">
-      <%= render @educations %>
-    </div>
-  </div>
-
+  <div class="clearfix"></div>
 </div>
+<div class="widget innerLR">
+  <div class="innerAll border-bottom" id="education_new">
+    <ul class="media-list margin-none">
+      <a class="education" url="<%= new_education_path %>" href="#" data-toggle="modal" modal_title="<%= t('education.title_new_education') %>">
+        <li class="media">
+                <span class="pull-left innerAll half empty-photo">
+                    <i class="fa fa-plus" style="margin-left: 3px; margin-right: 3px;"></i>
+                  <%= t('education.title_new_education') %>
+                </span>
+        </li>
+      </a>
+    </ul>
 
+  </div>
+  <div id="educations_list" class="widget-body padding-none">
+    <%= render @educations %>
+  </div>
+</div>
 
 <!-- Modal -->
 <div class="modal fade" id="educationModal" tabindex="-1" role="dialog" aria-labelledby="educationModalLabel" aria-hidden="true">
   <div class="modal-dialog">
     <div class="modal-content">
       <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+        <button type="button" class="close" data-dismiss="modal">
+          <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="educationModalLabel">Modal title</h4>
       </div>
-      <div id="modalContent" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalContenteducation" class="modal-body" style="max-height: 430px; overflow-y: auto">
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('button.btn_cancel')%></button>
-        <button id="btnSave" type="button" class="btn btn-primary"><%=t('button.btn_save')%></button>
+        <button id="btnSaveeducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
+        <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel') %></button>
       </div>
     </div>
   </div>
@@ -36,103 +47,176 @@
 
 <script>
     $(document).ready(function () {
-        $('a.education').click( function (e) {
+        $('#educationModal').on('shown.bs.modal', function() {
+            $('#education_school_name').focus();
+        })
+        $('a.education').click(function (e) {
             openEducationModal(this, e);
         });
 
-        $('a.editEducation').click( function (e) {
+        $('a.editEducation').click(function (e) {
             openEditEducationModal(this, e);
         });
 
-        $('a.deleteEducation').click( function (e) {
+        $('a.deleteEducation').click(function (e) {
             processDeleteEducation(this, e);
         });
 
-        $("#btnSave").click(function(){
+        $("#btnSaveHistoryJob").click(function () {
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
+//            alert("fjsd");
 
             $("#education_form").validate({
                 onfocusout: false,
                 onkeyup: false,
                 rules: {
-                    "education[school_name]": {required: {depends:function() {
-                        var text = $.trim($(this).val());
-                        text=text.replace(/\s+/g, ' ');
-                        $(this).val(text);
-                        return true;
-                    }}, maxlength: 200},
-                    "education[start_year]": {required: true},
-                    "education[end_year]": {greater_or_equals: "#education_start_year"},
-                    "education[description]": {maxlength: {
-                        param: 200,
-                        depends:function(){
-                            var text = $.trim($(this).val());
-                            text=text.replace(/\s+/g, ' ');
-                            $(this).val(text);
-                            return true;
+                    "education[school_name]": {
+                        required: {
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }, maxlength: 100
+                    },
+                    "education[field_of_study]": {
+                        maxlength: {
+                            param: 100,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
                         }
-                    }}
-                },
-                messages: {
-                    "education[school_name]": {required: I18n.t('js.validate.msg_required'), maxlength: I18n.t('js.validate.msg_maxlength')},
-                    "education[start_year]": {required: I18n.t('js.validate.msg_required')},
-                    "education[end_year]": {greater_or_equals: I18n.t('js.validate.msg_greater_than_start_date')},
-                    "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
-                },
-                errorPlacement: function (error, element) {
-                    error.insertAfter(element);
-                },
-                submitHandler: function (form) {
-                },
-                invalidHandler: function (form, validator) {
-                    $('#div_msg_error').text('');
+                    },
+                    "education[grade]": {
+                        maxlength: {
+                            param: 100,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }
+                    },
+                    "education[start_year]": {validStartTime: true},
+                    "education[graduation_year]": {end_time_greater_or_equal_start_time:true},
+                    "education[activities_societies]": {
+                        maxlength: {
+                            param:500 ,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }
+                    },
+                    "education[description]": {
+                        maxlength: {
+                            param:1000 ,
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }
+                    },
+                    "education[school_url]": {
+                        url: {
+                            depends: function () {
+                                var text = $.trim($(this).val());
+                                text = text.replace(/\s+/g, ' ');
+                                $(this).val(text);
+                                return true;
+                            }
+                        }, maxlength: 500
+                    },
+                    messages: {
+                        "education[school_name]": {
+                            required: I18n.t('js.validate.msg_required'),
+                            maxlength: I18n.t('js.validate.msg_maxlength')
+                        },
+                        "education[field_of_study]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[grade]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[start_year]": {validEndTime: I18n.t('history_job.msg_valid_date')},
+                        "education[graduation_year]": {
+                            end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
+                        },
+                        "education[activities_societies]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                    },
+                    errorPlacement: function (error, element) {
+                        error.insertAfter(element);
+                    },
+                    submitHandler: function (form) {
+                    },
+                    invalidHandler: function (form, validator) {
+                        $('#div_msg_error').text('');
+                        alert(validator.errorList[0].element);
+                        var errors = validator.numberOfInvalids();
+                        if (errors) {
+                            alert(validator.errorList[0].element);
+                            validator.errorList[0].element.focus();
 
-                    var errors = validator.numberOfInvalids();
-                    if (errors) {
-                        validator.errorList[0].element.focus();
+                        }
                     }
                 }
             });
+            $.validator.addMethod("end_time_greater_or_equal_start_time", function (value, element) {
+                var start_year = $('#education_start_year').val();
+                var graduation_year = $("#education_graduation_year").val();
+                return (graduation_year >= start_year)
+            }, "end time greater or equal to start time");
+
+            $.validator.addMethod("validStartTime", function (value, element) {
+                var start_year = $('#education_start_year').val();
+                return (start_year <= Time.now().year)
+            }, "date invalid");
 
             var valid = $("#education_form").valid();
-            if(!valid) {
+            if (!valid) {
                 return false;
             }
 
-            BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('educations.msg_confirm_save')%>', function(result){
-                $.loader.open({size:32});
-                if(result) {
-                    var url = $("#education_form").attr("action");
-                    var data = $("#education_form").serializeArray();
-                    $.ajax({
-                        type: "POST",
-                        url: url,
-                        data: data,
-                        beforeSend: function (xhr) {
-                            $.loader.open({size:32});
-                        },
-                        dataType: "script",
-                        success: function () {
-                            $.loader.close(true);
-                        },
-                        error: function (xhr, status, response) {
-                            console.log("AJAX Error: " + status)
-                            $.loader.close(true);
-                        }
-                    });
-                }else {
+//            BootstrapDialog.confirm('<%= t('confirm.title_confirm') %>','<%= t('button.btn_save') %>','<%= t('button.btn_cancel') %>','<%= t('educations.msg_confirm_save')%>', function(result){
+//                $.loader.open({size:32});
+//                if(result) {
+            var url = $("#education_form").attr("action");
+            var data = $("#education_form").serializeArray();
+            $.ajax({
+                type: "POST",
+                url: url,
+                data: data,
+                beforeSend: function (xhr) {
+                    $.loader.open({size: 32});
+                },
+//                        dataType: "script",
+                success: function () {
+                    $.loader.close(true);
+                },
+                error: function (xhr, status, response) {
+                    console.log("AJAX Error: " + status)
                     $.loader.close(true);
                 }
             });
-
+//                }else {
+//                    $.loader.close(true);
+//                }
+//            });
+//
         });
 
     });
 </script>
 
 <script>
-    function processDeleteEducation(element, e) {
+    function processDeleteHistoryJob(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
@@ -142,9 +226,9 @@
         var title_button_ok = $(element).attr("title_button_ok");
         var title_button_cancel = $(element).attr("title_button_cancel");
 
-        BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel,title_msg_confirm, function(result){
-            $.loader.open({size:32});
-            if(result) {
+        BootstrapDialog.confirm(title_confirm, title_button_ok, title_button_cancel, title_msg_confirm, function (result) {
+            $.loader.open({size: 32});
+            if (result) {
                 $.ajax({
                     type: "DELETE",
                     url: url,
@@ -152,7 +236,7 @@
                         id: id
                     },
                     beforeSend: function (xhr) {
-                        $.loader.open({size:32});
+                        $.loader.open({size: 32});
                     },
                     dataType: "script",
                     success: function () {
@@ -163,18 +247,20 @@
                         $.loader.close(true);
                     }
                 });
-            }else {
+            } else {
                 $.loader.close(true);
             }
         });
-    };
+    }
+    ;
 
     function openEducationModal(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
         var title = $(element).attr("modal_title");
-        console.log('openEducationModal' + url + id + title)
+//        alert(url);
+//        alert('openHistoryJobModal' + url + id + title)
         $.ajax({
             type: "GET",
             url: url,
@@ -182,13 +268,15 @@
                 id: id
             },
             beforeSend: function (xhr) {
-                $.loader.open({size:32});
+                $.loader.open({size: 32});
             },
             dataType: "script",
             success: function () {
                 $.loader.close(true);
-                $('#educationModal').modal({backdrop: 'static',
-                    keyboard: false});
+                $('#educationModal').modal({
+                    backdrop: 'static',
+                    keyboard: false
+                });
                 $("#educationModalLabel").text(title);
             },
             error: function (xhr, status, response) {
@@ -196,7 +284,8 @@
                 $.loader.close(true);
             }
         });
-    };
+    }
+    ;
 
     function openEditEducationModal(element, e) {
         e.preventDefault();
@@ -212,7 +301,7 @@
                 id: id
             },
             beforeSend: function (xhr) {
-                $.loader.open({size:32});
+                $.loader.open({size: 32});
             },
             dataType: "script",
             success: function (data) {
@@ -224,5 +313,6 @@
                 $.loader.close(true);
             }
         });
-    };
+    }
+    ;
 </script>

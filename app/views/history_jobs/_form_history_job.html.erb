@@ -15,8 +15,8 @@
     }
 </style>
 <%= form_for @history_job, html: {id: 'history_job_form', role: 'form'} do |f| %>
-    <!--<div class="widget ">-->
-      <div class="widget widget-body">
+    <div class="widget ">
+      <div class="widget-body">
         <div id="panelhistoryjob" class="innerLR">
           <div class="historyjob" id="<%= @history_job.id %>">
             <div class="form-group">
@@ -94,7 +94,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2">
                   <label><%= t('history_job.start_time')%><span class="requiredfield">*</span></label>
                 </div>
-                <div class="col-xs-10 col-sm-10 col-md-10">
+                <div class="col-xs-10 col-sm-10 col-md-8">
                   <%= f.date_select :start_time , with_css_classes: true, discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
                 </div>
               </div>
@@ -104,7 +104,7 @@
                 <div class="col-xs-2 col-sm-2 col-md-2">
                   <label id="lbEndTime" ><%= t('history_job.end_time')%></label><span id="spanEndTime" class="requiredfield">*</span>
                 </div>
-                <div class="col-xs-10 col-sm-10 col-md-10">
+                <div class="col-xs-10 col-sm-10 col-md-8">
                   <%= f.date_select :end_time, with_css_classes: true, discard_day: true, order: [:month, :year], prompt: { month: t('history_job.month'), year: t('history_job.year') }, end_year: 1905, :start_year => Date.current.year%>
                 </div>
               </div>
@@ -128,7 +128,7 @@
           </div>
         </div>
       </div>
-    <!--</div>-->
+    </div>
 
 <% end %>
 

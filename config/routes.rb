@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
+  post 'search/search_mentor_advance'
   get 'search/searchdesgin'
+  get 'search/search_mentor'
   resources :app_params
   resources :educations
 

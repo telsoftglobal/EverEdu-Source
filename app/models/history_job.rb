@@ -1,6 +1,6 @@
 class HistoryJob
   include Mongoid::Document
-  include Mongoid::Timestamps
+  # include Mongoid::Timestamps
 
   COMPANY_NAME_MAX_LENGTH = 100
   TITLE_MAX_LENGTH = 100

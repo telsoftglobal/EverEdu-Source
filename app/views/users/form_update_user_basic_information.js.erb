@@ -1,1 +1,2 @@
 $('#user_profile').hide().html('<%= escape_javascript(render(:partial  => 'users/form_update_user_basic_information', locals: {user: @user})) %>').fadeIn("slow");
+$("#user_first_name").focus();

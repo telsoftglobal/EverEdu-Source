@@ -37,6 +37,7 @@ class UsersController < ApplicationController
   def profile
     @user = User.find(session[:user_id]);
     @history_jobs = @user.history_jobs.order_by(current:-1,end_time: -1, start_time: -1).limit(HistoryJobsController::COUNT_JOB_DISPLAY)
+    @educations = @user.educations.order_by(start_year: -1).limit(EducationsController::COUNT_EDUCATION_DISPLAY)
     @specialties = @user.specialties.limit(6)
   end
 
@@ -69,7 +70,6 @@ class UsersController < ApplicationController
       else
         if @avatar.errors
           # remove duplicate error message
-          photo_file_size =
           if @avatar.errors[:photo]
             @avatar.errors[:photo].each do |error|
               existed = false
@@ -89,7 +89,6 @@ class UsersController < ApplicationController
             end
           end
           @avatar.errors.messages[:photo] = nil
-
           flash.now[:error] = @avatar.errors.full_messages.to_sentence(:last_word_connector => ', ');
         else
           flash.now[:error] = t('users.msg_change_avatar_fail')
@@ -235,7 +234,7 @@ class UsersController < ApplicationController
         last_name = params[:user][:last_name]
         if email.nil? || email=='' || first_name.nil? || first_name=='' || last_name.nil? || last_name==''
         #   messgae empty
-          flash[:error] = t('users.msg_empty_field')
+          flash.now[:error] = t('users.msg_empty_field')
           render partial: 'users/update_basic_information/update_fail'
         else
           gender = params[:user][:gender]
@@ -246,30 +245,17 @@ class UsersController < ApplicationController
           else
             birth_day = Date.new(params[:user]['birth_day(1i)'].to_i,params[:user]['birth_day(2i)'].to_i,params[:user]['birth_day(3i)'].to_i)
             if birth_day > Time.now
-              raise t('users.msg_verify_data')
+              flash.now[:error] =  t('users.msg_verify_data')
+              render partial: 'users/update_basic_information/update_fail'
             end
           end
-
           phone_number = params[:user][:phone_number]
-          # phone_number = (phone_number.nil? || phone_number=='') ? nil : phone_number
-          # if !phone_number.nil?
-          #   if !phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/
-          #     raise t('users.msg_verify_data')
-          #   end
-          # else
-          #   raise t('users.msg_verify_data')
-          # end
-          # if (phone_number.nil? || phone_number=='' || !(phone_number =~ /\A\d{3}-\d{3}-\d{4}\z/))
-          #
-          # end
           address = params[:user][:address]
-          # address = (address.nil? || address=='') ? nil : address
           city = params[:user][:city]
-          # city = (city.nil? || city=='') ? nil : city
           introduction = params[:user][:introduction]
           if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>25 || address.length>100 || city.length>100 || introduction.gsub("\n",'').strip.length>2000
-            raise t('users.msg_verify_data')
-            # render partial: 'users/update_basic_information/update_fail'
+            flash.now[:error] = t('users.msg_verify_data')
+            render partial: 'users/update_basic_information/update_fail'
           else
             id = BSON::ObjectId.from_string(session[:user_id])
             @user  = User.find_by(id: id )
@@ -279,21 +265,24 @@ class UsersController < ApplicationController
               country = Country.find_by(id: params[:user][:country])
             end
             if(@user.email!=params[:user][:email])
-              if User.find_by_email(params[:user][:email]).nil?
+              if User.find_by(email: params[:user][:email]).nil?
                 if params[:user][:password_confirmation].nil? || params[:user][:password_confirmation]=='' || @user.hashed_password != User.encrypt_password(params[:user][:password_confirmation], @user.salt)
-                  raise t('users.msg_empty_or_wrong_password')
+                  flash.now[:error] = t('users.msg_empty_or_wrong_password')
+                  render partial: 'users/update_basic_information/update_fail'
                 else
                   #   update email
                   if @user.update_attributes(email: email.strip, first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country, introduction: introduction.gsub("\n",'').strip )
                     flash[:now] = t('users.msg_update_success')
                     render partial: 'users/update_basic_information/update_success'
                   else
-                    raise t('users.msg_update_failed')
+                    flash.now[:error] = t('users.msg_update_failed')
+                    render partial: 'users/update_basic_information/update_success'
                   end
                 end
               else
               #  mes trung mail
-                raise t('users.msg_email_exist')
+                flash.now[:error] = t('users.msg_email_exist')
+                render partial: 'users/update_basic_information/update_fail'
               end
             else
               # / khong update email
@@ -301,7 +290,8 @@ class UsersController < ApplicationController
                 flash[:now] = t('users.msg_update_success')
                 render partial: 'users/update_basic_information/update_success'
               else
-                raise t('users.msg_update_failed')
+                flash.now[:error] = t('users.msg_update_failed')
+                render partial: 'users/update_basic_information/update_fail'
               end
             end
             User.process_when_update(@user)
@@ -309,7 +299,7 @@ class UsersController < ApplicationController
         end
       end
     rescue Exception => e
-      flash[:error] = e.message
+      flash.now[:error] = t('users.msg_update_failed')
       render partial: 'users/update_basic_information/update_fail'
     end
   end

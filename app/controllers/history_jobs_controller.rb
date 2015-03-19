@@ -110,7 +110,7 @@ class HistoryJobsController < ApplicationController
           format.js { render action: 'destroy_fail' }
         end
       else
-        @current_user.history_job.delete(@history_job)
+        @current_user.history_jobs.delete(@history_job)
 
         if @history_job.errors && !@history_job.errors.messages.empty?
           flash.now[:error] = @history_job.errors.full_messages.to_sentence(:last_word_connector => ', ');

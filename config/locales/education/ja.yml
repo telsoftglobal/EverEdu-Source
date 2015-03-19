@@ -20,7 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 ja:
-  educations:
+  education:
     title_educations: "教育"
     title_new_education: "新教育"
     title_edit_education: "編集教育"
