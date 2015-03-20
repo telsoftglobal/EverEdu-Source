@@ -78,10 +78,12 @@
                       </ul>
                     </div>
                 <% end %>
-                  <div class="input-group">
-                    <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control search_all", maxlength:200 %>
+                  <div class="input-group row">
+                    <div id="cuongtest" class="col-xs-11">
+                    <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control", maxlength:200 %>
+                    </div>
                     <div class="input-group-btn"><button class="btn btn-primary rounded-none" type="submit" style="height: 33px;"><i class="fa fa-search"></i></button></div>
-                    <div id="group_advance" class="input-group-btn"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 32px;"><%= t('button.btn_advance') %></button></div>
+                    <div id="group_advance" class="input-group-btn col-xs-1"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 32px;"><%= t('button.btn_advance') %></button></div>
                   </div>
             <% end %>
             </div>
@@ -116,10 +118,15 @@
 
 <script>
     $("#keyword").focus(function() {
-        $("#group_advance").fadeOut("medium");
+        $('#cuongtest').toggleClass('col-xs-11 col-xs-1');
+
+        $('#group_advance').toggleClass('col-xs-11 col-xs-1');
     });
     $("#keyword").blur(function() {
-        $("#group_advance").fadeIn("medium");
+        $('#cuongtest').toggleClass('col-xs-11 col-xs-1');
+
+        $('#group_advance').toggleClass('col-xs-11 col-xs-1');
+//        $("#group_advance").fadeIn("medium");
     });
     $("#advsearchButton").click(function(e){
         e.preventDefault();
