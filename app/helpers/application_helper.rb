@@ -26,6 +26,23 @@ module ApplicationHelper
     year_options
   end
 
+  def year_graduation_edu_options_for_select
+    year_options = Array.new
+    # year_options <<["", ""]
+    (1905..Time.now.year+10).to_a.reverse.each do |year|
+      year_options << [year, year]
+    end
+    year_options
+  end
+
+  def month_options_for_select
+    month_options = Array.new
+    # year_options <<["", ""]
+    # @months = [['-', '']]
+    (1..12).each {|m| month_options << [Date::MONTHNAMES[m], m]}
+    month_options
+  end
+
   def normalize_text(text)
     if !text.nil?
       text = (h(text).gsub(/\n/, '<br/>')).html_safe
