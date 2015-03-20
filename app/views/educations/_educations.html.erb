@@ -34,7 +34,7 @@
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="educationModalLabel">Modal title</h4>
       </div>
-      <div id="modalContentEducation" class="modal-body" style="max-height: 500px; overflow-y: auto">
+      <div id="modalContentEducation" class="modal-body" style="max-height: 400px; overflow-y: auto">
       </div>
       <div class="modal-footer">
         <button id="btnSaveEducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
@@ -102,7 +102,7 @@
                             }
                         }
                     },
-                    "education[start_year]": {validStartTime: true},
+//                    "education[start_year]": {validStartTime: true},
 //                    "education[graduation_year]": {end_time_greater_or_equal_start_time:true},
                     "education[activities_societies]": {
                         maxlength: {
@@ -175,11 +175,11 @@
 //                    return true
 //            }, "end time greater or equal to start time");
 
-            $.validator.addMethod("validStartTime", function (value, element) {
-                var start_year = $('#education_start_year').val();
-                var year = Date.year
-                return (start_year <= year)
-            }, "date invalid");
+//            $.validator.addMethod("validStartTime", function (value, element) {
+//                var start_year = $('#education_start_year').val();
+//                var year = Date.year
+//                return (start_year <= year)
+//            }, "date invalid");
 
             var valid = $("#education_form").valid();
             if (!valid) {

@@ -435,29 +435,51 @@
             if(!(year_select=="" || month_select=="")){
                 days = new Date(year_select,month_select,1,-1).getDate();
                 var current_select = $("#user_birth_day_3i").val();
-                $("#user_birth_day_3i option").hide();
-                $("#user_birth_day_3i option").prop('disabled', true);
-    //            alert(days);
-                $("#user_birth_day_3i option[value='']").show();
-                $("#user_birth_day_3i option[value='']").prop('disabled', false);
+//                $("#user_birth_day_3i option").hide();
+//                $("#user_birth_day_3i option").prop('disabled', true);
+//    //            alert(days);
+//                $("#user_birth_day_3i option[value='']").show();
+//                $("#user_birth_day_3i option[value='']").prop('disabled', false);
+                $("#user_birth_day_3i option").remove();
+                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
                 for(var i=1;i<=days;i++){
 
-                    $("#user_birth_day_3i option[value="+i+"]").show();
-                    $("#user_birth_day_3i option[value="+i+"]").prop('disabled', false);
+//                    $("#user_birth_day_3i option[value="+i+"]").show();
+//                    $("#user_birth_day_3i option[value="+i+"]").prop('disabled', false);
+
+
+                    $("#user_birth_day_3i").append('<option val="'+i+'">'+i+'</option>');
+
                 }
-                if(current_select!=null){
+                console.log(current_select);
+                if(current_select!=""){
+//                    console.log("true");
+                    $("#user_birth_day_3i").val(current_select)
                     if(current_select>days){
+//                        console.log(current_select>days);
                         $("#user_birth_day_3i").val(days);
                     }
+                }else{
+                    $("#user_birth_day_3i")[0].selectedIndex=0;
                 }
-            }else{
-                $("#user_birth_day_3i option[value='']").show();
-                $("#user_birth_day_3i option[value='']").prop('disabled', false);
+            }
+            else{
+                var current_select = $("#user_birth_day_3i").val();
+                $("#user_birth_day_3i option").remove();
+                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
                 for(var i=1;i<=31;i++){
+                    $("#user_birth_day_3i").append('<option val="'+i+'">'+i+'</option>');
 
-                    $("#user_birth_day_3i option[value="+i+"]").show();
-                    $("#user_birth_day_3i option[value="+i+"]").prop('disabled', false);
                 }
+
+
+                if(current_select!=""){
+                    $("#user_birth_day_3i").val(current_select)
+                }else{
+                    $("#user_birth_day_3i")[0].selectedIndex=0;
+                }
+
+
             }
         }
 

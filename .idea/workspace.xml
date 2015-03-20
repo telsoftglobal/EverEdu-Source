@@ -18,8 +18,8 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_email_format__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_email_format: JP-AES_v0.2 Coverage Results" MODIFIED="1426134794742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_email__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_email: JP-AES_v0.2 Coverage Results" MODIFIED="1426134506498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@db_mongoid_remove_indexes__JP_AES_v0_2.coverage" NAME="db:mongoid:remove_indexes: JP-AES_v0.2 Coverage Results" MODIFIED="1426502281243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_insert_a_record__JP_AES_v0_2.coverage" NAME="test_insert_a_record: JP-AES_v0.2 Coverage Results" MODIFIED="1426581249610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_ex__JP_AES_v0_2.coverage" NAME="test_ex: JP-AES_v0.2 Coverage Results" MODIFIED="1426576371343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_insert_a_record__JP_AES_v0_2.coverage" NAME="test_insert_a_record: JP-AES_v0.2 Coverage Results" MODIFIED="1426581249610" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_first_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_first_name: JP-AES_v0.2 Coverage Results" MODIFIED="1425963652674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_all__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_all: JP-AES_v0.2 Coverage Results" MODIFIED="1426134575127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@Production__JP_AES_v0_2.coverage" NAME="Production: JP-AES_v0.2 Coverage Results" MODIFIED="1426759535944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
@@ -32,7 +32,7 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_phone_number__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_phone_number: JP-AES_v0.2 Coverage Results" MODIFIED="1426134359209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_init_Country__JP_AES_v0_2.coverage" NAME="test_init_Country: JP-AES_v0.2 Coverage Results" MODIFIED="1426648479892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_birth_day__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_birth_day: JP-AES_v0.2 Coverage Results" MODIFIED="1426134325634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1426759296714" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1426762384932" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_last_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_last_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134712942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_generate_test_data__JP_AES_v0_2.coverage" NAME="test_generate_test_data: JP-AES_v0.2 Coverage Results" MODIFIED="1425794776594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134753926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
@@ -44,7 +44,7 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_first_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_first_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134524294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134376240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@db_mongoid_create_indexes__JP_AES_v0_2.coverage" NAME="db:mongoid:create_indexes: JP-AES_v0.2 Coverage Results" MODIFIED="1426502293173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Development__JP_AES_v0_2.coverage" NAME="Development: JP-AES_v0.2 Coverage Results" MODIFIED="1426759649369" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Development__JP_AES_v0_2.coverage" NAME="Development: JP-AES_v0.2 Coverage Results" MODIFIED="1426816952652" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_email__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_email: JP-AES_v0.2 Coverage Results" MODIFIED="1426134585788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -65,11 +65,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="en.yml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/config/locales/user/en.yml">
+      <file leaf-file-name="i18n.rb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/config/initializers/i18n.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.36334404" vertical-offset="764" max-vertical-offset="1386">
-              <caret line="55" column="35" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="35" />
+            <state vertical-scroll-proportion="0.13043478" vertical-offset="0" max-vertical-offset="276">
+              <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
               <folding />
             </state>
           </provider>
@@ -138,8 +138,8 @@
         <option value="$PROJECT_DIR$/app/views/history_jobs/_history_jobs.html.erb" />
         <option value="$PROJECT_DIR$/app/views/history_jobs/_form_history_job.html.erb" />
         <option value="$PROJECT_DIR$/Gemfile" />
-        <option value="$PROJECT_DIR$/app/views/users/_form_update_user_basic_information.html.erb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/default.js" />
+        <option value="$PROJECT_DIR$/app/views/users/_form_update_user_basic_information.html.erb" />
       </list>
     </option>
   </component>
@@ -244,73 +244,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="user" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="common" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="locales" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="comment" />
+              <option name="myItemId" value="initializers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -427,28 +361,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="JP-AES_v0.2" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="assets" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -848,28 +760,28 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="743" extended-state="0" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5331279" sideWeight="0.7465857" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46995378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3020031" sideWeight="0.6327769" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34976888" sideWeight="0.3239757" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5331279" sideWeight="0.7465857" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32819724" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32094082" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32473445" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3020031" sideWeight="0.6327769" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3420647" sideWeight="0.67602426" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34976888" sideWeight="0.3239757" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46995378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7550077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -1078,13 +990,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/i18n.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.08144797" vertical-offset="0" max-vertical-offset="442">
-          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/_leftmenu.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.48692152" vertical-offset="316" max-vertical-offset="2286">
@@ -1111,7 +1016,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="63" max-vertical-offset="1026">
           <caret line="19" column="0" selection-start-line="19" selection-start-column="2" selection-end-line="26" selection-end-column="3" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1127,13 +1031,6 @@
         <state vertical-scroll-proportion="-0.244373" vertical-offset="152" max-vertical-offset="774">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-0.041800644" vertical-offset="1178" max-vertical-offset="1908">
-          <caret line="64" column="0" selection-start-line="64" selection-start-column="0" selection-end-line="64" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -1153,14 +1050,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/locales/common/en.yml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.4340836" vertical-offset="594" max-vertical-offset="1584">
-          <caret line="48" column="4" selection-start-line="48" selection-start-column="4" selection-end-line="48" selection-end-column="26" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/search/en.yml">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="440" max-vertical-offset="1062">
@@ -1173,7 +1062,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="28.444445" vertical-offset="768" max-vertical-offset="1350">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1181,7 +1069,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.11340206" vertical-offset="66" max-vertical-offset="648">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1197,7 +1084,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-6.6666665" vertical-offset="270" max-vertical-offset="2250">
           <caret line="25" column="17" selection-start-line="25" selection-start-column="17" selection-end-line="25" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1205,7 +1091,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="622">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1213,7 +1098,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.4679803" vertical-offset="237" max-vertical-offset="2682">
           <caret line="29" column="23" selection-start-line="29" selection-start-column="23" selection-end-line="29" selection-end-column="23" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1221,7 +1105,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.3454545" vertical-offset="26330" max-vertical-offset="34704">
           <caret line="1473" column="44" selection-start-line="1473" selection-start-column="32" selection-end-line="1473" selection-end-column="44" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1229,16 +1112,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.3608246" vertical-offset="2538" max-vertical-offset="20952">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1426576788248" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1246,7 +1119,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="609">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,7 +1126,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="6" max-vertical-offset="2754">
           <caret line="5" column="2" selection-start-line="5" selection-start-column="2" selection-end-line="5" selection-end-column="2" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1262,7 +1133,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1752" max-vertical-offset="5976">
           <caret line="63" column="0" selection-start-line="63" selection-start-column="0" selection-end-line="63" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1278,7 +1148,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.030927835" vertical-offset="0" max-vertical-offset="582">
           <caret line="1" column="0" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1286,7 +1155,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="622">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1294,7 +1162,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="582">
           <caret line="0" column="145" selection-start-line="0" selection-start-column="145" selection-end-line="0" selection-end-column="145" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1302,9 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1314">
           <caret line="0" column="65" selection-start-line="0" selection-start-column="65" selection-end-line="0" selection-end-column="65" />
-          <folding>
-            <element signature="n#style#0;n#label#1;n#div#7;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1320,7 +1184,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="1.6" vertical-offset="0" max-vertical-offset="2376">
           <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1328,7 +1191,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1854">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1336,17 +1198,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6494845" vertical-offset="648" max-vertical-offset="3870">
           <caret line="57" column="0" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#i#0;n#a#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#0;n#div#1;n#div#1;n#div#1;n#div#0;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <marker date="1426762110523" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1426762110523" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1426762110523" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1426762110523" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1362,7 +1213,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.6597938" vertical-offset="894" max-vertical-offset="3852">
           <caret line="71" column="24" selection-start-line="71" selection-start-column="24" selection-end-line="71" selection-end-column="55" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1370,7 +1220,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.96907216" vertical-offset="3180" max-vertical-offset="5562">
           <caret line="208" column="0" selection-start-line="197" selection-start-column="11" selection-end-line="208" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1378,7 +1227,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.1299639" vertical-offset="166856" max-vertical-offset="246186">
           <caret line="9235" column="17" selection-start-line="9235" selection-start-column="6" selection-end-line="9235" selection-end-column="17" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1386,15 +1234,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.371134" vertical-offset="648" max-vertical-offset="3186">
           <caret line="24" column="5" selection-start-line="24" selection-start-column="5" selection-end-line="24" selection-end-column="5" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/users/_form_update_user_basic_information.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.72202164" vertical-offset="6890" max-vertical-offset="8442">
-          <caret line="405" column="3" selection-start-line="405" selection-start-column="3" selection-end-line="407" selection-end-column="16" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1402,14 +1241,45 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5659164" vertical-offset="656" max-vertical-offset="1296">
           <caret line="74" column="39" selection-start-line="74" selection-start-column="39" selection-end-line="74" selection-end-column="39" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/locales/user/en.yml">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.36334404" vertical-offset="764" max-vertical-offset="1386">
+        <state vertical-scroll-proportion="0.0" vertical-offset="764" max-vertical-offset="1386">
           <caret line="55" column="35" selection-start-line="55" selection-start-column="28" selection-end-line="55" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/locales/common/en.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.20257235" vertical-offset="810" max-vertical-offset="1602">
+          <caret line="52" column="4" selection-start-line="52" selection-start-column="4" selection-end-line="52" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/mongoid.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1286" max-vertical-offset="1908">
+          <caret line="86" column="6" selection-start-line="86" selection-start-column="6" selection-end-line="86" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/views/users/_form_update_user_basic_information.html.erb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.5670103" vertical-offset="8166" max-vertical-offset="8838">
+          <caret line="472" column="17" selection-start-line="472" selection-start-column="17" selection-end-line="472" selection-end-column="17" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/i18n.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.13043478" vertical-offset="0" max-vertical-offset="276">
+          <caret line="2" column="38" selection-start-line="2" selection-start-column="38" selection-end-line="2" selection-end-column="38" />
           <folding />
         </state>
       </provider>
