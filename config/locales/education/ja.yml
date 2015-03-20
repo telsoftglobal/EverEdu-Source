@@ -49,3 +49,7 @@ ja:
     msg_confirm_save: "あなたが保存しますか？"
     title_confirm_delete_education: "削除教育を確認"
     msg_confirm_delete_education: "あなたはこの教育を削除しますか？"
+
+    msg_endtime_greater_starttime: "卒業日付が等しいか、開始日よりも大きい入力してください。"
+    msg_valid_date: "日付を入力してください遅くとも石炭は今年ではない。"
+

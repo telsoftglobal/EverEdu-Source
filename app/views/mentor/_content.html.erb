@@ -96,9 +96,13 @@
                 <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
                   <div class="panel-body">
                     <div class="row">
-                      <div class="col-md-2" id="amazon_book" style="height: 240px;">
+                      <%if !@object.material_url.nil? && !@object.material_url.empty?%>
+                          <% if @object.material_url.start_with?('https://www.amazon.com') || @object.material_url.start_with?('https://amazon.com') %>
+                              <div class="col-md-2" id="amazon_book" style="height: 240px;">
 
-                      </div>
+                              </div>
+                          <% end %>
+                      <% end %>
                       <div class="col-md-10">
                         <p>
                           <span class="strong"><%=t('material.lb_type')%></span>: <span class="type_update"><%=@object.material_type.material_type_name%></span>

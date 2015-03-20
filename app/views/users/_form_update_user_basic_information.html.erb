@@ -173,7 +173,7 @@
                     kt=true;
                 }
             }
-            if(new Date(year_select,month_select-1,day_select.val())>new Date(<%= Time.now.year.to_s+',' +Time.now.month.to_s + ','+Time.now.day.to_s %>)){
+            if(new Date(year_select,month_select,day_select.val())>new Date(<%= Time.now.year.to_s+',' +Time.now.month.to_s + ','+Time.now.day.to_s %>)){
                 day_select.after("<p class=\"has-error help-block\"><%= t('users.msg_birthday_invalid') %></p>");
                 $("#user_birth_day_3i").closest(".form-group").addClass("has-error");
                 kt=true;
@@ -429,6 +429,7 @@
         calculateDay();
     });
         function calculateDay(){
+            console.log($("#user_birth_day_3i").val());
             var year_select = $("#user_birth_day_1i").val();
             var month_select = $("#user_birth_day_2i").val();
             var days;
@@ -440,8 +441,8 @@
 //    //            alert(days);
 //                $("#user_birth_day_3i option[value='']").show();
 //                $("#user_birth_day_3i option[value='']").prop('disabled', false);
-                $("#user_birth_day_3i option").remove();
-                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
+                $("#user_birth_day_3i option:not([value=''])").remove();
+//                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
                 for(var i=1;i<=days;i++){
 
 //                    $("#user_birth_day_3i option[value="+i+"]").show();
@@ -451,35 +452,26 @@
                     $("#user_birth_day_3i").append('<option val="'+i+'">'+i+'</option>');
 
                 }
-                console.log(current_select);
                 if(current_select!=""){
 //                    console.log("true");
-                    $("#user_birth_day_3i").val(current_select)
+                    $("#user_birth_day_3i").val(current_select);
                     if(current_select>days){
 //                        console.log(current_select>days);
                         $("#user_birth_day_3i").val(days);
                     }
                 }else{
-                    $("#user_birth_day_3i")[0].selectedIndex=0;
+//                    $("#user_birth_day_3i")[0].selectedIndex=0;
+                    $("#user_birth_day_3i").val('');
                 }
             }
             else{
                 var current_select = $("#user_birth_day_3i").val();
-                $("#user_birth_day_3i option").remove();
-                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
+                $("#user_birth_day_3i option:not([value=''])").remove();
+//                $("#user_birth_day_3i").append('<option val=""><%= t('date.day') %></option>');
                 for(var i=1;i<=31;i++){
                     $("#user_birth_day_3i").append('<option val="'+i+'">'+i+'</option>');
-
                 }
-
-
-                if(current_select!=""){
-                    $("#user_birth_day_3i").val(current_select)
-                }else{
-                    $("#user_birth_day_3i")[0].selectedIndex=0;
-                }
-
-
+                $("#user_birth_day_3i").val(current_select);
             }
         }
 

@@ -173,7 +173,7 @@
     }
     #amazon-Container #searchBoxDiv {
         margin:0; padding:0;
-        height: 40px;
+        min-height: 40px;
         position: relative;
     }
     #amazon-Container #searchBoxDiv > form {
@@ -356,7 +356,7 @@
         display: none;
     }
 </style>
-<div id="amazon-Container">
+<div id="amazon-Container" style="margin-bottom: 10px;">
 <div id="container">
   <div id="criteriaSection" class="gradient-background">
     <header>
@@ -444,6 +444,30 @@
             var thisbtn = $(this);
             if(!$(".urlformat:visible:not([readonly])").length){
                 $(this).blur();
+                $.gritter.add({
+                    title: '<%= t('system.system_message') %>',
+                    text: '<%= t('amazon.msg_please_edit_material') %>',
+                    before_open: function(){
+                        if($('.gritter-item-wrapper').length == 1)
+                        {
+                            return false;
+                        }
+                    }
+                });
+                return;
+            }
+            if($('#'+$('.selectpicker:visible').attr('data-id')).selectpicker('val')!='book'){
+                $(this).blur();
+                $.gritter.add({
+                    title: '<%= t('system.system_message') %>',
+                    text: '<%= t('amazon.msg_function_for_book') %>',
+                    before_open: function(){
+                        if($('.gritter-item-wrapper').length == 1)
+                        {
+                            return false;
+                        }
+                    }
+                });
                 return;
             }
 
@@ -472,7 +496,7 @@
                         }, 1000, 'easeInOutExpo');
 
                 setTimeout(function () {
-                    cart.effect("shake", {
+                    cart.effect("highlight", {
                         times: 2
                     }, 200);
                 }, 1500);
@@ -763,58 +787,76 @@
             else if (resultCount > 20) resultCount = 20;
 
 
+            $("#searchField").keypress(function( event ) {
+                if (event.which == 13) {
+                    event.preventDefault();
+                    do_when_submit();
+                }
+            });
+
+
+
             $("#btnsubmit").click(function(event){
                 event.preventDefault();
-                postToParent({
-                    'widgetId': widgetId,
-                    'operation': 'hideSuggestion'
-                });
-                var searchField = document.getElementById('searchField');
-                window.isSearchStarted = true;
-                if(!searchField.value) return;
-
-                document.getElementById('searchResult').style['display'] = 'none';
-                document.getElementById('footer').style['display'] = 'none';
-                if(resultCount) {
-                    document.getElementById('loader').style['display'] = 'block';
-                    resizeFrame();
-                }
-
-                if(window.__maSwJsNode2)
-                    if(window.__maSwJsNode2.parentNode){
-                        window.__maSwJsNode2.parentNode.removeChild(window.__maSwJsNode2);
-                        //console.log('Trying to aboring JSONP-2 call.'); //IE9 fix
-                    }
-
-                var selectedCat = document.getElementById('categorySelection');
-                var searchTerm = encodeURIComponent(searchField.value);
-                var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
-                        (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
-                document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
-                {
-                    foresterCall({search_term:searchTerm , logType: 'search_navigation',
-                        search_cat : (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps'),
-                        action: 'btnsubmit',  adunit_type: 'responsive_search_widget'});
-                }
-                if(resultCount) {
-                    var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
-                    window.__maSwJsNode2 = document.createElement('script');
-                    window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
-                    +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
-                    document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
-                    if(window.submitTimer) {
-                        clearTimeout(window.submitTimer);
-                        delete window.submitTimer;
-                    }
-                    window.submitTimer = setTimeout(function(){
-                        document.getElementById('btnsubmit').click();
-                    }, 3000);
-                } else {
-                    window.open(href);
-                }
+                do_when_submit();
             })
 
 
+            function do_when_submit(){
+            $("#searchBoxDiv").find("p.has-error").remove();
+            if($("#searchField").val()==''){
+                $("#searchBoxDiv").append("<p class=\"has-error help-block\"><%= t('amazon.msg_book_name_empty') %></p>");
+                return;
+            }
+
+            postToParent({
+                'widgetId': widgetId,
+                'operation': 'hideSuggestion'
+            });
+            var searchField = document.getElementById('searchField');
+            window.isSearchStarted = true;
+            if(!searchField.value) return;
+
+            document.getElementById('searchResult').style['display'] = 'none';
+            document.getElementById('footer').style['display'] = 'none';
+            if(resultCount) {
+                document.getElementById('loader').style['display'] = 'block';
+                resizeFrame();
+            }
+
+            if(window.__maSwJsNode2)
+                if(window.__maSwJsNode2.parentNode){
+                    window.__maSwJsNode2.parentNode.removeChild(window.__maSwJsNode2);
+                    //console.log('Trying to aboring JSONP-2 call.'); //IE9 fix
+                }
+
+            var selectedCat = document.getElementById('categorySelection');
+            var searchTerm = encodeURIComponent(searchField.value);
+            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
+                    (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+            document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
+            {
+                foresterCall({search_term:searchTerm , logType: 'search_navigation',
+                    search_cat : (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps'),
+                    action: 'btnsubmit',  adunit_type: 'responsive_search_widget'});
+            }
+            if(resultCount) {
+                var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
+                window.__maSwJsNode2 = document.createElement('script');
+                window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
+                +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+                document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
+                if(window.submitTimer) {
+                    clearTimeout(window.submitTimer);
+                    delete window.submitTimer;
+                }
+                window.submitTimer = setTimeout(function(){
+                    document.getElementById('btnsubmit').click();
+                }, 3000);
+            } else {
+                window.open(href);
+            }
+            }
 
 //            document.getElementById('searchBoxDiv').getElementsByTagName('form')[0].addEventListener('submit', function(event){
 //                event.preventDefault();
@@ -1080,7 +1122,7 @@
             anchor[0].style['display']='block';
         }
         var maxresult = 4;
-        var degree = 20;
+        var degree = 30;
         if($("#amazonModal").length){
             maxresult = 5;
             degree = 0;
@@ -1095,7 +1137,7 @@
             heightchange = maxresult*75;
         }
 
-        document.getElementById('searchResult').style['maxHeight']=(heightchange-24-60-1-degree) + 'px'; //Hack to hide border-bottom of result
+        document.getElementById('searchResult').style['maxHeight']=(heightchange-24-50-1-degree) + 'px'; //Hack to hide border-bottom of result
         resizeFrame();
         reloadEvent();
         resultPane.scrollTop = 0;

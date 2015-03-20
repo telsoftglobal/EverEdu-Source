@@ -32,7 +32,7 @@ en:
     msg_update_successfully: "History job was successfully updated."
     msg_delete_successfully: "History job was successfully destroyed."
 
-    msg_endtime_greater_starttime: "Please enter the start date is not after the end date."
+    msg_endtime_greater_starttime: "Please enter the end date is greater than or equal the start date."
     msg_valid_date: "Please enter the date is no later than this month."
 
 

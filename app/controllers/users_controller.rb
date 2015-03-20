@@ -237,6 +237,7 @@ class UsersController < ApplicationController
         #   messgae empty
           flash.now[:error] = t('users.msg_empty_field')
           render partial: 'users/update_basic_information/update_fail'
+          return
         else
           gender = params[:user][:gender]
           gender = (gender.nil? || gender=='') ? nil : gender
@@ -248,6 +249,7 @@ class UsersController < ApplicationController
             if birth_day > Time.now
               flash.now[:error] =  t('users.msg_verify_data')
               render partial: 'users/update_basic_information/update_fail'
+              return
             end
           end
           phone_number = params[:user][:phone_number]
@@ -257,6 +259,7 @@ class UsersController < ApplicationController
           if email.length>100 || first_name.length>50 || last_name.length>50 || phone_number.length>25 || address.length>100 || city.length>100 || introduction.gsub("\n",'').strip.length>2000
             flash.now[:error] = t('users.msg_verify_data')
             render partial: 'users/update_basic_information/update_fail'
+            return
           else
             id = BSON::ObjectId.from_string(session[:user_id])
             @user  = User.find_by(id: id )
@@ -266,33 +269,41 @@ class UsersController < ApplicationController
               country = Country.find_by(id: params[:user][:country])
             end
             if(@user.email!=params[:user][:email])
-              if User.find_by(email: params[:user][:email]).nil?
-                if params[:user][:password_confirmation].nil? || params[:user][:password_confirmation]=='' || @user.hashed_password != User.encrypt_password(params[:user][:password_confirmation], @user.salt)
-                  flash.now[:error] = t('users.msg_empty_or_wrong_password')
-                  render partial: 'users/update_basic_information/update_fail'
-                else
+              if params[:user][:password_confirmation].nil? || params[:user][:password_confirmation]=='' || @user.hashed_password != User.encrypt_password(params[:user][:password_confirmation], @user.salt)
+                flash.now[:error] = t('users.msg_empty_or_wrong_password')
+                render partial: 'users/update_basic_information/update_fail'
+                return
+              else
+                checkuser = User.find_by_email(params[:user][:email])
+                if checkuser.nil? || checkuser.id == id
                   #   update email
                   if @user.update_attributes(email: email.strip, first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country, introduction: introduction.gsub("\n",'').strip )
                     flash[:now] = t('users.msg_update_success')
                     render partial: 'users/update_basic_information/update_success'
+                    return
                   else
                     flash.now[:error] = t('users.msg_update_failed')
                     render partial: 'users/update_basic_information/update_success'
+                    return
                   end
+                else
+                  #  mes trung mail
+                  flash.now[:error] = t('users.msg_email_exist')
+                  render partial: 'users/update_basic_information/update_fail'
+                  return
                 end
-              else
-              #  mes trung mail
-                flash.now[:error] = t('users.msg_email_exist')
-                render partial: 'users/update_basic_information/update_fail'
               end
+
             else
               # / khong update email
               if @user.update_attributes(first_name: first_name.strip, last_name: last_name.strip, gender: gender, birth_day: birth_day, phone_number: phone_number.strip,  address: address.strip, city: city.strip, country: country, introduction: introduction.gsub("\n",'').strip )
                 flash[:now] = t('users.msg_update_success')
                 render partial: 'users/update_basic_information/update_success'
+                return
               else
                 flash.now[:error] = t('users.msg_update_failed')
                 render partial: 'users/update_basic_information/update_fail'
+                return
               end
             end
             User.process_when_update(@user)

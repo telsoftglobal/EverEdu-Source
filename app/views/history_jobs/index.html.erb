@@ -1,7 +1,7 @@
 <!--<div class="widget ">-->
 <div class="innerAll">
   <h4 class="margin-none strong">
-    <%= t('history_job.title_history_job') %>
+    <a url="<%= history_jobs_path %>" href="<%= history_jobs_path %>" data-toggle="modal"><%= t('history_job.title_history_job') %></a>
   </h4>
 
   <div class="clearfix"></div>
@@ -34,7 +34,7 @@
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="historyJobModalLabel">Modal title</h4>
       </div>
-      <div id="modalContentHistoryJob" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalContentHistoryJob" class="modal-body" style="max-height: 400px; overflow-y: auto">
       </div>
       <div class="modal-footer">
         <button id="btnSaveHistoryJob" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
@@ -47,6 +47,9 @@
 
 <script>
     $(document).ready(function () {
+        $('#historyJobModal').on('shown.bs.modal', function() {
+            $('#history_job_company_name').focus();
+        })
         $('a.historyJob').click(function (e) {
             openHistoryJobModal(this, e);
         });
@@ -116,10 +119,10 @@
                     },
                     "history_job[description]": {
                         maxlength: {
-                            param: 2000,
+                            param:2000 ,
                             depends: function () {
                                 var text = $.trim($(this).val());
-                                text = text.replace(/\s+/g, ' ');
+//                                text = text.replace(/\s+/g, ' ');
                                 $(this).val(text);
                                 return true;
                             }
@@ -134,44 +137,44 @@
                                 return true;
                             }
                         }, maxlength: 500
+                    }},
+                messages: {
+                    "history_job[company_name]": {
+                        required: I18n.t('js.validate.msg_required'),
+                        maxlength: I18n.t('js.validate.msg_maxlength')
                     },
-                    messages: {
-                        "history_job[company_name]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            maxlength: I18n.t('js.validate.msg_maxlength')
-                        },
-                        "history_job[title]": {required: I18n.t('js.validate.msg_required')},
-                        "history_job[start_time(1i)]": {required: I18n.t('js.validate.msg_required')},
-                        "history_job[start_time(2i)]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            validStartTime: I18n.t('history_job.msg_valid_date')
-                        },
-                        "history_job[end_time(2i)]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime'),
-                            validEndTime: I18n.t('history_job.msg_valid_date')
-                        },
-                        "history_job[end_time(1i)]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
-                        },
-                        "history_job[end_time]": {greater_or_equals: I18n.t('js.validate.msg_greater_than_start_date')},
-                        "history_job[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                    "history_job[title]": {required: I18n.t('js.validate.msg_required')},
+                    "history_job[start_time(1i)]": {required: I18n.t('js.validate.msg_required')},
+                    "history_job[start_time(2i)]": {
+                        required: I18n.t('js.validate.msg_required'),
+                        validStartTime: I18n.t('history_job.msg_valid_date')
                     },
-                    errorPlacement: function (error, element) {
-                        error.insertAfter(element);
+                    "history_job[end_time(2i)]": {
+                        required: I18n.t('js.validate.msg_required'),
+                        end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime'),
+                        validEndTime: I18n.t('history_job.msg_valid_date')
                     },
-                    submitHandler: function (form) {
+                    "history_job[end_time(1i)]": {
+                        required: I18n.t('js.validate.msg_required'),
+                        end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
                     },
-                    invalidHandler: function (form, validator) {
-                        $('#div_msg_error').text('');
+                    "history_job[end_time]": {greater_or_equals: I18n.t('js.validate.msg_greater_than_start_date')},
+                    "history_job[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                },
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+                submitHandler: function (form) {
+                },
+                invalidHandler: function (form, validator) {
+                    $('#div_msg_error').text('');
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        validator.errorList[0].element.focus();
 
-                        var errors = validator.numberOfInvalids();
-                        if (errors) {
-                            validator.errorList[0].element.focus();
-                        }
                     }
                 }
+
             });
             $.validator.addMethod("end_time_greater_or_equal_start_time", function (value, element) {
                 var end_year = $('#history_job_end_time_1i').val();
@@ -276,8 +279,6 @@
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");
         var title = $(element).attr("modal_title");
-//        alert(url);
-//        alert('openHistoryJobModal' + url + id + title)
         $.ajax({
             type: "GET",
             url: url,

@@ -54,7 +54,7 @@ en:
     msg_error: "Error when load curriculum"
     msg_error_not_found: "Curriculum not found"
     msg_error_not_permission: "You are not permission to update this curriculum"
-    msg_confirm_save: "Do you want to save ?"
+    msg_confirm_save: "Do you want to save?"
     msg_not_found: "Curriculum not found!"
     msg_curriculum_not_found: "Curriculum not found!"
     btn_start: "Start"

@@ -1,3 +1,67 @@
+<style>.row div {
+    height: 200px;
+    -webkit-transition: width 0.3s ease, margin 0.3s ease;
+    -moz-transition: width 0.3s ease, margin 0.3s ease;
+    -o-transition: width 0.3s ease, margin 0.3s ease;
+    transition: width 0.3s ease, margin 0.3s ease;
+}
+
+.row .col-xs-0 {
+    width: 0%;
+}
+
+#col1 {
+    background-color: #A6BFBA;
+}
+
+#col2 {
+    background-color: #DE4124;
+}
+
+#trig {
+    margin: 50px;
+    margin-left: -100px;
+}
+
+.row .col-xs-0 + [class*="col-xs-"]{
+    margin-left: 0;
+}
+</style>
+
+
+<div class="row" id="row1">
+  <div id="col2" class="col-xs-1"></div>
+  <div id="col1" class="col-xs-11">
+    <a id="trig" class="btn btn-info">Reflow Me</a>
+  </div>
+</div>
+
+
+<script>
+
+    $('#trig').on('click', function () {
+        $('#trig').fadeOut(function(){
+            $('#col1').toggleClass('col-xs-11 col-xs-1');
+            if($('#trig').css('margin-left') == '-100px')
+                $('#trig').css('margin-left','50px');
+            else
+                $('#trig').css('margin-left','-100px');
+            if($('#col2').hasClass('col-xs-1')){
+                setTimeout(function(){
+                    $('#col2').toggleClass('col-xs-1 col-xs-9');
+                },25);
+            }
+            else {
+                $('#col2').toggleClass('col-xs-1 col-xs-11');
+            }
+            $('#trig').fadeIn();
+        });
+    });
+</script>
+
+
+
+
 <%=stylesheet_link_tag 'student' %>
 <div class="innerLR">
   <h3 class="aes-color"><i class="fa fa-search"></i>&nbsp;<%= t('search_mentor.title_search_mentor') %></h3>

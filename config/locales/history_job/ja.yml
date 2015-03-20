@@ -32,4 +32,5 @@ ja:
     msg_create_successfully: "歴史ジョブの作成に成功しました。"
     msg_update_successfully: "履歴ジョブが正常に更新されました。"
 
-    msg_endtime_greater_starttime: "終了時間が大きいか、開始時間と等しくなります。"
+    msg_endtime_greater_starttime: "終了日は、以上の開始日を等しい入力してください。"
+    msg_valid_date: "日付が遅くとも今月よりはありません入力してください。"

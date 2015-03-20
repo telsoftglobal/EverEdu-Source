@@ -34,10 +34,10 @@
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="educationModalLabel">Modal title</h4>
       </div>
-      <div id="modalContenteducation" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalContentEducation" class="modal-body" style="max-height: 400px; overflow-y: auto">
       </div>
       <div class="modal-footer">
-        <button id="btnSaveeducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
+        <button id="btnSaveEducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel') %></button>
       </div>
     </div>
@@ -62,10 +62,9 @@
             processDeleteEducation(this, e);
         });
 
-        $("#btnSaveHistoryJob").click(function () {
+        $("#btnSaveEducation").click(function () {
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
-//            alert("fjsd");
 
             $("#education_form").validate({
                 onfocusout: false,
@@ -94,7 +93,7 @@
                     },
                     "education[grade]": {
                         maxlength: {
-                            param: 100,
+                            param: 80,
                             depends: function () {
                                 var text = $.trim($(this).val());
                                 text = text.replace(/\s+/g, ' ');
@@ -110,7 +109,7 @@
                             param:500 ,
                             depends: function () {
                                 var text = $.trim($(this).val());
-                                text = text.replace(/\s+/g, ' ');
+//                                text = text.replace(/\s+/g, ' ');
                                 $(this).val(text);
                                 return true;
                             }
@@ -121,7 +120,7 @@
                             param:1000 ,
                             depends: function () {
                                 var text = $.trim($(this).val());
-                                text = text.replace(/\s+/g, ' ');
+//                                text = text.replace(/\s+/g, ' ');
                                 $(this).val(text);
                                 return true;
                             }
@@ -136,47 +135,50 @@
                                 return true;
                             }
                         }, maxlength: 500
+                    }
+                },
+                messages: {
+                    "education[school_name]": {
+                        required: I18n.t('js.validate.msg_required'),
+                        maxlength: I18n.t('js.validate.msg_maxlength')
                     },
-                    messages: {
-                        "education[school_name]": {
-                            required: I18n.t('js.validate.msg_required'),
-                            maxlength: I18n.t('js.validate.msg_maxlength')
-                        },
-                        "education[field_of_study]":{maxlength: I18n.t('js.validate.msg_maxlength')},
-                        "education[grade]":{maxlength: I18n.t('js.validate.msg_maxlength')},
-                        "education[start_year]": {validEndTime: I18n.t('history_job.msg_valid_date')},
-                        "education[graduation_year]": {
-                            end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
-                        },
-                        "education[activities_societies]": {maxlength: I18n.t('js.validate.msg_maxlength')},
-                        "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                    "education[field_of_study]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "education[grade]":{maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "education[start_year]": {validStartTime: I18n.t('education.msg_valid_date')},
+                    "education[graduation_year]": {
+                        end_time_greater_or_equal_start_time: I18n.t('education.msg_endtime_greater_starttime')
                     },
-                    errorPlacement: function (error, element) {
-                        error.insertAfter(element);
-                    },
-                    submitHandler: function (form) {
-                    },
-                    invalidHandler: function (form, validator) {
-                        $('#div_msg_error').text('');
-                        alert(validator.errorList[0].element);
-                        var errors = validator.numberOfInvalids();
-                        if (errors) {
-                            alert(validator.errorList[0].element);
-                            validator.errorList[0].element.focus();
+                    "education[activities_societies]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                    "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                },
+                errorPlacement: function (error, element) {
+                    error.insertAfter(element);
+                },
+                submitHandler: function (form) {
+                },
+                invalidHandler: function (form, validator) {
+                    $('#div_msg_error').text('');
+                    var errors = validator.numberOfInvalids();
+                    if (errors) {
+                        validator.errorList[0].element.focus();
 
-                        }
                     }
                 }
+
             });
             $.validator.addMethod("end_time_greater_or_equal_start_time", function (value, element) {
                 var start_year = $('#education_start_year').val();
                 var graduation_year = $("#education_graduation_year").val();
-                return (graduation_year >= start_year)
+                if(graduation_year && graduation_year < start_year) {
+                    return false
+                }
+                else return true
             }, "end time greater or equal to start time");
 
             $.validator.addMethod("validStartTime", function (value, element) {
                 var start_year = $('#education_start_year').val();
-                return (start_year <= Time.now().year)
+                var year = <%=Time.now.year%>;
+                return (start_year <= year)
             }, "date invalid");
 
             var valid = $("#education_form").valid();
@@ -216,7 +218,7 @@
 </script>
 
 <script>
-    function processDeleteHistoryJob(element, e) {
+    function processDeleteEducation(element, e) {
         e.preventDefault();
         var url = $(element).attr("url");
         var id = $(element).attr("objectId");

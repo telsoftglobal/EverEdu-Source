@@ -54,3 +54,6 @@ en:
     msg_confirm_save: "Do you want to save?"
     title_confirm_delete_education: "Confirm delete education"
     msg_confirm_delete_education: "Do you want to delete this education?"
+
+    msg_endtime_greater_starttime: "Please enter the graduation date is greater than or equal the start date."
+    msg_valid_date: "Please enter the date is no later than this year."

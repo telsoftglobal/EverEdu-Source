@@ -102,24 +102,24 @@ class MaterialsController < ApplicationController
       material_id = BSON::ObjectId.from_string(params[:material][:id])
       @material = Material.find_by(:id => material_id)
       if @material.nil?
-        # if !material.save
-        #   respond_to do |format|
-        #     if material.errors
-        #       flash.now[:error] = material.errors.full_messages.to_sentence(:last_word_connector => ', ')
-        #     else
-        #       flash.now[:error] = t('material.msg_update_failed')
-        #     end
-        #     format.js { render partial: 'layouts/error' }
-        #     # format.html
-        #   end
-        # end
-        # response
         flash.now[:error] = t('material.msg_not_found')
         respond_to do |format|
           format.js { render partial: 'mentor/error' }
           # format.html
         end
       else
+        url = params[:material][:material_url]
+        if !url.nil? && !url.empty?
+          if url.start_with?('https://www.amazon.com') || url.start_with?('https://amazon.com')
+            if !url.include? ("tag="+APP_CONFIG['amazon_tag'])
+              flash.now[:error] = 'ffffffffffffffffff'
+              respond_to do |format|
+                format.js { render partial: 'mentor/error' }
+              end
+            end
+          end
+        end
+
         if !@material.update_attributes(:material_name => normalize_string(params[:material][:material_name]),:material_url => params[:material][:material_url], :description => normalize_string(params[:material][:description]),:material_type => params[:material][:material_type_id])
           respond_to do |format|
             if @material.errors
