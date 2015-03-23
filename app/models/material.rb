@@ -22,6 +22,7 @@ class Material
   #fields
   field :material_name, type: String
   field :material_url, type:	String
+  field :asin, type: String
   field :description, type: String
   field :status, type: Integer, default: 1
 

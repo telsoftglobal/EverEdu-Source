@@ -1,67 +1,3 @@
-<style>.row div {
-    /*height: 200px;*/
-    -webkit-transition: width 0.3s ease, margin 0.3s ease;
-    -moz-transition: width 0.3s ease, margin 0.3s ease;
-    -o-transition: width 0.3s ease, margin 0.3s ease;
-    transition: width 0.3s ease, margin 0.3s ease;
-}
-
-.row .col-xs-0 {
-    width: 0%;
-}
-
-#col1 {
-    background-color: #A6BFBA;
-}
-
-#col2 {
-    background-color: #DE4124;
-}
-
-#trig {
-    margin: 50px;
-    margin-left: -100px;
-}
-
-.row .col-xs-0 + [class*="col-xs-"]{
-    margin-left: 0;
-}
-</style>
-
-
-<div class="row" id="row1">
-  <div id="col2" class="col-xs-1"></div>
-  <div id="col1" class="col-xs-11">
-    <a id="trig" class="btn btn-info">Reflow Me</a>
-  </div>
-</div>
-
-
-<script>
-
-    $('#trig').on('click', function () {
-        $('#trig').fadeOut(function(){
-            $('#col1').toggleClass('col-xs-11 col-xs-1');
-            if($('#trig').css('margin-left') == '-100px')
-                $('#trig').css('margin-left','50px');
-            else
-                $('#trig').css('margin-left','-100px');
-            if($('#col2').hasClass('col-xs-1')){
-                setTimeout(function(){
-                    $('#col2').toggleClass('col-xs-1 col-xs-9');
-                },25);
-            }
-            else {
-                $('#col2').toggleClass('col-xs-1 col-xs-11');
-            }
-            $('#trig').fadeIn();
-        });
-    });
-</script>
-
-
-
-
 <%=stylesheet_link_tag 'student' %>
 <div class="innerLR">
   <h3 class="aes-color"><i class="fa fa-search"></i>&nbsp;<%= t('search_mentor.title_search_mentor') %></h3>
@@ -69,8 +5,8 @@
   <div class="row">
     <div class="widget"> ‌ ‌
       <div class="widget-body">
-            <div class="search-form">
-            <%= form_tag search_search_mentor_path, id: 'search_mentor_form', role: 'form', method: :get do %>
+        <div class="search-form">
+            <%= form_tag search_search_mentor_basic_path, id: 'search_mentor_form', role: 'form', method: :get do %>
                 <% if flash.now[:error] %>
                     <div id="div_msg_error" class="msg_error">
                       <ul>
@@ -78,12 +14,10 @@
                       </ul>
                     </div>
                 <% end %>
-                  <div class="input-group row">
-                    <div id="cuongtest" class="col-xs-11">
-                    <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control", maxlength:200 %>
-                    </div>
-                    <div class="input-group-btn"><button class="btn btn-primary rounded-none" type="submit" style="height: 33px;"><i class="fa fa-search"></i></button></div>
-                    <div id="group_advance" class="input-group-btn col-xs-1"><button id="advsearchButton" class="btn btn-default" type="button" style="height: 32px;"><%= t('button.btn_advance') %></button></div>
+                  <div class="input-group">
+                    <%= text_field_tag "keyword", params[:keyword], placeholder: t('search_mentor.placeholder_keyword'), class: "form-control search_all", maxlength:2000 %>
+                    <div class="input-group-btn"><button class="btn btn-primary rounded-none" id="searchButton"><i class="fa fa-search"></i></button></div>
+                    <div id="group_advance" class="input-group-btn"><button id="advsearchButton" class="btn btn-default" type="button"><%= t('button.btn_advance') %></button></div>
                   </div>
             <% end %>
             </div>
@@ -110,75 +44,20 @@
       <div style="clear: both"></div>
       <div class="modal-footer">
         <button id="btnSearchMentorAdvance" type="button" class="btn btn-primary"><%= t('search_mentor.btn_search')%></button>
-        <button id="btnCancelSearchMentorAdvance" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>
+        <!--<button id="btnCancelSearchMentorAdvance" type="button" class="btn btn-default" data-dismiss="modal"><%= t('button.btn_cancel')%></button>-->
+        <button id="btnResetSearchMentorAdvance" type="button" class="btn btn-default"><%= t('search_mentor.btn_reset')%></button>
       </div>
     </div>
   </div>
 </div>
 
 <script>
-    $("#keyword").focus(function() {
-        $('#cuongtest').toggleClass('col-xs-11 col-xs-1');
-
-        $('#group_advance').toggleClass('col-xs-11 col-xs-1');
-    });
-    $("#keyword").blur(function() {
-        $('#cuongtest').toggleClass('col-xs-11 col-xs-1');
-
-        $('#group_advance').toggleClass('col-xs-11 col-xs-1');
-//        $("#group_advance").fadeIn("medium");
-    });
-    $("#advsearchButton").click(function(e){
-        e.preventDefault();
-        $("#Search_mentor_Modal").modal();
-    });
-    $("#btnSearchMentorAdvance").click(function(e){
-      e.preventDefault();
-
-        var valid = false;
-        if(!$("#search_mentor_advance").valid()){
-            valid=true;
-        }
-        if($("#history_job:visible").length==1){
-            $("#history_job").closest(".accordion-inner").find("p.has-error").remove();
-            $("#history_job").after("<p class=\"has-error help-block\"><%= t('js.validate.msg_required') %></p>")
-            valid=true;
-        }
-        if($("#specialty:visible").length==1){
-            $("#specialty").closest(".accordion-inner").find("p.has-error").remove();
-            $("#specialty").after("<p class=\"has-error help-block\"><%= t('js.validate.msg_required') %></p>")
-            valid=true;
-        }
-        if(valid){
-            return;
-        }
-
-//        $("#Search_mentor_Modal").find('form').submit();
-
-        $.ajax('/search/search_mentor_advance', {
-            type: 'GET',
-            dataType: 'script',
-            data:  $("#search_mentor_advance").serializeArray(),
-            beforeSend: function (xhr) {
-                $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
-            },
-            error: function (jqXHR, textStatus, errorThrown) {
-                $.loader.close(true);
-                console.log("AJAX Error: " + textStatus);
-            },
-            success: function (data, textStatus, jqXHR) {
-                $.loader.close(true);
-            }
-        });
-    });
-    $("#btnCancelSearchMentorAdvance").click(function(e){
-        e.preventDefault();
-        $("#Search_mentor_Modal").modal("hide");
-//        $('#search_mentor_advance')[0].reset();
-    });
-
 
     $(document).ready(function () {
+        $('#Search_mentor_Modal').on('shown.bs.modal', function() {
+            $('#first_name').focus();
+        })
+
         $("#search_mentor_form").validate({
             onfocusout: false,
             onkeyup: false,
@@ -197,13 +76,13 @@
                 "keyword": {maxlength :I18n.t('js.validate.msg_maxlength')}
             },
             errorPlacement: function (error, element) {
-                error.insertAfter(element);
+                error.insertAfter(element.parent());
             },
             submitHandler: function (form) {
                 $('#search_mentor_form').find('input:text').each(function () {
                     $(this).val($.trim($(this).val()));
                 });
-                form.submit();
+//                form.submit();
             },
             invalidHandler: function (form, validator) {
                 $('#div_msg_error').text('');
@@ -214,6 +93,93 @@
                 }
             }
         });
+
+
+//        $("#keyword").focus(function() {
+//            $("#group_advance").fadeOut("medium");
+//        });
+//        $("#keyword").blur(function() {
+//            $("#group_advance").fadeIn("medium");
+//        });
+        $("#advsearchButton").click(function(e){
+            e.preventDefault();
+            $("#Search_mentor_Modal").modal();
+        });
+
+        $("#searchButton").click(function(e){
+            e.preventDefault();
+            if(!$("#search_mentor_form").valid()) {
+                var p_error = $("#search_mentor_form").find("p.has-error");
+                $("#search_mentor_form").append(p_error.clone());
+                p_error.remove();
+                return
+            }
+
+            $.ajax('/search/search_mentor_basic', {
+                type: 'GET',
+                dataType: 'script',
+                data:  $("#search_mentor_form").serializeArray(),
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + textStatus);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $.loader.close(true);
+                }
+            });
+        });
+
+        $("#btnSearchMentorAdvance").click(function(e){
+            e.preventDefault();
+
+            $("#form_add_specialty").hide();
+            $("#btn_add_specialty").show();
+            $("#form_add_job_title").hide();
+            $("#btn_add_job_title").show();
+
+            if(!$("#search_mentor_advance").valid()){
+                return
+            }
+
+            $.ajax('/search/search_mentor_advance', {
+                type: 'GET',
+                dataType: 'script',
+                data:  $("#search_mentor_advance").serializeArray(),
+                beforeSend: function (xhr) {
+                    $.loader.open({imgUrl: "<%= asset_path('assets/template/ajaxloader/images/loading16x16.gif') %>"});
+                },
+                error: function (jqXHR, textStatus, errorThrown) {
+                    $.loader.close(true);
+                    console.log("AJAX Error: " + textStatus);
+                },
+                success: function (data, textStatus, jqXHR) {
+                    $.loader.close(true);
+                    $("#Search_mentor_Modal").modal("hide");
+                }
+            });
+        });
+        $("#btnResetSearchMentorAdvance").click(function(e){
+            e.preventDefault();
+
+//          reset form
+            $("#first_name").val('');
+            $("#last_name").val('');
+            $("#country").val('');
+            $("#jobTitleList").find("li").remove();
+            $("#history_job").val('');
+            $("#specialtyList").find("li").remove();
+            $("#specialty").val('');
+
+            $("#form_add_specialty").hide();
+            $("#btn_add_specialty").show();
+            $("#form_add_job_title").hide();
+            $("#btn_add_job_title").show();
+        });
+
+
     });
 
 </script>

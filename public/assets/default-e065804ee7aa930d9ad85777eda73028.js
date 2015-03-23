@@ -12987,6 +12987,7 @@ CKEDITOR.on('instanceReady', function(ev) {
 
 //=# require ckeditor/plugin/maxlength
 
+//=# require vailidator.js.erb
 
 
 $.validator.setDefaults(

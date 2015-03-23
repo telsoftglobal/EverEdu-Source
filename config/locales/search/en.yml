@@ -51,6 +51,11 @@ en:
     placeholder_job_title: "Job Title"
     title_specialty: "Specialty"
     placeholder_specialty: "Specialty"
+    title_add_specialty: "Add Specialty"
+    title_add_job_title: "Add Job title"
+    msg_error_duplicate_job_title: "Job title is existed"
+    msg_error_duplicate_specialty: "Specialty is existed"
+
 
 
 

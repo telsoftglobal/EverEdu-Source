@@ -637,7 +637,7 @@ class CurriculumsController < ApplicationController
           if materialupdate.nil? || !material.curriculum_id.eql?(curriculumupdate.id)
             raise t('curriculum.msg_error_not_permission')
           else
-            if !materialupdate.update_attributes(:material_name => material.material_name,:material_url => material.material_url, :description => material.description,:material_type => material.material_type)
+            if !materialupdate.update_attributes(:material_name => material.material_name,:material_url => material.material_url, :description => material.description,:material_type => material.material_type, asin: material.asin)
               flash[:error] = materialupdate.errors.full_messages
               return false
             end
@@ -780,6 +780,7 @@ class CurriculumsController < ApplicationController
           material.new_record = false
         end
         material.material_name = normalize_string(material_attributes[:material_name])
+        material.asin = material_attributes[:asin].strip
         material.material_url = material_attributes[:material_url].strip
         material.material_type_id = material_attributes[:material_type_id]
         material.description = normalize_string(material_attributes[:description])

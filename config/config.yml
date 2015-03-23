@@ -4,15 +4,60 @@ development:
   gmail_password: 'tlsglobal123'
   server_smtp: 'smtp.gmail.com'
   amazon_tag: 'cu0f0-20'
+  amazon_config:
+    us :
+      amazon_tag: 'cu0f0-20'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'US'
+      searchService: 'https://ws-na.amazon-adsystem.com'
+    jp :
+      amazon_tag: 'cuongct09-22'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'JP'
+      searchService: 'https://ws-fe.amazon-adsystem.com'
 test:
   session_expire: 1
   gmail_username: 'global@telsoft.com.vn'
   gmail_password: 'tlsglobal123'
   server_smtp: 'smtp.gmail.com'
   amazon_tag: 'cu0f0-20'
+  amazon_config:
+    us :
+      amazon_tag: 'cu0f0-20'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'US'
+      searchService: 'https://ws-na.amazon-adsystem.com'
+    jp :
+      amazon_tag: 'cuongct09-22'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'JP'
+      searchService: 'https://ws-fe.amazon-adsystem.com'
 production:
   session_expire: 1
   gmail_username: 'global@telsoft.com.vn'
   gmail_password: 'tlsglobal123'
   server_smtp: 'smtp.gmail.com'
   amazon_tag: 'cu0f0-20'
+  amazon_config:
+    us :
+      amazon_tag: 'cu0f0-20'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'US'
+      searchService: 'https://ws-na.amazon-adsystem.com'
+    jp :
+      amazon_tag: 'cuongct09-22'
+      serviceVersion: '20070822'
+      linkCode: 'w13'
+      linkID: '5DAFSJF6MHT2KLCU'
+      marketPlace: 'JP'
+      searchService: 'https://ws-fe.amazon-adsystem.com'

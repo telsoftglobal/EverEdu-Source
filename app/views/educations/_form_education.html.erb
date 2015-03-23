@@ -1,11 +1,11 @@
 <%= form_for @education, html: {id: 'education_form', role: 'form', class:'form-horizontal'} do |f| %>
     <!--<div class="widget ">-->
-    <div class="widget widget-body">
+    <!--<div class="widget-body">-->
       <div id="panelEducation" class="innerLR">
         <div class="education" id="<%= @education.id %>">
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_school_name')%><span class="requiredfield">*</span></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -16,7 +16,7 @@
 
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_school_url')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -25,23 +25,33 @@
             </div>
           </div>
 
-          <div class="form-group">
-            <div class="row">
-              <div class="col-xs-4 col-sm-3 col-md-3">
+          <div class="form-group" id="formGroupDate">
+            <div class="row" >
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_date_attended')%></label>
               </div>
-              <div class="col-xs-3 col-sm-3 col-md-3">
+              <div class="col-xs-4 col-sm-3 col-md-3">
                 <%= f.select :start_year, year_options_for_select, {:include_blank => t('education.lb_year')}, {class: "form-control"} %>
+
               </div>
-              <div class="col-xs-3 col-sm-3 col-md-3">
+              <div class="col-xs-1 col-sm-1 col-md-1" style="text-align: center">
+                <label>-</label>
+                </div>
+              <div class="col-xs-4 col-sm-3 col-md-3" id="div_graduation_year">
                 <%= f.select :graduation_year, year_graduation_edu_options_for_select, {:include_blank => t('education.lb_year')},  {class: "form-control"}%>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
+              </div>
+              <div class="col-xs-12 col-sm-9 col-md-9" id="rowDate">
               </div>
             </div>
           </div>
 
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_degree')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -52,7 +62,7 @@
 
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_field_of_study')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -63,7 +73,7 @@
 
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_grade')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -73,8 +83,8 @@
           </div>
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
-            <label class="control-label"><%= t('education.lb_activities_societies')%></label>
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
+            <label class="control-label" style="text-align: left"><%= t('education.lb_activities_societies')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
                 <%= f.text_area :activities_societies, maxlength: 500, class: 'form-control', placeholder: t('education.lb_activities_societies'), rows: 3 %>
@@ -84,7 +94,7 @@
 
           <div class="form-group">
             <div class="row">
-              <div class="col-xs-12 col-sm-3 col-md-3">
+              <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
             <label class="control-label"><%= t('education.lb_description')%></label>
               </div>
               <div class="col-xs-12 col-sm-9 col-md-9">
@@ -96,7 +106,7 @@
 
         </div>
       </div>
-    </div>
+    <!--</div>-->
     <!--</div>-->
 
 <% end %>

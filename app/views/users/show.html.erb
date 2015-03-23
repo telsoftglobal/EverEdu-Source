@@ -9,9 +9,9 @@
           <div id="avatar_area" style="margin-top: 20px; margin-bottom: 20px">
             <div id="avatar">
               <% if !@user.avatar_url.nil? %>
-                  <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: "Avatar"%>
+                  <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
               <% else %>
-                  <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: "Avatar"%>
+                  <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
               <% end %>
             </div>
           </div>
@@ -50,10 +50,10 @@
               <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_country') %></label>-->
               <!--<label class="col-md-9 col-xs-9" ><%= (@user.country.nil? || @user.country=='' ) ? 'N/A' : @user.country.name %></label>-->
             <!--</div>-->
-            <div class="row">
-              <label class="col-md-3 col-xs-3" ><%= t('users.lb_introduction') %></label>
-              <label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil? || @user.introduction=='') ? 'N/A' : @user.introduction %></label>
-            </div>
+            <!--<div class="row">-->
+              <!--<label class="col-md-3 col-xs-3" ><%= t('users.lb_introduction') %></label>-->
+              <!--<label class="col-md-9 col-xs-9" style="word-wrap:break-word; white-space: pre-wrap;" ><%= (@user.introduction.nil? || @user.introduction=='') ? 'N/A' : @user.introduction %></label>-->
+            <!--</div>-->
           </div>
         </div>
       </div>
@@ -105,13 +105,70 @@
     </div>
   </div>
 
-  <!--<div id='general' class="row">-->
-  <!--<div class="widget">-->
+  <!-- education -->
+  <div id='general' class="row">
+  <div class="widget">
 
-  <!--Education Information-->
+    <div class="innerAll">
+    <h4 class="margin-none strong aes-color">
+      <%= t('education.title_education') %>
+    </h4>
 
-  <!--</div>-->
-  <!--</div>-->
+    <div class="clearfix"></div>
+  </div>
+    <% if !@educations.nil? && !@educations.empty? %>
+    <div class="widget innerLR">
+      <div id="educations_list" class="widget-body padding-none">
+        <% @educations.each do |education| %>
+            <div class="innerAll border-bottom" id="education<%= education.id %>" data-id="<%= education.id %>">
+              <div class="row">
+                <div class="col-sm-10">
+                  <ul class="media-list margin-none">
+                    <li class="media">
+
+                      <!--<span class="pull-left innerAll half empty-photo"><i class="fa fa-graduation-cap fa-2x text-muted"></i></span>-->
+
+                      <div class="media-body innerAll half">
+                        <span class="media-heading aes-color" style="word-wrap: break-word;"><%= education.school_name%></span>
+                        </br>
+                        <% if !education.degree.nil? && !education.degree.blank?%>
+                            <small><%=t('education.lb_degree')%>: <%=education.degree.name%></small>
+                        <%else%>
+                            <small><%=t('education.lb_degree')%>: N/A</small>
+                        <%end%>
+                        </br>
+                        <% if !education.field_of_study.nil? && !education.field_of_study.blank?%>
+                            <small><%=t('education.lb_field_of_study')%>: <%=education.field_of_study%></small>
+                        <%else%>
+                            <small><%=t('education.lb_field_of_study')%>: N/A</small>
+                        <%end%>
+                        </br>
+                        <small></small>
+                        <% if !education.start_year.nil? && !education.graduation_year.nil?%>
+                            <small><%=t('education.lb_date_attended')%>: <%=education.start_year%></small>-<small><%=education.graduation_year%></small>
+                        <%else if !education.start_year.nil?%>
+                                <small><%=t('education.lb_date_attended')%>: <%=education.start_year%></small>
+                            <%else if !education.graduation_year.nil?%>
+                                    <small><%=t('education.lb_date_attended')%>: <%=education.graduation_year%>(or expected)</small>
+                                <%else%>
+                                    <small><%=t('education.lb_date_attended')%>: N/A</small>
+                                <%end%>
+                            <%end%>
+                        <%end%>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+        <% end %>
+      </div>
+    </div>
+        <% end %>
+
+  </div>
+  </div>
+  <!-- end education -->
 
   <!--Specialties-->
   <div id='divSpecialties' class="row">

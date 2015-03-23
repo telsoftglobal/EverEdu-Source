@@ -217,10 +217,10 @@ class User
     # Modify Date:
     def search_mentor(keyword, page_number, item_per_page)
       # select mentor role
-      mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
+      mentor_role = Role.find_by(name: Role::ROLE_MENTOR)
 
       # query users
-      @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({user_name: /#{keyword}/i}, {first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
+      @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
 
       @users
     end
@@ -234,7 +234,7 @@ class User
     # Modify Date:
     def search_mentor_advance(first_name, last_name, country, specialties, history_jobs, page_number, item_per_page)
       # select mentor role
-      mentor_role = Role.find_by(name: Role::ROLE_DEFAULT)
+      mentor_role = Role.find_by(name: Role::ROLE_MENTOR)
 
       # default query role mentor and status = 1
       query = User.where(role_ids: mentor_role.id).and(status: 1)

@@ -21,20 +21,25 @@
 
 ja:
   education:
-    title_educations: "教育"
+    title_education: "教育"
     title_new_education: "新教育"
     title_edit_education: "編集教育"
     title_delete_education: "教育の削除"
 
     lb_school_name: "学校名"
-    lb_start_year: "年開始"
-    lb_end_year: "年終了"
-    lb_current: "現在"
+    lb_school_url: "URL"
+    lb_date_attended: "日付に出席"
+    lb_year: "年"
+    lb_degree: "学位"
+    lb_field_of_study: "研究分野"
+    lb_grade: "グレード"
+    lb_activities_societies: "活動と社会"
     lb_description: "説明"
     placeholder_start_year: "年開始"
     placeholder_end_year: "年終了"
     placeholder_school_name: "学校名を入力してください。"
     placeholder_description: "説明を入力してください。"
+    placeholder_degree: "度を選択してください。"
 
     btn_create: "作る"
     msg_create_successfully: "教育の作成に成功しました。"

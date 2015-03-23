@@ -133,18 +133,18 @@
         padding: 1px 4px;
         border-radius: 3px;
     }
-    #amazon-Container #categoryHolder:hover, #categoryHolder:active {
-        background-color: #ebebeb;
-    }
-    #amazon-Container #categoryHolder:active, #categoryHolder:focus {
-        outline:none;
-    }
-    #amazon-Container #categoryHolder.clicked {
-        background-color: #EBEBEB;
-        outline: 0 none;
-        box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;
-        -webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);
-    }
+    /*#amazon-Container #categoryHolder:hover, #categoryHolder:active {*/
+        /*background-color: #ebebeb;*/
+    /*}*/
+    /*#amazon-Container #categoryHolder:active, #categoryHolder:focus {*/
+        /*outline:none;*/
+    /*}*/
+    /*#amazon-Container #categoryHolder.clicked {*/
+        /*background-color: #EBEBEB;*/
+        /*outline: 0 none;*/
+        /*box-shadow: 0 3px 5px rgba(0, 0, 0, 0.05) inset;*/
+        /*-webkit-box-shadow: inset 0 3px 5px rgba(0,0,0,.05);*/
+    /*}*/
     #amazon-Container #categorySelection {
         max-width: 120px;
         height: 14px;
@@ -356,12 +356,21 @@
         display: none;
     }
 </style>
+
+<%
+   amazon_tag = APP_CONFIG['amazon_tag']
+   linkCode = APP_CONFIG['linkCode']
+   linkID = APP_CONFIG['linkID']
+   server = 'https://www.amazon.co.jp/ref=assoc_res_sw_zz_dka_cra_t0_logo'
+   link = "%{server}?tag=%{amazon_tag}&linkCode=%{linkCode}&linkID=%{linkID}"  % { server: server, amazon_tag: amazon_tag, linkCode: linkCode, linkID: linkID}
+%>
+
 <div id="amazon-Container" style="margin-bottom: 10px;">
 <div id="container">
   <div id="criteriaSection" class="gradient-background">
     <header>
       <div class="left" id="logoHolder">
-        <a href="https://www.amazon.com/ref=assoc_res_sw_logo?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank">
+        <a href="<%= link %>" target="_blank">
           <span id="amazonLogo">amazon</span>
           <span id="logoSuffix" class="light US"></span>
         </a>
@@ -393,7 +402,7 @@
   </div>
   <div id="footer" class="gradient-background">
     <a href="#" target="_blank"><%= t('amazon.title_view_all') %></a>
-    <a  href="https://www.amazon.com/ref=assoc_res_sw_no_result?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU"
+    <a  href="<%= link %>"
         style="display:none;" target="_blank"><%= t('amazon.msg_result_not_found') %></a>
   </div>
   <div id="resultTemplate">
@@ -401,7 +410,7 @@
       <div class="search-item">
         <div style="width:100%; height:100%;">
           <div class="thumbnail-holder">
-            <a href="https://www.amazon.com/?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" class="thumbnail-amazon">
+            <a href="https://www.amazon.com/?tag=<%= amazon_tag %>&linkCode=<%= linkCode %>&linkID=<%= linkID %>" target="_blank" class="thumbnail-amazon">
               <img src="" style="max-width:100%;max-height:100%;" />
             </a>
           </div>
@@ -409,7 +418,7 @@
             <ul style="list-style:none; overflow:hidden; padding-left:0px;">
               <li style="overflow: hidden; margin-bottom:5px;">
                 <p class="title" style="font-size:12px; font-weight:bold; margin:0 5px;overflow:hidden;">
-                  <a href="https://www.amazon.com/?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU" target="_blank" style="display:block;">Title</a>
+                  <a href="https://www.amazon.com/?tag=<%= amazon_tag %>&linkCode=<%= linkCode %>&linkID=<%= linkID %>" target="_blank" style="display:block;">Title</a>
                 </p>
               </li>
               <li class="details" style="width:75%; float:left;">
@@ -437,6 +446,42 @@
 </div>
 </div>
 <script type="text/javascript">
+
+    var completionService = {
+        'US' : 'completion.amazon.com',
+        'CA' : 'completion.amazon.com',
+        'IT' : 'completion.amazon.co.uk',
+        'ES' : 'completion.amazon.co.uk',
+        'DE' : 'completion.amazon.co.uk',
+        'GB' : 'completion.amazon.co.uk',
+        'IN' : 'completion.amazon.co.uk',
+        'FR' : 'completion.amazon.co.uk',
+        'JP' : 'completion.amazon.co.jp'
+    };
+
+    var market = '<%= (I18n.default_locale==:en) ? 'US': 'JP' %>';
+    var Amazon_data = {
+        US:{
+            completionService: completionService['US'],
+            searchService: '<%= APP_CONFIG['amazon_config']['us']['searchService'] %>',
+            MarketPlace: '<%= APP_CONFIG['amazon_config']['us']['marketPlace'] %>',
+            amazon_tag: '<%= APP_CONFIG['amazon_config']['us']['amazon_tag'] %>',
+            ServiceVersion: '<%= APP_CONFIG['amazon_config']['us']['serviceVersion'] %>',
+            linkCode: '<%= APP_CONFIG['amazon_config']['us']['linkCode'] %>',
+            linkID: '<%= APP_CONFIG['amazon_config']['us']['linkID'] %>'
+        },
+        JP:{
+            completionService: completionService['JP'],
+            searchService: '<%= APP_CONFIG['amazon_config']['jp']['searchService'] %>',
+            MarketPlace: '<%= APP_CONFIG['amazon_config']['jp']['marketPlace'] %>',
+            amazon_tag: '<%= APP_CONFIG['amazon_config']['jp']['amazon_tag'] %>',
+            ServiceVersion: '<%= APP_CONFIG['amazon_config']['jp']['serviceVersion'] %>',
+            linkCode: '<%= APP_CONFIG['amazon_config']['jp']['linkCode'] %>',
+            linkID: '<%= APP_CONFIG['amazon_config']['jp']['linkID'] %>'
+        }
+    };
+
+
     function reloadEvent()
     {
         $(".btnSelect").click(function(e){
@@ -470,7 +515,9 @@
                 });
                 return;
             }
-
+            if(!($(".material:visible").find(".amazon_asin:not([readonly])").val()=='' || $(".urlformat:visible:not([readonly])").val()!=$(thisbtn).attr("href"))){
+                return;
+            }
             var cart = $('.urlformat:visible:not([readonly])');
             var imgtodrag = $(this).closest('.search-item').find("img").eq(0);
 //            console.log(imgtodrag);
@@ -510,9 +557,13 @@
                 });
 
             }
-            $(".urlformat:visible:not([readonly])").fadeOut("medium", function() {
-                $(this).val($(thisbtn).attr("href")).fadeIn("medium");
-            });
+
+            $(".urlformat:visible:not([readonly])").val($(thisbtn).attr("href"));
+
+            $(".material:visible").find(".amazon_asin:not([readonly])").val($(thisbtn).attr("asin"));
+//            $(".urlformat:visible:not([readonly])").fadeOut("medium", function() {
+//                $(this).val($(thisbtn).attr("href")).fadeIn("medium");
+//            });
 
 
 
@@ -553,20 +604,21 @@
     var make_ir_call = function(linkCode)
     {
         var img = new Image();
-        img.src = location.protocol + '//' + 'ir-na.amazon-adsystem.com/e/ir?o=1&t=<%= APP_CONFIG['amazon_tag'] %>&l='+linkCode;
+        img.src = location.protocol + '//' + 'ir-jp.amazon-adsystem.com/e/ir?o=9&t='+ Amazon_data[market]['amazon_tag'] +'&l='+linkCode;
     };
     var make_fs_call = function(adUnit_data, customParams)
     {
         var p = {};
         p.mobile_supported  = "true";
-        p.tracking_id = "<%= APP_CONFIG['amazon_tag'] %>";
+        p.tracking_id = Amazon_data[market]['amazon_tag'];
         p.action = customParams.action;
         p.adunit_type = customParams.adunit_type;
         p.logType = customParams.logType;
-        adUnit_data.region = "US";
+//        adUnit_data.region = "US";
+        adUnit_data.region = Amazon_data[market]['MarketPlace'];
         adUnit_data.marketplace = "amazon";
         adUnit_data.adunit_script_type = "script";
-        adUnit_data.link_id = "5DAFSJF6MHT2KLCU";
+        adUnit_data.link_id = Amazon_data[market]['linkID'];
         p.adunit_properties = adUnit_data;
 
         amazon_assoc_ir_f_call(p);
@@ -610,19 +662,8 @@
             'height': document.getElementsByTagName('body')[0].clientHeight
         });
     };
-    var completionService = {
-        'US' : 'completion.amazon.com',
-        'CA' : 'completion.amazon.com',
-        'IT' : 'completion.amazon.co.uk',
-        'ES' : 'completion.amazon.co.uk',
-        'DE' : 'completion.amazon.co.uk',
-        'GB' : 'completion.amazon.co.uk',
-        'IN' : 'completion.amazon.co.uk',
-        'FR' : 'completion.amazon.co.uk',
-        'JP' : 'completion.amazon.co.jp',
-        'ja' : 'completion.amazon.co.jp',
-        'en' : 'completion.amazon.com'
-    };
+
+
     (function(){
         var result_count = 10;
         {
@@ -735,7 +776,7 @@
                         }
                     window.__maSwJsNode = document.createElement('script');
 //                    window.__maSwJsNode.src = location.protocol + '//' + completionService['JP'] + '/search/complete?method=completion&q=' + searchKey +
-                    window.__maSwJsNode.src = location.protocol + '//' + completionService['<%= I18n.default_locale %>'] + '/search/complete?method=completion&q=' + searchKey +
+                    window.__maSwJsNode.src = location.protocol + '//' + Amazon_data[market]['completionService'] + '/search/complete?method=completion&q=' + searchKey +
                     '&search-alias=' + searchAlias + '&mkt=1&fb=1&xcat=0&x=__maSwAutocomplete&sc=1&noCacheIE=1391185589270';
                     document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode);
                 }
@@ -833,7 +874,7 @@
             var selectedCat = document.getElementById('categorySelection');
             var searchTerm = encodeURIComponent(searchField.value);
             var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
-                    (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                    (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
             {
                 foresterCall({search_term:searchTerm , logType: 'search_navigation',
@@ -843,8 +884,15 @@
             if(resultCount) {
                 var category =  selectedCat ? (selectedCat.getAttribute('data-search') ? selectedCat.getAttribute('data-search') : "All") : "All";
                 window.__maSwJsNode2 = document.createElement('script');
-                window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
-                +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+////                window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm
+////                +'&SearchIndex='+ category +'&multipageStart=0&InstanceId=0&multipageCount='+resultCount+'&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+//
+                window.__maSwJsNode2.src =  Amazon_data[market]['searchService'] + "/widgets/q?Operation=GetResults&Keywords=" + searchTerm + "&SearchIndex=" + category + "&multipageStart=0&InstanceId=0&multipageCount=" + resultCount + "&TemplateId=MobileSearchResults&ServiceVersion="+ Amazon_data[market]['ServiceVersion'] +"&MarketPlace=" + Amazon_data[market]['MarketPlace'];
+
+
+//                window.__maSwJsNode2.src = 'https://ws-na.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm + '&SearchIndex=' + category + '&multipageStart=0&InstanceId=0&multipageCount=' + resultCount + '&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=US';
+//                window.__maSwJsNode2.src = 'https://ws-fe.amazon-adsystem.com/widgets/q?Operation=GetResults&Keywords=' + searchTerm + '&SearchIndex=' + category + '&multipageStart=0&InstanceId=0&multipageCount=' + resultCount + '&TemplateId=MobileSearchResults&ServiceVersion=20070822&MarketPlace=JP';
+
                 document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
                 if(window.submitTimer) {
                     clearTimeout(window.submitTimer);
@@ -960,15 +1008,19 @@
             var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
             var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
 
-            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             if(cat == 'aps') {
-                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             }
             document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
 
             window.__maSwJsNode2 = document.createElement('script');
-            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent('https://ws-na.amazon-adsystem.com') +
+//            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent('https://ws-na.amazon-adsystem.com') +
+//            '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
+            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent(Amazon_data[market]['searchService']) +
             '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
+//            TODO xem
+
             document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
 
             foresterCall({search_cat: cat, logType: 'search_navigation', action: 'btnsubmit', adunit_type: 'responsive_search_widget'});
@@ -1067,7 +1119,7 @@
             for(var i=0; i<result.results.length; i++) {
                 var data = result.results[i];
                 var template = document.getElementById('resultTemplate').getElementsByClassName('__ma-sw-search-item')[0].cloneNode(true);
-                var href = data.DetailPageURL+'?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU&ref_=assoc_res_sw_result_'+(i+1);
+                var href = data.DetailPageURL+'?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkCode'] +'&ref_=assoc_res_sw_result_'+(i+1);
                 template.getElementsByClassName('thumbnail-amazon')[0].setAttribute('href', href);
                 var thumb = template.getElementsByClassName('thumbnail-amazon')[0].getElementsByTagName('img')[0];
                 if(data.ImageUrl)
@@ -1090,10 +1142,11 @@
                 else
                     starRating.style.display = 'none';
 
-                var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag=<%= APP_CONFIG['amazon_tag'] %>&linkCode=w13&linkID=5DAFSJF6MHT2KLCU';
+                var reviewURL = 'https://www.amazon.com' + '/product-reviews/' + data.ASIN + '/ref=assoc_res_sw_ratings?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['amazon_tag'] +'&linkID='+ Amazon_data[market]['linkID'];
                 template.getElementsByClassName('star-rating-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('reviews-count-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('btnSelect')[0].setAttribute('href', href);
+                template.getElementsByClassName('btnSelect')[0].setAttribute('asin', data.ASIN);
                 resultPane.appendChild(template);
             }
         var clearDiv = document.createElement('div');

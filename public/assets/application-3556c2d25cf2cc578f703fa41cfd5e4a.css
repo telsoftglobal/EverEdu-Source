@@ -3106,6 +3106,13 @@ select.form-control,input.form-control{
     background-color: #FFF;
     border: 1px solid #CCC;
 }
+
+@media (max-width:320px)
+{
+    .label_mobile{
+        display:none;
+    }
+}
 /*Custom bootstrap*/
 /*
 @media class

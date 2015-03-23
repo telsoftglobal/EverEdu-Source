@@ -27,8 +27,8 @@
               <div class="panel-body">
                 <h4 class="strong"><%= @curriculum_study_progress.curriculum.curriculum_name%></h4>
                 <p><%= t('student_curriculum_detail.lb_with')%> <%= @curriculum_study_progress.curriculum.mentor.user_name%>
-                  &nbsp;|&nbsp; <%= t('curriculum.lb_start_date')%>:  <%= !(@curriculum_study_progress.actual_start_date == nil)? @curriculum_study_progress.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>
-                  &nbsp;|&nbsp; <%= t('curriculum.lb_end_date')%>:  <%= !(@curriculum_study_progress.actual_end_date == nil)? @curriculum_study_progress.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>
+                  &nbsp;|&nbsp; <%= t('curriculum.lb_start_date')%>:  <%= !(@curriculum_study_progress.actual_start_date == nil)? @curriculum_study_progress.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>
+                  &nbsp;|&nbsp; <%= t('curriculum.lb_end_date')%>:  <%= !(@curriculum_study_progress.actual_end_date == nil)? @curriculum_study_progress.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>
                 </p>
 
               </div>
@@ -97,8 +97,8 @@
               <div class="panel-body">
                 <h4 class="strong"><%= @material_study.material.material_name %></h4>
                 <p>
-                  <%= t('curriculum.lb_start_date')%>: <%= !(@material_study.actual_start_date == nil)? @material_study.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>&nbsp;|&nbsp;
-                  <%= t('curriculum.lb_end_date')%>: <%= !(@material_study.actual_end_date == nil)? @material_study.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>
+                  <%= t('curriculum.lb_start_date')%>: <%= !(@material_study.actual_start_date == nil)? @material_study.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>&nbsp;|&nbsp;
+                  <%= t('curriculum.lb_end_date')%>: <%= !(@material_study.actual_end_date == nil)? @material_study.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>
                 </p>
               </div>
             </div>
@@ -109,16 +109,54 @@
             </div>
             <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
               <div class="panel-body">
-                <p>
-                  <b><%= t('material.lb_type')%>:</b> <%= !(@material_study.material.material_type == nil)? @material_study.material.material_type.material_type_name: nil%>
-                </p>
-                <%if !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))%>
+                <div class="row">
+
+                  <%
+                     if I18n.default_locale==:en
+                       amazon_tag = APP_CONFIG['amazon_config']['us']['amazon_tag']
+                       serviceVersion = APP_CONFIG['amazon_config']['us']['serviceVersion']
+                       linkID = APP_CONFIG['amazon_config']['us']['linkID']
+                       marketPlace = APP_CONFIG['amazon_config']['us']['marketPlace']
+                       searchService = APP_CONFIG['amazon_config']['us']['searchService']
+                     else
+                       amazon_tag = APP_CONFIG['amazon_config']['jp']['amazon_tag']
+                       serviceVersion = APP_CONFIG['amazon_config']['jp']['serviceVersion']
+                       linkID = APP_CONFIG['amazon_config']['jp']['linkID']
+                       marketPlace = APP_CONFIG['amazon_config']['jp']['marketPlace']
+                       searchService = APP_CONFIG['amazon_config']['jp']['searchService']
+                     end
+                  %>
+
+                  <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil?%>
+                      <div class="col-md-2" id="amazon_book" style="height: 240px;">
+
+                      </div>
+                      <script>
+                          $('#accordion').on('shown.bs.collapse', function () {
+                              if($("#amazon_book").find("iframe").length==0){
+                                  <% if @object.material_url.include? 'amazon.com' %>
+                                  $("#amazon_book").html("<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=<%= serviceVersion %>&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=<%= amazon_tag %>&marketplace=amazon&region=US&placement=B003L1ZYYM&asins=<%= @object.asin %>&linkId=<%= linkID %>&show_border=true&link_opens_in_new_window=true\"></iframe>");
+                                  <% else %>
+                                  $("#amazon_book").html("<iframe src=\"http://rcm-fe.amazon-adsystem.com/e/cm?t=<%= amazon_tag %>&o=9&p=8&l=as1&asins=<%= @object.asin %>&ref=tf_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe>");
+                                  <% end %>
+                              }
+                          });
+                      </script>
+                  <% end %>
+
+                  <div class="col-md-10">
                     <p>
-                      <b>URL:</b> <a style="color:#913228" target="_blank" href="<%= !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))? @material_study.material.material_url: "#"%>"><%= !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))? @material_study.material.material_url: "NA"%></a>
+                      <b><%= t('material.lb_type')%>:</b> <%= !(@material_study.material.material_type == nil)? @material_study.material.material_type.material_type_name: nil%>
                     </p>
-                <%end%>
-                <div id="divMaterial" class="innerT aes-content1" >
-                  <%= @material_study.material.description.html_safe %>
+                    <%if !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))%>
+                        <p>
+                          <b>URL:</b> <a style="color:#913228" target="_blank" href="<%= !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))? @material_study.material.material_url: "#"%>"><%= !((@material_study.material.material_url == '')||(@material_study.material.material_url == nil))? @material_study.material.material_url: "N/A"%></a>
+                        </p>
+                    <%end%>
+                    <div id="divMaterial" class="innerT aes-content1" >
+                      <%= @material_study.material.description.html_safe %>
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -232,8 +270,8 @@
               <div class="panel-body">
                 <h4 class="strong"><%= @action_study.action.action_name %></h4>
                 <p>
-                  <%= t('curriculum.lb_start_date')%>: <%= !(@action_study.actual_start_date==nil)? @action_study.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>&nbsp;|&nbsp;
-                  <%= t('curriculum.lb_end_date')%>: <%= !(@action_study.actual_end_date==nil)? @action_study.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "NA"%>
+                  <%= t('curriculum.lb_start_date')%>: <%= !(@action_study.actual_start_date==nil)? @action_study.actual_start_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>&nbsp;|&nbsp;
+                  <%= t('curriculum.lb_end_date')%>: <%= !(@action_study.actual_end_date==nil)? @action_study.actual_end_date.strftime("%Y/%m/%d %H:%M:%S"): "N/A"%>
                 </p>
               </div>
             </div>

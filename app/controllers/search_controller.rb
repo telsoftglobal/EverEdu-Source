@@ -48,6 +48,36 @@ class SearchController < ApplicationController
   # @throws Exception
   # @author HuyenDT
   def search_mentor
+    # begin
+    #   page_number = params[:page]
+    #   keyword = params[:keyword]
+    #   if !keyword.nil?
+    #     keyword = keyword.to_s
+    #     keyword = keyword.strip
+    #     keyword = normalize_special_characters(keyword)
+    #   end
+    #
+    #   if keyword.blank?
+    #   else
+    #     @users = User.search_mentor(keyword, page_number, ITEM_PER_PAGE)
+    #     @total_entries = @users.total_entries
+    #   end
+    # rescue Exception => e
+    #   logger.error("search mentor error: #{e.message}")
+    #   respond_to do |format|
+    #     flash.now[:error] = t('search_mentor.msg_error')
+    #     format.js { render action: 'search_error' }
+    #     format.html
+    #   end
+    # end
+  end
+
+  # Description: This method processes search mentor basic
+  # @param
+  # @return
+  # @throws Exception
+  # @author HuyenDT
+  def search_mentor_basic
     begin
       page_number = params[:page]
       keyword = params[:keyword]
@@ -57,11 +87,9 @@ class SearchController < ApplicationController
         keyword = normalize_special_characters(keyword)
       end
 
-      if keyword.blank?
-      else
-        @users = User.search_mentor(keyword, page_number, ITEM_PER_PAGE)
-        @total_entries = @users.total_entries
-      end
+      @users = User.search_mentor(keyword, page_number, ITEM_PER_PAGE)
+      @total_entries = @users.total_entries
+
     rescue Exception => e
       logger.error("search mentor error: #{e.message}")
       respond_to do |format|

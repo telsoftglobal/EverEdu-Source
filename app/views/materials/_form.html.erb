@@ -10,6 +10,7 @@
                 <label for="material_name" class="col-md-3 control-label"><%= t('material.lb_material_name') %><span class="requiredfield">*</span></label>
                 <div class="col-md-9">
                   <%= f.hidden_field :id, class: "form-control"%>
+                  <%= f.hidden_field :asin, class: "form-control amazon_asin"%>
                   <%= f.text_field :material_name, class: "form-control requiredfield100 name_update", placeholder: t('material.lb_material_name'),maxlength:100,autofocus:"autofocus" %>
                 </div>
               </div>
@@ -39,6 +40,11 @@
 
     <script>
       $(document).ready(function(){
+
+          $(".url_update").change(function(){
+              $(".amazon_asin").val('');
+          });
+
           $('.selectpicker').selectpicker({
               size: 10
           });

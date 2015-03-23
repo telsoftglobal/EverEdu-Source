@@ -56,6 +56,7 @@
 //= require ckeditor/bootstrap-ckeditor-fix
 //=# require ckeditor/plugin/maxlength
 //= require ckeditor/init.js.erb
+//=# require vailidator.js.erb
 //= require_self
 
 $.validator.setDefaults(

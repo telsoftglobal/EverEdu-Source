@@ -15,13 +15,13 @@
     }
 </style>
 <%= form_for @history_job, html: {id: 'history_job_form', role: 'form', class:'form-horizontal'} do |f| %>
-    <div class="widget ">
-      <div class="widget-body">
+    <!--<div class="widget ">-->
+      <!--<div class="widget-body">-->
         <div id="panelhistoryjob" class="innerLR">
           <div class="historyjob" id="<%= @history_job.id %>">
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.company_name')%><span class="requiredfield">*</span></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -32,7 +32,7 @@
 
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.company_url')%></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -43,7 +43,7 @@
 
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.title')%><span class="requiredfield">*</span></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -54,7 +54,7 @@
 
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.category')%></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -65,7 +65,7 @@
 
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.level')%></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -76,7 +76,7 @@
 
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                   <label class="control-label"><%= t('history_job.location')%></label>
                 </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -87,7 +87,10 @@
 
             <div class="form-group">
               <div class="row">
-                <label class="control-label"><%= t('history_job.time_period')%><span class="requiredfield">*</span></label>
+                <div class="col-xs-12 col-sm-12 col-md-12">
+                  <label class="control-label"><%= t('history_job.time_period')%><span class="requiredfield">*</span></label>
+                </div>
+
               </div>
               <div class="row">
                 <div class="col-xs-1 col-sm-1 col-md-1">
@@ -139,7 +142,7 @@
             </div>
             <div class="form-group">
               <div class="row">
-                <div class="col-xs-12 col-sm-3 col-md-3">
+                <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
               <label class="control-label"><%= t('history_job.description')%></label>
                   </div>
                 <div class="col-xs-12 col-sm-9 col-md-9">
@@ -150,8 +153,8 @@
 
           </div>
         </div>
-      </div>
-    </div>
+      <!--</div>-->
+    <!--</div>-->
 
 <% end %>
 

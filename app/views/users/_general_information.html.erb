@@ -5,9 +5,9 @@
         <div id="avatar_area" style="margin-top: 20px">
           <div id="avatar">
             <% if !@user.avatar_url.nil? %>
-                <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: "Avatar"%>
+                <%= image_tag @user.avatar_url, class: "img-circle avatar", alt: ""%>
             <% else %>
-                <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: "Avatar"%>
+                <%= image_tag 'noavatar.png', class: "img-circle avatar", alt: ""%>
             <% end %>
           </div>
           <div class="changeavatar">

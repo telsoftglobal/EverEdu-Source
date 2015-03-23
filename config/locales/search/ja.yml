@@ -50,3 +50,7 @@ ja:
     placeholder_job_title: "職名"
     title_specialty: "専門"
     placeholder_specialty: "専門"
+    title_add_specialty: "専門の追加"
+    title_add_job_title: "役職を追加"
+    msg_error_duplicate_job_title: "役職が存在している。"
+    msg_error_duplicate_specialty: "専門は存在している。"

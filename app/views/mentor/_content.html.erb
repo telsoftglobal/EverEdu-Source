@@ -96,12 +96,38 @@
                 <div id="collapse-2" class="panel-collapse collapse" style="height: 0px;">
                   <div class="panel-body">
                     <div class="row">
-                      <%if !@object.material_url.nil? && !@object.material_url.empty?%>
-                          <% if @object.material_url.start_with?('https://www.amazon.com') || @object.material_url.start_with?('https://amazon.com') %>
-                              <div class="col-md-2" id="amazon_book" style="height: 240px;">
 
-                              </div>
-                          <% end %>
+                      <%
+                         if I18n.default_locale==:en
+                           amazon_tag = APP_CONFIG['amazon_config']['us']['amazon_tag']
+                           serviceVersion = APP_CONFIG['amazon_config']['us']['serviceVersion']
+                           linkID = APP_CONFIG['amazon_config']['us']['linkID']
+                           marketPlace = APP_CONFIG['amazon_config']['us']['marketPlace']
+                           searchService = APP_CONFIG['amazon_config']['us']['searchService']
+                         else
+                           amazon_tag = APP_CONFIG['amazon_config']['jp']['amazon_tag']
+                           serviceVersion = APP_CONFIG['amazon_config']['jp']['serviceVersion']
+                           linkID = APP_CONFIG['amazon_config']['jp']['linkID']
+                           marketPlace = APP_CONFIG['amazon_config']['jp']['marketPlace']
+                           searchService = APP_CONFIG['amazon_config']['jp']['searchService']
+                         end
+                      %>
+
+                      <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil?%>
+                          <div class="col-md-2" id="amazon_book" style="height: 240px;">
+
+                          </div>
+                          <script>
+                              $('#accordion').on('shown.bs.collapse', function () {
+                                  if($("#amazon_book").find("iframe").length==0){
+                                      <% if @object.material_url.include? 'amazon.com' %>
+                                        $("#amazon_book").html("<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=<%= serviceVersion %>&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=<%= amazon_tag %>&marketplace=amazon&region=US&placement=B003L1ZYYM&asins=<%= @object.asin %>&linkId=<%= linkID %>&show_border=true&link_opens_in_new_window=true\"></iframe>");
+                                      <% else %>
+                                        $("#amazon_book").html("<iframe src=\"http://rcm-fe.amazon-adsystem.com/e/cm?t=<%= amazon_tag %>&o=9&p=8&l=as1&asins=<%= @object.asin %>&ref=tf_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe>");
+                                      <% end %>
+                                  }
+                              });
+                          </script>
                       <% end %>
                       <div class="col-md-10">
                         <p>
@@ -120,24 +146,6 @@
                   </div>
                 </div>
               </div>
-
-
-              <%if !@object.material_url.nil? && !@object.material_url.empty?%>
-                  <% if @object.material_url.start_with?('https://www.amazon.com') || @object.material_url.start_with?('https://amazon.com')
-                       http = @object.material_url
-                       http = http.split("/").split("?")[0][5].split("?")
-                       productcode = http[0]
-                       param = http[1].split("&")%>
-
-                    <script>
-                      $('#accordion').on('shown.bs.collapse', function () {
-                          if($("#amazon_book").find("iframe").length==0){
-                            $("#amazon_book").html("<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=20070822&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=<%= APP_CONFIG['amazon_tag'] %>&marketplace=amazon&region=US&placement=B003L1ZYYM&asins=<%= productcode %>&<%= param[2] %>&show_border=true&link_opens_in_new_window=true\"></iframe>");
-                          }
-                      });
-                    </script>
-                  <% end %>
-              <% end %>
 
               <!--New comment form-->
               <div id="comment-new" class="innerAll" style="background-color: white" >

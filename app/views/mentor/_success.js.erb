@@ -33,7 +33,40 @@ if($("#curriculum_id").val()!=null){
 //    $("#"+name_update).text($("#quick_form").find("input.name_update").val());
 //}
 
-$("#"+id).click();
+//$("#"+id).click();
+
+
+
+$.ajax({
+    url: '/mentor/update_curriculum_detail',
+    type: 'GET',
+    dataType: 'script',
+    data: {
+        curriculum_id: $("#"+id).attr("curriculum_id"),
+        object_type: $("#"+id).attr("object_type"),
+        object_id: $("#"+id).attr("object_id")
+    },beforeSend: function (xhr) {
+        $.loader.open({size:32});
+    },
+    success: function () {
+//                    update new notify
+//        $(aElement).find("span.notification-count").remove();
+//        $.loader.close(true);
+//        $("#modalContent").empty();
+    },
+    error: function (xhr, status, response) {
+        $.loader.close(true);
+        console.log("AJAX Error: " + status);
+    }
+});
+
+
+
+
+
+
+
+
 
 
 //$(".name_update").text($("#quick_form").find("input.name_update").val());//TODO xem lai type sau khi update

@@ -189,14 +189,16 @@
             $.validator.addMethod("validStartTime", function (value, element) {
                 var start_year = $('#history_job_start_time_1i').val();
                 var start_month = $("#history_job_start_time_2i").val();
-                var start_time = new Date(start_year, start_month);
-                return (start_time < new Date())
+                var start_time = new Date(start_year, start_month-1,1);
+                alert(start_time);
+
+                return (start_time <= new Date())
             }, "date invalid");
             $.validator.addMethod("validEndTime", function (value, element) {
                 var end_year = $('#history_job_end_time_1i').val();
                 var end_month = $("#history_job_end_time_2i").val();
-                var end_time = new Date(end_year, end_month);
-                return (end_time < new Date())
+                var end_time = new Date(end_year, end_month-1);
+                return (end_time <= new Date())
             }, "date invalid ");
 
             var valid = $("#history_job_form").valid();

@@ -149,28 +149,29 @@
                       <div class="material" id="material<%=material.id%>" style="display:none" >
                         <input name=curriculum[materials_attributes][<%=material.id%>][parent_id] value="<%= (material.parent_id)? material.parent_id : 1 %>" type=hidden>
                         <input name=curriculum[materials_attributes][<%=material.id%>][material_id] value="<%=material.id%>" type=hidden>
+                        <input name=curriculum[materials_attributes][<%=material.id%>][asin] value="<%=material.asin%>" class="amazon_asin" type=hidden>
                         <input name=curriculum[materials_attributes][<%=material.id%>][state] class="state" value="<%=material.state%>" type=hidden>
                         <div class="form-group" >
-                          <label for="curriculum[materials_attributes][<%=material.id%>][material_name]" class="col-md-2 control-label"><%= t('material.lb_material_name') %><span class="requiredfield">*</span></label>
-                          <div class="col-md-10">
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_name]" class="col-md-3 control-label"><%= t('material.lb_material_name') %><span class="requiredfield">*</span></label>
+                          <div class="col-md-9">
                             <%= text_field "curriculum[materials_attributes]["+material.id+"]","material_name",value: material.material_name ,class: "form-control requiredfield100" ,placeholder:t('material.lb_material_name'),maxlength:100%>
                           </div>
                         </div>
                         <div class="form-group" >
-                          <label for="curriculum[materials_attributes][<%=material.id%>][material_type_id]" class="col-md-2 control-label"><%= t('material.lb_type') %><span class="requiredfield">*</span></label>
-                          <div class="col-md-10">
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_type_id]" class="col-md-3 control-label"><%= t('material.lb_type') %><span class="requiredfield">*</span></label>
+                          <div class="col-md-9">
                             <%= select_tag "curriculum[materials_attributes]["+material.id+"][material_type_id]", options_from_collection_for_select(MaterialType.all, "id", "material_type_name",material.material_type.id),{ class: 'selectpicker form-control' } %>
                           </div>
                         </div>
                         <div class="form-group" >
-                          <label for="curriculum[materials_attributes][<%=material.id%>][material_url]" class="col-md-2 control-label"><%= t('material.lb_url') %></label>
-                          <div class="col-md-10">
+                          <label for="curriculum[materials_attributes][<%=material.id%>][material_url]" class="col-md-3 control-label"><%= t('material.lb_url') %></label>
+                          <div class="col-md-9">
                             <%= text_field "curriculum[materials_attributes]["+material.id+"]","material_url",value: material.material_url,class: "form-control urlformat" , maxlength:500, placeholder:t('material.lb_url')%>
                           </div>
                         </div>
                         <div class="form-group">
-                          <label for="curriculum[materials_attributes][<%=material.id%>][description]" class="col-md-2 control-label"><%= t('material.lb_description') %></label>
-                          <div class="col-md-10">
+                          <label for="curriculum[materials_attributes][<%=material.id%>][description]" class="col-md-3 control-label"><%= t('material.lb_description') %></label>
+                          <div class="col-md-9">
                             <%= text_area "curriculum[materials_attributes]["+material.id+"]","description",value: material.description , class: 'form-control summernote summernoteMaterial' , placeholder: t('material.lb_description'), rows:5%>
                           </div>
                         </div>
@@ -188,8 +189,8 @@
               </div>
               <div class="form-actions commandButtonMaterial" style="display: none;">
                 <div class="innerLR form-group" style="margin-bottom: 0px;" >
-                  <label  class="col-md-2 control-label"> </label>
-                  <div class="col-md-10" style=" height:34px;">
+                  <label  class="col-md-3 control-label"> </label>
+                  <div class="col-md-9" style=" height:34px;">
                     <button type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
                     <button type="button" class="btn btn-default buttonCancel"><i class="fa fa-times"></i> <%= t('button.btn_cancel') %></button>
                   </div>
@@ -430,7 +431,7 @@
 <input type="hidden" id="materialDescriptionTemp"/>
 <input type="hidden" id="materialUrlTemp"/>
 <input type="hidden" id="materialTypeTemp"/>
-
+<input type="hidden" id="materialAsin"/>
 
 </div>
 </div>
@@ -556,6 +557,7 @@
                 $("#materialDescriptionTemp").val(CKEDITOR.instances["curriculum_materials_attributes_"+getselectNodeIDMaterial()+"_description"].getData());
                 $("#materialUrlTemp").val($("#material"+treeNode.id).find("input.urlformat").val());
                 $("#materialTypeTemp").val($("#material"+treeNode.id).find("button.selectpicker").attr("title"));
+                $("#materialAsin").val($("#material"+treeNode.id).find("input.amazon_asin").val())
                 $("#panelmaterial div.material").hide();
                 $("#material"+treeNode.id).show();
                 $("#"+treeNode.tId+"_a").css("background-color", "#D6FFB0").css("border","1px solid #B1FF51");
@@ -748,6 +750,7 @@
         $(".commandButtonMaterial button.buttonCancel").click(function(){
             var treeObj = $.fn.zTree.getZTreeObj("treeMaterial");
             $("#material"+getselectNodeIDMaterial()).find("input.requiredfield100").val($("#materialNameTemp").val())
+            $("#material"+getselectNodeIDMaterial()).find("input.amazon_asin").val($("#materialAsin").val())
 //            $("#material"+getselectNodeIDMaterial()).find("div.note-editable").html($("#materialDescriptionTemp").val());
 //            $("#material"+getselectNodeIDMaterial()).find("textarea.summernoteMaterial").html($("#materialDescriptionTemp").val());
 
@@ -783,15 +786,16 @@
                 + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][parent_id]\" value=\""+materialParent+"\" type=\"hidden\">\n"
                 + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][material_id]\" value=\""+marterialID+"\" type=\"hidden\">\n"
                 + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][state]\" class=\"state\" value=\"new\" type=\"hidden\">\n"
+                + "       <input name=\"curriculum[materials_attributes]["+marterialID+"][asin]\" value=\"\" class=\"amazon_asin\" type=\"hidden\">"
                 + "        <div class=\"form-group\" >\n"
-                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_name]\" class=\"col-md-2 control-label\"><%= t('material.lb_material_name') %><span class=\"requiredfield\">*</span></label>\n"
-                + "            <div class=\"col-md-10\">\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_name]\" class=\"col-md-3 control-label\"><%= t('material.lb_material_name') %><span class=\"requiredfield\">*</span></label>\n"
+                + "            <div class=\"col-md-9\">\n"
                 + "                <input class=\"form-control requiredfield100\" maxlength=\"100\" id=\"material_name_"+marterialID+"\" name=\"curriculum[materials_attributes]["+marterialID+"][material_name]\" placeholder=\""+materialName+"\" type=\"text\">\n"
                 + "            </div>\n"
                 + "        </div>\n"
                 + "            <div class=\"form-group\" >\n"
-                + "              <label for=\"curriculum[materials_attributes]["+marterialID+"][material_type_id]\" class=\"col-md-2 control-label\"><%= t('material.lb_type') %><span class=\"requiredfield\">*</span></label>\n"
-                + "              <div class=\"col-md-10\">\n"
+                + "              <label for=\"curriculum[materials_attributes]["+marterialID+"][material_type_id]\" class=\"col-md-3 control-label\"><%= t('material.lb_type') %><span class=\"requiredfield\">*</span></label>\n"
+                + "              <div class=\"col-md-9\">\n"
                 + "                 <select class=\"selectpicker form-control\" id=\"curriculum_materials_attributes_"+marterialID+"_material_type_id\" name=\"curriculum[materials_attributes]["+marterialID+"][material_type_id]\">"
                 +                       st
                 + "                 </select>"
@@ -799,19 +803,23 @@
                 + "            </div>\n"
                 + "\n"
                 + "        <div class=\"form-group\" >\n"
-                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_url]\" class=\"col-md-2 control-label\"><%= t('material.lb_url') %></label>\n"
-                + "            <div class=\"col-md-10\">\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][material_url]\" class=\"col-md-3 control-label\"><%= t('material.lb_url') %></label>\n"
+                + "            <div class=\"col-md-9\">\n"
                 + "                <input class=\"form-control urlformat\" id=\"material_url_"+marterialID+"\" name=\"curriculum[materials_attributes]["+marterialID+"][material_url]\" placeholder=\"<%= t('material.lb_url') %>\" maxlength=\"500\" type=\"text\">\n"
                 + "            </div>\n"
                 + "        </div>\n"
                 + "\n"
                 + "        <div class=\"form-group\" >\n"
-                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][description]\" class=\"col-md-2 control-label\"><%= t('material.lb_description') %></label>\n"
-                + "            <div class=\"col-md-10\">\n"
+                + "            <label for=\"curriculum[materials_attributes]["+marterialID+"][description]\" class=\"col-md-3 control-label\"><%= t('material.lb_description') %></label>\n"
+                + "            <div class=\"col-md-9\">\n"
                 + "                <textarea class=\"form-control summernote summernoteMaterial active\" id=\"curriculum_materials_attributes_"+marterialID+"_description\"  name=\"curriculum[materials_attributes]["+marterialID+"][description]\" placeholder=\"<%= t('material.lb_description')%>\" rows=\"5\"></textarea>\n"
                 + "            </div>\n"
                 + "        </div>\n"
                 + "      </div>";
+
+        $("#material_url_"+marterialID).change(function(){
+            $("#material"+marterialID).find(".amazon_asin").val('');
+        });
         $("#panelmaterial").append(template);
 //        disabled editor
         setSelectNodeIDMaterial(marterialID);
@@ -1710,7 +1718,9 @@ if($(window).width()>=320 && $(window).width()<600){
       );
       $('#listCategories').selectpicker('val', 0);
 
-
+        $(".urlformat").change(function(){
+        $(this).closest(".material").find(".amazon_asin").val('');
+        });
 
       $("#category").find("li").each(function( index ) {
           var textsearch = $(this).find('div.option-name').text();

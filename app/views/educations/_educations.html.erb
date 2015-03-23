@@ -152,12 +152,22 @@
                         "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
                     },
                     errorPlacement: function (error, element) {
+//                        console.log(element.context().id());
+//                        if(element.context.name.eq('education[graduation_year]')){
+//
+//                            console.log('#rowDate');
+//                            error.insertAfter($('#rowDate'));
+//                        }
+//                        else{
                         error.insertAfter(element);
+
                     },
                     submitHandler: function (form) {
                     },
                     invalidHandler: function (form, validator) {
+//                        console.log(form);
                         $('#div_msg_error').text('');
+
                         var errors = validator.numberOfInvalids();
                         if (errors) {
                             validator.errorList[0].element.focus();
@@ -186,6 +196,10 @@
 
             var valid = $("#education_form").valid();
             if (!valid) {
+                var p_error = $('#div_graduation_year').find('p.has-error');
+//                        console.log(p_error);
+                        $("#rowDate").append(p_error.clone());
+                p_error.remove();
                 return false;
             }
 
