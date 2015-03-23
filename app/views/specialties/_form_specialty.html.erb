@@ -17,7 +17,7 @@
 
             <div class="form-group">
               <div class="row">
-                <label class="col-md-4 control-label" for="specialty[specialty]"><%= t('specialties.lb_specialty') %><span class="requiredfield">*</span></label>
+                <label class="col-md-4 control-label label_mobile" for="specialty[specialty]"><%= t('specialties.lb_specialty') %><span class="requiredfield">*</span></label>
                 <div class="col-md-8">
                   <%= f.text_field :specialty, maxlength: 100, class: "form-control", placeholder: t('specialties.placeholder_specialty') %>
                 </div>
@@ -26,7 +26,7 @@
 
             <div class="form-group">
               <div class="row">
-                <label class="col-md-4 control-label" for="specialty[years_of_experience]"><%= t('specialties.lb_years_of_experience') %></label>
+                <label class="col-md-4 control-label label_mobile" for="specialty[years_of_experience]"><%= t('specialties.lb_years_of_experience') %></label>
                 <div class="col-md-8">
                   <%= f.text_field :years_of_experience, class: "form-control", placeholder: t('specialties.placeholder_years_of_experience')%>
                 </div>
@@ -35,7 +35,7 @@
 
             <div class="form-group">
               <div class="row">
-                <label class="col-md-4 control-label" for="specialty[description]"><%= t('specialties.lb_description') %></label>
+                <label class="col-md-4 control-label label_mobile" for="specialty[description]"><%= t('specialties.lb_description') %></label>
                 <div class="col-md-8">
                   <%= f.text_area :description, maxlength:2000, class: "form-control", placeholder: t('specialties.placeholder_description'), rows: 2 %>
                 </div>

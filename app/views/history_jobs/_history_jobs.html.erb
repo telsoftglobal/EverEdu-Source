@@ -159,7 +159,8 @@
                             end_time_greater_or_equal_start_time: I18n.t('history_job.msg_endtime_greater_starttime')
                         },
                         "history_job[end_time]": {greater_or_equals: I18n.t('js.validate.msg_greater_than_start_date')},
-                        "history_job[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
+                        "history_job[description]": {maxlength: I18n.t('js.validate.msg_maxlength')},
+                        "history_job[company_url]":{url: I18n.t('js.validate.msg_url_invalid'), maxlength: I18n.t('js.validate.msg_maxlength')}
                     },
                     errorPlacement: function (error, element) {
                         error.insertAfter(element);
@@ -190,7 +191,7 @@
                 var start_year = $('#history_job_start_time_1i').val();
                 var start_month = $("#history_job_start_time_2i").val();
                 var start_time = new Date(start_year, start_month-1,1);
-                alert(start_time);
+//                alert(start_time);
 
                 return (start_time <= new Date())
             }, "date invalid");

@@ -27,7 +27,7 @@
                 <%else if !education.start_year.nil?%>
                     <small><%=t('education.lb_date_attended')%>: <%=education.start_year%></small>
                 <%else if !education.graduation_year.nil?%>
-                        <small><%=t('education.lb_date_attended')%>: <%=education.graduation_year%>(or expected)</small>
+                        <small><%=t('education.lb_date_attended')%>: <%=education.graduation_year%></small>
                         <%else%>
                         <small><%=t('education.lb_date_attended')%>: N/A</small>
             <%end%>

@@ -1,8 +1,6 @@
 Rails.application.routes.draw do
-  post 'search/search_mentor_advance'
-  get 'search/searchdesgin'
-  get 'search/search_mentor'
   resources :app_params
+
   resources :educations
 
   get 'history_jobs/update_levels'
@@ -121,8 +119,12 @@ Rails.application.routes.draw do
   #route for search curriculum
   get 'search/index'
   get 'search/search_curriculum'
+  get 'search/search_mentor'
+  get 'search/search_mentor_advance'
+  get 'search/search_mentor_basic'
   get 'search/update_levels', as: 'update_levels'
   match 'search-curriculum', :to => 'search#search_curriculum', :via => [:get], :as => 'search-curriculum'
+  match 'search-mentor', :to => 'search#search_mentor', :via => [:get], :as => 'search-mentor'
 
   #route for session
   match 'signup', :to => 'sessions#signup', :via => [:get, :post], :as => 'signup'
