@@ -1,7 +1,6 @@
-<h3 style="padding-left: 30px;" class="aes-color"><i class="fa fa-user"></i> <%= t('users.title_update_user_information')%></h3>
+<h3 style="padding-left: 30px; padding-bottom: 10px;" class="aes-color border-bottom"><i class="fa fa-user"></i> <%= t('users.title_update_user_information')%></h3>
 <%= form_for @user ,:url => update_user_profile_path, html: {id: "update_user_profile", role: 'form', role:'form',class:'form-horizontal'} do |f| %>
-    <div class="widget ">
-      <div class="widget-body col-md-11">
+      <div class="col-md-11">
         <div class="innerLR">
           <!--#FName -->
           <div class="row">
@@ -85,7 +84,7 @@
               <div class="form-group">
                 <label class="col-md-4 control-label" for="users[country]"><%= t('users.lb_country') %></label>
                 <div class="col-md-8">
-                  <%= f.select :country, Country.all.order('name asc').collect {|u| [u.name, u.id]},{selected: (f.object.country.nil?) ? '' : f.object.country.id, :prompt => t('amazon.title_select')},{:class => "form-control"} %>
+                  <%= f.select :country, Country.all.order('name asc').collect {|u| [u.name, u.id]},{selected: (f.object.country.nil?) ? '' : f.object.country.id, :include_blank => t('amazon.title_select'),},{:class => "form-control"} %>
                 </div>
               </div>
             </div>
@@ -101,7 +100,7 @@
             </div>
             </div>
           </div>
-        </div>
+
         <!--#City -->
         <!--#Confirm_password -->
         <div id="confirm_pass" class="form-group" style="display: none;">
@@ -111,7 +110,7 @@
           </div>
         </div>
         <!--#Confirm_password -->
-        <div>
+        <div class="form-group">
           <label class="col-md-2 control-label"> </label>
           <div class="col-md-10" style=" height:34px;">
             <button id="btnSave" type="button" class="btn btn-primary buttonSave"><i class="fa fa-check-circle"></i> <%= t('button.btn_save') %></button>
@@ -121,7 +120,6 @@
       </div>
     </div>
     </div>
-
 <% end %>
 <%= text_field_tag :old_email, @user.email, style:"display:none;"%>
 

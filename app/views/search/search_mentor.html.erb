@@ -140,6 +140,9 @@
             $("#form_add_job_title").hide();
             $("#btn_add_job_title").show();
 
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+
             if(!$("#search_mentor_advance").valid()){
                 return
             }
@@ -165,6 +168,10 @@
             e.preventDefault();
 
 //          reset form
+
+            $("p.has-error").remove();
+            $(".has-error").removeClass("has-error");
+
             $("#first_name").val('');
             $("#last_name").val('');
             $("#country").val('');
@@ -177,6 +184,8 @@
             $("#btn_add_specialty").show();
             $("#form_add_job_title").hide();
             $("#btn_add_job_title").show();
+
+
         });
 
 

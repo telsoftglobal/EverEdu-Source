@@ -86,14 +86,14 @@
                             return true;
                         }
                     }},
-                    "specialty[years_of_experience]": {digits: {
-                        param: true,
+                    "specialty[years_of_experience]": {maxlength: {
+                        param: 2,
                         depends:function(){
                             var text = $.trim($(this).val());
                             $(this).val(text);
                             return true;
                         }
-                    }, range: [1, 99]},
+                    }, digits: true, range: [1, 99]},
                     "specialty[description]": {maxlength: {
                         param: 2000,
                         depends:function(){
@@ -106,7 +106,8 @@
                 messages: {
                     "specialty[specialty]": {required: I18n.t('js.validate.msg_required'),
                                             maxlength: I18n.t('js.validate.msg_maxlength')},
-                    "specialty[years_of_experience]": {digits: I18n.t('js.validate.msg_number_invalid'),
+                    "specialty[years_of_experience]": {maxlength: I18n.t('js.validate.msg_maxlength'),
+                                            digits: I18n.t('js.validate.msg_number_invalid'),
                                             range: I18n.t('js.validate.msg_range')},
                     "specialty[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
                 },

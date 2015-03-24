@@ -358,10 +358,10 @@
 </style>
 
 <%
-   amazon_tag = APP_CONFIG['amazon_tag']
-   linkCode = APP_CONFIG['linkCode']
-   linkID = APP_CONFIG['linkID']
-   server = 'https://www.amazon.co.jp/ref=assoc_res_sw_zz_dka_cra_t0_logo'
+   amazon_tag = (I18n.default_locale==:en) ? APP_CONFIG['amazon_config']['us']['amazon_tag']: APP_CONFIG['amazon_config']['jp']['amazon_tag']
+   linkCode = (I18n.default_locale==:en) ? APP_CONFIG['amazon_config']['us']['linkCode']: APP_CONFIG['amazon_config']['jp']['linkCode']
+   linkID = (I18n.default_locale==:en) ? APP_CONFIG['amazon_config']['us']['linkID']: APP_CONFIG['amazon_config']['jp']['linkID']
+   server = (I18n.default_locale==:en) ? 'http://www.amazon.com/ref=assoc_res_sw_vn_dka_cra_t0_logo' :'https://www.amazon.co.jp/ref=assoc_res_sw_zz_dka_cra_t0_logo'
    link = "%{server}?tag=%{amazon_tag}&linkCode=%{linkCode}&linkID=%{linkID}"  % { server: server, amazon_tag: amazon_tag, linkCode: linkCode, linkID: linkID}
 %>
 
@@ -370,15 +370,23 @@
   <div id="criteriaSection" class="gradient-background">
     <header>
       <div class="left" id="logoHolder">
-        <a href="<%= link %>" target="_blank">
+        <a href="#">
           <span id="amazonLogo">amazon</span>
           <span id="logoSuffix" class="light US"></span>
         </a>
       </div>
-      <div id="categoryHolder" class="right" tabindex="0">
+      <div id="categoryHolder" class="right" style="display: none;" tabindex="0">
         <span id="categorySelection" data-value="stripbooks" data-search="Books"><%= t('amazon.title_book') %></span>
         <!--&nbsp;<span id="arrow">arrow</span>-->
+
       </div>
+      <div class="right" tabindex="0">
+        <select id="market_place"  style="background: none; border: none">
+          <option value="JP"><%= t('country.jp') %></option>
+          <option value="US"><%= t('country.us') %></option>
+        </select>
+      </div>
+
       <div class="clear-all"></div>
     </header>
     <div id="searchBoxDiv">
@@ -446,7 +454,10 @@
 </div>
 </div>
 <script type="text/javascript">
-
+    $("#market_place").change(function(){
+        market = $(this).val();
+        console.log($(this).val());
+    });
     var completionService = {
         'US' : 'completion.amazon.com',
         'CA' : 'completion.amazon.com',
@@ -468,7 +479,8 @@
             amazon_tag: '<%= APP_CONFIG['amazon_config']['us']['amazon_tag'] %>',
             ServiceVersion: '<%= APP_CONFIG['amazon_config']['us']['serviceVersion'] %>',
             linkCode: '<%= APP_CONFIG['amazon_config']['us']['linkCode'] %>',
-            linkID: '<%= APP_CONFIG['amazon_config']['us']['linkID'] %>'
+            linkID: '<%= APP_CONFIG['amazon_config']['us']['linkID'] %>',
+            ref_link: 'https://www.amazon.com/s/ref=assoc_res_sw_view_all'
         },
         JP:{
             completionService: completionService['JP'],
@@ -477,7 +489,8 @@
             amazon_tag: '<%= APP_CONFIG['amazon_config']['jp']['amazon_tag'] %>',
             ServiceVersion: '<%= APP_CONFIG['amazon_config']['jp']['serviceVersion'] %>',
             linkCode: '<%= APP_CONFIG['amazon_config']['jp']['linkCode'] %>',
-            linkID: '<%= APP_CONFIG['amazon_config']['jp']['linkID'] %>'
+            linkID: '<%= APP_CONFIG['amazon_config']['jp']['linkID'] %>',
+            ref_link: 'https://www.amazon.co.jp/s/ref=assoc_res_sw_zz_dka_cra_t0_view_all'
         }
     };
 
@@ -873,7 +886,7 @@
 
             var selectedCat = document.getElementById('categorySelection');
             var searchTerm = encodeURIComponent(searchField.value);
-            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_view_all?field-keywords='+ searchTerm + '&search-alias=' +
+            var href =  Amazon_data[market]['ref_link']+'?field-keywords='+ searchTerm + '&search-alias=' +
                     (selectedCat != null ? selectedCat.getAttribute('data-value') : 'aps') + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
             {
@@ -1008,9 +1021,9 @@
             var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
             var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
 
-            var href = 'https://www.amazon.com/s/ref=assoc_res_sw_top_seller?search-alias=' + cat + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
+            var href = Amazon_data[market]['ref_link'] + '?search-alias=' + cat + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             if(cat == 'aps') {
-                href = 'https://www.amazon.com/ref=assoc_res_sw_top_seller?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
+                href = Amazon_data[market]['ref_link']+'?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
             }
             document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
 

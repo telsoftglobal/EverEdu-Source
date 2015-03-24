@@ -24,6 +24,11 @@ class Education
   #index
   index({'educations.school_name' => 1})
 
+  before_validation do
+    self.activities_societies = activities_societies.gsub("\r\n","\n") if self.activities_societies
+    self.description = description.gsub("\r\n","\n") if self.description
+  end
+
   #validates
   validates_length_of :school_name, maximum: SCHOOL_NAME_MAX_LENGTH
   validates_length_of :school_url, maximum: URL_MAX_LENGTH

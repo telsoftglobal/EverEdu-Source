@@ -260,16 +260,18 @@
                         if($('#updateModal').find(" textarea.summernote").length!=0){
                             $('#updateModal').find(" textarea.summernote").ckeditor({height: 200});
                             CKEDITOR.on("instanceReady", function (event) {
-                                $('#updateModal').modal({
-                                    backdrop: 'static',
-                                    keyboard: false
-                                });
+//                                $('#updateModal').modal({
+//                                    backdrop: 'static',
+//                                    keyboard: false
+//                                });
+                                Modal_Show("updateModal");
                             });
                         }else{
-                            $('#updateModal').modal({
-                                backdrop: 'static',
-                                keyboard: false
-                            });
+//                            $('#updateModal').modal({
+//                                backdrop: 'static',
+//                                keyboard: false
+//                            });
+                            Modal_Show("updateModal");
                         }
                     }else{
                         alert(data.message);
@@ -308,7 +310,8 @@
                                 $("#curriculum_summary").val(data.summary);
                                 $("#curriculum_summary").text(data.summary);
                                 CKEDITOR.instances["curriculum_description"].setData(data.description);
-                                $('#updateModal').modal("show");
+//                                $('#updateModal').modal("show");
+                                Modal_Show("updateModal");
                                 break;
                             case 'material':
                                 $("#material_id").val(data._id);
@@ -318,13 +321,15 @@
                                 $("#material_material_type_id").selectpicker("val",data.material_type_id)
 
                                 CKEDITOR.instances["material_description"].setData(data.description);
-                                $('#updateModal').modal("show");
+//                                $('#updateModal').modal("show");
+                                Modal_Show("updateModal");
                                 break;
                             case 'action':
                                 $("#aes_action_id").val(data._id);
                                 $("#aes_action_action_name").val(data.action_name);
                                 CKEDITOR.instances["aes_action_description"].setData(data.description);
-                                $('#updateModal').modal("show");
+//                                $('#updateModal').modal("show");
+                                Modal_Show("updateModal");
                                 break;
                             default:
                                 ajax_load_modal(url,id,title);

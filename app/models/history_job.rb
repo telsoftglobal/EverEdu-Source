@@ -31,6 +31,10 @@ class HistoryJob
   index({'history_jobs.company_name' => 1,'history_jobs.title' => 1})
 
   #validates
+  before_validation do
+    self.description = description.gsub("\r\n","\n") if self.description
+  end
+
   validates_length_of :company_name, maximum: COMPANY_NAME_MAX_LENGTH
   validates_length_of :title, maximum: TITLE_MAX_LENGTH
   validates_length_of :location, maximum: LOCATION_MAX_LENGTH

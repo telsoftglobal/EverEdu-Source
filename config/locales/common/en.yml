@@ -82,3 +82,6 @@ en:
       msg_alphanumeric: "Please enter valid characters."
   tip:
     titleTip: "Tip:"
+  country:
+    us: 'America'
+    jp: 'Japan'

@@ -34,7 +34,7 @@
           <span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="educationModalLabel">Modal title</h4>
       </div>
-      <div id="modalContentEducation" class="modal-body" style="max-height: 400px; overflow-y: auto">
+      <div id="modalContentEducation" class="modal-body" style="max-height: 760px; overflow-y: auto">
       </div>
       <div class="modal-footer">
         <button id="btnSaveEducation" type="button" class="btn btn-primary"><%= t('button.btn_save') %></button>
@@ -152,13 +152,6 @@
                         "education[description]": {maxlength: I18n.t('js.validate.msg_maxlength')}
                     },
                     errorPlacement: function (error, element) {
-//                        console.log(element.context().id());
-//                        if(element.context.name.eq('education[graduation_year]')){
-//
-//                            console.log('#rowDate');
-//                            error.insertAfter($('#rowDate'));
-//                        }
-//                        else{
                         error.insertAfter(element);
 
                     },
@@ -179,10 +172,7 @@
             $.validator.addMethod("end_time_greater_or_equal_start_time", function (value, element) {
                 var start_year = $('#education_start_year').val();
                 var graduation_year = $("#education_graduation_year").val();
-//                alert(start_year);
-//                alert(graduation_year);
                 if(graduation_year && graduation_year < start_year) {
-//                    alert('ok');
                     return false
                 }
                 else return true
@@ -197,9 +187,11 @@
             var valid = $("#education_form").valid();
             if (!valid) {
                 var p_error = $('#div_graduation_year').find('p.has-error');
-//                        console.log(p_error);
-                        $("#rowDate").append(p_error.clone());
+                var p_error1 = $("#rowDate").find('p.has-error');
                 p_error.remove();
+                p_error1.remove();
+                $("#rowDate").append(p_error.clone());
+
                 return false;
             }
 

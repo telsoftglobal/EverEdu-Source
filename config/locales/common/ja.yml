@@ -81,3 +81,6 @@ ja:
       msg_accept_file_extension: "有効なファイル拡張子を選択してください。"
   tip:
     titleTip: "ヒント："
+  country:
+    us: 'アメリカ'
+    jp: '日本'

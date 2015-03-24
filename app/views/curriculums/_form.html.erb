@@ -439,33 +439,26 @@
 </div>
 <script>
     function calCharlength(){
-        var width =  $(window).width();
-        var charlength = 15;
-        if(width<=320) {
-            charlength = 12;
-        }else if(width>360 && width<=430) {
-            charlength = 18;
-        }else if(width>430 && width<=530){
-            charlength = 23;
-        }else if(width>530 && width<=630){
-            charlength = 33;
-        }else if(width>630 && width<=730) {
-            charlength = 43;
-        }else if(width>730 && width<=830) {
-            charlength = 53;
-        }else if(width>830 && width<=930) {
-            charlength = 61;
-        }else if(width>930 && width<=991) {
-            charlength = 68;
-        }else if(width>991 && width<=1000) {
-            charlength = 6;
-        }else if(width>1000 && width<=1100) {
+        var width =  $("#treeMaterial").width();
+        var charlength = 12;
+
+
+
+        if(width>226) {
+            charlength = 50;
+        }else if(width>=195) {
             charlength = 8;
-        }else if(width>1100 && width<=1200) {
-            charlength = 10;
-        }else if(width>1200 && width<=1300) {
-            charlength = 12;
+        }else{
+            charlength = 3;
         }
+
+//        if(width<=170 && width>140) {
+//            charlength = 3;
+//        }else if(width<=226 && width>200) {
+//            charlength = 14;
+//        }else{
+//            charlength = 50;
+//        }
         return charlength;
     }
     function CleanPastedHTML(input) {

@@ -30,15 +30,15 @@
               <div class="col-xs-12 col-sm-3 col-md-3 label_mobile">
                 <label class="control-label"><%= t('education.lb_date_attended')%></label>
               </div>
-              <div class="col-xs-4 col-sm-3 col-md-3">
-                <%= f.select :start_year, year_options_for_select, {:include_blank => t('education.lb_year')}, {class: "form-control"} %>
+              <div class="col-xs-5 col-sm-3 col-md-3">
+                <%= f.select :start_year, year_options_for_select, {:include_blank => t('education.placeholder_start_year')}, {class: "form-control"} %>
 
               </div>
-              <div class="col-xs-1 col-sm-1 col-md-1" style="text-align: center">
-                <label>-</label>
-                </div>
-              <div class="col-xs-4 col-sm-3 col-md-3" id="div_graduation_year">
-                <%= f.select :graduation_year, year_graduation_edu_options_for_select, {:include_blank => t('education.lb_year')},  {class: "form-control"}%>
+              <!--<div class="col-xs-1 col-sm-1 col-md-1" style="text-align: center">-->
+                <!--<label>-</label>-->
+                <!--</div>-->
+              <div class="col-xs-5 col-sm-3 col-md-3" id="div_graduation_year">
+                <%= f.select :graduation_year, year_graduation_edu_options_for_select, {:include_blank => t('education.placeholder_end_year')},  {class: "form-control"}%>
               </div>
             </div>
             <div class="row">
@@ -110,6 +110,19 @@
     <!--</div>-->
 
 <% end %>
+<script>
+    $(document).ready(function () {
+        $("#education_graduation_year").change(function () {
+            var p_error = $('#div_graduation_year').find('p.has-error');
+            console.log(p_error);
+            var p_error1 = $("#rowDate").find('p.has-error');
+            p_error1.remove();
+            p_error.remove();
+//            $("#rowDate").append(p_error.clone());
+
+        });
+    });
+</script>
 
 
 

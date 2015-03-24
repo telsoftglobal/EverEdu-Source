@@ -28,7 +28,7 @@
               <div class="row">
                 <label class="col-md-4 control-label label_mobile" for="specialty[years_of_experience]"><%= t('specialties.lb_years_of_experience') %></label>
                 <div class="col-md-8">
-                  <%= f.text_field :years_of_experience, class: "form-control", placeholder: t('specialties.placeholder_years_of_experience')%>
+                  <%= f.text_field :years_of_experience, maxlength: 2, class: "form-control", placeholder: t('specialties.placeholder_years_of_experience')%>
                 </div>
               </div>
             </div>
