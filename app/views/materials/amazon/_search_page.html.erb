@@ -1012,31 +1012,31 @@
             }
         }
         window.loadTopSeller = function() {
-            window.topseller_display_callback = window.search_callback;
-
-            document.getElementById('loader').style['display'] = 'block';
-            document.getElementById('searchResult').style['display'] = 'none';
-            document.getElementById('footer').style['display'] = 'none';
-            resizeFrame();
-            var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
-            var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
-
-            var href = Amazon_data[market]['ref_link'] + '?search-alias=' + cat + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
-            if(cat == 'aps') {
-                href = Amazon_data[market]['ref_link']+'?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
-            }
-            document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
-
-            window.__maSwJsNode2 = document.createElement('script');
-//            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent('https://ws-na.amazon-adsystem.com') +
+//            window.topseller_display_callback = window.search_callback;
+//
+//            document.getElementById('loader').style['display'] = 'block';
+//            document.getElementById('searchResult').style['display'] = 'none';
+//            document.getElementById('footer').style['display'] = 'none';
+//            resizeFrame();
+//            var category = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-search') : 'All';
+//            var cat = document.getElementById('categorySelection') ? document.getElementById('categorySelection').getAttribute('data-value') : 'aps';
+//
+//            var href = Amazon_data[market]['ref_link'] + '?search-alias=' + cat + '&tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
+//            if(cat == 'aps') {
+//                href = Amazon_data[market]['ref_link']+'?tag='+ Amazon_data[market]['amazon_tag'] +'&linkCode='+ Amazon_data[market]['linkCode'] +'&linkID='+ Amazon_data[market]['linkID'];
+//            }
+//            document.getElementById('footer').getElementsByTagName('a')[0].setAttribute('href', href);
+//
+//            window.__maSwJsNode2 = document.createElement('script');
+////            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent('https://ws-na.amazon-adsystem.com') +
+////            '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
+//            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent(Amazon_data[market]['searchService']) +
 //            '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
-            window.__maSwJsNode2.src = 'https://z-na.amazon-adsystem.com/widgets/q?Operation=GetTopSellers&URL=' + encodeURIComponent(Amazon_data[market]['searchService']) +
-            '&InstanceId=0&ResponseCount=10&TemplateId=8002&ServiceVersion=20070822&MarketPlace=US&CategoryRestriction=' + category;
-//            TODO xem
-
-            document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
-
-            foresterCall({search_cat: cat, logType: 'search_navigation', action: 'btnsubmit', adunit_type: 'responsive_search_widget'});
+////            TODO xem
+//
+//            document.getElementsByTagName('head')[0].appendChild(window.__maSwJsNode2);
+//
+//            foresterCall({search_cat: cat, logType: 'search_navigation', action: 'btnsubmit', adunit_type: 'responsive_search_widget'});
         }
         window.addEventListener('DOMContentLoaded', function(event){
             if(''.length){ // Default Search Load

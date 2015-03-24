@@ -440,25 +440,21 @@
 <script>
     function calCharlength(){
         var width =  $("#treeMaterial").width();
-        var charlength = 12;
-
-
-
-        if(width>226) {
+        var charlength = 8;
+        if(width>600) {
             charlength = 50;
+        }else if(width>226) {
+            charlength = 14;
         }else if(width>=195) {
             charlength = 8;
-        }else{
+        }else if(width>140){
+            charlength = 6;
+        }else if(width<=140){
             charlength = 3;
         }
-
-//        if(width<=170 && width>140) {
-//            charlength = 3;
-//        }else if(width<=226 && width>200) {
-//            charlength = 14;
-//        }else{
-//            charlength = 50;
-//        }
+        if(width<0){
+            charlength = 8;
+        }
         return charlength;
     }
     function CleanPastedHTML(input) {
