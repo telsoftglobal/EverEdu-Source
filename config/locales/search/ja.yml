@@ -25,6 +25,7 @@ ja:
     placeholder_category: "カテゴリを選択してください。"
     placeholder_level: "レベルを選択してください。"
     lb_search_results: "カリキュラム"
+    lb_search_result: "カリキュラム"
     lb_read_more: "続きを読む"
     btn_search: "サーチ"
     msg_category_required: "カテゴリを選択してください。"

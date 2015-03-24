@@ -29,6 +29,8 @@ class StudentController < ApplicationController
       keyword = replace_special_character(keyword)
     end
     @curriculums = CurriculumStudyProgress.search_with_pagination_by_student(keyword, session[:user_id], params[:page], ITEM_PER_PAGE)
+    @total_entries = @curriculums.total_entries
+
     @curriculums.each do |curriculum_study|
       curriculum_study.calculate_progress
     end

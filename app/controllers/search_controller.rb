@@ -38,6 +38,7 @@ class SearchController < ApplicationController
     else
       #call method search in Curriculum model
       @curriculums = Curriculum.search(category_id, level_id, keyword, page_number, ITEM_PER_PAGE)
+      @total_entries = @curriculums.total_entries
     end
   end
 

@@ -6,7 +6,7 @@ class Photo
   has_mongoid_attached_file :photo,
                             :styles => {
                                 #thumb: '100x100>',
-                                avatar: '200x200>',
+                                avatar: '300x300>',
                                 #square: '200x200#',
                                 #medium: '300x300>',
                                 large: '465>'

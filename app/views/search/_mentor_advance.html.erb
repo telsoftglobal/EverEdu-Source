@@ -168,7 +168,6 @@
             }
         });
 
-
         $("#specialty").keypress(function( event ) {
             if (event.which == 13) {
                 event.preventDefault();
@@ -186,8 +185,6 @@
             $("#history_job").val('');
             $("#history_job").focus();
         });
-
-
 
         $("#btnAddJobToList").click(function(e){
             e.preventDefault();
@@ -217,10 +214,12 @@
                 return;
             }
 
-            //add job to list
-            add_history_job($("#history_job").val());
-            $("#form_add_job_title").hide();
-            $("#btn_add_job_title").show();
+            if ($("#history_job").val() != '') {
+                //add job to list
+                add_history_job($("#history_job").val());
+                $("#form_add_job_title").hide();
+                $("#btn_add_job_title").show();
+            }
         });
 
 
@@ -273,9 +272,11 @@
             }
 
             //add job to list
-            add_specialty($("#specialty").val());
-            $("#form_add_specialty").hide();
-            $("#btn_add_specialty").show();
+            if ($("#specialty").val() != '') {
+                add_specialty($("#specialty").val());
+                $("#form_add_specialty").hide();
+                $("#btn_add_specialty").show();
+            }
         });
 
         function add_specialty(name){

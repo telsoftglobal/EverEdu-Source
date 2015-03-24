@@ -29,6 +29,7 @@ class CurriculumsController < ApplicationController
       keyword = replace_special_character(keyword)
     end
     @curriculums = Curriculum.search_with_pagination_by_mentor(category_id, keyword, session[:user_id], params[:page], ITEM_PER_PAGE)
+    @total_entries = @curriculums.total_entries
   end
 
   def getlevel

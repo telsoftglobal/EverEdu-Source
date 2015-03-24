@@ -127,7 +127,7 @@
                      end
                   %>
 
-                  <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil?%>
+                  <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil? && !@object.asin.empty? && @object.material_type.id='book'%>
                       <div class="col-md-2" id="amazon_book" style="height: 240px;">
 
                       </div>
@@ -137,7 +137,7 @@
                                   <% if @object.material_url.include? 'amazon.com' %>
                                   $("#amazon_book").html("<iframe style=\"width:120px;height:240px;\" marginwidth=\"0\" marginheight=\"0\" scrolling=\"no\" frameborder=\"0\" src=\"//ws-na.amazon-adsystem.com/widgets/q?ServiceVersion=<%= serviceVersion %>&OneJS=1&Operation=GetAdHtml&MarketPlace=US&source=ac&ref=tf_til&ad_type=product_link&tracking_id=<%= amazon_tag %>&marketplace=amazon&region=US&placement=B003L1ZYYM&asins=<%= @object.asin %>&linkId=<%= linkID %>&show_border=true&link_opens_in_new_window=true\"></iframe>");
                                   <% else %>
-                                  $("#amazon_book").html("<iframe src=\"http://rcm-fe.amazon-adsystem.com/e/cm?t=<%= amazon_tag %>&o=9&p=8&l=as1&asins=<%= @object.asin %>&ref=tf_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe>");
+                                  $("#amazon_book").html("<iframe src=\"http://rcm-fe.amazon-adsystem.com/e/cm?t=<%= amazon_tag %>&o=9&p=8&l=as1&asins=<%=@object.asin %>&ref=tf_til&fc1=000000&IS2=1&lt1=_blank&m=amazon&lc1=0000FF&bc1=000000&bg1=FFFFFF&f=ifr\" style=\"width:120px;height:240px;\" scrolling=\"no\" marginwidth=\"0\" marginheight=\"0\" frameborder=\"0\"></iframe>");
                                   <% end %>
                               }
                           });
