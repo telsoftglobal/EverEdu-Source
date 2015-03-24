@@ -224,7 +224,7 @@
 
 
         function add_history_job(name){
-            $("#jobTitleList").append("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"history_jobs[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_job'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+            $("#jobTitleList").prepend("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"history_jobs[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_job'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
             $(".btn_remove_job").click(function(e){
                 e.preventDefault();
                 $(this).closest(".list-group-item").remove();
@@ -280,7 +280,7 @@
         });
 
         function add_specialty(name){
-            $("#specialtyList").append("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"specialties[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_specialty'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+            $("#specialtyList").prepend("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"specialties[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_specialty'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
             $(".btn_remove_specialty").click(function(e){
                 e.preventDefault();
                 $(this).closest(".list-group-item").remove();
