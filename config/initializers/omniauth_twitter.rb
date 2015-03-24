@@ -9,7 +9,7 @@ Rails.application.config.middleware.use OmniAuth::Builder do
   # provider :twitter, 'y7jMYiNfuTxIhdtt1UIZuobf8', 'lXSeMr5QlRVSF7DEoV5LKLXRuQuUXOZ32UVdZ7puLQ514oJbGg', {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
 
 
-  everedu-ja
+  # everedu-ja
   provider :twitter, 'j9ME66ZbHrcFqe3CtaNvV2e0l', 'Jr0Mh51hyMF6uF5wh9x2UGWWjItd2pUVA53utYLIzyCPD6AQaY', {client_options: {ssl: {ca_file: Rails.root.join("cacert.pem").to_s}}}
 
 end
