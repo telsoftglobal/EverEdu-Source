@@ -456,7 +456,7 @@
 <script type="text/javascript">
     $("#market_place").change(function(){
         market = $(this).val();
-        console.log($(this).val());
+//        console.log($(this).val());
     });
     var completionService = {
         'US' : 'completion.amazon.com',
@@ -470,7 +470,7 @@
         'JP' : 'completion.amazon.co.jp'
     };
 
-    var market = '<%= (I18n.default_locale==:en) ? 'US': 'JP' %>';
+    var market = $("#market_place").val();
     var Amazon_data = {
         US:{
             completionService: completionService['US'],

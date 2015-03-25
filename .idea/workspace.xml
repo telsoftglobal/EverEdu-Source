@@ -18,8 +18,8 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_email_format__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_email_format: JP-AES_v0.2 Coverage Results" MODIFIED="1426134794742" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_email__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_email: JP-AES_v0.2 Coverage Results" MODIFIED="1426134506498" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@db_mongoid_remove_indexes__JP_AES_v0_2.coverage" NAME="db:mongoid:remove_indexes: JP-AES_v0.2 Coverage Results" MODIFIED="1426502281243" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_ex__JP_AES_v0_2.coverage" NAME="test_ex: JP-AES_v0.2 Coverage Results" MODIFIED="1426576371343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_insert_a_record__JP_AES_v0_2.coverage" NAME="test_insert_a_record: JP-AES_v0.2 Coverage Results" MODIFIED="1427105830234" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_ex__JP_AES_v0_2.coverage" NAME="test_ex: JP-AES_v0.2 Coverage Results" MODIFIED="1426576371343" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_first_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_first_name: JP-AES_v0.2 Coverage Results" MODIFIED="1425963652674" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_all__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_all: JP-AES_v0.2 Coverage Results" MODIFIED="1426134575127" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@Production__JP_AES_v0_2.coverage" NAME="Production: JP-AES_v0.2 Coverage Results" MODIFIED="1426759535944" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
@@ -32,7 +32,7 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_phone_number__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_phone_number: JP-AES_v0.2 Coverage Results" MODIFIED="1426134359209" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_init_Country__JP_AES_v0_2.coverage" NAME="test_init_Country: JP-AES_v0.2 Coverage Results" MODIFIED="1426648479892" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_birth_day__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_birth_day: JP-AES_v0.2 Coverage Results" MODIFIED="1426134325634" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1427181409313" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@assets_precompile__JP_AES_v0_2.coverage" NAME="assets:precompile: JP-AES_v0.2 Coverage Results" MODIFIED="1427250961564" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_last_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_last_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134712942" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_generate_test_data__JP_AES_v0_2.coverage" NAME="test_generate_test_data: JP-AES_v0.2 Coverage Results" MODIFIED="1425794776594" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134753926" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
@@ -44,7 +44,7 @@
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_first_name__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_first_name: JP-AES_v0.2 Coverage Results" MODIFIED="1426134524294" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_empty_address__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_empty_address: JP-AES_v0.2 Coverage Results" MODIFIED="1426134376240" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@db_mongoid_create_indexes__JP_AES_v0_2.coverage" NAME="db:mongoid:create_indexes: JP-AES_v0.2 Coverage Results" MODIFIED="1426502293173" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
-    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Development__JP_AES_v0_2.coverage" NAME="Development: JP-AES_v0.2 Coverage Results" MODIFIED="1427168659025" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
+    <SUITE FILE_PATH="coverage/JP-AES_v0.2@Development__JP_AES_v0_2.coverage" NAME="Development: JP-AES_v0.2 Coverage Results" MODIFIED="1427250825746" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
     <SUITE FILE_PATH="coverage/JP-AES_v0.2@test_update_user_basic_information_maxlength_email__JP_AES_v0_2.coverage" NAME="test_update_user_basic_information_maxlength_email: JP-AES_v0.2 Coverage Results" MODIFIED="1426134585788" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="rcov" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" MODULE_NAME="JP-AES_v0.2" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -78,7 +78,7 @@
       <file leaf-file-name="default.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/default.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.9259257" vertical-offset="4034" max-vertical-offset="4788">
+            <state vertical-scroll-proportion="2.074074" vertical-offset="4250" max-vertical-offset="4788">
               <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="239" selection-end-column="27" />
               <folding />
             </state>
@@ -88,8 +88,8 @@
       <file leaf-file-name="home.html.erb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-2.2962964" vertical-offset="1378" max-vertical-offset="2016">
-              <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="86" selection-end-column="27" />
+            <state vertical-scroll-proportion="-4.111111" vertical-offset="1527" max-vertical-offset="2016">
+              <caret line="91" column="0" selection-start-line="91" selection-start-column="2" selection-end-line="97" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -115,10 +115,29 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="omniauth_twitter.rb" pinned="false" current-in-tab="true">
+      <file leaf-file-name="_search_page.html.erb" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.58967394" vertical-offset="8279" max-vertical-offset="22896">
+              <caret line="472" column="42" selection-start-line="472" selection-start-column="42" selection-end-line="472" selection-end-column="42" />
+              <folding>
+                <marker date="1427250821811" expanded="true" signature="56683:57508" placeholder="..." />
+                <marker date="1427250821811" expanded="true" signature="56700:57495" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="56807:57021" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="56853:57011" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="57064:57251" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="57131:57241" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="57340:57383" placeholder="{...}" />
+                <marker date="1427250821811" expanded="true" signature="57446:57487" placeholder="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="omniauth_twitter.rb" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/config/initializers/omniauth_twitter.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5924051" vertical-offset="0" max-vertical-offset="395">
+            <state vertical-scroll-proportion="0.0" vertical-offset="234" max-vertical-offset="360">
               <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
               <folding />
             </state>
@@ -182,14 +201,14 @@
         <option value="$PROJECT_DIR$/app/assets/javascripts/default.js" />
         <option value="$PROJECT_DIR$/app/views/curriculums/_form.html.erb" />
         <option value="$PROJECT_DIR$/app/views/mentor/_content.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb" />
         <option value="$PROJECT_DIR$/app/views/student/_content.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/i18n.rb" />
         <option value="$PROJECT_DIR$/app/views/layouts/default.html.erb" />
-        <option value="$PROJECT_DIR$/app/views/layouts/home.html.erb" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth_facebook.rb" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth_google.rb" />
         <option value="$PROJECT_DIR$/config/initializers/omniauth_twitter.rb" />
+        <option value="$PROJECT_DIR$/app/views/layouts/home.html.erb" />
+        <option value="$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb" />
       </list>
     </option>
   </component>
@@ -233,6 +252,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -333,7 +353,33 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="layouts" />
+              <option name="myItemId" value="materials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JP-AES_v0.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="JP-AES_v0.2" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="app" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="materials" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="amazon" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -371,7 +417,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="RailsProjectView" />
     </panes>
   </component>
@@ -776,20 +821,20 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32928678" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962063" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3323217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3323217" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.6486903" sideWeight="0.6327769" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.63174117" sideWeight="0.67602426" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34976888" sideWeight="0.3239757" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32973805" sideWeight="0.25341427" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46995378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.46995378" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.7550077" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -983,7 +1028,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3321859" vertical-offset="293" max-vertical-offset="1962">
           <caret line="27" column="10" selection-start-line="27" selection-start-column="6" selection-end-line="27" selection-end-column="10" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -999,7 +1043,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="2006" max-vertical-offset="2628">
           <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="140" selection-end-column="1" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1029,7 +1072,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.53910613" vertical-offset="13883" max-vertical-offset="16938">
           <caret line="782" column="0" selection-start-line="782" selection-start-column="0" selection-end-line="782" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1104,9 +1146,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.0" vertical-offset="0" max-vertical-offset="1314">
           <caret line="0" column="106" selection-start-line="0" selection-start-column="93" selection-end-line="0" selection-end-column="106" />
-          <folding>
-            <element signature="n#style#0;n#h3#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1130,7 +1169,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.35692307" vertical-offset="46" max-vertical-offset="1908">
           <caret line="9" column="0" selection-start-line="9" selection-start-column="0" selection-end-line="13" selection-end-column="26" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1138,9 +1176,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1086" max-vertical-offset="1638">
           <caret line="84" column="13" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding>
-            <marker date="1427171589713" expanded="true" signature="-1:-1" placeholder="ja:" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1148,10 +1184,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="1104" max-vertical-offset="1656">
           <caret line="85" column="16" selection-start-line="85" selection-start-column="16" selection-end-line="85" selection-end-column="16" />
-          <folding>
-            <marker date="1427171597133" expanded="true" signature="-1:-1" placeholder="en:" />
-            <marker date="1427171597133" expanded="true" signature="-1:-1" placeholder="country:" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1159,7 +1192,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.6666667" vertical-offset="0" max-vertical-offset="2376">
           <caret line="1" column="19" selection-start-line="1" selection-start-column="14" selection-end-line="1" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1167,9 +1199,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0927835" vertical-offset="0" max-vertical-offset="8658">
           <caret line="3" column="27" selection-start-line="3" selection-start-column="27" selection-end-line="3" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#7;n#div#0;n#div#0;n#!!top" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1185,7 +1214,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.49484536" vertical-offset="558" max-vertical-offset="246222">
           <caret line="47" column="38" selection-start-line="47" selection-start-column="38" selection-end-line="47" selection-end-column="38" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1193,7 +1221,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.33333334" vertical-offset="20965" max-vertical-offset="41796">
           <caret line="1180" column="11" selection-start-line="1180" selection-start-column="11" selection-end-line="1180" selection-end-column="11" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1201,7 +1228,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1602">
           <caret line="0" column="19" selection-start-line="0" selection-start-column="9" selection-end-line="0" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1209,7 +1235,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="633" max-vertical-offset="1314">
           <caret line="56" column="20" selection-start-line="56" selection-start-column="20" selection-end-line="56" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1217,7 +1242,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.5555556" vertical-offset="2262" max-vertical-offset="4086">
           <caret line="128" column="0" selection-start-line="128" selection-start-column="0" selection-end-line="149" selection-end-column="15" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1225,28 +1249,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.39711192" vertical-offset="7916" max-vertical-offset="34686">
           <caret line="452" column="26" selection-start-line="452" selection-start-column="25" selection-end-line="452" selection-end-column="26" />
-          <folding>
-            <marker date="1427185329280" expanded="true" signature="-1:-1" placeholder="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-3.6181817" vertical-offset="8387" max-vertical-offset="22896">
-          <caret line="477" column="81" selection-start-line="477" selection-start-column="26" selection-end-line="477" selection-end-column="81" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#header#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#select#0;n#div#2;n#header#0;n#div#0;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="..." />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-            <marker date="1427186329368" expanded="true" signature="-1:-1" placeholder="{...}" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1254,9 +1257,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.92783505" vertical-offset="2052" max-vertical-offset="7758">
           <caret line="144" column="27" selection-start-line="144" selection-start-column="27" selection-end-line="144" selection-end-column="27" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1264,20 +1264,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.78700364" vertical-offset="1904" max-vertical-offset="6678">
           <caret line="130" column="31" selection-start-line="115" selection-start-column="22" selection-end-line="130" selection-end-column="31" />
-          <folding>
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#2;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#3;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#h4#0;n#div#0;n#div#1;n#div#0;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#2;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#2;n#div#2;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -1285,6 +1272,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-1.4264706" vertical-offset="816" max-vertical-offset="1224">
           <caret line="13" column="56" selection-start-line="13" selection-start-column="56" selection-end-line="13" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/initializers/omniauth_twitter.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="360">
+          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -1299,7 +1293,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/default.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.9259257" vertical-offset="4034" max-vertical-offset="4788">
+        <state vertical-scroll-proportion="2.074074" vertical-offset="4250" max-vertical-offset="4788">
           <caret line="233" column="0" selection-start-line="233" selection-start-column="0" selection-end-line="239" selection-end-column="27" />
           <folding />
         </state>
@@ -1307,8 +1301,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/home.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-2.2962964" vertical-offset="1378" max-vertical-offset="2016">
-          <caret line="80" column="0" selection-start-line="80" selection-start-column="0" selection-end-line="86" selection-end-column="27" />
+        <state vertical-scroll-proportion="-4.111111" vertical-offset="1527" max-vertical-offset="2016">
+          <caret line="91" column="0" selection-start-line="91" selection-start-column="2" selection-end-line="97" selection-end-column="29" />
           <folding />
         </state>
       </provider>
@@ -1329,11 +1323,20 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/config/initializers/omniauth_twitter.rb">
+    <entry file="file://$PROJECT_DIR$/app/views/materials/amazon/_search_page.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5924051" vertical-offset="0" max-vertical-offset="395">
-          <caret line="13" column="0" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
-          <folding />
+        <state vertical-scroll-proportion="0.58967394" vertical-offset="8279" max-vertical-offset="22896">
+          <caret line="472" column="42" selection-start-line="472" selection-start-column="42" selection-end-line="472" selection-end-column="42" />
+          <folding>
+            <marker date="1427250821811" expanded="true" signature="56683:57508" placeholder="..." />
+            <marker date="1427250821811" expanded="true" signature="56700:57495" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="56807:57021" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="56853:57011" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="57064:57251" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="57131:57241" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="57340:57383" placeholder="{...}" />
+            <marker date="1427250821811" expanded="true" signature="57446:57487" placeholder="{...}" />
+          </folding>
         </state>
       </provider>
     </entry>
