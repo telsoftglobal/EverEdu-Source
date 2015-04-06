@@ -116,7 +116,10 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
     session[:ctime] = Time.now.utc.to_i
     session[:atime] = Time.now.utc.to_i
-    session[:locale] = user.language.id
+    if !user.language.id.nil?
+      session[:locale] = user.language.id
+    end
+
   end
 
   # Description: check session expire

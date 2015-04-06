@@ -6,13 +6,13 @@ development:
       # Defines the name of the default database that Mongoid can connect to.
       # (required).
 #      uri: mongodb://DeployMongoDB:123456@linus.mongohq.com:10072/jp-aes
-#      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
-      database: jp_aes_test_cuongct
-      # Provides the hosts the default session can connect to. Must be an array
-      # of host:port pairs. (required)
-      hosts:
-        - 10.10.10.8:27017
-      options:
+      uri: mongodb://everedu:123456@linus.mongohq.com:10097/jp-aes-test
+#      database: jp_aes_test_cuongct
+#      # Provides the hosts the default session can connect to. Must be an array
+#      # of host:port pairs. (required)
+#      hosts:
+#        - 10.10.10.8:27017
+#      options:
         # Change the default write concern. (default = { w: 1 })
         # write:
         # w: 1
