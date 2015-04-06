@@ -1,0 +1,63 @@
+/* line 5, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+label.error {
+  color: red;
+  font-weight: normal;
+}
+
+/* line 10, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+.msg_error {
+  color: red;
+}
+
+/* line 14, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+.msg_error.ul.li {
+  style-type: none;
+}
+
+/* line 18, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+input[type="text"]:focus, input[type="text"]:active, input[type="text"]:hover {
+  background-color: #f7f7f7;
+}
+
+/* line 22, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+textarea:focus, input[type="text"]:focus, input[type="password"]:focus, input[type="email"]:focus {
+  border-color: #efefef;
+  box-shadow: none !important;
+  moz-box-shadow: none !important;
+  webkit-box-shadow: none !important;
+}
+
+/* line 29, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+select, textarea, input[type="text"], input[type="password"], input[type="email"] {
+  border-color: #efefef;
+  border-radius: 0 0 0 0;
+  box-shadow: none !important;
+  font-size: 13px;
+  moz-border-radius: 0 0 0 0;
+  moz-box-shadow: none !important;
+  webkit-border-radius: 0 0 0 0;
+  webkit-box-shadow: none !important;
+}
+
+/* line 40, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+label, input, button, select, textarea {
+  font-size: 13px;
+}
+
+/* line 44, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+input[type=text], input[type=password], select, textarea {
+  border-color: #efefef;
+}
+
+/* line 48, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+.input-group .input-group-addon {
+  background: #fff;
+  border-color: #efefef;
+}
+
+/* line 53, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/sessions.css.scss */
+.form-control {
+  border-color: #efefef;
+  box-shadow: none;
+  height: auto;
+}

@@ -1,0 +1,516 @@
+/*-------------------------------------
+zTree Style
+
+version:	3.4
+author:		Hunter.z
+email:		hunter.z@263.net
+website:	http://code.google.com/p/jquerytree/
+
+-------------------------------------*/
+/* line 12, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree * {
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  font-family: Verdana, Arial, Helvetica, AppleGothic, sans-serif;
+}
+
+/* line 13, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree {
+  margin: 0;
+  padding: 5px;
+  color: #333;
+}
+
+/* line 14, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  line-height: 14px;
+  text-align: left;
+  white-space: nowrap;
+  outline: 0;
+}
+
+/* line 15, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li ul {
+  margin: 0;
+  padding: 0 0 0 18px;
+}
+
+/* line 16, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li ul.line {
+  background: url(/assets/template/ztree/img/line_conn.gif) repeat-y 0 0;
+}
+
+/* line 18, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a {
+  padding: 1px 3px 0 0;
+  margin: 0;
+  cursor: pointer;
+  height: 17px;
+  color: #333;
+  background-color: transparent;
+  text-decoration: none;
+  vertical-align: top;
+  display: inline-block;
+}
+
+/* line 20, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a:hover {
+  text-decoration: none;
+}
+
+/* line 21, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a.curSelectedNode {
+  padding-top: 0px;
+  background-color: #FFE6B0;
+  color: black;
+  height: 16px;
+  border: 1px #FFB951 solid;
+  opacity: 0.8;
+}
+
+/* line 22, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a.curSelectedNode_Edit {
+  padding-top: 0px;
+  background-color: #FFE6B0;
+  color: black;
+  height: 16px;
+  border: 1px #FFB951 solid;
+  opacity: 0.8;
+}
+
+/* line 23, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a.tmpTargetNode_inner {
+  padding-top: 0px;
+  background-color: #316AC5;
+  color: white;
+  height: 16px;
+  border: 1px #316AC5 solid;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 27, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li a input.rename {
+  height: 14px;
+  width: 80px;
+  padding: 0;
+  margin: 0;
+  font-size: 12px;
+  border: 1px #7EC4CC solid;
+  *border: 0px;
+}
+
+/* line 29, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span {
+  line-height: 16px;
+  margin-right: 2px;
+}
+
+/* line 30, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button {
+  line-height: 0;
+  margin: 0;
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  vertical-align: middle;
+  border: 0 none;
+  cursor: pointer;
+  outline: none;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-image: url(/assets/template/ztree/img/zTreeStandard.png);
+  *background-image: url(/assets/template/ztree/img/zTreeStandard.gif);
+}
+
+/* line 35, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk {
+  width: 13px;
+  height: 13px;
+  margin: 0 3px 0 0;
+  cursor: auto;
+}
+
+/* line 36, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_false_full {
+  background-position: 0 0;
+}
+
+/* line 37, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_false_full_focus {
+  background-position: 0 -14px;
+}
+
+/* line 38, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_false_part {
+  background-position: 0 -28px;
+}
+
+/* line 39, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_false_part_focus {
+  background-position: 0 -42px;
+}
+
+/* line 40, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_false_disable {
+  background-position: 0 -56px;
+}
+
+/* line 41, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_true_full {
+  background-position: -14px 0;
+}
+
+/* line 42, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_true_full_focus {
+  background-position: -14px -14px;
+}
+
+/* line 43, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_true_part {
+  background-position: -14px -28px;
+}
+
+/* line 44, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_true_part_focus {
+  background-position: -14px -42px;
+}
+
+/* line 45, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.checkbox_true_disable {
+  background-position: -14px -56px;
+}
+
+/* line 46, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_false_full {
+  background-position: -28px 0;
+}
+
+/* line 47, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_false_full_focus {
+  background-position: -28px -14px;
+}
+
+/* line 48, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_false_part {
+  background-position: -28px -28px;
+}
+
+/* line 49, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_false_part_focus {
+  background-position: -28px -42px;
+}
+
+/* line 50, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_false_disable {
+  background-position: -28px -56px;
+}
+
+/* line 51, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_true_full {
+  background-position: -42px 0;
+}
+
+/* line 52, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_true_full_focus {
+  background-position: -42px -14px;
+}
+
+/* line 53, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_true_part {
+  background-position: -42px -28px;
+}
+
+/* line 54, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_true_part_focus {
+  background-position: -42px -42px;
+}
+
+/* line 55, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.chk.radio_true_disable {
+  background-position: -42px -56px;
+}
+
+/* line 57, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.switch {
+  width: 18px;
+  height: 18px;
+}
+
+/* line 58, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.root_open {
+  background-position: -92px -54px;
+}
+
+/* line 59, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.root_close {
+  background-position: -74px -54px;
+}
+
+/* line 60, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.roots_open {
+  background-position: -92px 0;
+}
+
+/* line 61, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.roots_close {
+  background-position: -74px 0;
+}
+
+/* line 62, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.center_open {
+  background-position: -92px -18px;
+}
+
+/* line 63, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.center_close {
+  background-position: -74px -18px;
+}
+
+/* line 64, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.bottom_open {
+  background-position: -92px -36px;
+}
+
+/* line 65, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.bottom_close {
+  background-position: -74px -36px;
+}
+
+/* line 66, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.noline_open {
+  background-position: -92px -72px;
+}
+
+/* line 67, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.noline_close {
+  background-position: -74px -72px;
+}
+
+/* line 68, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.root_docu {
+  background: none;
+}
+
+/* line 69, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.roots_docu {
+  background-position: -56px 0;
+}
+
+/* line 70, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.center_docu {
+  background-position: -56px -18px;
+}
+
+/* line 71, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.bottom_docu {
+  background-position: -56px -36px;
+}
+
+/* line 72, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.noline_docu {
+  background: none;
+}
+
+/* line 74, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.ico_open {
+  margin-right: 2px;
+  background-position: -110px -16px;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 75, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.ico_close {
+  margin-right: 2px;
+  background-position: -110px 0;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 76, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.ico_docu {
+  margin-right: 2px;
+  background-position: -110px -32px;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 77, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.edit {
+  margin-right: 2px;
+  background-position: -110px -48px;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 78, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.remove {
+  margin-right: 2px;
+  background-position: -110px -64px;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 80, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.ico_loading {
+  margin-right: 2px;
+  background: url(/assets/template/ztree/img/loading.gif) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 82, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+ul.tmpTargetzTree {
+  background-color: #FFE6B0;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 84, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+span.tmpzTreeMove_arrow {
+  width: 16px;
+  height: 16px;
+  display: inline-block;
+  padding: 0;
+  margin: 2px 0 0 1px;
+  border: 0 none;
+  position: absolute;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: -110px -80px;
+  background-image: url(/assets/template/ztree/img/zTreeStandard.png);
+  *background-image: url(/assets/template/ztree/img/zTreeStandard.gif);
+}
+
+/* line 88, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+ul.ztree.zTreeDragUL {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  background-color: #cfcfcf;
+  border: 1px #00B83F dotted;
+  opacity: 0.8;
+  filter: alpha(opacity=80);
+}
+
+/* line 89, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.zTreeMask {
+  z-index: 10000;
+  background-color: #cfcfcf;
+  opacity: 0.0;
+  filter: alpha(opacity=0);
+  position: absolute;
+}
+
+/* level style*/
+/*.ztree li span.button.level0 {
+	display:none;
+}
+.ztree li ul.level0 {
+	padding:0;
+	background:none;
+}*/
+/* line 99, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.switch.level0 {
+  visibility: hidden;
+  width: 1px;
+}
+
+/* line 100, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li ul.level0 {
+  padding: 0;
+  background: none;
+}
+
+/* line 101, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.switch.level0 {
+  visibility: hidden;
+  width: 1px;
+}
+
+/* line 102, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li ul.level0 {
+  padding: 0;
+  background: none;
+}
+
+/* line 103, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.add {
+  margin-left: 2px;
+  margin-right: -1px;
+  background-position: -144px 0;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/*//custom icons*/
+/* line 106, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.demoIcon {
+  padding: 0 2px 0 10px;
+}
+
+/* line 107, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.iconedit {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/2.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 108, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icon02 {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/4.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 109, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icon03 {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/5.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 110, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icon04 {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/6.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 111, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icon05 {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/7.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 112, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icon06 {
+  margin: 0;
+  background: url(/assets/template/ztree/img/diy/8.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}
+
+/* line 113, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/template/ztree/zTreeStyle.css.scss */
+.ztree li span.button.icondelete {
+  margin: 0px;
+  background: url(/assets/template/ztree/img/diy/delete.png) no-repeat scroll 0 0 transparent;
+  vertical-align: top;
+  *vertical-align: middle;
+}

@@ -1,0 +1,162 @@
+/* line 4, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+textarea {
+  resize: vertical;
+}
+
+/* line 8, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments {
+  list-style: outside none none;
+  margin: 0px;
+  padding: 0px;
+}
+
+/* line 14, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li {
+  clear: both;
+  padding: 10px 0px 0px 115px;
+}
+
+/* line 19, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li.comment_mentor {
+  clear: both;
+  padding: 115px 0px 0px 10px;
+}
+
+/* line 24, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li div.img-thumbnail {
+  margin-left: -115px;
+  position: absolute;
+}
+
+/* line 29, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li.comment_mentor div.img-thumbnail {
+  margin-right: -115px;
+  position: absolute;
+}
+
+/* line 34, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li a {
+  text-decoration: none;
+}
+
+/* line 38, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li img.avatar {
+  height: 80px;
+  width: 80px;
+}
+
+/* line 43, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments div.comment-block {
+  background: none repeat scroll 0% 0% #F4F4F4;
+  border-radius: 5px;
+  padding: 20px 20px 30px;
+  position: relative;
+}
+
+/* line 50, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments div.comment-arrow {
+  border-bottom: 15px solid transparent;
+  border-right: 15px solid #F4F4F4;
+  border-top: 15px solid transparent;
+  height: 0px;
+  left: -15px;
+  position: absolute;
+  top: 28px;
+  width: 0px;
+}
+
+/* line 61, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments div.comment-block span.comment-by {
+  display: block;
+  font-size: 1em;
+  line-height: 21px;
+  margin: 0px;
+  padding: 0px 0px 5px;
+}
+
+/* line 69, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments div.comment-block span.date {
+  color: #999;
+  font-size: 0.9em;
+}
+
+/* line 74, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+ul.comments li ul.reply {
+  margin: 0px;
+}
+
+/* line 78, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.comment-author {
+  margin-right: 70px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background: none repeat scroll 0% 0% #F2DEDE;
+  position: relative;
+}
+
+/* line 90, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.comment-no-author {
+  margin-left: 60px;
+  padding-top: 5px;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  padding-right: 5px;
+  border-radius: 5px;
+  background: none repeat scroll 0% 0% #F4F4F4;
+  position: relative;
+}
+
+/* line 101, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.reply-author {
+  margin-left: 15%;
+  margin-right: 5%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: none repeat scroll 0% 0% #F2DEDE;
+}
+
+/* line 110, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.reply-no-author {
+  margin-right: 15%;
+  padding: 5px;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  background: none repeat scroll 0% 0% #F4F4F4;
+}
+
+/* line 118, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.comment-avatar {
+  height: 50px;
+  width: 50px;
+  border: 0;
+  border-radius: 5px;
+  align: middle;
+}
+
+/* line 127, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+#comments-list {
+  max-height: 500px;
+  overflow-y: auto;
+}
+
+@media (max-width: 767px) {
+  /* line 134, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+  #comments-list {
+    max-height: 500px;
+    overflow-y: auto;
+  }
+}
+/* line 140, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.comment {
+  margin-top: 10px;
+}
+
+/* line 144, /home/cuongct/StarTeam/EverEdu/SOURCE/JP-AES_v0.2/app/assets/stylesheets/comments.css.scss */
+.comment-content {
+  word-wrap: break-word;
+  text-align: justify;
+}
