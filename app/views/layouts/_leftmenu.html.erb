@@ -79,7 +79,12 @@
                 <%=t('users.title_user_profile')%>
             <% end %>
           </li>
-
+          <li>
+            <%= link_to  settings_path do %>
+                <span class="fa fa-cog text-primary"></span>
+                <%=t('settings.title_settings')%>
+            <% end %>
+          </li>
           <li>
             <%= link_to  signout_path, data: {target:'body'} do %>
                 <span class="fa fa-sign-out text-primary"></span>

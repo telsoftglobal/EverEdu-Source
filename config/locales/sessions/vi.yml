@@ -1,0 +1,82 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  signup:
+    title_signup: "Tạo tài khoản!"
+    lb_name: "Tên"
+    lb_first_name: "Họ"
+    lb_last_name: "Tên"
+    lb_user_name: "Tên tài khoản"
+    lb_email: "Email"
+    lb_password: "Mật khẩu"
+    lb_password_confirmation: "Xác nhận mật khẩu"
+    bt_signup: "Đăng ký"
+    lb_signup: "Bạn đã có tài khoản chưa?"
+    lk_signup: "Đăng ký"
+    title_update_account: "Cập nhật thông tin tài khoản"
+    js:
+      validate:
+        msg_first_name_required: "Hãy nhập họ của bạn."
+        msg_last_name_required: "Hãy nhập tên của bạn."
+        msg_user_name_required: "Hãy nhập tên tài khoản."
+        msg_user_name_minlength: "Hãy nhập ít hơn {0} ký tự."
+        msg_user_name_invalid: "Xin hãy nhập đúng tên đăng nhập."
+        msg_email_invalid: "Hãy nhập đúng định dạng email."
+        msg_email_required: "Hãy nhập địa chỉ email của bạn."
+        msg_password_required: "Hãy nhập mật khẩu."
+        msg_password_minlength: "Hãy nhập mật khẩu tối thiểu {0} ký tự."
+        msg_password_confirmation_required: "Hãy nhập mật khẩu."
+        msg_password_confirmation_minlength: "Hãy nhập mật khẩu tối thiếu {0} ký tự."
+        msg_password_confirmation_equalto: "Hãy nhập mật khẩu khớp với bên trên"
+        msg_first_name_maxlength: "Hãy nhập ít hơn {0} ký tự."
+        msg_last_name_maxlength: "Hãy nhập ít hơn {0} ký tự."
+        msg_user_name_maxlength: "Hãy nhập ít hơn {0} ký tự."
+        msg_email_maxlength: "Hãy nhập ít hơn {0} ký tự."
+        msg_first_name_alphanumeric: "Họ không được có ký tự đặc biệt."
+        msg_last_name_alphanumeric: "Tên không được có ký tự đặc biệt."
+        msg_user_name_alphanumeric: "Tên tài khoản không được có ký tự đặc biệt."
+
+  signin:
+    title_signin: "Đăng nhập!"
+    lb_email: "Email"
+    lb_password: "Mật khẩu"
+    bt_signin: "Đăng nhập"
+    lb_signin: "Bạn đã có tài khoản?"
+    lk_signin: "Đăng nhập!"
+    msg_signin_fail: "Email hoặc mật khẩu không chính xác."
+    title_forgot: "Quên mật khẩu !"
+    lk_forgot: "Quên mật khẩu"
+    js:
+      validate:
+        msg_email_invalid: "Nhập nhập đúng định dạng email."
+        msg_email_required: "Hãy nhập địa chỉ email của bạn."
+        msg_password_required: "Hãy nhập mật khẩu."
+
+  signout:
+    bt_signout: "Đăng xuất"
+
+  become_mentor:
+    bt_become_mentor: "Trở thành mentor"
+
+
+  error_session_expired: "Kết thúc phiên truy cập"
+

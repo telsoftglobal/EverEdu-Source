@@ -1,4 +1,15 @@
 Rails.application.routes.draw do
+
+  get 'user_settings/change_language'
+  get 'user_settings/language_show'
+  post 'user_settings/language_form'
+  get 'user_settings/language_form'
+
+  match 'settings', :to => 'user_settings#settings', :via => [:get, :post], :as => 'settings'
+
+  post 'materials/test_edit'
+  get 'materials/test_edit'
+
   resources :app_params
 
   resources :educations

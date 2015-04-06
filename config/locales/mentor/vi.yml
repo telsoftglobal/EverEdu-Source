@@ -1,0 +1,4 @@
+vi:
+  mentor:
+    curriculums:
+      msg_load_detail_fail: "Tải chi tiết khóa học thất bại"

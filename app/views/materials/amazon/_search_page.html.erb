@@ -571,6 +571,13 @@
 
             }
 
+
+//            if($(".requiredfield100:visible:not([readonly])").val()==''){
+                $(".requiredfield100:visible:not([readonly])").val($(thisbtn).attr("book_name"));
+//            }
+
+
+
             $(".urlformat:visible:not([readonly])").val($(thisbtn).attr("href"));
 
             $(".material:visible").find(".amazon_asin:not([readonly])").val($(thisbtn).attr("asin"));
@@ -1160,6 +1167,7 @@
                 template.getElementsByClassName('reviews-count-link')[0].setAttribute('href', reviewURL);
                 template.getElementsByClassName('btnSelect')[0].setAttribute('href', href);
                 template.getElementsByClassName('btnSelect')[0].setAttribute('asin', data.ASIN);
+                template.getElementsByClassName('btnSelect')[0].setAttribute('book_name', data.Title);
                 resultPane.appendChild(template);
             }
         var clearDiv = document.createElement('div');

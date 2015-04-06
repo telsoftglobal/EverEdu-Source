@@ -37,7 +37,7 @@ en:
   search_mentor:
     title_search_mentor: "Search Mentor"
     title_search_mentor_advance: "Search Mentor Advance"
-    placeholder_keyword: "Enter name, title, special"
+    placeholder_keyword: "Enter name, job title, special, school name, company name"
     lb_search_results: "results"
     lb_search_result: "result"
     btn_reset: "Reset"
@@ -50,12 +50,23 @@ en:
     lb_job_title: "Job Title"
     title_job_title: "Job Title"
     placeholder_job_title: "Job Title"
+    title_add_job_title: "Add Job title"
+    msg_error_duplicate_job_title: "Job title is existed"
     title_specialty: "Specialty"
     placeholder_specialty: "Specialty"
     title_add_specialty: "Add Specialty"
-    title_add_job_title: "Add Job title"
-    msg_error_duplicate_job_title: "Job title is existed"
     msg_error_duplicate_specialty: "Specialty is existed"
+    lb_company_name: "Company"
+    title_company_name: "Company"
+    placeholder_company_name: "Company"
+    title_add_company_name: "Add Company"
+    msg_error_duplicate_job_title: "Company name is existed"
+    lb_school_name: "School"
+    title_school_name: "School"
+    placeholder_school_name: "School"
+    msg_error_duplicate_school_name: "School name is existed"
+    title_add_school_name: "Add School"
+
 
 
 

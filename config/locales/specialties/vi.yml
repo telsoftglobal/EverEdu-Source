@@ -1,0 +1,45 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  specialties:
+    title_specialties: "Chuyên môn"
+    title_new_specialty: "Thêm chuyên môn"
+    title_edit_specialty: "Sửa chuyên môn"
+    title_delete_specialty: "Xóa chuyên môn"
+    msg_confirm_save: "Bạn có muốn lưu?"
+    title_confirm_delete_specialty: "Xác nhận xóa chuyên môn"
+    msg_confirm_delete_specialty: "Bạn có muốn xóa chuyên môn này?"
+    placeholder_specialty: "Chuyên môn"
+    placeholder_years_of_experience: "Số năm kinh nghiệm"
+    placeholder_description: "Mô tả"
+    lb_specialty: "Chuyên môn"
+    lb_years_of_experience: "Số năm kinh nghiệm"
+    lb_description: "Mô tả"
+    msg_create_successfully: "Chuyên môn được tạo thành công."
+    msg_update_successfully: "Chuyên môn được cập nhật thành công."
+    msg_delete_successfully: "Chuyên môn được xóa thành công."
+
+    msg_create_fail: "Chuyên môn tạo thất bại."
+    msg_update_fail: "Chuyên môn cập nhật thất bại."
+    msg_delete_fail: "Chuyên môn xóa thất bại."
+    msg_specialty_not_found: "Chuyên môn không tìm thấy."
+

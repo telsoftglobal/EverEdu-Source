@@ -27,4 +27,5 @@
 //= #require template/components/forms_elements_bootstrap-select/bootstrap-select.init
 
 //= require template/components/forms_elements_fuelux-checkbox/fuelux-checkbox.init
+//= require google_analytics
 

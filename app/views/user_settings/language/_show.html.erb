@@ -1,0 +1,27 @@
+<label class="col-md-4 col-xs-4" ><%= t('settings.lb_language') %></label>
+<label class="col-md-8 col-xs-8" style="word-break: break-all" >
+  <%= @user.language.name %><a id="btn_change_language" style="margin-left: 10px;"><%= t('button.btn_edit') %></a>
+</label>
+<script>
+  $("#btn_change_language").click(function(){
+      $.ajax({
+          type: "GET",
+          url: "<%= user_settings_language_form_path %>",
+          beforeSend: function (xhr) {
+              $.loader.open({size: 32});
+          },
+          success: function (data,status) {
+          },
+          error: function (xhr, status, response) {
+              console.log(xhr);
+              console.log("AJAX Error: " + status)
+              console.log(response);
+              $.loader.close(true);
+          },
+          complete: function(){
+              $.loader.close(true);
+          }
+      });
+  })
+
+</script>

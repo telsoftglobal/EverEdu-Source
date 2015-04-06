@@ -1,3 +1,4 @@
+<%=stylesheet_link_tag 'crop_image' %>
 <div class="widget innerLR">
   <div class="media">
     <!--<div class="pull-left innerAll text-center">-->
@@ -24,6 +25,9 @@
 </div>
 
 
+</div>
+
+<%= javascript_include_tag 'crop/cropbox' %>
 <!-- Modal -->
 <div class="modal fade" id="avatarModal" tabindex="-1" role="dialog" aria-labelledby="avatarLabel" aria-hidden="true">
   <div class="modal-dialog">
@@ -32,14 +36,25 @@
         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
         <h4 class="modal-title" id="avatarModalLabel">Modal title</h4>
       </div>
-      <div id="modalAvatarContent" class="modal-body" style="max-height: 430px; overflow-y: auto">
+      <div id="modalAvatarContent" class="modal-body" style="max-height: 700px; overflow-y: auto">
+
         <%= form_tag change_avatar_path, id: 'change_avatar_form', role: 'form', multipart: true do %>
             <p><span class="small"><%= t('users.help_change_avatar') %></span></p>
-            <div class="form-group">
-              <%= file_field_tag "file_avatar",  :accept => 'image/*', class: 'form-control'%>
-            </div>
+          <div class="imageBox">
+            <div class="thumbBox"></div>
+            <div class="spinner" style="display: none">Loading...</div>
+          </div>
+          <div class="action">
+            <input type="file" id="file" style="float:left; width: 250px">
+            <!--<input type="button" id="btnCrop" value="Crop" style="float: right">-->
+            <input type="button" id="btnZoomIn" value="+" style="float: right">
+            <input type="button" id="btnZoomOut" value="-" style="float: right">
+          </div>
+          <!--<div class="cropped">-->
+          <!--</div>-->
         <% end %>
-      </div>
+    </div>
+
       <div class="modal-footer">
         <button id="btnAvatarSave" type="button" class="btn btn-primary"><%=t('button.btn_save')%></button>
         <button type="button" class="btn btn-default" data-dismiss="modal"><%=t('button.btn_cancel')%></button>
@@ -50,7 +65,51 @@
 
 
 <script>
+    function dataURLtoBlob(dataURL) {
+        // Decode the dataURL
+        var binary = atob(dataURL.split(',')[1]);
+        // Create 8-bit unsigned array
+        var array = [];
+        for(var i = 0; i < binary.length; i++) {
+            array.push(binary.charCodeAt(i));
+        }
+        // Return our Blob object
+        return new Blob([new Uint8Array(array)], {type: 'image/png'});
+    }
+</script>
+<script>
     $(document).ready(function () {
+        var options =
+        {
+            thumbBox: '.thumbBox',
+            spinner: '.spinner',
+            imgSrc: '<%=image_path('noavatar.png')%>'
+        }
+        var cropper;
+
+
+        $('#file').on('change', function(){
+            var valid = $("#change_avatar_form").valid();
+            if(!valid) {
+                return false;
+            }
+
+            var reader = new FileReader();
+            reader.onload = function(e) {
+                options.imgSrc = e.target.result;
+                cropper = $('.imageBox').cropbox(options);
+            }
+            reader.readAsDataURL(this.files[0]);
+            this.files = [];
+        });
+
+        $('#btnZoomIn').on('click', function(){
+            cropper.zoomIn();
+        });
+        $('#btnZoomOut').on('click', function(){
+            cropper.zoomOut();
+        });
+
         $('a.linkChangeAvatar').click( function (e) {
             e.preventDefault();
             var title = $(this).attr("modal_title");
@@ -66,20 +125,20 @@
             file_avatar.replaceWith(file_avatar.val('').clone(true));
         });
 
-//        $('#avatarModal').on('hidden.bs.modal', function (e) {
-//            var file_avatar = $('#file_avatar')
-//            file_avatar.replaceWith(file_avatar.val('').clone(true));
-//        })
+        $('#avatarModal').on('hidden.bs.modal', function (e) {
+            var file_avatar = $('#file_avatar')
+            file_avatar.replaceWith(file_avatar.val('').clone(true));
+        });
 
 
         $("#btnAvatarSave").click(function(){
             $("#change_avatar_form").validate({
                 onfocusout: false,
                 onkeyup: false,
-                    rules: {"file_avatar": {required: true, accept_file_extension: 'jpg,jpeg,png'}
+                    rules: {"file": {required: true, accept_file_extension: 'jpg,jpeg,png'}
                 },
                 messages: {
-                    "file_avatar": {required: I18n.t('js.validate.msg_required'), accept_file_extension: I18n.t('js.validate.msg_accept_file_extension')}
+                    "file": {required: I18n.t('js.validate.msg_required'), accept_file_extension: I18n.t('js.validate.msg_accept_file_extension')}
                 },
                 errorPlacement: function (error, element) {
                     error.insertAfter(element);
@@ -96,17 +155,24 @@
                 }
             });
 
+            // valid
             var valid = $("#change_avatar_form").valid();
             if(!valid) {
                 return false;
             }
 
-            var url = $("#change_avatar_form").attr("action");
-            var data = new FormData($('#change_avatar_form')[0]);
-
+            //upload to server
+            // Get our file
+            var img = cropper.getDataURL();
+            var file= dataURLtoBlob(img);
+            // Create new form data
+            var data = new FormData();
+            // Append our Canvas image file to the form data
+            data.append("file_avatar", file);
+            // And send it
             $.ajax({
                 type: "POST",
-                url: url,
+                url: "/user/change_avatar",
                 data: data,
                 processData: false,
                 contentType: false,

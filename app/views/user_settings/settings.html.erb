@@ -1,0 +1,13 @@
+<div class="innerLR">
+  <h3><%= t('settings.title_settings') %></h3>
+  <div id='general' class="row">
+    <div class="widget innerLR">
+      <div class="media">
+
+          <%= render 'general_settings',  locals: {user: @user}  %>
+          <%= render 'sercurity_settings',  locals: {user: @user}  %>
+        <span class="requiredfield">*</span><%= t('settings.note') %>
+      </div>
+    </div>
+  </div>
+</div>

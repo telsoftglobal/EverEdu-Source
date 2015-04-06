@@ -1,0 +1,89 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  app:
+    app_name: "EverEdu"
+    app_short_name: "EverEdu"
+    lb_about_us: "Về chúng tôi"
+    lb_account: "Tài khoản của tôi"
+    msg_error: "Lỗi"
+    error_title: "Có lỗi xảy ra"
+    error_file_not_found: "Không tìm thấy trang!"
+    error_unprocessable: "Không thể xử lý!"
+    error_internal_server_error: "Phát sinh lỗi từ máy chủ!"
+  button:
+    #CuongCT
+    btn_add: "Thêm"
+    btn_create: "Tạo"
+    btn_edit: "Sửa"
+    btn_save: "Lưu"
+    btn_back: "Quay lại"
+    btn_cancel: "Hủy"
+    btn_ok: "Đồng ý"
+    btn_close: "Đóng"
+    btn_change: "Thay đổi"
+    btn_yes: "Có"
+    btn_no: "Không"
+    btn_confirm: "Xác nhận"
+    btn_go: "Đi"
+    btn_select: "Chọn"
+    btn_advance: "Nâng cao"
+    btn_readmore: "Đọc thêm"
+    btn_readless: "Thu gọn"
+  search:
+    placeholder: "Search for mentors or courses"
+  date:
+    day: "Ngày"
+    month: "Tháng"
+    year: "Năm"
+  shared:
+    lb_previous: "Quay về"
+    lb_next: "Tiếp"
+    lb_finish: "Hoàn tất"
+  msg_access_error: "Xin lỗi, bạn không có quyền truy cập"
+  msg_data_error: "Xin lỗi, không tìm thấy dữ liệu"
+  title_error: "Lỗi"
+  system:
+    system_message: "Thông báo từ hệ thống!"
+  js:
+    validate:
+      msg_required: "Phải nhập."
+      msg_minlength: "Xin hãy nhập tối thiểu {0} ký tự."
+      msg_maxlength: "Xin hãy nhập ít hơn {0} ký tự."
+      msg_rangelength: "Hãy nhập giá trị trong khoảng từ {0} đến {1}."
+      msg_min: "Hãy nhập giá trị lớn hơn {0}."
+      msg_max: "Xin hãy nhập giá nhỏ hơn {0}."
+      msg_range: "Hãy nhập giá trị trong khoảng từ {0} đến {1}."
+      msg_email_invalid: "Hãy nhập đúng định dạng email."
+      msg_url_invalid: "Hãy nhập đúng định dạng URL."
+      msg_date_invalid: "Hãy nhập đúng định dạng ngày tháng."
+      msg_number_invalid: "Hãy nhập đúng dạng số."
+      msg_confirm_passowrd_equalto: "Hãy nhập mật khẩu khớp với bên trên."
+      msg_greater_than_start_date: "Hãy nhập năm lớn hơn năm bắt đầu."
+      msg_invalid_file_extension: "Hãy chọn tệp đúng định dạng."
+      msg_accept_file_extension: "Hãy chọn đúng tệp cho phép."
+      msg_alphanumeric: "Hãy nhập đúng ký tự cho phép."
+  tip:
+    titleTip: "Trợ giúp:"
+  country:
+    us: 'Mỹ'
+    jp: 'Nhật bản'

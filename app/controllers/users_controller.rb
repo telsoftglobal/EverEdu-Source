@@ -68,6 +68,13 @@ class UsersController < ApplicationController
         @user.avatar_url = @avatar.photo.url(:avatar)
         @user.avatar = @avatar
         @user.save
+        if @user.errors && !@user.errors.empty?
+          flash.now[:error] = @user.errors.full_messages.to_sentence(:last_word_connector => ', ');
+          respond_to do |format|
+            format.js { render action: 'change_avatar_fail' }
+            format.html
+          end
+        end
       else
         if @avatar.errors
           # remove duplicate error message

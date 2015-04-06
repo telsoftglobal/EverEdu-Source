@@ -14,7 +14,7 @@
                         <span class="caret" ></span>
                       </a>
                       <ul id="menu3" class="dropdown-menu" role="menu" aria-labelledby="drop6">
-                        <li role="presentation"><%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('curriculum.bt_edit'), edit_curriculum_path(@object), :title => t('curriculum.bt_edit'),data: {target:'body'} %></li>
+                        <li role="presentation"><%= link_to '<i class="fa fa-edit"></i> '.html_safe + t('button.btn_edit'), edit_curriculum_path(@object), :title => t('button.btn_edit'),data: {target:'body'} %></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" class="quickUpdate" url="<%= curriculums_quickedit_path%>" object_type="curriculum" objectid="<%= @object.id %>" href="#" modal_title="<%= t('curriculum.title_update_curriculum')%>"><i class="fa fa-edit"></i> <%= t('curriculum.title_update_curriculum')%></a></li>
                         <li role="presentation"><a role="menuitem" tabindex="-1" id="btn_update_categories" class="quickUpdate" url="<%= curriculums_quickeditcategories_path %>" object_type="categories" objectid="<%= @object.id %>" href="#" modal_title="<%= t('category.title_quick_update')%>" ><i class="fa fa-edit"></i> <%= t('category.title_quick_update')%></a></li>
                         <!--<li role="presentation" class="divider"></li>-->
@@ -113,7 +113,7 @@
                          end
                       %>
 
-                      <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil? && !@object.asin.empty? && @object.material_type.id='book'%>
+                      <%if !@object.material_url.nil? && !@object.material_url.empty? && !@object.asin.nil? && !@object.asin.empty? && @object.material_type.id=='book'%>
                           <div class="col-md-2" id="amazon_book" style="height: 240px;">
 
                           </div>

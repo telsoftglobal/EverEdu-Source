@@ -16,6 +16,7 @@ class HistoryJob
   field :current, type: Mongoid::Boolean
   field :description, type: String
   field :company_url, type: String
+  field :created_at, type: Time, default: Time.now
 
   #relationship
   # belongs_to :user

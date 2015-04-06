@@ -1,0 +1,7 @@
+vi:
+  student_home:
+    title_student_home: "Khóa học của tôi"
+    title_material: "Tài liệu"
+    title_action: "Hành động"
+  student_curriculum_detail:
+    lb_with: "với"

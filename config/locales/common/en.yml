@@ -33,8 +33,8 @@ en:
   button:
     #CuongCT
     btn_add: "Add"
-    btn_create: "Create Item"
-    btn_edit: "Edit Item"
+    btn_create: "Create"
+    btn_edit: "Edit"
     btn_save: "Save"
     btn_back: "Back"
     btn_cancel: "Cancel"
@@ -47,6 +47,8 @@ en:
     btn_go: "Go"
     btn_select: "Select"
     btn_advance: "Advance"
+    btn_readmore: "Read more"
+    btn_readless: "Read less"
   search:
     placeholder: "Search for mentors or courses"
   date:

@@ -1,0 +1,72 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  users:
+    msg_user_not_found: "Không tìm thấy tài khoản"
+    title_about: "Thông tin"
+    title_user_profile: "Thông tin cá nhân"
+    lb_changeavatar: "Đổi ảnh đại diện"
+    title_changeavatar: "Đổi ảnh đại diện"
+    title_user_information: "Thông tin người dùng"
+    title_update_user_information: "Cập nhật thông tin cơ bản"
+    title_changepassword: "Đổi mật khẩu"
+    lb_password_current: "Mật khẩu hiện tại"
+    lb_password_new: "Mật khẩu mới"
+    lb_password_confirm: "Xác nhận"
+    lb_password_confirm_equal: "Mật khẩu xác nhận không khớp"
+    lb_tip1: "Mật khẩu gồm cả số lẫn chữ sẽ nâng cao tính bảo mật"
+    lb_tip2: "Mật khẩu phải từ 6-10 ký tự"
+    title_reset_password: "Thiết lập lại mật khẩu"
+    title_back_login: "Quay về trang đăng nhập"
+    lb_forgot: "quên mật khẩu"
+    lb_first_name: "Họ"
+    lb_last_name: "Tên"
+    lb_gender: "Giới tính"
+    lb_male: "Nam"
+    lb_female: "Nữ"
+    lb_birthday: "Ngày sinh"
+    lb_phone_number: "Điện thoại"
+    lb_address: "Địa chỉ"
+    lb_city: "Thành phố"
+    lb_country: "Quốc gia"
+    lb_introduction: "Giới thiệu"
+    msg_empty_field: "Phải nhập"
+    msg_empty_or_wrong_password: "Mật khẩu không chính xác"
+    msg_update_failed: "Cập nhật thông tin cá nhân thất bại"
+    msg_update_success: "Cập nhật thông tin cá nhân thành công"
+    msg_email_exist: "Địa chỉ email này đã tồn tại"
+    msg_change_password_success: "Mật khẩu thay đổi thành công!"
+    msg_change_password_error: "Mật khẩu thay đổi thất bại!"
+    msg_confirm_information: "Xin hãy xác nhận lại mật khẩu"
+    msg_reset_password_success: "Thiết lập lại mật khẩu thành công!"
+    msg_reset_password_error: "Thiết lập lại mật khẩu thất bại!"
+    msg_forgot_password_success: "Mật khẩu mới sẽ được gửi về trong ít phút"
+    msg_forgot_password_error: "Xin hãy kiểm tra lại thông tin"
+    msg_change_password_minlenght_error: "Mật khẩu phải nhiều hơn 6 ký tự"
+    title_confirm_reset: "Bạn có muốn thiết lập lại mật khẩu?"
+    help_change_avatar: "Kích thước tối đa: 5MB, định dạng: jpg, jpeg, png."
+    msg_change_avatar_fail: "Đổi ảnh đại diện thất bại!"
+    msg_confirm_change_email: "Để đổi địa chỉ email xin hay xác nhận bằng mật khẩu"
+    msg_verify_data: "Xin hãy kiểm tra lại thông tin"
+    msg_birthday_invalid: "Ngày sinh không hợp lệ"
+  email:
+    title_change_password: "Xác nhận thay đổi mật khẩu"

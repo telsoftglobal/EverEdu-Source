@@ -32,7 +32,6 @@
 
 //= require template/ztree/jquery.ztree.all-3.5.min
 
-
 //= require template/selectr/selectr
 //= require template/summernote/summernote
 //= require template/bootstrap3-dialog/bootstrap-dialog
@@ -56,6 +55,7 @@
 //= require ckeditor/bootstrap-ckeditor-fix
 //=# require ckeditor/plugin/maxlength
 //= require ckeditor/init.js.erb
+//= require Readmore/readmore.min
 //=# require vailidator.js.erb
 //= require_self
 
@@ -83,3 +83,36 @@ $.validator.setDefaults(
         }
     });
 
+
+function checkDevice() {
+    var isiPhone = navigator.userAgent.toLowerCase().indexOf("iphone");
+    var isiPad = navigator.userAgent.toLowerCase().indexOf("ipad");
+    var isiPod = navigator.userAgent.toLowerCase().indexOf("ipod");
+
+    var isAndroid = /android/i.test(navigator.userAgent.toLowerCase());
+
+    var isBlackberry = navigator.userAgent.toLowerCase().indexOf("BlackBerry");
+
+    var isOpera = /Opera/i.test(navigator.userAgent.toLowerCase());
+
+    var isIE = navigator.userAgent.toLowerCase().indexOf("IEMobile");
+
+    if((isiPhone+isiPad+isiPod+isAndroid+isBlackberry+isIE+isOpera)>-1){
+        return true;
+    }else{
+        return false;
+    }
+}
+
+$(document).ready(function(){
+    $('#updateModal').on('show.bs.modal', function () {
+        if(checkDevice()){
+            $('#main_container').hide();
+        }
+    });
+    $('#updateModal').on('hidde.bs.modal', function () {
+        if(checkDevice()){
+            $('#main_container').show();
+        }
+    });
+});

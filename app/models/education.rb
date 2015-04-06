@@ -16,6 +16,7 @@ class Education
   field :grade, type: String
   field :activities_societies, type: String
   field :description, type: String
+  field :created_at, type: Time, default: Time.now
 
   # belongs_to :app_param
   belongs_to :degree, class_name: 'AppParam', :foreign_key => 'degree_id'

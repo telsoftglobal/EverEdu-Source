@@ -34,7 +34,6 @@ class User
   field :phone_number, type: String
   field :address, type: String
   field :city, type: String
-  belongs_to :country
   field :introduction, type: String
 
   #attributes
@@ -43,9 +42,9 @@ class User
   #validate
   validates_presence_of :first_name, :last_name, :user_name, :email
   validates_length_of :first_name, :last_name, :user_name, maximum: NAME_MAX_LENGTH
-  validates_format_of :user_name, with:/\A[a-z0-9_\-\.]*\z/i
+  validates_format_of :user_name, with: /\A[a-z0-9_\-\.]*\z/i
   validates_length_of :email, maximum: EMAIL_MAX_LENGTH
-  validates_length_of :address,:city, maximum: ADDRESS_MAX_LENGTH
+  validates_length_of :address, :city, maximum: ADDRESS_MAX_LENGTH
   validates_length_of :phone_number, maximum: PHONE_NUMBER_MAX_LENGTH
   validates_length_of :introduction, maximum: INTRODUCTION_MAX_LENGTH
   validates_format_of :email, with: /\A([^@\s]+)@((?:[-a-z0-9]+\.)+[a-z]{2,})\z/i
@@ -57,14 +56,18 @@ class User
   embeds_many :sns_accounts
   has_one :user_profile
   has_and_belongs_to_many :roles
-  belongs_to  :avatar, :class_name => "Photo", :foreign_key => "avatar_id"
+  belongs_to :avatar, :class_name => "Photo", :foreign_key => "avatar_id"
+  belongs_to :country
+  belongs_to :language
   embeds_many :specialties
   embeds_many :history_jobs
   embeds_many :educations
 
+  has_many :curriculums
+
   #indexes
-  index({ user_name: 1 }, { unique: true, name: 'user_name_index' })
-  index({ email: 1 }, { unique: true, name: 'email_index' })
+  index({user_name: 1}, {unique: true, name: 'user_name_index'})
+  index({email: 1}, {unique: true, name: 'email_index'})
 
   accepts_nested_attributes_for :sns_accounts
 
@@ -220,7 +223,7 @@ class User
       mentor_role = Role.find_by(name: Role::ROLE_MENTOR)
 
       # query users
-      @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
+      @users = User.where(role_ids: mentor_role.id).and(status: 1).any_of({first_name: /#{keyword}/i}, {last_name: /#{keyword}/i}, {"specialties.specialty" => /#{keyword}/i}, {"history_jobs.title" => /#{keyword}/i}, {"history_jobs.company_name" => /#{keyword}/i}, {"educations.school_name" => /#{keyword}/i}).paginate(:page => page_number, :per_page => item_per_page)
 
       @users
     end
@@ -232,7 +235,7 @@ class User
     # @author HuyenDT
     # Create Date: 20150317
     # Modify Date:
-    def search_mentor_advance(first_name, last_name, country, specialties, history_jobs, page_number, item_per_page)
+    def search_mentor_advance(first_name, last_name, country, specialties, history_jobs, company_names, school_names, page_number, item_per_page)
       # select mentor role
       mentor_role = Role.find_by(name: Role::ROLE_MENTOR)
 
@@ -256,14 +259,26 @@ class User
 
       # specialties
       if !specialties.nil? && !specialties.empty?
-        specialties = specialties.map{|s|/^#{s.strip}$/i}
-        query = query.and("specialties.specialty" => { "$in" => specialties})
+        specialties = specialties.map { |s| /^#{s.strip}$/i }
+        query = query.and("specialties.specialty" => {"$in" => specialties})
       end
 
       # history jobs
       if !history_jobs.nil? && !history_jobs.empty?
-        history_jobs = history_jobs.map{|s|/^#{s.strip}$/i}
-        query = query.and("history_jobs.title" => { "$in" => history_jobs})
+        history_jobs = history_jobs.map { |s| /^#{s.strip}$/i }
+        query = query.and("history_jobs.title" => {"$in" => history_jobs})
+      end
+
+      # company names
+      if !company_names.nil? && !company_names.empty?
+        company_names = company_names.map { |s| /#{s.strip}/i }
+        query = query.and("history_jobs.company_name" => {"$in" => company_names})
+      end
+
+      # school names
+      if !school_names.nil? && !school_names.empty?
+        school_names = school_names.map { |s| /#{s.strip}/i }
+        query = query.and("educations.school_name" => {"$in" => school_names})
       end
 
       # paginate
@@ -280,7 +295,7 @@ class User
     has_role = false
     if !self.roles.nil?
       self.roles.each do |role|
-        if role.name.eql?role_name
+        if role.name.eql? role_name
           has_role = true
         end
       end
@@ -320,7 +335,6 @@ class User
     notifications = Notification.where(activity_type: activity_type, object_id: object_id, object_type: object_type, unread: TRUE, recipient_id: id)
     notifications.update_all(:unread => false)
   end
-
 
 
 end

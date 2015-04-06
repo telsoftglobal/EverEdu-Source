@@ -19,15 +19,15 @@
       </div>
   </div>
 
-  <div class="col-md-8">
+  <div class="col-md-4">
     <div class="innerAll">
         <div class="accordion-group">
           <div class="accordion-heading">
-            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion_history">
+            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion_job_title">
               <h4 class="border-bottom"><%=t('search_mentor.title_job_title')%></h4>
             </a>
           </div>
-          <div id="accordion_history" class="accordion-body collapse in">
+          <div id="accordion_job_title" class="accordion-body collapse in">
             <div class="innerAll">
               <div class="accordion-inner">
                 <div>
@@ -36,12 +36,12 @@
                 <div>
                   <div id='form_add_job_title'  style="display:none;" >
                       <div class="input-group">
-                        <%= text_field_tag :history_job, params[:history_job], placeholder: t('search_mentor.placeholder_job_title'), class: "form-control", maxlength:50%>
+                        <%= text_field_tag :job_title, params[:job_title], placeholder: t('search_mentor.placeholder_job_title'), class: "form-control", maxlength:50%>
                         <div class="input-group-btn"><button id="btnAddJobToList" class="btn btn-primary rounded-none"><i class="fa fa-plus"></i></button></div>
                       </div>
                   </div>
                 </div>
-                <div id="div_History_Job" style="max-height: 150px; overflow-y: auto; overflow-x: hidden; margin-top: 10px">
+                <div id="div_job_title" style="max-height: 150px; overflow-y: auto; overflow-x: hidden; margin-top: 10px">
                   <ul id="jobTitleList" class="list-group">
                   </ul>
                 </div>
@@ -79,6 +79,68 @@
     </div>
   </div>
   </div>
+
+
+  <div class="col-md-4">
+    <div class="innerAll">
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion_company_name">
+            <h4 class="border-bottom"><%=t('search_mentor.title_company_name')%></h4>
+          </a>
+        </div>
+        <div id="accordion_company_name" class="accordion-body collapse in">
+          <div class="innerAll">
+            <div class="accordion-inner">
+              <div>
+                <a id="btn_add_company_name" ><i class="fa fa-plus" ></i>&nbsp;<%= t('search_mentor.title_add_company_name')%></a>
+              </div>
+              <div>
+                <div id='form_add_company_name'  style="display:none;" >
+                  <div class="input-group">
+                    <%= text_field_tag :company_name, params[:company_name], placeholder: t('search_mentor.placeholder_company_name'), class: "form-control", maxlength:50%>
+                    <div class="input-group-btn"><button id="btnAddCompanyToList" class="btn btn-primary rounded-none"><i class="fa fa-plus"></i></button></div>
+                  </div>
+                </div>
+              </div>
+              <div id="div_company_name" style="max-height: 150px; overflow-y: auto; overflow-x: hidden; margin-top: 10px">
+                <ul id="companyList" class="list-group">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="accordion-group">
+        <div class="accordion-heading">
+          <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#accordion_school_name"  style="color:#913228">
+            <h4 class="border-bottom"><%=t('search_mentor.title_school_name')%></h4>
+          </a>
+        </div>
+        <div id="accordion_school_name" class="accordion-body collapse in" >
+          <div class="innerAll">
+            <div class="accordion-inner">
+              <div>
+                <a id="btn_add_school_name" ><i class="fa fa-plus" ></i>&nbsp;<%= t('search_mentor.title_add_school_name')%></a>
+              </div>
+              <div>
+                <div id='form_add_school_name'  style="display:none;" >
+                  <div class="input-group">
+                    <%= text_field_tag :school_name, params[:school_name], placeholder: t('search_mentor.placeholder_school_name'), class: "form-control", maxlength:50%>
+                    <div class="input-group-btn"><button id="btnAddSchoolToList" class="btn btn-primary rounded-none"><i class="fa fa-plus"></i></button></div>
+                  </div>
+                </div>
+              </div>
+              <div id="div_school_name" style="max-height: 150px; overflow-y: auto; overflow-x: hidden; margin-top: 10px">
+                <ul id="schoolList" class="list-group">
+                </ul>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 <% end %>
 <script>
@@ -109,7 +171,7 @@
                         }
                     }
                 },
-                "history_job": {
+                "job_title": {
                     required: {
                         depends: function () {
                             var text = $.trim($(this).val());
@@ -130,6 +192,28 @@
                         }
                     },
                     maxlength: 50
+                },
+                "company_name": {
+                    required: {
+                        depends: function () {
+                            var text = $.trim($(this).val());
+                            text = text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    },
+                    maxlength: 50
+                },
+                "school_name": {
+                    required: {
+                        depends: function () {
+                            var text = $.trim($(this).val());
+                            text = text.replace(/\s+/g, ' ');
+                            $(this).val(text);
+                            return true;
+                        }
+                    },
+                    maxlength: 50
                 }},
                 messages: {
                     "first_name": {
@@ -138,11 +222,19 @@
                     "last_name": {
                         maxlength: I18n.t("js.validate.msg_maxlength")
                     },
-                    "history_job": {
+                    "job_title": {
                         required: I18n.t("js.validate.msg_required"),
                         maxlength: I18n.t("js.validate.msg_maxlength")
                     },
                     "specialty": {
+                        required: I18n.t("js.validate.msg_required"),
+                        maxlength: I18n.t("js.validate.msg_maxlength")
+                    },
+                    "company_name": {
+                        required: I18n.t("js.validate.msg_required"),
+                        maxlength: I18n.t("js.validate.msg_maxlength")
+                    },
+                    "school_name": {
                         required: I18n.t("js.validate.msg_required"),
                         maxlength: I18n.t("js.validate.msg_maxlength")
                     }
@@ -161,7 +253,7 @@
 
         });
 
-        $("#history_job").keypress(function( event ) {
+        $("#job_title").keypress(function( event ) {
             if (event.which == 13) {
                 event.preventDefault();
                 $("#btnAddJobToList").click();
@@ -175,22 +267,36 @@
             }
         });
 
-        // add new history job
+        $("#company_name").keypress(function( event ) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnAddCompanyToList").click();
+            }
+        });
+
+        $("#school_name").keypress(function( event ) {
+            if (event.which == 13) {
+                event.preventDefault();
+                $("#btnAddSchoolToList").click();
+            }
+        });
+
+        // add new job title
         $("#btn_add_job_title").click(function(e){
             e.preventDefault();
             $(this).hide();
             $("#form_add_job_title").show();
             $("#form_add_job_title").find("p.has-error").remove();
 
-            $("#history_job").val('');
-            $("#history_job").focus();
+            $("#job_title").val('');
+            $("#job_title").focus();
         });
 
         $("#btnAddJobToList").click(function(e){
             e.preventDefault();
             $("#form_add_job_title").find("p.has-error").remove();
 
-            if (!$("#history_job").valid()) {
+            if (!$("#job_title").valid()) {
                 // replace error
                 var p_error = $("#form_add_job_title").find("p.has-error");
                 $("#form_add_job_title").append(p_error.clone());
@@ -199,7 +305,7 @@
             }
 
             //check duplicate
-            var job_title = $("#history_job").val().toLowerCase();
+            var job_title = $("#job_title").val().toLowerCase();
             var errorDuplicate = "<%= I18n.t('search_mentor.msg_error_duplicate_job_title')%>";
             var existed = false;
             $('#jobTitleList').find('.form-control').each(function(){
@@ -214,17 +320,17 @@
                 return;
             }
 
-            if ($("#history_job").val() != '') {
+            if ($("#job_title").val() != '') {
                 //add job to list
-                add_history_job($("#history_job").val());
+                add_job_title($("#job_title").val());
                 $("#form_add_job_title").hide();
                 $("#btn_add_job_title").show();
             }
         });
 
 
-        function add_history_job(name){
-            $("#jobTitleList").prepend("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"history_jobs[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_job'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+        function add_job_title(name){
+            $("#jobTitleList").prepend("<li class=\"list-group-item list-group-item-small\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"job_titles[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_job'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
             $(".btn_remove_job").click(function(e){
                 e.preventDefault();
                 $(this).closest(".list-group-item").remove();
@@ -280,8 +386,123 @@
         });
 
         function add_specialty(name){
-            $("#specialtyList").prepend("<li class=\"list-group-item\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"specialties[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_specialty'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+            $("#specialtyList").prepend("<li class=\"list-group-item list-group-item-small\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"specialties[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_specialty'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
             $(".btn_remove_specialty").click(function(e){
+                e.preventDefault();
+                $(this).closest(".list-group-item").remove();
+            });
+        }
+
+
+        // add new company name
+        $("#btn_add_company_name").click(function(e){
+            e.preventDefault();
+            $(this).hide();
+            $("#form_add_company_name").show();
+            $("#form_add_company_name").find("p.has-error").remove();
+
+            $("#company_name").val('');
+            $("#company_name").focus();
+        });
+
+        $("#btnAddCompanyToList").click(function(e){
+            e.preventDefault();
+            $("#form_add_company_name").find("p.has-error").remove();
+
+            if (!$("#company_name").valid()) {
+                // replace error
+                var p_error = $("#form_add_company_name").find("p.has-error");
+                $("#form_add_company_name").append(p_error.clone());
+                p_error.remove();
+                return
+            }
+
+            //check duplicate
+            var company_name = $("#company_name").val().toLowerCase();
+            var errorDuplicate = "<%= I18n.t('search_mentor.msg_error_duplicate_company_name')%>";
+            var existed = false;
+            $('#companyList').find('.form-control').each(function(){
+                if ($(this).val().toLowerCase() == company_name) {
+                    existed = true;
+                    return true;
+                }
+            });
+
+            if (existed) {
+                $("#form_add_company_name").append("<p class=\"has-error\">" + errorDuplicate +"</p>");
+                return;
+            }
+
+            if ($("#company_name").val() != '') {
+                //add company_name to list
+                add_company_name($("#company_name").val());
+                $("#form_add_company_name").hide();
+                $("#btn_add_company_name").show();
+            }
+        });
+
+
+        function add_company_name(name){
+            $("#companyList").prepend("<li class=\"list-group-item list-group-item-small\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"company_names[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_company'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+            $(".btn_remove_company").click(function(e){
+                e.preventDefault();
+                $(this).closest(".list-group-item").remove();
+            });
+        }
+
+
+
+        // add new school name
+        $("#btn_add_school_name").click(function(e){
+            e.preventDefault();
+            $(this).hide();
+            $("#form_add_school_name").show();
+            $("#form_add_school_name").find("p.has-error").remove();
+
+            $("#school_name").val('');
+            $("#school_name").focus();
+        });
+
+        $("#btnAddSchoolToList").click(function(e){
+            e.preventDefault();
+            $("#form_add_school_name").find("p.has-error").remove();
+
+            if (!$("#school_name").valid()) {
+                // replace error
+                var p_error = $("#form_add_school_name").find("p.has-error");
+                $("#form_add_school_name").append(p_error.clone());
+                p_error.remove();
+                return
+            }
+
+            //check duplicate
+            var school_name = $("#school_name").val().toLowerCase();
+            var errorDuplicate = "<%= I18n.t('search_mentor.msg_error_duplicate_school_name')%>";
+            var existed = false;
+            $('#schoolList').find('.form-control').each(function(){
+                if ($(this).val().toLowerCase() == school_name) {
+                    existed = true;
+                    return true;
+                }
+            });
+
+            if (existed) {
+                $("#form_add_school_name").append("<p class=\"has-error\">" + errorDuplicate +"</p>");
+                return;
+            }
+
+            if ($("#school_name").val() != '') {
+                //add school to list
+                add_school_name($("#school_name").val());
+                $("#form_add_school_name").hide();
+                $("#btn_add_school_name").show();
+            }
+        });
+
+
+        function add_school_name(name){
+            $("#schoolList").prepend("<li class=\"list-group-item list-group-item-small\"><div class=\"row\"><div class='col-xs-10'><label style='word-wrap: break-word'>"+name+"</label><input class=\"form-control\" maxlength=\"200\" name=\"school_names[]\" style='display:none' value='"+name+"' type=\"text\"></div><div class='col-xs-2'><a class='btn_remove_school'> <i class=\"fa fa-times fa-fw pull-right\" ></i></a></div></div></li>");
+            $(".btn_remove_school").click(function(e){
                 e.preventDefault();
                 $(this).closest(".list-group-item").remove();
             });

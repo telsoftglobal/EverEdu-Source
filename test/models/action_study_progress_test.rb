@@ -15,7 +15,12 @@ class ActionStudyProgressTest < ActiveSupport::TestCase
   end
 
   test "get_progress_action" do
-    progress = ActionStudyProgress.get_progress_action(BSON::ObjectId.from_string("54648c27487579362b5c0300"),BSON::ObjectId.from_string("5461f725486150473f000000"))
-    puts progress
+    # progress = ActionStudyProgress.get_progress_action(BSON::ObjectId.from_string("54648c27487579362b5c0300"),BSON::ObjectId.from_string("5461f725486150473f000000"))
+    # puts progress
+
+    file = File.join(Rails.root, 'app', 'views','emailer','send_email.html.erb')
+    email =  File.read(file)
+
+    puts File.read(file)
   end
 end

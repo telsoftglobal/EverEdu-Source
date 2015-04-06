@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
   #before_filter :session_expiration
 
   def set_locale
-    I18n.locale = params[:locale] || I18n.default_locale
-    I18n.locale = I18n.default_locale
+    I18n.locale = session[:locale] || I18n.default_locale
+    # I18n.locale = I18n.default_locale
   end
 
   # def default_url_options(options={})
@@ -116,6 +116,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
     session[:ctime] = Time.now.utc.to_i
     session[:atime] = Time.now.utc.to_i
+    session[:locale] = user.language.id
   end
 
   # Description: check session expire

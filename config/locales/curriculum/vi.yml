@@ -1,0 +1,163 @@
+# encoding: utf-8
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guino implicit conversion of ActiveModel::Errors into Stringde
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  curriculum:
+    curriculum: "Khóa học"
+    lb_curriculum: "Quản lý khóa học"
+    title_create_curriculum: "Tạo khóa học"
+    title_update_curriculum: "Cập nhật khóa học"
+    lb_curriculum_name: "Tên khóa học"
+    title_enter_curriculum: "Thông tin chung"
+    lb_category: "Danh mục"
+    lb_summary: "Tóm tắt"
+    lb_duration: "Thời lượng"
+    lb_unit: "Đơn vị"
+    lb_start_date: "Ngày bắt đầu"
+    lb_end_date: "Ngày kết thúc"
+    lb_description: "Mô tả"
+    msg_description_maxlength: "Hãy nhập tối đa 10000 ký tự."
+    title_step: "Bước"
+    title_manage_curriculum: "Quản lý khóa học"
+    bt_view_detail: "Xem chi tiết"
+    lb_more: "Curriculum of mentor"
+    lb_new_curriculum: "Tạo khóa học"
+    lb_create_date: "Ngày tạo"
+    btn_jon: "Tham gia"
+    btn_comment: "Bình luận"
+    msg_create_curriculum_succes: "Khóa học tạo thành công!"
+    msg_update_curriculum_succes: "Cập nhật khóa học thành công"
+    msg_update_curriculum_failed: "Cập nhật khóa học thất bại"
+    lb_curriculum_outline: "Bố cục"
+    lb_curriculum_detail: "Chi tiết khóa học"
+    msg_name_only_alphanumeric: "Tên phải là chữ"
+    msg_error: "Có lỗi xảy ra khi tải khóa học"
+    msg_error_not_found: "Khóa học không tồn tại"
+    msg_error_not_permission: "Bạn không có quyền cập nhật khóa học n"
+    msg_confirm_save: "Bạn có muốn lưu?"
+    msg_not_found: "Không tìm thấy khóa học!"
+    msg_curriculum_not_found: "Không tìm thấy khóa học!"
+    btn_start: "Bắt đầu"
+    btn_done: "Hoàn thành"
+    btn_inprogress: "Đang thực hiện"
+    lb_note: "Chú ý"
+    lb_Error: "Khóa học không tồn tại"
+    lb_readmore: "Đọc thêm"
+    lb_showless: "Thu gọn"
+  material:
+    title_new_material: "Tài liệu mới"
+    title_material: "Tài liệu"
+    lb_material_name: "Tên tài liệu"
+    title_add_material: "Thêm tài liệu"
+    lb_url: "URL"
+    lb_description: "Mô tả"
+    btn_addmaterial: "Thêm tài liệu"
+    btn_editmaterial: "Sửa tài liệu"
+    btn_deletematerial: "Xóa tài liệu"
+    msg_atleast_material: "Phải có ít nhất một tài liệu"
+    msg_confirm_delete: "Bạn có chắc muốn xóa tài liệu này!"
+    msg_cant_delete_parent: "Không thể xóa tài liệu cha"
+    msg_update_success: "Cập nhật tài liệu thành công!"
+    msg_update_failed: "Cập nhật tài liệu thất bại"
+    msg_not_found: "Không tìm thấy tài liệu!"
+    title_quick_update: "Cập nhật tài liệu"
+    help:
+      title: "Giới thiệu:"
+      step1: "1. Để nhập tài liệu"
+      step1-1: "Bước 1: Nhập thông tin về tài liệu"
+      step1-2: "Bước 2: Nhấp vào nút lưu"
+      note: "chú ý: (*) là bắt buộc"
+      step2: "2. Để thêm tài liệu"
+      step2-1: "Bước 1: Nhấp chuột "
+      step2-2: "Bước 2: Nhấp chuột "
+      step2-3: "Bước 3: Nhập các thông tin giống như trên"
+      step3a: "3. Để sửa "
+      step3b: "Xóa"
+      step3c: "tài liệu"
+      tip1: "Tài liệu là những thứ như: sách, gợi ý, video."
+      tip2: "Một khi khóa học được tạo thì không thể xóa tài liệu"
+      tipend: "Tài liệu có ít nhất một cái !"
+  action:
+    title_new_action: "Hành động mới"
+    title_action: "Hành động"
+    lb_action_name: "tên hành động"
+    title_add_action: "Thêm hành động"
+    lb_description: "Mô tả"
+    btn_addaction: "Thêm hành động"
+    btn_editaction: "Sửa hành động"
+    btn_deleteaction: "Xóa hành động"
+    msg_confirm_delete: "Bạn có muốn xóa hành động này ?"
+    msg_update_success: "Cập nhật hành động thành công!"
+    msg_update_failed: "Cập nhật hành động thất bại!"
+    msg_not_found: "Không tìm thấy hành động!"
+    title_quick_update: "Cập nhật hành động"
+    help:
+      title: "Giới thiệu:"
+      step1: "2. Để nhập hành động"
+      step1-1: "Bước 1: Enter action information"
+      step1-2: "Bước 2: Click button Save"
+      note: "chú ý: (*) là bắt buộc"
+      step2: "1. Để thêm hành động"
+      step2-1: "Bước 1: Nhấp "
+      step2-2: "Bước 2: Nhấp "
+      step2-3: "Bước 3: Nhập các thông tin như trên"
+      step3a: "3. Để sửa "
+      step3b: "Xóa"
+      step3c: "hành động"
+      tip1: "Hành động là những việc phải làm."
+      tip2: "Một khi khóa học được tạo thì hành động không thể xóa."
+      tipend: "Hành động không bắt buộc phải có"
+  category:
+    msg_atleast_category: "Khóa học phải thuộc một danh mục !"
+    title_select_category: "Hãy chọn danh mục"
+    title_selectAll: "Chọn tất cả"
+    title_unselectAll: "Bỏ chọn tất cả"
+    msg_update_success: "Cập nhật danh mục thành công!"
+    msg_update_failed: "Cập nhật danh mục thất bại!"
+    title_quick_update: "Cập nhật danh mục của khóa học"
+    help:
+      title: "Giới thiệu:"
+      step1: "Bước 1: Chọn danh mục"
+      step2: "Bước 2: Nhấp vào nút Thêm"
+      step3: "Bước 3: Chọn cấp độ cho khóa học"
+      tip1: "Gợi ý 1: Chọn cấp độ phù hợp "
+      tip2: "Gợi ý 2: Bạn có thể chọn nhều cấp độ"
+      tip3: "Gợi ý 3: Bạn có thể chọn hoặc bỏ chọn tất cả"
+      note: "Cấp độ không bắt buộc"
+  confirm:
+    title_confirm: "Xác nhận"
+    title_verify: "Kiểm tra lại thông tin"
+    lb_confirm: "Bạn hãy kiểm tra lại tất cả các thông tin là chính xác!"
+  unit:
+    title_minute: "Phút"
+    title_hour: "Giờ"
+    title_day: "Ngày"
+    title_week: "Tuần"
+    title_month: "Tháng"
+    title_year: "Năm"
+  manage_curriculum:
+    placeholder_category: "Tất cả danh mục"
+  join:
+    msg_cant_join: "Bạn không thể tham gia"
+    msg_join_successful: "Tham gia thành công"
+    msg_join_fail: "Tham gia thất bại"
+    msg_joined: "Bạn đã tham gia"

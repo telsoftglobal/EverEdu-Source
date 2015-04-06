@@ -13,7 +13,7 @@
             </p>
             <p class="margin-none" style="word-wrap:break-word; white-space: pre-wrap;"><%= curriculum.summary %></p>
             <p class="margin-none text-right">
-              <span><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_curriculum_path(curriculum), :title => t('curriculum.bt_edit'), :rel => 'tooltip', 'data-target'=>'body', :style => 'font-size: 16pt', 'data-target'=>'body' %></span>
+              <span><%= link_to '<i class="fa fa-edit"></i>'.html_safe, edit_curriculum_path(curriculum), :title => t('button.btn_edit'), :rel => 'tooltip', 'data-target'=>'body', :style => 'font-size: 16pt', 'data-target'=>'body' %></span>
               <span><%= link_to '<i class= "fa fa-file-text-o" ></i>'.html_safe, show_curriculum_detail_for_mentor_path(curriculum), :title => t('curriculum.bt_view_detail'), :rel => 'tooltip','data-target'=>'body', :style => 'font-size: 16pt', 'data-target'=>'body'%></span>&nbsp;
             </p>
           </div>

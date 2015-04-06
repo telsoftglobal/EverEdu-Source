@@ -1,0 +1,77 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  search_curriculum:
+    title_search_curriculum: "Tìm khóa học"
+    placeholder_keyword: "Nhập tên khóa học"
+    placeholder_category: "Hãy chọn một danh mục"
+    placeholder_level: "Hãy chọn một cấp độ"
+    lb_search_results: "các khóa học"
+    lb_search_result: "khóa học"
+    lb_read_more: "Xem thêm"
+    btn_search: "Tìm"
+    msg_category_required: "Hãy chọn một danh mục."
+    js:
+      validate:
+        msg_category_required: "Hãy chọn một danh mục."
+
+  search_mentor:
+    title_search_mentor: "Search Mentor"
+    title_search_mentor_advance: "Search Mentor Advance"
+    placeholder_keyword: "Enter name, job title, special, school name, company name"
+    lb_search_results: "các kết quả"
+    lb_search_result: "kết quả"
+    btn_reset: "Reset"
+    lb_read_more: "xem thêm"
+    btn_search: "Tìm"
+    lb_history_jobs_info: "Công việc"
+    lb_specialty_info: "Chuyên môn"
+    msg_error: "Tìm kiếm lỗi."
+    msg_require_search_condition: "Hãy nhập ít nhất một điều kiện."
+    lb_job_title: "Chức vụ"
+    title_job_title: "Chức vụ"
+    placeholder_job_title: "Chức vụ"
+    title_add_job_title: "Thêm chức vụ"
+    msg_error_duplicate_job_title: "chức vụ đã có"
+    title_specialty: "Chuyên môn"
+    placeholder_specialty: "Chuyên môn"
+    title_add_specialty: "Thêm chuyên môn"
+    msg_error_duplicate_specialty: "Chuyên môn đã có"
+    lb_company_name: "Công ty"
+    title_company_name: "Công ty"
+    placeholder_company_name: "Công ty"
+    title_add_company_name: "Thêm công ty"
+    msg_error_duplicate_job_title: "Tên công ty đã có"
+    lb_school_name: "Trường học"
+    title_school_name: "Trường học"
+    placeholder_school_name: "Trường học"
+    msg_error_duplicate_school_name: "Tên trường đã có"
+    title_add_school_name: "Thêm trường học"
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,58 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  work_experiences:
+    title_work_experiences: "Work Experience"
+    title_new_work_experience: "New Work Experience"
+    title_edit_work_experience: "Edit Work Experience"
+    title_delete_work_experience: "Delete Work Experience"
+
+    lb_category: "Danh mục"
+    lb_level: "Cấp độ"
+    lb_work_place: "Nơi làm việc"
+    lb_start_year: "Năm bắt đầu"
+    lb_end_year: "Năm kết thúc"
+    lb_current: "Hiện tại"
+    lb_description: "Mô tả"
+    placeholder_category: "Hãy chọn một danh mục"
+    placeholder_level: "Hãy chọn một cấp độ"
+    placeholder_start_year: "Năm bắt đầu"
+    placeholder_end_year: "Năm kết thúc"
+    placeholder_work_place: "Hãy nhập nơi làm việc"
+    placeholder_description: "Hãy nhập mô tả"
+
+    btn_create: "Tạo"
+    msg_create_successfully: "Kinh nghiệm làm việc tạo thành công."
+    msg_update_successfully: "Kinh nghiệm làm việc cập nhật thành công."
+    msg_delete_successfully: "Kinh nghiệm làm việc xóa thành công."
+
+    msg_create_fail: "Kinh nghiệm làm việc tạo thất bại."
+    msg_update_fail: "Kinh nghiệm làm việc cập nhật thất bại."
+    msg_delete_fail: "Kinh nghiệm làm việc xóa thất bại."
+    msg_work_experience_not_found: "Không tìm thấy kinh nghiệm làm việc."
+
+    msg_confirm_save: "Bạn có muốn lưu không?"
+    title_confirm_delete_work_experience: "Xác nhận xóa kinh nghiệm làm việc"
+    msg_confirm_delete_work_experience: "Bạn có muốn xóa kinh nghiệm làm việc này?"
+    js:
+      validate:
+        msg_end_year_greater_or_equal_to_start_year: "Hãy nhập năm kết thúc sau năm bắt đầu"

@@ -1,1 +1,6 @@
 $('#user_profile').hide().html('<%= escape_javascript(render(:partial  => 'users/basic_information', locals: {user: @user})) %>').fadeIn("slow");
+$("#readmore_introduce").readmore({
+    speed: 300,
+    lessLink: '<a href="#"><%= t('button.btn_readless') %></a>',
+    moreLink: '<a href="#"><%= t('button.btn_readmore') %></a>'
+});

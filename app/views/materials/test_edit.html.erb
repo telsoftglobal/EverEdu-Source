@@ -1,0 +1,13 @@
+<div class="row" >
+  <div class="col-md-8">
+    <%= form_tag('/materials/test_edit') do -%>
+      <textarea id="editor_test" name="email_edit" type="text"><%= @email %></textarea>
+        <button>Submit</button>
+    <% end %>
+  </div>
+</div>
+<script>
+
+  $("#editor_test").ckeditor();
+
+</script>

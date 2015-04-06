@@ -91,6 +91,7 @@ class SessionsController < ApplicationController
   # Modify Date:
   def signout
     #clear params in session
+    session.delete(:user_id)
     session[:user_id] = nil
     @current_user = nil
 

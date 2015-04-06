@@ -7,18 +7,21 @@ class UserTest < ActiveSupport::TestCase
 
   test "create_user_successful" do
     #delete user
-    User.delete_all(user_name: 'cant')
+    # User.delete_all(user_name: 'cant')
+    #
+    # #insert user
+    # user = User.new
+    # user.first_name = 'Ca'
+    # user.last_name = 'Nguyen'
+    # user.user_name = 'cant'
+    # user.email = 'cant@telsoft.com.vn'
+    # user.avatar_url = 'http://'
+    # user.password = '123456'
+    #
+    # assert user.save
+    a = Language.all
+    puts 'a'
 
-    #insert user
-    user = User.new
-    user.first_name = 'Ca'
-    user.last_name = 'Nguyen'
-    user.user_name = 'cant'
-    user.email = 'cant@telsoft.com.vn'
-    user.avatar_url = 'http://'
-    user.password = '123456'
-
-    assert user.save
   end
 
 

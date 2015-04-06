@@ -125,14 +125,28 @@ class SearchController < ApplicationController
       end
 
       history_jobs = Array.new
-      if !params[:history_jobs].nil?
-        params[:history_jobs].each do |job|
+      if !params[:job_titles].nil?
+        params[:job_titles].each do |job|
           history_jobs << normalize_special_characters(normalize_string(job))
         end
       end
 
+      company_names = Array.new
+      if !params[:company_names].nil?
+        params[:company_names].each do |company|
+          company_names << normalize_special_characters(normalize_string(company))
+        end
+      end
+
+      school_names = Array.new
+      if !params[:school_names].nil?
+        params[:school_names].each do |school|
+          school_names << normalize_special_characters(normalize_string(school))
+        end
+      end
+
       # process searching
-      @users = User.search_mentor_advance(first_name, last_name, country, specialties, history_jobs, page_number, ITEM_PER_PAGE)
+      @users = User.search_mentor_advance(first_name, last_name, country, specialties, history_jobs, company_names, school_names, page_number, ITEM_PER_PAGE)
       @total_entries = @users.total_entries
     rescue Exception => e
       logger.error("search mentor error: #{e.message}")

@@ -139,6 +139,10 @@
             $("#btn_add_specialty").show();
             $("#form_add_job_title").hide();
             $("#btn_add_job_title").show();
+            $("#form_add_company_name").hide();
+            $("#btn_add_company_name").show();
+            $("#form_add_school_name").hide();
+            $("#btn_add_school_name").show();
 
             $("p.has-error").remove();
             $(".has-error").removeClass("has-error");
@@ -175,15 +179,25 @@
             $("#first_name").val('');
             $("#last_name").val('');
             $("#country").val('');
+
             $("#jobTitleList").find("li").remove();
-            $("#history_job").val('');
+            $("#job_title").val('');
             $("#specialtyList").find("li").remove();
             $("#specialty").val('');
+            $("#companyList").find("li").remove();
+            $("#company_name").val('');
+            $("#schoolList").find("li").remove();
+            $("#school_name").val('');
+
 
             $("#form_add_specialty").hide();
             $("#btn_add_specialty").show();
             $("#form_add_job_title").hide();
             $("#btn_add_job_title").show();
+            $("#form_add_company_name").hide();
+            $("#btn_add_company_name").show();
+            $("#form_add_school_name").hide();
+            $("#btn_add_school_name").show();
 
 
         });

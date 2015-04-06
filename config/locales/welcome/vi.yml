@@ -1,0 +1,50 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  welcome:
+    title_welcome: "Chào mừng đến với EverEdu"
+    title_mentor: "Là ư"
+    lb_mentor1: "Bạn có thể quản lý các khóa học của mình"
+    lb_mentor2: "Chia sẻ những điều hay"
+    lb_mentor3: "Tán gẫu với học sinh"
+    lb_mentor4: "Giới thiệu những quyển sách hay"
+
+    title_student: "là học sinh"
+    lb_student1: "Bạn có thể tham gia các khóa học mà bạn quan tâm"
+    lb_student2: "Trao đổi với giáo sư "
+    lb_student3: "Xem đường công danh"
+    lb_student4: "Trở thành giáo sư"
+
+    title_roadmap: "Xem đường công danh của mình"
+    title_schedule: "Quản lý thời khóa biểu"
+    title_reminder: "Nhắc nhở của bạn"
+
+    title_job: "Bạn là ai ?"
+    lb_job1: "Lập trình viên"
+    lb_job2: "Công nhân"
+    lb_job3: "Bác sĩ"
+    lb_job4: "Giáo viên"
+    lb_job5: "hay bất kỳ là ai... !"
+
+    title_letstart: "Nào hãy bắt đầu !"
+
+    lb_skip: "bỏ qua"

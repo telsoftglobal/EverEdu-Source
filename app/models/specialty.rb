@@ -9,6 +9,7 @@ class Specialty
   field :specialty, type: String
   field :years_of_experience, type: Integer
   field :description, type: String
+  field :created_at, type: Time, default: Time.now
 
   #relations
   #belongs_to :user

@@ -159,6 +159,28 @@ class MaterialsController < ApplicationController
     end
   end
 
+  def test_edit
+    file = File.join(Rails.root, 'app', 'views','emailer','send_email.html.erb')
+    if request.method == 'GET'
+      @email =  File.read(file)
+    else
+
+      # File.open(file, "w+") do |f|
+      #   f.write(params[:email_edit])
+      # end
+
+      File.open(file, 'w') { |file| file.write(params[:email_edit]) }
+
+
+      render action: 'test_edit'
+
+    end
+
+
+
+  end
+
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_material

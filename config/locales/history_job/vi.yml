@@ -1,0 +1,38 @@
+vi:
+  history_job:
+    title_history_job: "Quá trình làm việc"
+    title_new_history_job: "Thêm công việc"
+    current_job: "Hiện tại"
+    title_edit_job: "Sửa công việc"
+    title_delete_job: "Xóa công việc"
+    title_confirm_delete_job: "Xác nhận xóa công việc"
+    msg_confirm_delete_job: "Bạn có muốn xóa công việc này?"
+    company_name: "Tên công ty"
+    title: "chức vụ"
+    location: "địa điểm"
+    placeholder_month: "Chọn..."
+    placeholder_year: "Năm"
+    lb_current: "Đặt công việc hiện tại"
+    description: "Mô tả"
+    time_period: "Khoảng thời gian"
+    start_time: "Bắt đầu"
+    end_time: "Kết thúc"
+    company_url: "URL"
+    category: "Danh mục"
+    level: "Cấp độ"
+    placeholder_category: "Chọn danh mục"
+    placeholder_level: "Chọn cấp độ"
+
+    msg_create_fail: "Giai đoạn làm việc tạo thất bại."
+    msg_update_fail: "Giai đoạn làm việc cập nhật thất bại."
+    msg_delete_fail: "Giai đoạn làm việc xóa thất bại."
+
+    msg_history_job_not_found: "Giai đoạn làm việc không tìm thấy."
+    msg_create_successfully: "Giai đoạn làm việc tạo thành công."
+    msg_update_successfully: "Giai đoạn làm việc cập nhật thành công."
+    msg_delete_successfully: "Giai đoạn làm việc xóa thành công."
+
+    msg_endtime_greater_starttime: "Hãy nhập ngày kết thúc sau ngày bắt đầu."
+    msg_valid_date: "Hãy nhập thời gian không được trước tháng này."
+
+

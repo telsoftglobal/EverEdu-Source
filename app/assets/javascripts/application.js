@@ -15,4 +15,5 @@
 //= require turbolinks
 //= require template/plugins/forms_validator/jquery-validation/dist/jquery.validate.min
 //= require validator.js
+//= require google_analytics
 

@@ -1,0 +1,59 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+en:
+  education:
+    title_education: "Quá trình học tập"
+    title_new_education: "Thêm học vấn"
+    title_edit_education: "Sửa học vấn"
+    title_delete_education: "Xóa học vấn"
+
+    lb_school_name: "Tên trường"
+    lb_school_url: "URL của trường"
+    lb_date_attended: "Ngày tốt nghiệp"
+    lb_year: "Năm"
+    lb_degree: "Trình độ"
+    lb_field_of_study: "Lĩnh vực nghiên cứu"
+    lb_grade: "Lớp"
+    lb_activities_societies: "Các hoạt động và xã hội"
+    lb_description: "Mô tả"
+    placeholder_degree: "Chọn trình độ."
+    placeholder_start_year: "Năm bắt đầu"
+    placeholder_end_year: "Năm kết thúc"
+    placeholder_school_name: "Hãy nhập tên trường."
+    placeholder_description: "Hãy nhập mô tả."
+
+    btn_create: "Tạo"
+    msg_create_successfully: "Học vấn tạo thành công."
+    msg_update_successfully: "Học vấn cập nhật thành công."
+    msg_delete_successfully: "Học vấn xóa thành công."
+
+    msg_create_fail: "Học vấn tạo thành công."
+    msg_update_fail: "Học vấn cập nhật thành công."
+    msg_delete_fail: "Học vấn xóa thành công."
+    msg_education_not_found: "Học vấn không tìm thấy."
+
+    msg_confirm_save: "Bạn có muốn lưu?"
+    title_confirm_delete_education: "Xóa Học vấn thất bại"
+    msg_confirm_delete_education: "Bạn có muốn xóa học vấn này?"
+
+    msg_endtime_greater_starttime: "Hãy nhập ngày tốt nghiệp sau ngày bắt đầu."
+    msg_valid_date: "Hãy nhập ngày không được sau năm nay."
