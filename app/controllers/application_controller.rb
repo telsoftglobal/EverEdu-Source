@@ -116,7 +116,7 @@ class ApplicationController < ActionController::Base
     session[:user_id] = user.id
     session[:ctime] = Time.now.utc.to_i
     session[:atime] = Time.now.utc.to_i
-    if !user.language.id.nil?
+    if !user.language.nil?
       session[:locale] = user.language.id
     end
 
