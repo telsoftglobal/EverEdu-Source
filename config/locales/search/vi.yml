@@ -35,9 +35,9 @@ vi:
         msg_category_required: "Hãy chọn một danh mục."
 
   search_mentor:
-    title_search_mentor: "Search Mentor"
-    title_search_mentor_advance: "Search Mentor Advance"
-    placeholder_keyword: "Enter name, job title, special, school name, company name"
+    title_search_mentor: "Tìm giáo sư"
+    title_search_mentor_advance: "Tìm nâng cao"
+    placeholder_keyword: "Nhập tên, chức vụ, chuyên môn, tên trường, tên công ty"
     lb_search_results: "các kết quả"
     lb_search_result: "kết quả"
     btn_reset: "Reset"

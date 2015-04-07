@@ -21,10 +21,10 @@
 
 vi:
   work_experiences:
-    title_work_experiences: "Work Experience"
-    title_new_work_experience: "New Work Experience"
-    title_edit_work_experience: "Edit Work Experience"
-    title_delete_work_experience: "Delete Work Experience"
+    title_work_experiences: "Kinh nghiệm làm việc"
+    title_new_work_experience: "Kinh nghiệm làm việc mới"
+    title_edit_work_experience: "Sửa kinh nghiệm làm việc"
+    title_delete_work_experience: "Xóa kinh nghiệm làm việc"
 
     lb_category: "Danh mục"
     lb_level: "Cấp độ"

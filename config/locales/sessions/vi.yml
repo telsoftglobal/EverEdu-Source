@@ -75,7 +75,7 @@ vi:
     bt_signout: "Đăng xuất"
 
   become_mentor:
-    bt_become_mentor: "Trở thành mentor"
+    bt_become_mentor: "Trở thành Giáo sư"
 
 
   error_session_expired: "Kết thúc phiên truy cập"

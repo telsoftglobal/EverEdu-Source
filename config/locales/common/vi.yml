@@ -50,7 +50,7 @@ vi:
     btn_readmore: "Đọc thêm"
     btn_readless: "Thu gọn"
   search:
-    placeholder: "Search for mentors or courses"
+    placeholder: "Tìm giáo sư hoặc bài giảng"
   date:
     day: "Ngày"
     month: "Tháng"

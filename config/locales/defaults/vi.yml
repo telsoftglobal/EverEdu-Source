@@ -1,0 +1,122 @@
+# Files in the config/locales directory are used for internationalization
+# and are automatically loaded by Rails. If you want to use locales other
+# than English, add the necessary files in this directory.
+#
+# To use the locales, use `I18n.t`:
+#
+#     I18n.t 'hello'
+#
+# In views, this is aliased to just `t`:
+#
+#     <%= t('hello') %>
+#
+# To use a different locale, set it with `I18n.locale`:
+#
+#     I18n.locale = :es
+#
+# This would use the information in config/locales/es.yml.
+#
+# To learn more, please read the Rails Internationalization guide
+# available at http://guides.rubyonrails.org/i18n.html.
+
+vi:
+  # Text direction: Left-to-Right (ltr) or Right-to-Left (rtl)
+  direction: ltr
+  date:
+    formats:
+      # Use the strftime parameters for formats.
+      # When no format has been given, it uses default.
+      # You can provide other formats here if you like!
+      default: "%m/%d/%Y"
+      short: "%b %d"
+      long: "%B %d, %Y"
+
+    day_names: [Chủ nhật, Thứ hai, Thứ ba, Thứ tư, Thứ năm, Thứ 6, Thứ bảy]
+    abbr_day_names: [CN, T2, T3, T4, T5, T6, T7]
+
+    # Don't forget the nil at the beginning; there's no such thing as a 0th month
+    month_names: [~, Tháng một, Tháng hai, Tháng ba, Tháng tư, Tháng năm, Tháng sáu, Tháng bảy, Tháng tám, Tháng chín, Tháng mười, Tháng mười một, Tháng mười hai]
+    abbr_month_names: [~, T1, T2, T3, T4, T5, T6, T7, T8, T9, T10, T11, T12]
+    # Used in date_select and datime_select.
+    order:
+      - :năm
+      - :tháng
+      - :ngày
+
+  time:
+    formats:
+      default: "%m/%d/%Y %I:%M %p"
+      time: "%I:%M %p"
+      short: "%d %b %H:%M"
+      long: "%B %d, %Y %H:%M"
+    am: "sáng"
+    pm: "chiều"
+
+  datetime:
+    distance_in_words:
+      half_a_minute: "nửa phút"
+      less_than_x_seconds:
+        one:   "nhỏ hơn 1 giây"
+        other: "nhỏ hơn %{count} giây"
+      x_seconds:
+        one:   "1 giây"
+        other: "%{count} giây"
+      less_than_x_minutes:
+        one:   "nhỏ hơn 1 phút"
+        other: "nhỏ hơn %{count} phút"
+      x_minutes:
+        one:   "1 phút"
+        other: "%{count} phút"
+      about_x_hours:
+        one:   "khoảng 1 tiếng"
+        other: "khoảng %{count} tiếng"
+      x_hours:
+        one:   "1 tiếng"
+        other: "%{count} tiếng"
+      x_days:
+        one:   "1 ngày"
+        other: "%{count} ngày"
+      about_x_months:
+        one:   "khoảng 1 tháng"
+        other: "khoảng %{count} tháng"
+      x_months:
+        one:   "1 tháng"
+        other: "%{count} tháng"
+      about_x_years:
+        one:   "khoảng 1 năm"
+        other: "khoảng %{count} năm"
+      over_x_years:
+        one:   "hơn 1 năm"
+        other: "hơn %{count} năm"
+      almost_x_years:
+        one:   "gần 1 năm"
+        other: "gần %{count} năm"
+
+  number:
+    format:
+      separator: "."
+      delimiter: ""
+      precision: 3
+
+    human:
+      format:
+        delimiter: ""
+        precision: 3
+      storage_units:
+        format: "%n %u"
+        units:
+          byte:
+            one: "Byte"
+            other: "Bytes"
+          kb: "KB"
+          mb: "MB"
+          gb: "GB"
+          tb: "TB"
+
+  app_name: "Adult Education Social"
+
+  buttons:
+    show: "Show"
+    edit: "Edit"
+    back: "Back"
+    destroy: "Destroy"
