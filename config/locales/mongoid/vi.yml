@@ -45,7 +45,7 @@ vi:
         even: "phải là số chẵn"
         greater_than_start_date: "phải lớn hơn ngày bắt đầu"
         not_same_project: "không cùng một dự án"
-        circular_dependency: "Mối quan hệ này sẽ tạo ra một sự phụ thuộc tròn"
+        circular_dependency: "mối quan hệ này sẽ tạo ra một sự phụ thuộc tròn"
         cant_link_an_issue_with_a_descendant: "Một vấn đề không thể được liên kết với một trong những nhiệm vụ nhỏ của mình"
         earlier_than_minimum_start_date: "không thể trước %{date} vì đây là vấn đề trước"
         at_least_one: "phải có tối thiểu một"
